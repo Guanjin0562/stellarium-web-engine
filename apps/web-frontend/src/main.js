@@ -142,7 +142,10 @@ for (const i in Vue.SWPlugins) {
 routes[0].children.push({ path: '/p', redirect: defaultObservingRoute.path })
 var router = new Router({
   mode: 'history',
-  base: '/',
+  // Use the build-time publicPath (CDN_ENV) as the router base so that the
+  // app also matches its routes when deployed under a sub-path (e.g.
+  // /stellarium-web-engine/ on GitHub Pages).
+  base: process.env.BASE_URL,
   routes: routes
 })
 
