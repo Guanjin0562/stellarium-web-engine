@@ -22,6 +22,10 @@
     position: relative;
     display: inline-block;
     user-select: none;
+    /* Keep the buttons at their full size even when the toolbar is
+       narrower than the sum of all buttons (e.g. demo mode with the
+       right-side panel open). */
+    flex: 0 0 42px;
   }
   .bottom-button img {
     width: 100%;

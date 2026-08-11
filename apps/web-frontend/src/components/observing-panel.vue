@@ -8,7 +8,7 @@
 
 <template>
 
-<div id="observing-panel-container" :class="{observingpanelhidden: !$store.state.showSidePanel}" class="get-click">
+<div id="observing-panel-container" :class="{observingpanelhidden: !$store.state.showSidePanel || isDemoMode}" class="get-click">
   <div class="observing-panel-tabsbtn" v-if="$store.state.showObservingPanelTabsButtons">
     <v-btn class='tab-bt' v-for="tab in tabs" small :key="tab.tabName" :to="tab.url" active-class="tab-bt-active">{{ $t(tab.tabName) }}</v-btn>
   </div>
@@ -26,6 +26,12 @@ export default {
     }
   },
   computed: {
+    // The classic observing panel (tabs / Observe page) is hidden on the
+    // /demo route: there the right side is occupied by the demo parameter
+    // panel, which is controlled by the toolbar gear button instead.
+    isDemoMode: function () {
+      return this.$route.path === '/demo'
+    },
     showObservingPanel: function () {
       return this.$store.state.showSidePanel
     },

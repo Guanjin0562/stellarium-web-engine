@@ -55,7 +55,7 @@
 
   <v-main>
     <v-container class="fill-height" fluid style="padding: 0">
-      <div id="stel" v-bind:class="{ right_panel: $store.state.showSidePanel }">
+      <div id="stel" v-bind:class="{ right_panel: !isDemoMode && $store.state.showSidePanel }">
         <div style="position: relative; width: 100%; height: 100%">
           <component v-bind:is="guiComponent"></component>
           <canvas id="stel-canvas" ref='stelCanvas'></canvas>
@@ -64,8 +64,10 @@
     </v-container>
   </v-main>
 
-  <!-- Demo mode: right-side parameter control panel (route /demo) -->
-  <demo-param-panel v-if="isDemoMode && $store.state.initComplete"/>
+  <!-- Demo mode: right-side parameter control panel (route /demo).
+       Visibility is driven by $store.state.showSidePanel so the toolbar
+       gear button can always toggle it. -->
+  <demo-param-panel v-if="isDemoMode && $store.state.initComplete && $store.state.showSidePanel"/>
 
 </v-app>
 
@@ -126,8 +128,13 @@ export default {
       return _.get(this.$store.state, storeVarName)
     },
     setStateFromQueryArgs: function () {
-      // Check whether the observing panel must be displayed
-      this.$store.commit('setValue', { varName: 'showSidePanel', newValue: this.$route.path.startsWith('/p/') })
+      // Check whether the observing panel must be displayed. On the /demo
+      // route the right side is always the parameter panel, which is opened
+      // by default (and can be toggled with the toolbar gear button).
+      this.$store.commit('setValue', {
+        varName: 'showSidePanel',
+        newValue: this.$route.path.startsWith('/p/') || this.$route.path === '/demo'
+      })
 
       // Set the core's state from URL query arguments such
       // as date, location, view direction & fov
@@ -477,6 +484,12 @@ export default {
     $route: function () {
       // react to route changes...
       this.setStateFromQueryArgs()
+      // The right-side demo panel only exists on the /demo route; show it
+      // there by default (the toolbar gear button can toggle it off/on).
+      this.$store.commit('setValue', {
+        varName: 'showSidePanel',
+        newValue: this.$route.path === '/demo'
+      })
     }
   },
   mounted: function () {
@@ -488,6 +501,8 @@ export default {
     if (this.isDemoMode) {
       this.$store.commit('setValue', { varName: 'showMainToolBar', newValue: false })
       this.$store.commit('setValue', { varName: 'showNavigationDrawer', newValue: false })
+      // Always open the parameter panel when entering the demo route.
+      this.$store.commit('setValue', { varName: 'showSidePanel', newValue: true })
     }
 
     for (const i in this.$stellariumWebPlugins()) {

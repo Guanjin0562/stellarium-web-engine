@@ -8,7 +8,10 @@
 
 <template>
   <div style="position: absolute; display:flex; align-items: flex-end;">
-    <div v-if="$store.state.showLocationButton" class="tbtcontainer" style="max-width: 300px; display:flex; align-items: flex-end;">
+    <!-- The location button is useless on the /demo route (location is
+         encoded in the URL), so hide it there to keep the toolbar from
+         shrinking the toggle buttons. -->
+    <div v-if="$store.state.showLocationButton && !isDemoMode" class="tbtcontainer" style="max-width: 300px; display:flex; align-items: flex-end;">
       <v-btn class="tmenubt" color="secondary" @click.stop.native="locationClicked()"><v-icon class="hidden-sm-and-up">mdi-map-marker</v-icon><span class="hidden-xs-only">{{ $store.state.currentLocation.short_name }}</span></v-btn>
     </div>
     <v-spacer></v-spacer>
@@ -84,6 +87,16 @@
                 :toggled="$store.state.fullscreen"
                 @clicked="(b) => { setFullscreen(b) }">
     </bottom-button>
+    <!-- Demo mode only: toggle the right-side parameter panel. Uses the
+         gear icon from the desktop Stellarium settings toolbar. -->
+    <bottom-button v-if="isDemoMode"
+                label="Panel"
+                :img="require('@/assets/images/btn-gear.png')"
+                img_alt="Parameter Panel Button"
+                class="mr-auto hidden-xs-only"
+                :toggled="$store.state.showSidePanel"
+                @clicked="toggleSidePanel">
+    </bottom-button>
 
     <v-spacer></v-spacer>
 
@@ -116,6 +129,9 @@ export default {
     }
   },
   computed: {
+    isDemoMode: function () {
+      return this.$route.path === '/demo'
+    },
     time: {
       get: function () {
         return this.getLocalTime().format('HH:mm:ss')
@@ -154,6 +170,9 @@ export default {
     },
     locationClicked: function () {
       this.$store.commit('toggleBool', 'showLocationDialog')
+    },
+    toggleSidePanel: function (b) {
+      this.$store.commit('setValue', { varName: 'showSidePanel', newValue: b })
     },
     setFullscreen: function (b) {
       this.$fullscreen.toggle(document.body, {
