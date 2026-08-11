@@ -153,7 +153,9 @@ export default {
       nameFormat: { english: true, native: false, pronounce: false, ipa: false, abbr: false },
       layerToggles: [
         { key: 'lines', label: 'Constellation lines' },
+        { key: 'asterism_lines', label: 'Asterism lines' },
         { key: 'labels', label: 'Constellation names' },
+        { key: 'asterism_names', label: 'Asterism names' },
         { key: 'bounds', label: 'Constellation boundaries' },
         { key: 'images', label: 'Constellation artwork' },
         { key: 'star_labels', label: 'Star names' },
@@ -214,7 +216,9 @@ export default {
       const c = this.$stel.core
       switch (key) {
         case 'lines': return c.constellations.lines_visible
+        case 'asterism_lines': return c.constellations.asterism_lines_visible
         case 'labels': return c.constellations.labels_visible
+        case 'asterism_names': return c.constellations.asterism_labels_visible
         case 'bounds': return c.constellations.bounds_visible
         case 'images': return c.constellations.images_visible
         case 'star_labels': return c.stars.labels_visible
@@ -238,7 +242,9 @@ export default {
       const c = this.$stel.core
       switch (key) {
         case 'lines': c.constellations.lines_visible = v; break
+        case 'asterism_lines': c.constellations.asterism_lines_visible = v; break
         case 'labels': c.constellations.labels_visible = v; break
+        case 'asterism_names': c.constellations.asterism_labels_visible = v; break
         case 'bounds': c.constellations.bounds_visible = v; break
         case 'images': c.constellations.images_visible = v; break
         case 'star_labels': c.stars.labels_visible = v; break
@@ -289,14 +295,17 @@ export default {
         const j = await res.json()
         const cst = []
         const ast = []
+        // The ids in index.json are already full ids ("CON culture id" /
+        // "AST culture id"), so use them as-is.  The dropdown shows the
+        // english name (falling back to native, then to the raw id).
         const nameOf = function (obj) {
-          return (obj.common_name && (obj.common_name.native || obj.common_name.english)) || obj.id
+          return (obj.common_name && (obj.common_name.english || obj.common_name.native)) || obj.id
         }
         for (const c of (j.constellations || [])) {
-          cst.push({ text: nameOf(c), value: 'CON ' + key + ' ' + c.id })
+          cst.push({ text: nameOf(c), value: c.id })
         }
         for (const a of (j.asterisms || [])) {
-          ast.push({ text: nameOf(a), value: 'AST ' + key + ' ' + a.id })
+          ast.push({ text: nameOf(a), value: a.id })
         }
         this.cstOptions = cst
         this.astOptions = ast

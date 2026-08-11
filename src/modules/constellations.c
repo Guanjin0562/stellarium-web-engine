@@ -84,6 +84,12 @@ typedef struct constellations {
     fader_t     lines_visible;
     fader_t     bounds_visible;
     fader_t     labels_visible;
+    // Asterisms (named star groups, dark asterisms and ray helpers) are
+    // rendered by the same pipeline as constellations but can be shown /
+    // hidden independently through asterism_lines_visible and
+    // asterism_labels_visible.
+    fader_t     asterism_lines_visible;
+    fader_t     asterism_labels_visible;
     bool        lines_animation;
     bool        show_only_pointed;
     double      illustrations_bscale;
@@ -94,6 +100,13 @@ typedef struct constellations {
     char        focus[64][128];
     bool        hide_others;
 } constellations_t;
+
+// True for asterism-like features (asterisms, dark asterisms and ray
+// helpers), false for regular constellations.
+static inline bool constellation_is_asterism(const constellation_t *con)
+{
+    return con->info.type != SC_TYPE_CONSTELLATION;
+}
 
 static int constellation_update(constellation_t *con, const observer_t *obs);
 
@@ -824,7 +837,9 @@ static int render_lines(constellation_t *con, const painter_t *_painter,
 
     assert(con->first_update_complete);
 
-    visible = cons->lines_visible.value * con->visible.value;
+    visible = (constellation_is_asterism(con) ?
+        cons->asterism_lines_visible : cons->lines_visible).value
+        * con->visible.value;
     if (selected) {
         visible = 1;
         painter.lines.width *= 2;
@@ -1073,7 +1088,9 @@ static int render_label(constellation_t *con, const painter_t *painter_,
 
     assert(con->first_update_complete);
     if (!selected) {
-        painter.color[3] *= cons->labels_visible.value * con->visible.value;
+        painter.color[3] *= (constellation_is_asterism(con) ?
+            cons->asterism_labels_visible : cons->labels_visible).value
+            * con->visible.value;
     }
     if (painter.color[3] == 0.0) return 0;
     assert(vec3_norm2(con->lines.cap) > 0);
@@ -1276,7 +1293,9 @@ static int constellation_render(obj_t *obj, const painter_t *_painter)
     // Early exit if nothing should be rendered.
     if (    !selected
             && cons->lines_visible.value == 0.0
+            && cons->asterism_lines_visible.value == 0.0
             && cons->labels_visible.value == 0.0
+            && cons->asterism_labels_visible.value == 0.0
             && cons->images_visible.value == 0.0
             && cons->bounds_visible.value == 0.0)
         return 0;
@@ -1364,6 +1383,9 @@ static int constellations_init(obj_t *obj, json_value *args)
     fader_init(&conss->labels_visible, false);
     fader_init(&conss->images_visible, false);
     fader_init(&conss->bounds_visible, false);
+    // Asterism features are on by default (like the desktop version).
+    fader_init(&conss->asterism_lines_visible, true);
+    fader_init(&conss->asterism_labels_visible, true);
     return 0;
 }
 
@@ -1376,12 +1398,16 @@ static int constellations_update(obj_t *obj, double dt)
     fader_update(&cons->lines_visible, dt);
     fader_update(&cons->labels_visible, dt);
     fader_update(&cons->bounds_visible, dt);
+    fader_update(&cons->asterism_lines_visible, dt);
+    fader_update(&cons->asterism_labels_visible, dt);
 
     // Skip update if not visible.
     if (cons->lines_visible.value == 0.0 &&
+        cons->asterism_lines_visible.value == 0.0 &&
         cons->images_visible.value == 0.0 &&
         cons->bounds_visible.value == 0.0 &&
         cons->labels_visible.value == 0.0 &&
+        cons->asterism_labels_visible.value == 0.0 &&
         (!core->selection || core->selection->parent != obj)) return 0;
 
     MODULE_ITER(obj, con, "constellation") {
@@ -1396,7 +1422,9 @@ static int constellations_render(obj_t *obj, const painter_t *painter)
     constellations_t *cons = (constellations_t*)obj;
     constellation_t *con;
     if (cons->lines_visible.value == 0.0 &&
+        cons->asterism_lines_visible.value == 0.0 &&
         cons->labels_visible.value == 0.0 &&
+        cons->asterism_labels_visible.value == 0.0 &&
         cons->images_visible.value == 0.0 &&
         cons->bounds_visible.value == 0.0 &&
         (!core->selection || core->selection->parent != obj)) return 0;
@@ -1454,6 +1482,10 @@ static obj_klass_t constellations_klass = {
                  MEMBER(constellations_t, lines_visible.target)),
         PROPERTY(labels_visible, TYPE_BOOL,
                  MEMBER(constellations_t, labels_visible.target)),
+        PROPERTY(asterism_lines_visible, TYPE_BOOL,
+                 MEMBER(constellations_t, asterism_lines_visible.target)),
+        PROPERTY(asterism_labels_visible, TYPE_BOOL,
+                 MEMBER(constellations_t, asterism_labels_visible.target)),
         PROPERTY(images_visible, TYPE_BOOL,
                  MEMBER(constellations_t, images_visible.target)),
         PROPERTY(bounds_visible, TYPE_BOOL,

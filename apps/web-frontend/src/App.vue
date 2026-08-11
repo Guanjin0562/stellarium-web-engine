@@ -265,6 +265,8 @@ export default {
         }
         apply(stel.core.constellations, 'lines_visible', 'lines')
         apply(stel.core.constellations, 'labels_visible', 'labels')
+        apply(stel.core.constellations, 'asterism_lines_visible', 'asterism_lines')
+        apply(stel.core.constellations, 'asterism_labels_visible', 'asterism_names')
         apply(stel.core.constellations, 'bounds_visible', 'bounds')
         apply(stel.core.constellations, 'images_visible', 'images')
         apply(stel.core.stars, 'visible', 'stars')
