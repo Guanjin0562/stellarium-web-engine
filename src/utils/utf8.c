@@ -177,6 +177,101 @@ int u8_split_line(char *dst, int len, const char *src, int min_chars)
     return max_len;
 }
 
+/*
+ * True for the visible characters of the Mongolian block (U+1800-18AF),
+ * i.e. the Mongolian/Manchu letters.  The control and variant selectors
+ * (Nirugu, FVS1-3, MVS, reserved) are excluded: they must never be
+ * stacked as their own vertical line.
+ */
+int u8_is_mongolian_visible(int code)
+{
+    if (code < 0x1800 || code > 0x18AF) return 0;
+    if (code >= 0x180A && code <= 0x180F) return 0;
+    return 1;
+}
+
+int u8_verticalize_manchu(char *dst, int size, const char *src)
+{
+    const char *p, *q;
+    int code, len, has_mongolian = 0;
+    int need_space = 0;
+    int need_word_break = 0;   // A newline separates two stacked Manchu words.
+    char vert[256], horiz[128];
+    int v = 0, h = 0;
+
+    vert[0] = 0;
+    horiz[0] = 0;
+
+    for (p = src; *p; p += len) {
+        len = u8_char_len(p);
+        code = u8_char_code(p);
+
+        if (u8_is_mongolian_visible(code)) {
+            // The characters of a word are kept contiguous so that HarfBuzz
+            // can shape the whole word (Mongolian script ligatures) into a
+            // vertical column.
+            has_mongolian = 1;
+            if (need_word_break && v + 1 < (int)sizeof(vert)) {
+                vert[v++] = '\n';
+                vert[v] = 0;
+                need_word_break = 0;
+            }
+            if (v + len < (int)sizeof(vert)) {
+                memcpy(vert + v, p, len);
+                v += len;
+                vert[v] = 0;
+            }
+            continue;
+        }
+        // Word separator between two stacked Manchu words: mark a newline.
+        if (code == ' ' && has_mongolian) {
+            q = p + len;
+            while (*q == ' ' || *q == '\t') q += u8_char_len(q);
+            if (q[0] && u8_is_mongolian_visible(u8_char_code(q))) {
+                need_word_break = 1;
+                continue;
+            }
+        }
+        // Skip formatting/control characters.
+        if (code == ' ' || code == '(' || code == ')' ||
+            code == 0x202F || code == 0x200C || code == 0x200D ||
+            code == 0x00A0 || code == 0x3000 ||
+            (code >= 0x1800 && code <= 0x18AF)) {
+            // A skipped word separator/bracket marks a boundary between
+            // words of the horizontal part.
+            if (code == ' ' || code == '(' || code == ')' ||
+                code == 0x202F || code == 0x3000)
+                need_space = 1;
+            continue;
+        }
+        // Keep the horizontal (e.g. english) part, with single spaces.
+        if (need_space && h && h + 1 < (int)sizeof(horiz))
+            horiz[h++] = ' ';
+        need_space = 0;
+        if (h + len < (int)sizeof(horiz)) {
+            memcpy(horiz + h, p, len);
+            h += len;
+            horiz[h] = 0;
+        }
+    }
+
+    if (!has_mongolian) {
+        snprintf(dst, size, "%s", src);
+        return 0;
+    }
+
+    // Trim trailing spaces of the horizontal part.
+    while (h > 0 && horiz[h - 1] == ' ') horiz[--h] = 0;
+
+    // Compose: vertical Manchu words (one per line, shaped into columns by
+    // the renderer), then the horizontal (english) name below them.
+    v = 0;
+    v += snprintf(dst + v, size - v, "%s", vert);
+    if (h > 0)
+        v += snprintf(dst + v, size - v, "\n%s", horiz);
+    return 1;
+}
+
 
 /******** TESTS ***********************************************************/
 

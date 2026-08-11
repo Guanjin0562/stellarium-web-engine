@@ -53,6 +53,13 @@ typedef struct constellation {
         double      cap[4]; // Bounding cap of the image (ICRF)
     } img;
 
+    // Bounding cap of the constellation boundaries (ICRF).  Some
+    // skycultures (e.g. chinese_mdn) attach boundary segments to an
+    // asterism whose own lines cover only a tiny part of the sky; the
+    // boundaries must then be culled using their own cap, not the
+    // constellation lines cap.
+    double bounds_cap[4];
+
     bool error; // Set if we couldn't parse the stars.
 
     double last_update; // Last update time in TT
@@ -80,6 +87,12 @@ typedef struct constellations {
     bool        lines_animation;
     bool        show_only_pointed;
     double      illustrations_bscale;
+    // Focus subset: when hide_others is set, only the constellations whose
+    // full id ("CON culture id" / "AST culture id") matches one of the
+    // focus entries are rendered.
+    int         nb_focus;
+    char        focus[64][128];
+    bool        hide_others;
 } constellations_t;
 
 static int constellation_update(constellation_t *con, const observer_t *obs);
@@ -193,19 +206,32 @@ static int constellation_get_info(const obj_t *obj, const observer_t *obs,
 static int constellation_create_stars(constellation_t *cons)
 {
     int i, nb_err = 0, hip, code;
+    const constellation_line_t *line;
     assert(cons->lines.stars == NULL);
 
-    // Fetch all the stars used in the constellation lines
+    // Fetch all the stars used in the constellation lines.  Each endpoint
+    // is either a Hipparcos star number or a DSO designation reference.
     cons->lines.nb_stars = cons->info.nb_lines * 2;
     cons->lines.stars = calloc(cons->info.nb_lines * 2, sizeof(obj_t*));
     for (i = 0; i < cons->info.nb_lines * 2; i++) {
-        hip = cons->info.lines[i / 2].hip[i % 2];
-        assert(hip);
-        cons->lines.stars[i] = obj_get_by_hip(hip, &code);
-        if (code == 0) goto still_loading;
-        if (!cons->lines.stars[i]) {
-            LOG_W("Cannot find line star HIP %d, code=%d", hip, code);
-            nb_err++;
+        line = &cons->info.lines[i / 2];
+        if (line->dso[i % 2] >= 0) {
+            const char *dsn = cons->info.dso_names[line->dso[i % 2]];
+            cons->lines.stars[i] = dso_get_by_name(dsn, &code);
+            if (code == 0) goto still_loading;
+            if (!cons->lines.stars[i]) {
+                LOG_W("Cannot find line DSO %s, code=%d", dsn, code);
+                nb_err++;
+            }
+        } else {
+            hip = line->hip[i % 2];
+            assert(hip);
+            cons->lines.stars[i] = obj_get_by_hip(hip, &code);
+            if (code == 0) goto still_loading;
+            if (!cons->lines.stars[i]) {
+                LOG_W("Cannot find line star HIP %d, code=%d", hip, code);
+                nb_err++;
+            }
         }
     }
     cons->lines.stars_pos = calloc(cons->lines.nb_stars,
@@ -440,8 +466,65 @@ static int constellation_update(constellation_t *con, const observer_t *obs)
         }
     }
 
-    // If the constellation has no lines, it must have an illustration
-    if (con->lines.nb_stars == 0 && !con->img.tex) {
+    // Dark asterisms have no stars: compute the position and bounding cap
+    // from their [ra, dec] coordinates.
+    if (con->lines.nb_stars == 0 && con->info.nb_coords > 0) {
+        double pt[3];
+        int n = 0;
+        for (i = 0; i < con->info.nb_coords; i++) {
+            vec3_from_sphe(con->info.coords[i][0], con->info.coords[i][1], pt);
+            pos[0] += pt[0];
+            pos[1] += pt[1];
+            pos[2] += pt[2];
+            n++;
+        }
+        assert(n > 0);
+        vec3_normalize(pos, pos);
+        vec3_copy(pos, con->pvo[0]);
+        vec3_copy(pos, con->lines.cap);
+        con->lines.cap[3] = 1.0;
+        for (i = 0; i < con->info.nb_coords; i++) {
+            vec3_from_sphe(con->info.coords[i][0], con->info.coords[i][1], pt);
+            cap_extends(con->lines.cap, pt);
+        }
+        if (con->lines.cap[3] >= 1) {
+            // Single point dark asterism: use a default cap radius of 1 deg.
+            con->lines.cap[3] = cos(1. * DD2R);
+        }
+    }
+
+    // Compute the bounding cap of the constellation boundaries.  The
+    // boundaries are given in the culture edges_epoch; rotate them to ICRF
+    // exactly like the renderer does (spherical_project).  Some
+    // skycultures attach the whole boundary set to an asterism whose own
+    // lines cover only a tiny part of the sky (e.g. chinese_mdn's 01B
+    // carries 1298 all-sky segments): the boundaries must then be culled
+    // with their own cap, not the lines cap.
+    if (con->info.nb_edges > 0) {
+        const double (*rot)[3] = con->info.edges_rot;
+        double pt[4];
+        int e;
+        con->bounds_cap[3] = 1.0;
+        for (e = 0; e < con->info.nb_edges; e++) {
+            const constellation_edge_t *edge = &con->info.edges[e];
+            vec3_from_sphe(edge->ra1, edge->de1, pt);
+            if (rot) mat3_mul_vec3(rot, pt, pt);
+            if (e == 0) {
+                vec3_copy(pt, con->bounds_cap);
+                con->bounds_cap[3] = 1.0;
+            }
+            cap_extends(con->bounds_cap, pt);
+            vec3_from_sphe(edge->ra2, edge->de2, pt);
+            if (rot) mat3_mul_vec3(rot, pt, pt);
+            cap_extends(con->bounds_cap, pt);
+        }
+    }
+
+    // If the constellation has no lines, it must have an illustration or
+    // boundaries (a constellation carrying only boundaries, e.g. the
+    // chinese_mdn placeholder "001", still needs to render them).
+    if (con->lines.nb_stars == 0 && con->info.nb_coords == 0 &&
+        !con->img.tex && con->info.nb_edges == 0) {
         con->error = true;
         LOG_E("Invalid constellation %s has no lines and no illustration",
               con->info.id);
@@ -450,10 +533,17 @@ static int constellation_update(constellation_t *con, const observer_t *obs)
 
     update_image_mat(con, obs);
 
-    if (con->lines.nb_stars == 0) {
-        // If the constellation has no lines, use the image cap as a
-        // substitute for the lines cap
-        vec4_copy(con->img.cap, con->lines.cap);
+    if (con->lines.nb_stars == 0 && con->info.nb_coords == 0) {
+        if (con->img.tex) {
+            // If the constellation has no lines, use the image cap as a
+            // substitute for the lines cap
+            vec4_copy(con->img.cap, con->lines.cap);
+        } else {
+            // Constellation carrying only boundaries (e.g. the chinese_mdn
+            // placeholder "001"): use the boundaries cap as its position
+            // and culling cap.
+            vec4_copy(con->bounds_cap, con->lines.cap);
+        }
         assert(vec3_norm2(con->lines.cap) > 0);
     }
 
@@ -473,22 +563,61 @@ static int constellation_update(constellation_t *con, const observer_t *obs)
 static void spherical_project(
         const uv_map_t *map, const double v[2], double out[4])
 {
-    // Rotation matrix from 1875.0 to J2000.  Computed with erfa:
-    //     eraEpb2jd(1875.0, &djm0, &djm);
-    //     eraPnm06a(djm0, djm, rnpb);
-    const double rnpb[3][3] = {
-        {0.999535020565168, 0.027962538774844, 0.012158909862936},
-        {-0.027962067406873, 0.999608963139696, -0.000208799220464},
-        {-0.012159993837296, -0.000131286124061, 0.999926055923052},
-    };
+    // Matrix from the skyculture edges_epoch to J2000 (see
+    // skyculture_compute_edges_rot).  It stores the eraPnm06a matrix
+    // un-transposed; mat3_mul_vec3 below computes M^T . v so the
+    // effective rotation is date -> J2000, matching the desktop
+    // matCustomEdgeEpochToJ2000.
+    const double (*rot)[3] = map->user;
 
     vec3_from_sphe(v[0], v[1], out);
     out[3] = 0.0; // At infinity.
 
-    // Since the edges coordinates are in B1875.0, they are not exaclty
-    // aligned with the meridians and parallels we need to apply the
+    // Since the edges coordinates are not in J2000, they are not exactly
+    // aligned with the meridians and parallels, so we need to apply the
     // rotation to J2000.
-    mat3_mul_vec3(rnpb, out, out);
+    if (rot) mat3_mul_vec3(rot, out, out);
+}
+
+/*
+ * Map a [ra, dec] coordinate (radians, J2000) to a 3d position.
+ * Used to render dark asterism coordinates, which are already in J2000.
+ */
+static void coords_map(const uv_map_t *map, const double v[2], double out[4])
+{
+    vec3_from_sphe(v[0], v[1], out);
+    out[3] = 0.0; // At infinity.
+}
+
+// Render a small circle around a point.  Used for single star asterisms
+// (matching the desktop "single_star_radius" feature).
+static void render_star_circle(painter_t *painter, const double center[3],
+                               double radius)
+{
+    enum { NB_SEGS = 32 };
+    double pts[NB_SEGS + 1][3];
+    double c[3], w[3], a[3], b[3];
+    int i;
+
+    vec3_copy(center, c);
+
+    // Find an orthonormal basis (a, b) perpendicular to the center.
+    vec3_set(w, 0, 0, 1);
+    if (fabs(c[2]) > 0.9) vec3_set(w, 1, 0, 0);
+    eraPxp(c, w, a);
+    vec3_normalize(a, a);
+    eraPxp(c, a, b);
+    vec3_normalize(b, b);
+
+    const double cr = cos(radius), sr = sin(radius);
+    for (i = 0; i <= NB_SEGS; i++) {
+        const double t = 2 * M_PI * i / NB_SEGS;
+        const double ct = cos(t), st = sin(t);
+        pts[i][0] = cr * c[0] + sr * (ct * a[0] + st * b[0]);
+        pts[i][1] = cr * c[1] + sr * (ct * a[1] + st * b[1]);
+        pts[i][2] = cr * c[2] + sr * (ct * a[2] + st * b[2]);
+    }
+    paint_linestring(painter, FRAME_ICRF, NB_SEGS + 1, pts);
 }
 
 static int render_bounds(const constellation_t *con,
@@ -500,9 +629,6 @@ static int render_bounds(const constellation_t *con,
     double line[2][4] = {};
     painter_t painter = *painter_;
     const constellations_t *cons = (const constellations_t*)con->obj.parent;
-    uv_map_t map = {
-        .map = spherical_project,
-    };
 
     assert(con->first_update_complete);
 
@@ -510,24 +636,82 @@ static int render_bounds(const constellation_t *con,
         painter.color[3] *= cons->bounds_visible.value * con->visible.value;
     }
     if (!painter.color[3]) return 0;
-    assert(vec3_norm2(con->lines.cap) > 0);
-    if (painter_is_cap_clipped(&painter, FRAME_ICRF, con->lines.cap))
-        return 0;
+    if (con->info.nb_edges > 0) {
+        // Cull the boundaries with their own cap: the lines cap may cover
+        // only a tiny part of the sky (see the bounds_cap comment in
+        // constellation_update).
+        assert(vec3_norm2(con->bounds_cap) > 0);
+        if (painter_is_cap_clipped(&painter, FRAME_ICRF, con->bounds_cap))
+            return 0;
+    } else {
+        assert(vec3_norm2(con->lines.cap) > 0);
+        if (painter_is_cap_clipped(&painter, FRAME_ICRF, con->lines.cap))
+            return 0;
+    }
 
     if (selected)
         vec4_set(painter.color, 1.0, 0.84, 0.84, 0.5 * painter.color[3]);
+    else if (cons->nb_focus > 0)
+        // When a subset of constellations is focused the shared edges are
+        // drawn only once (vs twice when all constellations are drawn),
+        // so use a higher alpha to keep the same perceived brightness.
+        vec4_set(painter.color, 0.8, 0.34, 0.34, 0.8 * painter.color[3]);
     else
         vec4_set(painter.color, 0.8, 0.34, 0.34, 0.4 * painter.color[3]);
     painter.lines.dash_ratio = 0.85;
     painter.lines.dash_length = 8;
     info = &con->info;
     if (!info) return 0;
+    uv_map_t map = {
+        .map = spherical_project,
+        .user = info->edges_rot,
+    };
     for (i = 0; i < info->nb_edges; i++) {
-        memcpy(line[0], info->edges[i][0], 2 * sizeof(double));
-        memcpy(line[1], info->edges[i][1], 2 * sizeof(double));
-        if (line[1][0] < line[0][0]) line[1][0] += 2 * M_PI;
-        paint_line(&painter, FRAME_ICRF, line, &map, 0,
-                   PAINTER_SKIP_DISCONTINUOUS);
+        const constellation_edge_t *e = &info->edges[i];
+        double ra1 = e->ra1, de1 = e->de1;
+        double ra2 = e->ra2, de2 = e->de2;
+        int num, n;
+
+        // Interpolate the boundary the same way the desktop version does
+        // (ConstellationMgr::loadBoundaries): 'P' edges follow the
+        // parallel (RA varies), 'M' edges the meridian (DE varies).  The
+        // direction is used to resolve the RA/DE wrap-around, otherwise a
+        // long edge (e.g. chinese_mdn's 15h -> 6h parallels) would be
+        // drawn the wrong way across the sky.
+        switch (e->type) {
+        case 'P':
+            if (ra2 > ra1 && e->dir == '-') ra1 += 2 * M_PI;
+            if (ra2 < ra1 && e->dir == '+') ra1 -= 2 * M_PI;
+            num = 2 + ceil(fabs(ra1 - ra2) / (M_PI / 64));
+            for (n = 0; n + 1 < num; n++) {
+                line[0][0] = ra1 + (ra2 - ra1) * n / (num - 1);
+                line[0][1] = de1;
+                line[1][0] = ra1 + (ra2 - ra1) * (n + 1) / (num - 1);
+                line[1][1] = de1;
+                paint_line(&painter, FRAME_ICRF, line, &map, 0,
+                           PAINTER_SKIP_DISCONTINUOUS);
+            }
+            break;
+        case 'M':
+            if (de2 > de1 && e->dir == '-') de1 += 2 * M_PI;
+            if (de2 < de1 && e->dir == '+') de1 -= 2 * M_PI;
+            num = 2 + ceil(fabs(de1 - de2) / (M_PI / 64));
+            for (n = 0; n + 1 < num; n++) {
+                line[0][0] = ra1;
+                line[0][1] = de1 + (de2 - de1) * n / (num - 1);
+                line[1][0] = ra1;
+                line[1][1] = de1 + (de2 - de1) * (n + 1) / (num - 1);
+                paint_line(&painter, FRAME_ICRF, line, &map, 0,
+                           PAINTER_SKIP_DISCONTINUOUS);
+            }
+            break;
+        default:
+            line[0][0] = ra1; line[0][1] = de1;
+            line[1][0] = ra2; line[1][1] = de2;
+            paint_line(&painter, FRAME_ICRF, line, &map, 0,
+                       PAINTER_SKIP_DISCONTINUOUS);
+            break;
+        }
     }
     return 0;
 }
@@ -650,8 +834,50 @@ static int render_lines(constellation_t *con, const painter_t *_painter,
     if (painter_is_cap_clipped(&painter, FRAME_ICRF, con->lines.cap))
         return 0;
 
-    vec4_set(lines_color, 0.65, 1.0, 1.0, 0.4);
+    // Use the custom line color when defined (asterisms always have one),
+    // else the default constellation color.
+    if (con->info.line_color[0] >= 0)
+        vec4_set(lines_color, con->info.line_color[0],
+                 con->info.line_color[1], con->info.line_color[2], 0.4);
+    else
+        vec4_set(lines_color, 0.65, 1.0, 1.0, 0.4);
     vec4_emul(lines_color, painter.color, painter.color);
+
+    // Custom line width.
+    if (con->info.line_width > 0)
+        painter.lines.width *= con->info.line_width;
+
+    // Dark asterisms are rendered from their [ra, dec] coordinates.
+    if (con->info.nb_coords > 0) {
+        uv_map_t map = {0};
+        double line[2][4] = {};
+        const double single_r = con->info.single_star_radius > 0 ?
+                con->info.single_star_radius * DD2R : 0.5 * DD2R;
+        map.map = coords_map;
+        for (i = 0; i < con->info.nb_coords; i += 2) {
+            memcpy(line[0], con->info.coords[i], 2 * sizeof(double));
+            memcpy(line[1], con->info.coords[i + 1], 2 * sizeof(double));
+            if (line[0][0] == line[1][0] && line[0][1] == line[1][1]) {
+                // Single point: draw a circle instead of a degenerate line.
+                double c[3];
+                vec3_from_sphe(line[0][0], line[0][1], c);
+                render_star_circle(&painter, c, single_r);
+                continue;
+            }
+            // Take the shortest great-circle arc between the two points.
+            // The input coordinates can jump across the 0/360 boundary
+            // (or use negative right ascensions, e.g. the chinese_mdn
+            // enclosures): wrapping the end point by a full turn would
+            // draw a line spanning the whole sky.
+            double dra = line[1][0] - line[0][0];
+            if (dra > M_PI) dra -= 2 * M_PI;
+            else if (dra < -M_PI) dra += 2 * M_PI;
+            line[1][0] = line[0][0] + dra;
+            paint_line(&painter, FRAME_ICRF, line, &map, 0,
+                       PAINTER_SKIP_DISCONTINUOUS);
+        }
+        return 0;
+    }
 
     lines = calloc(con->lines.nb_stars, sizeof(*lines));
     for (i = 0; i < con->lines.nb_stars; i++) {
@@ -676,15 +902,30 @@ static int render_lines(constellation_t *con, const painter_t *_painter,
     }
 
     opacity = painter.color[3];
-    for (i = 0; i < con->lines.nb_stars; i += 2) {
-        if (!con->lines.stars[i + 0] || !con->lines.stars[i + 1]) continue;
-        painter.color[3] = opacity;
-        if (con->info.lines[i / 2].line_weight == LINE_WEIGHT_THIN)
-            painter.color[3] *= 0.25;
-        else if (con->info.lines[i / 2].line_weight == LINE_WEIGHT_BOLD)
-            painter.color[3] *= 1.6;
-        paint_line(&painter, FRAME_ICRF, lines + i, NULL, 1,
-                   PAINTER_SKIP_DISCONTINUOUS);
+    {
+        const double single_r = con->info.single_star_radius > 0 ?
+                con->info.single_star_radius * DD2R : 0.5 * DD2R;
+        for (i = 0; i < con->lines.nb_stars; i += 2) {
+            if (!con->lines.stars[i + 0] || !con->lines.stars[i + 1]) continue;
+            painter.color[3] = opacity;
+            // Single star or single DSO asterism: draw a circle around it
+            // instead of a degenerate line.
+            if (con->info.lines[i / 2].hip[0] ==
+                con->info.lines[i / 2].hip[1] ||
+                (con->info.lines[i / 2].dso[0] >= 0 &&
+                 con->info.lines[i / 2].dso[0] ==
+                 con->info.lines[i / 2].dso[1])) {
+                render_star_circle(&painter, con->lines.stars_pos[i],
+                                   single_r);
+                continue;
+            }
+            if (con->info.lines[i / 2].line_weight == LINE_WEIGHT_THIN)
+                painter.color[3] *= 0.25;
+            else if (con->info.lines[i / 2].line_weight == LINE_WEIGHT_BOLD)
+                painter.color[3] *= 1.6;
+            paint_line(&painter, FRAME_ICRF, lines + i, NULL, 1,
+                       PAINTER_SKIP_DISCONTINUOUS);
+        }
     }
 
     free(lines);
@@ -839,29 +1080,147 @@ static int render_label(constellation_t *con, const painter_t *painter_,
     if (painter_is_cap_clipped(&painter, FRAME_ICRF, con->lines.cap))
         return 0;
 
+    // Ray helpers are drawn without any label.
+    if (con->info.type == SC_TYPE_RAY_HELPER) return 0;
+
+    // Constellations that only carry boundaries (no lines, no coordinates,
+    // no illustration, e.g. the chinese_mdn placeholder "001") have no
+    // meaningful label: skip it.
+    if (con->lines.nb_stars == 0 && con->info.nb_coords == 0 &&
+        !con->img.tex)
+        return 0;
+
     res = skycultures_get_label(con->info.id, label, sizeof(label));
     if (!res) {
+        // Non constellation features don't fallback to their raw id.
+        if (con->info.type != SC_TYPE_CONSTELLATION) return 0;
         snprintf(label, sizeof(label), "%s", con->info.id);
     }
+
+    // Layout labels containing Manchu (Mongolian script) text vertically:
+    // Manchu characters are stacked one per line, with the horizontal part
+    // (e.g. the english name) below the column.  The produced '\n' are kept
+    // by u8_split_line below (it only splits at spaces).
+    bool manchu = u8_verticalize_manchu(label, sizeof(label), label);
 
     max_label_len = u8_split_line(label, sizeof(label), label, 15);
 
     if (!should_render_label(con, max_label_len, &painter, selected))
         return 0;
 
-    if (!selected)
-        vec4_set(names_color, 0.65, 1.0, 1.0, 0.6 * painter.color[3]);
-    else
+    if (!selected) {
+        // Asterisms labels use the same color as their lines.
+        if (con->info.line_color[0] >= 0)
+            vec4_set(names_color, con->info.line_color[0],
+                     con->info.line_color[1], con->info.line_color[2],
+                     0.6 * painter.color[3]);
+        else
+            vec4_set(names_color, 0.65, 1.0, 1.0, 0.6 * painter.color[3]);
+    } else {
         vec4_set(names_color, 1.0, 1.0, 1.0, 1.0);
+    }
 
-    labels_add_3d(label, FRAME_ICRF,
-                  con->lines.cap, true, 0, FONT_SIZE_BASE,
-                  names_color, 0, ALIGN_CENTER | ALIGN_MIDDLE,
-                  TEXT_UPPERCASE | TEXT_SPACED | (selected ? TEXT_BOLD : 0) |
-                  TEXT_MULTILINES,
-                  0, &con->obj);
+    // Compute the label position: use the custom label positions if
+    // defined, then apply the optional label offset (matching the desktop
+    // version which draws the name at every label_positions entry, e.g.
+    // chinese_mdn's "Pillars" has five positions).  The TEXT_MULTI_POS flag
+    // tells the label manager to keep one distinct label per position.
+    {
+        double label_pos[3];
+        int k;
+        if (con->info.nb_label_pos) {
+            for (k = 0; k < con->info.nb_label_pos; k++) {
+                vec3_from_sphe(con->info.label_pos[k][0],
+                               con->info.label_pos[k][1], label_pos);
+                if (con->info.has_label_offset) {
+                    double ra, de;
+                    vec3_to_sphe(label_pos, &ra, &de);
+                    ra += con->info.label_offset[0];
+                    de += con->info.label_offset[1];
+                    vec3_from_sphe(ra, de, label_pos);
+                }
+                // Manchu words are rendered larger than the regular label
+                // text so that the stacked vertical column stays readable.
+                // The scaling is applied per-line inside render_text_manchu
+                // (only the Manchu words are enlarged, the horizontal part
+                // keeps the base size).
+                double label_size = FONT_SIZE_BASE;
+                labels_add_3d(label, FRAME_ICRF,
+                              label_pos, true, 0, label_size,
+                              names_color, 0, ALIGN_CENTER | ALIGN_MIDDLE,
+                              // Constellation names are always rendered bold
+                              // (like the desktop version).  The bold face
+                              // must have a CJK fallback font registered so
+                              // that native names (e.g. chinese_mdn) render
+                              // correctly.
+                              TEXT_BOLD | TEXT_MULTILINES |
+                              (manchu ? TEXT_MANCHU : 0) | TEXT_MULTI_POS,
+                              0, &con->obj);
+            }
+        } else {
+            vec3_copy(con->lines.cap, label_pos);
+            if (con->info.has_label_offset) {
+                double ra, de;
+                vec3_to_sphe(label_pos, &ra, &de);
+                ra += con->info.label_offset[0];
+                de += con->info.label_offset[1];
+                vec3_from_sphe(ra, de, label_pos);
+            }
+            double label_size = FONT_SIZE_BASE;
+            labels_add_3d(label, FRAME_ICRF,
+                          label_pos, true, 0, label_size,
+                          names_color, 0, ALIGN_CENTER | ALIGN_MIDDLE,
+                          TEXT_BOLD | TEXT_MULTILINES |
+                          (manchu ? TEXT_MANCHU : 0),
+                          0, &con->obj);
+        }
+    }
 
     return 0;
+}
+
+// Test if a constellation belongs to the current focus subset.
+// A focus entry can be:
+//   - a full id:        "CON western Aql", "AST chinese_mdn C01"
+//   - culture + id:     "western Aql" (category omitted)
+//   - the bare id:      "Aql"
+// The match is case insensitive.
+static bool constellation_in_focus(const constellation_t *con,
+                                   const constellations_t *cons)
+{
+    const char *id = con->info.id;
+    int n = strlen(id), m, i;
+    for (i = 0; i < cons->nb_focus; i++) {
+        const char *f = cons->focus[i];
+        m = strlen(f);
+        if (strcasecmp(id, f) == 0)
+            return true;
+        // Match the trailing part of the id, i.e. the focus entry is a
+        // suffix starting right after a space.
+        if (m < n && strcasecmp(id + n - m, f) == 0 &&
+            id[n - m - 1] == ' ')
+            return true;
+    }
+    return false;
+}
+
+static json_value *constellations_set_focus(obj_t *obj,
+                                            const attribute_t *attr,
+                                            const json_value *args)
+{
+    constellations_t *cons = (void*)obj;
+    int i;
+    cons->nb_focus = 0;
+    if (!args || args->type != json_array) return NULL;
+    for (i = 0; i < args->u.array.length; i++) {
+        const json_value *v = args->u.array.values[i];
+        if (v->type != json_string) continue;
+        if (cons->nb_focus >= ARRAY_SIZE(cons->focus)) break;
+        snprintf(cons->focus[cons->nb_focus],
+                 sizeof(cons->focus[0]), "%s", v->u.string.ptr);
+        cons->nb_focus++;
+    }
+    return NULL;
 }
 
 static bool constellation_is_visible(const constellation_t *con,
@@ -870,6 +1229,11 @@ static bool constellation_is_visible(const constellation_t *con,
     const constellations_t *cons = (const constellations_t*)con->obj.parent;
 
     if (!con->first_update_complete) return false;
+
+    // Hide everything outside the focus subset when requested.
+    if (cons->hide_others && cons->nb_focus > 0 &&
+        !constellation_in_focus(con, cons))
+        return false;
 
     // Show selected constellation no matter what.
     if (core->selection && &con->obj == core->selection)
@@ -883,6 +1247,13 @@ static bool constellation_is_visible(const constellation_t *con,
     // Test either the image or the line.
     if (constellation_lines_in_view(con, painter)) return true;
     if (constellation_image_in_view(con, painter)) return true;
+    // A constellation may carry boundaries covering a much larger part of
+    // the sky than its lines (e.g. chinese_mdn's 01B carries the whole
+    // culture boundary set): keep it visible as long as the boundaries
+    // are in view.
+    if (con->info.nb_edges > 0 &&
+        !painter_is_cap_clipped(painter, FRAME_ICRF, con->bounds_cap))
+        return true;
     return false;
 }
 
@@ -966,7 +1337,17 @@ static void constellation_get_designations(
     int (*f)(const obj_t *obj, void *user, const char *cat, const char *str))
 {
     const constellation_t *cst = (const constellation_t*)obj;
-    f(obj, user, "CON", ((const char *)cst->info.id) + 4);
+    const char *id = cst->info.id;
+    // The id looks like "CON western Aql" or "AST modern Xxx": the category
+    // is the first word of the id.
+    const char *space = strchr(id, ' ');
+    if (space && space != id) {
+        char cat[8] = {0};
+        int n = space - id;
+        if (n >= (int)sizeof(cat)) n = sizeof(cat) - 1;
+        memcpy(cat, id, n);
+        f(obj, user, cat, space + 1);
+    }
     if (cst->info.iau[0])
         f(obj, user, "NAME", (const char *)cst->info.iau);
 }
@@ -977,6 +1358,8 @@ static int constellations_init(obj_t *obj, json_value *args)
     conss->lines_animation = true;
     conss->show_only_pointed = true;
     conss->illustrations_bscale = 1.0;
+    conss->nb_focus = 0;
+    conss->hide_others = false;
     fader_init(&conss->lines_visible, false);
     fader_init(&conss->labels_visible, false);
     fader_init(&conss->images_visible, false);
@@ -1081,6 +1464,9 @@ static obj_klass_t constellations_klass = {
                  MEMBER(constellations_t, show_only_pointed)),
         PROPERTY(illustrations_bscale, TYPE_FLOAT,
                  MEMBER(constellations_t, illustrations_bscale)),
+        PROPERTY(hide_others, TYPE_BOOL,
+                 MEMBER(constellations_t, hide_others)),
+        FUNCTION(set_focus, .fn = constellations_set_focus),
         {}
     },
 };

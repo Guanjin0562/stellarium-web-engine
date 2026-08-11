@@ -1,0 +1,145 @@
+{
+  "id": "chinese_dai",
+  "region": "Eastern Asia",
+  "classification": ["ethnographic"],
+  "fallback_to_international_names": false,
+  "constellations": [
+    {
+      "id": "CON chinese_dai 001",
+      "lines": [[9884, 8903, 8832, 9110, 7097]],
+      "common_name": {"english": "冠尾马星", "chinese": "冠尾马星", "native": "", "pronounce": ""}
+    },
+    {
+      "id": "CON chinese_dai 002",
+      "lines": [[13209, 13061, 12719, 12489]],
+      "common_name": {"english": "蛇星", "chinese": "蛇星", "native": "", "pronounce": ""}
+    },
+    {
+      "id": "CON chinese_dai 003",
+      "lines": [[17702, 17573, 17531, 17499, 17608, 17702, 17847, 17851]],
+      "common_name": {"english": "扇子星", "chinese": "扇子星", "native": "", "pronounce": ""}
+    },
+    {
+      "id": "CON chinese_dai 004",
+      "lines": [[20889, 20455, 20205, 20894, 21421]],
+      "common_name": {"english": "扁担星", "chinese": "扁担星", "native": "", "pronounce": ""}
+    },
+    {
+      "id": "CON chinese_dai 005",
+      "lines": [[26176, 26207, 26366]],
+      "common_name": {"english": "柿子星", "chinese": "柿子星", "native": "", "pronounce": ""}
+    },
+    {
+      "id": "CON chinese_dai 006",
+      "lines": [[25930, 26311, 26727]],
+      "common_name": {"english": "中柱星", "chinese": "中柱星", "native": "", "pronounce": ""}
+    },
+    {
+      "id": "CON chinese_dai 007",
+      "lines": [[31681, 30883, 30343, 32246, 32921]],
+      "common_name": {"english": "船星", "chinese": "船星", "native": "", "pronounce": ""}
+    },
+    {
+      "id": "CON chinese_dai 008",
+      "lines": [[41822, "DSO:M44", 42806], [41909, "DSO:M44", 42911]],
+      "common_name": {"english": "荒屋星", "chinese": "荒屋星", "native": "", "pronounce": ""}
+    },
+    {
+      "id": "CON chinese_dai 009",
+      "lines": [[42313, 42799, 43109, 45336]],
+      "common_name": {"english": "黄金马星", "chinese": "黄金马星", "native": "", "pronounce": ""}
+    },
+    {
+      "id": "CON chinese_dai 010",
+      "lines": [[45811, 45751, 46390, 46744]],
+      "common_name": {"english": "枕板星", "chinese": "枕板星", "native": "", "pronounce": ""}
+    },
+    {
+      "id": "CON chinese_dai 011",
+      "lines": [[48356, 49841, 51069, 49569, 48356]],
+      "common_name": {"english": "公马鹿星", "chinese": "公马鹿星", "native": "", "pronounce": ""}
+    },
+    {
+      "id": "CON chinese_dai 012",
+      "lines": [[55705, 57283, 56802, 55282, 55705]],
+      "common_name": {"english": "母马鹿星", "chinese": "母马鹿星", "native": "", "pronounce": ""}
+    },
+    {
+      "id": "CON chinese_dai 013",
+      "lines": [[59803, 59316, 61359, 60965, 59803]],
+      "common_name": {"english": "大象星", "chinese": "大象星", "native": "", "pronounce": ""}
+    },
+    {
+      "id": "CON chinese_dai 014",
+      "lines": [[65474, 66249]],
+      "common_name": {"english": "大火把星", "chinese": "大火把星", "native": "", "pronounce": ""}
+    },
+    {
+      "id": "CON chinese_dai 015",
+      "lines": [[69427, 69701]],
+      "common_name": {"english": "小火把星", "chinese": "小火把星", "native": "", "pronounce": ""}
+    },
+    {
+      "id": "CON chinese_dai 016",
+      "lines": [[72622, 74392, 76126, 76333, 75379, 74785, 73133, 72489, 72622]],
+      "common_name": {"english": "筛边星", "chinese": "筛边星", "native": "", "pronounce": ""}
+    },
+    {
+      "id": "CON chinese_dai 017",
+      "lines": [[76470, 76600, 78265, 78401, 78820], [78401, 78933, 78990]],
+      "common_name": {"english": "华盖星", "chinese": "华盖星", "native": "", "pronounce": ""}
+    },
+    {
+      "id": "CON chinese_dai 018",
+      "lines": [[79881, 79404, 80112, 80763, 81266]],
+      "common_name": {"english": "象钩星", "chinese": "象钩星", "native": "", "pronounce": ""}
+    },
+    {
+      "id": "CON chinese_dai 019",
+      "lines": [[82729, 84143, 86228, 87073, 85927]],
+      "common_name": {"english": "小象星", "chinese": "小象星", "native": "", "pronounce": ""}
+    },
+    {
+      "id": "CON chinese_dai 020",
+      "lines": [[89642, 88635, 89931, 90185, 89642, 90422]],
+      "common_name": {"english": "象鼻星", "chinese": "象鼻星", "native": "", "pronounce": ""}
+    },
+    {
+      "id": "CON chinese_dai 021",
+      "lines": [[93506, 93864, 92855, 92041]],
+      "common_name": {"english": "象牙尖星", "chinese": "象牙尖星", "native": "", "pronounce": ""}
+    },
+    {
+      "id": "CON chinese_dai 022",
+      "lines": [[100064, 100345, 99572]],
+      "common_name": {"english": "扁担抬鬼星", "chinese": "扁担抬鬼星", "native": "", "pronounce": ""}
+    },
+    {
+      "id": "CON chinese_dai 023",
+      "lines": [[102618, 103045, 103005, 102624, 102618]],
+      "common_name": {"english": "箭尾星", "chinese": "箭尾星", "native": "", "pronounce": ""}
+    },
+    {
+      "id": "CON chinese_dai 024",
+      "lines": [[106278, 104987]],
+      "common_name": {"english": "竹杆星", "chinese": "竹杆星", "native": "", "pronounce": ""}
+    },
+    {
+      "id": "CON chinese_dai 025",
+      "lines": [[109074, 110960, 109427, 107315, 109074]],
+      "common_name": {"english": "天花板星", "chinese": "天花板星", "native": "", "pronounce": ""}
+    },
+    {
+      "id": "CON chinese_dai 026",
+      "lines": [[113963, 113881, 112158, 112748, 113963]],
+      "common_name": {"english": "床脚星", "chinese": "床脚星", "native": "", "pronounce": ""}
+    },
+    {
+      "id": "CON chinese_dai 027",
+      "lines": [[5447, 4436, 3881, 2912, 3092, 3693, 4463, 5571, 5742, 5447]],
+      "common_name": {"english": "鳄鱼星", "chinese": "鳄鱼星", "native": "", "pronounce": ""}
+    }
+  ],
+  "common_names": {
+  }
+}

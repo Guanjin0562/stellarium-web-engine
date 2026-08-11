@@ -61,6 +61,14 @@ enum {
     TEXT_SPACED    = 1 << 6,
     TEXT_SEMI_SPACED = 1 << 7,
     TEXT_MULTILINES  = 1 << 8,
+    // Vertical Manchu (Mongolian script) label: each Manchu character is
+    // on its own line and must be rotated so that the glyph points up.
+    TEXT_MANCHU      = 1 << 9,
+    // Only used in the label manager.  If set, the same (object, text, size)
+    // may be drawn at several distinct positions (e.g. constellations with
+    // several label_positions).  The label manager then considers the
+    // position as part of the label identity.
+    TEXT_MULTI_POS   = 1 << 10,
 };
 
 enum {

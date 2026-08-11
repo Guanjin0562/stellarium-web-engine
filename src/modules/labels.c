@@ -60,13 +60,33 @@ void labels_reset(void)
 }
 
 static label_t *label_get(label_t *list, const char *txt, double size,
-                          const obj_t *obj)
+                          const obj_t *obj, int effects, int frame,
+                          const double pos[3])
 {
     label_t *label;
     DL_FOREACH(list, label) {
         if (obj != label->obj) continue;
-        if (label->size == size && strcmp(txt, label->text) == 0)
-            return label;
+        if (label->size == size && strcmp(txt, label->text) == 0) {
+            // When TEXT_MULTI_POS is set the same (object, text, size) can
+            // be drawn at several distinct positions (e.g. constellations
+            // with several label_positions): the position is part of the
+            // label identity, otherwise all positions would be merged into
+            // a single label.
+            if (effects & TEXT_MULTI_POS) {
+                if (frame == -1) {
+                    if (pos[0] == label->win_pos[0] &&
+                        pos[1] == label->win_pos[1])
+                        return label;
+                } else {
+                    if (pos[0] == label->pos[0] &&
+                        pos[1] == label->pos[1] &&
+                        pos[2] == label->pos[2])
+                        return label;
+                }
+            } else {
+                return label;
+            }
+        }
     }
     return NULL;
 }
@@ -234,7 +254,7 @@ void labels_add_3d(const char *text, int frame, const double pos[3],
 
     if (!text || !*text) return;
 
-    label = label_get(g_labels->labels, text, size, obj);
+    label = label_get(g_labels->labels, text, size, obj, effects, frame, pos);
     if (!label) {
         label = calloc(1, sizeof(*label));
         label->obj = obj_retain(obj);

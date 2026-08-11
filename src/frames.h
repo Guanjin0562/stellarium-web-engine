@@ -85,6 +85,8 @@ typedef struct observer observer_t;
  *                  relative to the alt/az frame.
  * FRAME_VIEW     - Observed frame rotated in the observer view direction.
  * FRAME_ECLIPTIC - Ecliptic frame.
+ * FRAME_GALACTIC - Galactic frame (IAU galactic coordinates, aligned on
+ *                  ICRS, i.e. J2000).
  */
 enum {
     FRAME_ASTROM              = 0,
@@ -96,9 +98,10 @@ enum {
     FRAME_MOUNT               = 6,
     FRAME_VIEW                = 7,
     FRAME_ECLIPTIC            = 8,
+    FRAME_GALACTIC            = 9,
 };
 
-#define FRAMES_NB (FRAME_VIEW + 1)
+#define FRAMES_NB (FRAME_GALACTIC + 1)
 
 /* Function: convert_frame
  * Rotate the passed 3D apparent coordinate vector from a Reference Frame to

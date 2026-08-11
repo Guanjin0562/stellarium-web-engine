@@ -1,0 +1,18 @@
+# This file defines what font Stellarium should use for a given locale
+# 
+# Format is: locale font_file font_scale fixed_width_font_file fixed_width_font_scale
+# Font files must be ttf format, located in the data directory.
+# Absolute path can be given by starting file adress with a '/'
+#
+# Default font
+#
+default	STXIHEI.TTF	1	STXIHEI.TTF	1
+#
+# Overrides per locale
+#
+zh_HK	STXIHEI.TTF	1.2	STXIHEI.TTF	1.2
+zh_TW	STXIHEI.TTF	1.2	STXIHEI.TTF	1.2
+zh_CN	STXIHEI.TTF	1	STXIHEI.TTF	1
+ja	ukai.ttf	1.2	ukai.ttf	1.2
+ja_JP	ukai.ttf	1.2	ukai.ttf	1.2
+ko	ukai.ttf	1.2	ukai.ttf	1.2

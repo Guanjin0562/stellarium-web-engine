@@ -147,6 +147,30 @@ static struct {
         .frame      = FRAME_VIEW,
         .grid       = false,
     },
+    {
+        .name       = "Horizon",
+        .id         = "horizon",
+        .color      = 0xb0b0b055,
+        .frame      = FRAME_OBSERVED,
+        .format     = 'n',
+        .grid       = false,
+    },
+    {
+        .name       = "Galactic",
+        .id         = "galactic",
+        .color      = 0x6666ffff,
+        .frame      = FRAME_GALACTIC,
+        .format     = 'n',
+        .grid       = false,
+    },
+    {
+        .name       = "Galactic Grid",
+        .id         = "galactic_grid",
+        .color      = 0x6666ff80,
+        .frame      = FRAME_GALACTIC,
+        .format     = 'd',
+        .grid       = true,
+    },
 };
 
 typedef struct lines lines_t;

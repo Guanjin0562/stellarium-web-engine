@@ -1,0 +1,4177 @@
+{
+  "id": "mangbo",
+  "region": "Northern Asia",
+  "classification": ["historical"],
+  "fallback_to_international_names": false,
+  "asterisms": [
+    {
+      "id": "AST mangbo 001",
+      "lines": [[17702, 17573, 17531, 17489, 17499, 17608, 17702, 17847]],
+      "common_name": {"english": "七女星", "native": ""}
+    },
+    {
+      "id": "AST mangbo 002",
+      "lines": [[25428, 25984, 29696, 28380, 27673, 28360, 24608, 23767, 23453, 21476, 22678, 23015, 24727, 25428]],
+      "common_name": {"english": "神鹰", "native": ""}
+    }
+  ],
+  "constellations": [
+    {
+      "id": "CON mangbo 001",
+      "lines": [[65474, 66249]],
+      "common_name": {"english": "角宿", "native": "Коксю"}
+    },
+    {
+      "id": "CON mangbo 002",
+      "lines": [[70755, 69701, 69427, 69974]],
+      "common_name": {"english": "亢宿", "native": "Кангсю"}
+    },
+    {
+      "id": "CON mangbo 003",
+      "lines": [[72622, 74392, 76333, 74785]],
+      "common_name": {"english": "氐宿", "native": "Тэйсю"}
+    },
+    {
+      "id": "CON mangbo 004",
+      "lines": [[78820, 78401, 78265, 78104]],
+      "common_name": {"english": "房宿", "native": "Вангсю"}
+    },
+    {
+      "id": "CON mangbo 005",
+      "lines": [[80112, 80763, 81266]],
+      "common_name": {"english": "心宿", "native": "Симсю"}
+    },
+    {
+      "id": "CON mangbo 006",
+      "lines": [[82396, 82514, 82729, 84143, 86228, 87073, 86670, 85927, 85696]],
+      "common_name": {"english": "尾宿", "native": "Муйсю"}
+    },
+    {
+      "id": "CON mangbo 007",
+      "lines": [[88635, 89931, 90185, 89642]],
+      "common_name": {"english": "箕宿", "native": "Кысю"}
+    },
+    {
+      "id": "CON mangbo 008",
+      "lines": [[89341, 90496, 92041, 92855, 93864, 93506]],
+      "common_name": {"english": "斗宿", "native": "Тоусю"}
+    },
+    {
+      "id": "CON mangbo 009",
+      "lines": [[100345, 100064], [100345, 100310], [100345, 100881, 101123, 101027, 100345]],
+      "common_name": {"english": "牛宿", "native": "Нгусю"}
+    },
+    {
+      "id": "CON mangbo 010",
+      "lines": [[102618, 103045, 103005, 102624]],
+      "common_name": {"english": "女宿", "native": "Нёсю"}
+    },
+    {
+      "id": "CON mangbo 011",
+      "lines": [[106278, 104987]],
+      "common_name": {"english": "虚宿", "native": "Хёсю"}
+    },
+    {
+      "id": "CON mangbo 012",
+      "lines": [[109074, 109427, 107315]],
+      "common_name": {"english": "危宿", "native": "Нгуэсю"}
+    },
+    {
+      "id": "CON mangbo 013",
+      "lines": [[113963, 113881]],
+      "common_name": {"english": "室宿", "native": "Сирсю"}
+    },
+    {
+      "id": "CON mangbo 014",
+      "lines": [[1067, 677]],
+      "common_name": {"english": "壁宿", "native": "Пэксю"}
+    },
+    {
+      "id": "CON mangbo 015",
+      "lines": [[3693, 3031, 3092, 2912, 2942, 3231, "381266587637831296", 3881, 4436, 5447, 5544, 5586, 6193, 5742, 5571, 4463, 3693]],
+      "common_name": {"english": "奎宿", "native": "Куэсю"}
+    },
+    {
+      "id": "CON mangbo 016",
+      "lines": [[9884, 8903, 8832]],
+      "common_name": {"english": "娄宿", "native": "Лоусю"}
+    },
+    {
+      "id": "CON mangbo 017",
+      "lines": [[12719, 13061, 13209]],
+      "common_name": {"english": "胃宿", "native": "Уйсю"}
+    },
+    {
+      "id": "CON mangbo 018",
+      "lines": [[17489, 17531, 17499, 17573, 17608, 17702, 17847]],
+      "common_name": {"english": "昴宿", "native": "Маосю"}
+    },
+    {
+      "id": "CON mangbo 019",
+      "lines": [[20889, 20648, 20455, 20205], [21421, 20894, 20713, 20205, 18724]],
+      "common_name": {"english": "毕宿", "native": "Пирсю"}
+    },
+    {
+      "id": "CON mangbo 020",
+      "lines": [[26176, 26207, 26366]],
+      "common_name": {"english": "觜宿", "native": "Цесю"}
+    },
+    {
+      "id": "CON mangbo 021",
+      "lines": [[25930, 26311, 26727, 27989], [25930, 25336], [26727, 27366], [25930, 24436]],
+      "common_name": {"english": "参宿", "native": "Шимсю"}
+    },
+    {
+      "id": "CON mangbo 022",
+      "lines": [[30343, 30883, 31681, 32362], [32246, 32921, 34088, 35350]],
+      "common_name": {"english": "井宿", "native": "Ценгсю"}
+    },
+    {
+      "id": "CON mangbo 023",
+      "lines": [[41822, 41909, 42806, 42911, 41822]],
+      "common_name": {"english": "鬼宿", "native": "Куйсю"}
+    },
+    {
+      "id": "CON mangbo 024",
+      "lines": [[42313, 42402, 42799, 43234, 43813, 43109, 42313], [43813, 44659, 45336]],
+      "common_name": {"english": "柳宿", "native": "Люсю"}
+    },
+    {
+      "id": "CON mangbo 025",
+      "lines": [[46390, 46404, 46509, 46776, 47431], [46390, 45811, 45751]],
+      "common_name": {"english": "星宿", "native": "Сэнгсю"}
+    },
+    {
+      "id": "CON mangbo 026",
+      "lines": [[48356, 49841, 51069, 48615], [48356, 48615], [48356, 47452], [51069, 52085]],
+      "common_name": {"english": "张宿", "native": "Тянгсю"}
+    },
+    {
+      "id": "CON mangbo 027",
+      "lines": [[53740, 55282, 55705, 54682, 53740, 52943], [55705, 57283], [52009, 54029, 55687, 56633, 58576], [55874, 55687, 56802], [54204, 56280, 57613], [54204, 51172], [50456, 51172, 53502, 55588, 56922, 57936]],
+      "common_name": {"english": "翼宿", "native": "Иксю"}
+    },
+    {
+      "id": "CON mangbo 028",
+      "lines": [[59803, 59316, 61359, 60965, 59803]],
+      "common_name": {"english": "轸宿", "native": "Тинсю"}
+    },
+    {
+      "id": "CON mangbo 029",
+      "lines": [[78933, 78990]],
+      "common_name": {"english": "钩钤(附房)", "native": "Коугем"}
+    },
+    {
+      "id": "CON mangbo 030",
+      "lines": [[82545, 82545]],
+      "common_name": {"english": "神宫", "native": "Жинкёнг"}
+    },
+    {
+      "id": "CON mangbo 031",
+      "lines": [[110960, 110395], [110960, 111497], [110960, 110672]],
+      "common_name": {"english": "坟墓(附危)", "native": "Вуммо"}
+    },
+    {
+      "id": "CON mangbo 032",
+      "lines": [[112440, 112748], [112051, 112158], [115250, 115623]],
+      "common_name": {"english": "离宫(附营室)", "native": "Лекёнг"}
+    },
+    {
+      "id": "CON mangbo 033",
+      "lines": [[21683, 21683]],
+      "common_name": {"english": "附耳(附毕)", "native": "Воне"}
+    },
+    {
+      "id": "CON mangbo 034",
+      "lines": [[26237, 26221, 26241]],
+      "common_name": {"english": "伐(附参)", "native": "Вар"}
+    },
+    {
+      "id": "CON mangbo 035",
+      "lines": [[29655, 29655]],
+      "common_name": {"english": "钺(附东井)", "native": "Уар"}
+    },
+    {
+      "id": "CON mangbo 036",
+      "lines": [[42549, 42549]],
+      "common_name": {"english": "积尸(附鬼)", "native": "Цекси"}
+    },
+    {
+      "id": "CON mangbo 037",
+      "lines": [[61174, 61174]],
+      "common_name": {"english": "左辖(附轸)", "native": "Цагар"}
+    },
+    {
+      "id": "CON mangbo 038",
+      "lines": [[59199, 59199]],
+      "common_name": {"english": "右辖(附轸)", "native": "Югар"}
+    },
+    {
+      "id": "CON mangbo 039",
+      "lines": [[60189, 60189]],
+      "common_name": {"english": "长沙(附轸)", "native": "Дянгша"}
+    },
+    {
+      "id": "CON mangbo A01",
+      "lines": [[67927, 67275, 67459]],
+      "common_name": {"english": "西摄提", "native": "Сэй Сепдэй"}
+    },
+    {
+      "id": "CON mangbo A02",
+      "lines": [[72125, 71762, 71795]],
+      "common_name": {"english": "东摄提", "native": "Тунг Сепдэй"}
+    },
+    {
+      "id": "CON mangbo A03",
+      "lines": [[69673, 69673]],
+      "common_name": {"english": "大角", "native": "Дайкок"}
+    },
+    {
+      "id": "CON mangbo A04",
+      "lines": [[72105, 71284, 71053]],
+      "common_name": {"english": "梗河", "native": "Канга"}
+    },
+    {
+      "id": "CON mangbo A05",
+      "lines": [[71075, 71075]],
+      "common_name": {"english": "招摇", "native": "Тёуёу"}
+    },
+    {
+      "id": "CON mangbo A06",
+      "lines": [[69732, 69732]],
+      "common_name": {"english": "玄戈", "native": "Гоанкоа"}
+    },
+    {
+      "id": "CON mangbo A07",
+      "lines": [[69483, 70497, 69713]],
+      "common_name": {"english": "天枪", "native": "Тэнцянг"}
+    },
+    {
+      "id": "CON mangbo A08",
+      "lines": [[87585, 85819, 85670, 87833, 86414]],
+      "common_name": {"english": "天棓", "native": "Тэнбонг"}
+    },
+    {
+      "id": "CON mangbo A09",
+      "lines": [[85112, 84606, 84380]],
+      "common_name": {"english": "女床", "native": "Нёджянг"}
+    },
+    {
+      "id": "CON mangbo A10",
+      "lines": [[74666, 75411, 76669, 77655, 79119, 80460, 81833]],
+      "common_name": {"english": "七公", "native": "Циркунг"}
+    },
+    {
+      "id": "CON mangbo A11",
+      "lines": [[76127, 75695, 76267, 76952, 77512, 78159, 78493, 78459, 77048, 76127]],
+      "common_name": {"english": "贯索", "native": "Коансак"}
+    },
+    {
+      "id": "CON mangbo A12",
+      "lines": [[80181, 81693, 83207, 84573, 84862, 85382, 87808, 88836, 89826]],
+      "common_name": {"english": "天纪", "native": "Тэнкы"}
+    },
+    {
+      "id": "CON mangbo A13",
+      "lines": [[91919, 91262, 91971]],
+      "common_name": {"english": "织女", "native": "Тикнё"}
+    },
+    {
+      "id": "CON mangbo A14",
+      "lines": [[84379, 85693, 86974, 88794, 92043, 93747, 92946, 89962, 88048, 86263, 84012]],
+      "common_name": {"english": "天市东蕃", "native": "Тэнди Тунгфан"}
+    },
+    {
+      "id": "CON mangbo A15",
+      "lines": [[80816, 80170, 79043, 78072, 77233, 76276, 77070, 77622, 79593, 79882, 81377]],
+      "common_name": {"english": "天市西蕃", "native": "Тэнди Сэйфан"}
+    },
+    {
+      "id": "CON mangbo A16",
+      "lines": [[84345, 84345]],
+      "common_name": {"english": "帝座", "native": "Дэйзоа"}
+    },
+    {
+      "id": "CON mangbo A17",
+      "lines": [[86032, 86032]],
+      "common_name": {"english": "候", "native": "Гоу"}
+    },
+    {
+      "id": "CON mangbo A18",
+      "lines": [[83308, 83430, 83478, 83613]],
+      "common_name": {"english": "宦者", "native": "Гоантя"}
+    },
+    {
+      "id": "CON mangbo A19",
+      "lines": [[83000, 82673, 82073, 82402, 82216]],
+      "common_name": {"english": "斗", "native": "Тоу"}
+    },
+    {
+      "id": "CON mangbo A20",
+      "lines": [[86742, 87108]],
+      "common_name": {"english": "宗正", "native": "Цонгтенг"}
+    },
+    {
+      "id": "CON mangbo A21",
+      "lines": [[88149, 88601, 88290], [88601, 88192]],
+      "common_name": {"english": "宗人", "native": "Цонгнин"}
+    },
+    {
+      "id": "CON mangbo A22",
+      "lines": [[88771, 88765]],
+      "common_name": {"english": "宗", "native": "Цонг"}
+    },
+    {
+      "id": "CON mangbo A23",
+      "lines": [[81724, 80975, 80473, 80815]],
+      "common_name": {"english": "东咸", "native": "Тунггэм"}
+    },
+    {
+      "id": "CON mangbo A24",
+      "lines": [[79375, 78727, 78207, 77853]],
+      "common_name": {"english": "西咸", "native": "Сэйгэм"}
+    },
+    {
+      "id": "CON mangbo A25",
+      "lines": [[84405, 84970, 85340, 85755]],
+      "common_name": {"english": "天江", "native": "Тэнконг"}
+    },
+    {
+      "id": "CON mangbo A26",
+      "lines": [[93085, 93683, 94141], [94820, 95168, 95176]],
+      "common_name": {"english": "建", "native": "Кян"}
+    },
+    {
+      "id": "CON mangbo A27",
+      "lines": [[91117, 91726, 91845, 92202, 92175, 93026, 93429, 93805, 93526]],
+      "common_name": {"english": "天弁", "native": "Тэнбен"}
+    },
+    {
+      "id": "CON mangbo A28",
+      "lines": [[98036, 97649, 97278]],
+      "common_name": {"english": "河鼓", "native": "Гако"}
+    },
+    {
+      "id": "CON mangbo A29",
+      "lines": [[96229, 95501], [96665, 95501, 95585, 96468, 97804, 99473, 99631, 101101]],
+      "common_name": {"english": "鼓旗", "native": "Коги"}
+    },
+    {
+      "id": "CON mangbo A30",
+      "lines": [[101692, 101847, 101936, 102770, 102561]],
+      "common_name": {"english": "离珠", "native": "Летё"}
+    },
+    {
+      "id": "CON mangbo A31",
+      "lines": [[101589, 101769, 101958, 102532, 102281, 101769]],
+      "common_name": {"english": "瓠瓜", "native": "Гокоа"}
+    },
+    {
+      "id": "CON mangbo A32",
+      "lines": [[100453, 97165, 99675, 102098, 103413, 104887, 105138, 104732, 102488, 100453]],
+      "common_name": {"english": "天津", "native": "Тэнцин"}
+    },
+    {
+      "id": "CON mangbo A33",
+      "lines": [[117301, 115990, 114104, 115395, 117301, 117863, 118243, 114924, 111674, 111169, 110609], [111169, 110538], [111169, 113919, 114570, 115022, 115152, 116584, 116805, 116631, 113726, 112917], [113288, 113919, 113327]],
+      "common_name": {"english": "螣蛇", "native": "Донгжа"}
+    },
+    {
+      "id": "CON mangbo A34",
+      "lines": [[746, 2920], [746, 3179], [746, 3821], [746, 4427]],
+      "common_name": {"english": "王良", "native": "Уанглянг"}
+    },
+    {
+      "id": "CON mangbo A35",
+      "lines": [[3801, 5542, 6242, 6686, 8886, 11569]],
+      "common_name": {"english": "阁道", "native": "Какдао"}
+    },
+    {
+      "id": "CON mangbo A36",
+      "lines": [[7294, 7294]],
+      "common_name": {"english": "附路", "native": "Воло"}
+    },
+    {
+      "id": "CON mangbo A37",
+      "lines": [[8068, 7607, 6999, 6813, 7513, 8814, 9640], [8814, 9021, 10064, 10670, 11784]],
+      "common_name": {"english": "天将军", "native": "Тэнцянкун"}
+    },
+    {
+      "id": "CON mangbo A38",
+      "lines": [[13268, 13531, 14632, 14668, 14576, 14354, 13254, 12623]],
+      "common_name": {"english": "大陵", "native": "Дайлинг"}
+    },
+    {
+      "id": "CON mangbo A39",
+      "lines": [[14382, 14328, 15863, 16826, 17358, 19343, 19812, 20070, 19949]],
+      "common_name": {"english": "天船", "native": "Тэнжуэн"}
+    },
+    {
+      "id": "CON mangbo A40",
+      "lines": [[17529, 18532, 18614, 18246, 17448, 17313]],
+      "common_name": {"english": "卷舌", "native": "Куэнжер"}
+    },
+    {
+      "id": "CON mangbo A41",
+      "lines": [[23015, 24608, 28360, 28380, 25428]],
+      "common_name": {"english": "五车", "native": "Нготя"}
+    },
+    {
+      "id": "CON mangbo A42",
+      "lines": [[23453, 23416, 23767]],
+      "common_name": {"english": "西北柱"}
+    },
+    {
+      "id": "CON mangbo A43",
+      "lines": [[27483, 27639, 27673]],
+      "common_name": {"english": "东北柱"}
+    },
+    {
+      "id": "CON mangbo A44",
+      "lines": [[26712, 25984, 26536]],
+      "common_name": {"english": "东南柱"}
+    },
+    {
+      "id": "CON mangbo A45",
+      "lines": [[26451, 26451]],
+      "common_name": {"english": "天关"}
+    },
+    {
+      "id": "CON mangbo A46",
+      "lines": [[36284, 36188, 37279]],
+      "common_name": {"english": "南河"}
+    },
+    {
+      "id": "CON mangbo A47",
+      "lines": [[36366, 36850, 37826]],
+      "common_name": {"english": "北河"}
+    },
+    {
+      "id": "CON mangbo A48",
+      "lines": [[33018, 34693, 36046, 36962, 37740]],
+      "common_name": {"english": "五诸侯"}
+    },
+    {
+      "id": "CON mangbo A49",
+      "lines": [[37265, 37265]],
+      "common_name": {"english": "积水"}
+    },
+    {
+      "id": "CON mangbo A50",
+      "lines": [[39424, 39424]],
+      "common_name": {"english": "积薪"}
+    },
+    {
+      "id": "CON mangbo A51",
+      "lines": [[37300, 37908, 38722, 39780]],
+      "common_name": {"english": "水位"}
+    },
+    {
+      "id": "CON mangbo A52",
+      "lines": [[41075, 43531, 44248, 44700, 45688, 45860, 46146, 46750, 47908, 48455, 50335, 50583, 49583, 49669, 47508], [49669, 51624], [49669, 49637]],
+      "common_name": {"english": "轩辕"}
+    },
+    {
+      "id": "CON mangbo A53",
+      "lines": [[49637, 49637]],
+      "common_name": {"english": "御女(附轩辕)"}
+    },
+    {
+      "id": "CON mangbo A54",
+      "lines": [[53954, 53417, 52959, 52638]],
+      "common_name": {"english": "少微"}
+    },
+    {
+      "id": "CON mangbo A55",
+      "lines": [[60129, 61941, 63090, 63608, 64241]],
+      "common_name": {"english": "太微东蕃"}
+    },
+    {
+      "id": "CON mangbo A56",
+      "lines": [[57757, 55434, 55642, 54879, 54872]],
+      "common_name": {"english": "太微西蕃"}
+    },
+    {
+      "id": "CON mangbo A57",
+      "lines": [[57632, 57646], [57632, 57606], [57632, 58159], [57632, 57779]],
+      "common_name": {"english": "五帝座"}
+    },
+    {
+      "id": "CON mangbo A58",
+      "lines": [[57328, 57380, 58590, 58948]],
+      "common_name": {"english": "内屏"}
+    },
+    {
+      "id": "CON mangbo A59",
+      "lines": [[60742, 60197, 60170, 60066, 59847], [61071, 60904, 60746, 60697, 60742], [60697, 60514, 60197], [60746, 60525, 60514, 60351, 60170], [60904, 60941, 60525, 60599, 60351, 60327, 60066]],
+      "common_name": {"english": "郎位"}
+    },
+    {
+      "id": "CON mangbo A60",
+      "lines": [[63125, 63125]],
+      "common_name": {"english": "郎将", "native": "Лангцянг"}
+    },
+    {
+      "id": "CON mangbo A61",
+      "lines": [[59856, 58369, 58460, 58654, 57670, 56997, 56410]],
+      "common_name": {"english": "常陈", "native": "Дянгдин"}
+    },
+    {
+      "id": "CON mangbo A62",
+      "lines": [[44471, 50372], [50801, 55219]],
+      "common_name": {"english": ""}
+    },
+    {
+      "id": "CON mangbo A63",
+      "lines": [[44127, 44471]],
+      "common_name": {"english": "上台", "native": "Дянгтой"}
+    },
+    {
+      "id": "CON mangbo A64",
+      "lines": [[50372, 50801]],
+      "common_name": {"english": "中台", "native": "Тюнгтой"}
+    },
+    {
+      "id": "CON mangbo A65",
+      "lines": [[55219, 55203]],
+      "common_name": {"english": "下台", "native": "Гатой"}
+    },
+    {
+      "id": "CON mangbo A66",
+      "lines": [[57399, 57399]],
+      "common_name": {"english": "相", "native": "Сянг"}
+    },
+    {
+      "id": "CON mangbo A67",
+      "lines": [[54539, 54539]],
+      "common_name": {"english": "太阳守", "native": "Тайянгсю"}
+    },
+    {
+      "id": "CON mangbo A68",
+      "lines": [[51814, 51459, 52136, 53261, 53043, 52478, 51814]],
+      "common_name": {"english": "天牢", "native": "Тэнлао"}
+    },
+    {
+      "id": "CON mangbo A69",
+      "lines": [[41704, 45075, 46733, 48319, 48402, 46853, 44901]],
+      "common_name": {"english": "文昌", "native": "Мунтянг"}
+    },
+    {
+      "id": "CON mangbo A70",
+      "lines": [[54061, 53910, 58001, 59774, 62956, 65378, 67301]],
+      "common_name": {"english": "北斗", "native": "Поктоу"}
+    },
+    {
+      "id": "CON mangbo A71",
+      "lines": [[65477, 65477]],
+      "common_name": {"english": "辅(附北斗)", "native": "Во"}
+    },
+    {
+      "id": "CON mangbo A72",
+      "lines": [[68756, 75458, 78527, 80331, 83895, 86201, 89908, 92056]],
+      "common_name": {"english": "紫微东蕃", "native": "Цеми Тунгфан"}
+    },
+    {
+      "id": "CON mangbo A73",
+      "lines": [[61384, 56211, 52425, 47654, 40793, 33694, 25110]],
+      "common_name": {"english": "紫微西蕃", "native": "Цеми Сэйфан"}
+    },
+    {
+      "id": "CON mangbo A74",
+      "lines": [[75097, 72607, 70692, 69112, 62572]],
+      "common_name": {"english": "北极", "native": "Поггик"}
+    },
+    {
+      "id": "CON mangbo A75",
+      "lines": [[4283, 16489, 11767, 85822, 82080, 77055]],
+      "common_name": {"english": "钩陈", "native": "Коудин"}
+    },
+    {
+      "id": "CON mangbo A76",
+      "lines": [[61281, 61281]],
+      "common_name": {"english": "天一", "native": "Тэнир"}
+    },
+    {
+      "id": "CON mangbo A77",
+      "lines": [[60998, 60998]],
+      "common_name": {"english": "太一"}
+    },
+    {
+      "id": "CON mangbo B01",
+      "lines": [[66657, 71860, 71352, 68933, 65109, 61932, 61084, 62434, 60718, 59747, 61084]],
+      "common_name": {"english": "库楼"}
+    },
+    {
+      "id": "CON mangbo B02",
+      "lines": [[68523, 68002, 68282], [71121, 71536, 70931], [69996, 70576, 70104], [67669, 67457, 67153], [65936, 66656, 65535]],
+      "common_name": {"english": "柱"}
+    },
+    {
+      "id": "CON mangbo B03",
+      "lines": [[67464, 68245], [67472, 68245, 68862]],
+      "common_name": {"english": "衡"}
+    },
+    {
+      "id": "CON mangbo B04",
+      "lines": [[68702, 71683]],
+      "common_name": {"english": "南门"}
+    },
+    {
+      "id": "CON mangbo B05",
+      "lines": [[64962, 68895]],
+      "common_name": {"english": "平"}
+    },
+    {
+      "id": "CON mangbo B06",
+      "lines": [[71865, 72010, 72800], [73624, 73937, 74604], [75177, 75647, 75304], [75501, 76297, 75141], [73334, 73273, 72683], [74117, 74449, 75264], [73807, 74376, 74911], [75206, 75181, 75828], [76829, 76397, 76371]],
+      "common_name": {"english": "骑官"}
+    },
+    {
+      "id": "CON mangbo B07",
+      "lines": [[78918, 79320, 78384], [80911, 80337, 81304], [81972, 80945, 81122], [79653, 79963, 78914]],
+      "common_name": {"english": "积卒"}
+    },
+    {
+      "id": "CON mangbo B08",
+      "lines": [[86092, 87846, 89112, 88714, 85792, 86092]],
+      "common_name": {"english": "龟"}
+    },
+    {
+      "id": "CON mangbo B09",
+      "lines": [[87261, 87261]],
+      "common_name": {"english": "傅说"}
+    },
+    {
+      "id": "CON mangbo B10",
+      "lines": [[87616, 87616]],
+      "common_name": {"english": "鱼"}
+    },
+    {
+      "id": "CON mangbo B11",
+      "lines": [[90982, 90422, 90568]],
+      "common_name": {"english": "外杵"}
+    },
+    {
+      "id": "CON mangbo B12",
+      "lines": [[92953, 92608, 92226, 91989, 91875, 91901, 91918, 92989, 93174, 93825, 94114, 94160, 94005, 93542, 92953]],
+      "common_name": {"english": "鳖"}
+    },
+    {
+      "id": "CON mangbo B13",
+      "lines": [[98032, 98761, 98412], [100469, 100852, 99461], [102497, 102916, 102014]],
+      "common_name": {"english": "九坎"}
+    },
+    {
+      "id": "CON mangbo B14",
+      "lines": [[107608, 107380, 109289, 109285]],
+      "common_name": {"english": "败臼"}
+    },
+    {
+      "id": "CON mangbo B15",
+      "lines": [[112211, 112529, 113136], [112716, 113031, 113531], [114724, 114939, 115142], [114855, 115033, 115115], [114371, 115125, 115404], [114341, 114375, 114119], [115438, 115669, 116247], [116901, 117089, 117629], [116758, 116971, 116957], [116853, 117314, 117541], [116428, 117420, 117756], [118209, 145, 664], [154, 443, 840], [355, 873, 1562], [301, 910, 1170]],
+      "common_name": {"english": "羽林"}
+    },
+    {
+      "id": "CON mangbo B16",
+      "lines": [[111123, 110000, 109139, 109472, 111123, 112961, 113686, 114822, 117375, 417, 2006, 2787, 1939, 417]],
+      "common_name": {"english": "垒壁阵"}
+    },
+    {
+      "id": "CON mangbo B17",
+      "lines": [[113368, 113368]],
+      "common_name": {"english": "北落师门"}
+    },
+    {
+      "id": "CON mangbo B18",
+      "lines": [[3419, 3419]],
+      "common_name": {"english": "土司空"}
+    },
+    {
+      "id": "CON mangbo B19",
+      "lines": [[3455, 5364, 6537, 8645, 8102, 9347]],
+      "common_name": {"english": "天仓"}
+    },
+    {
+      "id": "CON mangbo B20",
+      "lines": [[14135, 13954, 12828, 11249, 10324, 11484, 12093, 12706, 12387, 12530, 11791, 11046, 10826]],
+      "common_name": {"english": "天囷"}
+    },
+    {
+      "id": "CON mangbo B21",
+      "lines": [[16369, 16322, 16083, 15900]],
+      "common_name": {"english": "天廪"}
+    },
+    {
+      "id": "CON mangbo B22",
+      "lines": [[18543, 17593, 17378, 16537, 15197, 13701, 12770, 12843, 13288, 14146, 15474, 16611, 17651, 17717, 18216, 18673]],
+      "common_name": {"english": "天苑"}
+    },
+    {
+      "id": "CON mangbo B23",
+      "lines": [[24010, 23607, 22957, 22833, 22845, 22509, 22449, 22549, 22797]],
+      "common_name": {"english": "参旗"}
+    },
+    {
+      "id": "CON mangbo B24",
+      "lines": [[23972, 23364, 23875, 24674]],
+      "common_name": {"english": "玉井"}
+    },
+    {
+      "id": "CON mangbo B25",
+      "lines": [[24305, 23685]],
+      "common_name": {"english": "屏"}
+    },
+    {
+      "id": "CON mangbo B26",
+      "lines": [[25985, 25606, 27072, 27654]],
+      "common_name": {"english": "厕"}
+    },
+    {
+      "id": "CON mangbo B27",
+      "lines": [[26460, 26460]],
+      "common_name": {"english": "天矢"}
+    },
+    {
+      "id": "CON mangbo B28",
+      "lines": [[31592, 31700, 31827, 31084, 30457, 30214, 29735, 28910, 28816, 29048, 29150, 31125, 31416, 31592]],
+      "common_name": {"english": "军市"}
+    },
+    {
+      "id": "CON mangbo B29",
+      "lines": [[30324, 30324]],
+      "common_name": {"english": "野鸡"}
+    },
+    {
+      "id": "CON mangbo B30",
+      "lines": [[32349, 32349]],
+      "common_name": {"english": "狼"}
+    },
+    {
+      "id": "CON mangbo B31",
+      "lines": [[33977, 34444, 35904, 38170, 37173, 35415, 34444, 33856, 33579, 32759, 35904]],
+      "common_name": {"english": "弧"}
+    },
+    {
+      "id": "CON mangbo B32",
+      "lines": [[30438, 30438]],
+      "common_name": {"english": "老人"}
+    },
+    {
+      "id": "CON mangbo B33",
+      "lines": [[45556, 46701, 45941, 42913, 45556], [42913, 42536]],
+      "common_name": {"english": "稷"}
+    },
+    {
+      "id": "CON mangbo C01",
+      "lines": [[66006, 65420]],
+      "common_name": {"english": "平道"}
+    },
+    {
+      "id": "CON mangbo C02",
+      "lines": [[64238, 64238]],
+      "common_name": {"english": "进贤"}
+    },
+    {
+      "id": "CON mangbo C03",
+      "lines": [[66200, 66936]],
+      "common_name": {"english": "天田"}
+    },
+    {
+      "id": "CON mangbo C04",
+      "lines": [[67480, 66763, 66727]],
+      "common_name": {"english": "周鼎"}
+    },
+    {
+      "id": "CON mangbo C05",
+      "lines": [[68276, 69226, 71115]],
+      "common_name": {"english": "帝席"}
+    },
+    {
+      "id": "CON mangbo C06",
+      "lines": [[69612, 70327, 70400, 69389, 68707, 68498, 69612]],
+      "common_name": {"english": "亢池"}
+    },
+    {
+      "id": "CON mangbo C07",
+      "lines": [[77516, 77516]],
+      "common_name": {"english": "天乳"}
+    },
+    {
+      "id": "CON mangbo C08",
+      "lines": [[80883, 81300, 83262, 84514]],
+      "common_name": {"english": "斛"}
+    },
+    {
+      "id": "CON mangbo C09",
+      "lines": [[96757, 97365], [96837, 97365, 98337, 98920, 98438, 98234, 98754, 99742]],
+      "common_name": {"english": "左旗"}
+    },
+    {
+      "id": "CON mangbo C10",
+      "lines": [[92862, 94481, 94713, 95556, 96052]],
+      "common_name": {"english": "辇道"}
+    },
+    {
+      "id": "CON mangbo C11",
+      "lines": [[92420, 93194, 93903, 92791]],
+      "common_name": {"english": "渐台"}
+    },
+    {
+      "id": "CON mangbo C12",
+      "lines": [[101882, 101483, 101800, 101916, 101421, 101483]],
+      "common_name": {"english": "败瓜"}
+    },
+    {
+      "id": "CON mangbo C13",
+      "lines": [[104521, 104858]],
+      "common_name": {"english": "司命"}
+    },
+    {
+      "id": "CON mangbo C14",
+      "lines": [[105502, 105860]],
+      "common_name": {"english": "司禄"}
+    },
+    {
+      "id": "CON mangbo C15",
+      "lines": [[105652, 106140]],
+      "common_name": {"english": "司危"}
+    },
+    {
+      "id": "CON mangbo C16",
+      "lines": [[105966, 106872]],
+      "common_name": {"english": "司非"}
+    },
+    {
+      "id": "CON mangbo C17",
+      "lines": [[107763, 107975], [107763, 108022], [107763, 107354], [107763, 107310]],
+      "common_name": {"english": "人"}
+    },
+    {
+      "id": "CON mangbo C18",
+      "lines": [[106711, 105102, 105942, 106551, 106711, 109102, 110351, 111022]],
+      "common_name": {"english": "车府"}
+    },
+    {
+      "id": "CON mangbo C19",
+      "lines": [[109410, 109937, 109754]],
+      "common_name": {"english": "内杵"}
+    },
+    {
+      "id": "CON mangbo C20",
+      "lines": [[109056, 109176, 109602, 110371]],
+      "common_name": {"english": "臼"}
+    },
+    {
+      "id": "CON mangbo C21",
+      "lines": [[112029, 112447]],
+      "common_name": {"english": "土公吏"}
+    },
+    {
+      "id": "CON mangbo C22",
+      "lines": [[110991, 109857], [110991, 109492], [110991, 109556], [110991, 109592]],
+      "common_name": {"english": "造父"}
+    },
+    {
+      "id": "CON mangbo C23",
+      "lines": [[813, 1465]],
+      "common_name": {"english": "土公"}
+    },
+    {
+      "id": "CON mangbo C24",
+      "lines": [[112935, 113445], [113186, 113445], [114144, 114520], [114144, 114389]],
+      "common_name": {"english": "雷电"}
+    },
+    {
+      "id": "CON mangbo C25",
+      "lines": [[3786, 4906, 5737, 7007, 7884, 8833, 9487]],
+      "common_name": {"english": "外屏"}
+    },
+    {
+      "id": "CON mangbo C26",
+      "lines": [[7097, 7535, 7740, 7447], [7097, 7447, 9110]],
+      "common_name": {"english": "右更"}
+    },
+    {
+      "id": "CON mangbo C27",
+      "lines": [[10155, 10328, 10732, 10306], [10155, 10306, 12332]],
+      "common_name": {"english": "左更"}
+    },
+    {
+      "id": "CON mangbo C28",
+      "lines": [[8796, 8796]],
+      "common_name": {"english": "军南门"}
+    },
+    {
+      "id": "CON mangbo C29",
+      "lines": [[2599, 2599]],
+      "common_name": {"english": "策"}
+    },
+    {
+      "id": "CON mangbo C30",
+      "lines": [[13879, 13879]],
+      "common_name": {"english": "积尸"}
+    },
+    {
+      "id": "CON mangbo C31",
+      "lines": [[19167, 19167]],
+      "common_name": {"english": "积水"}
+    },
+    {
+      "id": "CON mangbo C32",
+      "lines": [[17886, 17886]],
+      "common_name": {"english": "天谗"}
+    },
+    {
+      "id": "CON mangbo C33",
+      "lines": [[21881, 21881]],
+      "common_name": {"english": "天河"}
+    },
+    {
+      "id": "CON mangbo C34",
+      "lines": [[21589, 21273, 20732], [21273, 21036, 20901, 20804, 20522, 19860]],
+      "common_name": {"english": "天节"}
+    },
+    {
+      "id": "CON mangbo C35",
+      "lines": [[20711, 20635]],
+      "common_name": {"english": "天街"}
+    },
+    {
+      "id": "CON mangbo C36",
+      "lines": [[23497, 22565, 23835, 24822, 23497]],
+      "common_name": {"english": "天高"}
+    },
+    {
+      "id": "CON mangbo C37",
+      "lines": [[19009, 19513, 20250, 21689, 23088, 23900]],
+      "common_name": {"english": "诸王"}
+    },
+    {
+      "id": "CON mangbo C38",
+      "lines": [[22678, 22453, 21476, 20354]],
+      "common_name": {"english": "砺石"}
+    },
+    {
+      "id": "CON mangbo C39",
+      "lines": [[19038, 19038]],
+      "common_name": {"english": "月"}
+    },
+    {
+      "id": "CON mangbo C40",
+      "lines": [[24340, 24813, 25048]],
+      "common_name": {"english": "咸池"}
+    },
+    {
+      "id": "CON mangbo C41",
+      "lines": [[24575, 24504], [24575, 24727], [24575, 24879], [24575, 25292]],
+      "common_name": {"english": "天潢"}
+    },
+    {
+      "id": "CON mangbo C42",
+      "lines": [[29696, 30827, 31173, 31579, 31771, 31789, 31832, 32173, 32562]],
+      "common_name": {"english": "座旗"}
+    },
+    {
+      "id": "CON mangbo C43",
+      "lines": [[27830, 28237, 28734, 28716]],
+      "common_name": {"english": "司怪"}
+    },
+    {
+      "id": "CON mangbo C44",
+      "lines": [[29038, 29426, 29704, 29434, 29038]],
+      "common_name": {"english": "水府"}
+    },
+    {
+      "id": "CON mangbo C45",
+      "lines": [[33202, 31978, 31216, 30419]],
+      "common_name": {"english": "四渎"}
+    },
+    {
+      "id": "CON mangbo C46",
+      "lines": [[35550, 36238, 35699]],
+      "common_name": {"english": "天尊"}
+    },
+    {
+      "id": "CON mangbo C47",
+      "lines": [[39311, 34769]],
+      "common_name": {"english": "阙丘"}
+    },
+    {
+      "id": "CON mangbo C48",
+      "lines": [[47943, 47205, 47310]],
+      "common_name": {"english": "酒旗"}
+    },
+    {
+      "id": "CON mangbo C49",
+      "lines": [[43103, 43834, 44818, 44154, 43103]],
+      "common_name": {"english": "爟"}
+    },
+    {
+      "id": "CON mangbo C50",
+      "lines": [[54182, 53824, 53807]],
+      "common_name": {"english": "灵台"}
+    },
+    {
+      "id": "CON mangbo C51",
+      "lines": [[56647, 56127, 55084]],
+      "common_name": {"english": "明堂"}
+    },
+    {
+      "id": "CON mangbo C52",
+      "lines": [[57565, 57565]],
+      "common_name": {"english": "太子"}
+    },
+    {
+      "id": "CON mangbo C53",
+      "lines": [[56975, 56975]],
+      "common_name": {"english": "从官"}
+    },
+    {
+      "id": "CON mangbo C54",
+      "lines": [[58858, 58858]],
+      "common_name": {"english": "幸臣"}
+    },
+    {
+      "id": "CON mangbo C55",
+      "lines": [[53229, 51233], [53229, 51056], [53229, 52098]],
+      "common_name": {"english": "内平"}
+    },
+    {
+      "id": "CON mangbo C56",
+      "lines": [[59819, 61418, 62886]],
+      "common_name": {"english": "九卿内座"}
+    },
+    {
+      "id": "CON mangbo C57",
+      "lines": [[60202, 60957, 61394, 62523, 62763]],
+      "common_name": {"english": "内五诸侯"}
+    },
+    {
+      "id": "CON mangbo C58",
+      "lines": [[61968, 62267, 61960]],
+      "common_name": {"english": "三公内座"}
+    },
+    {
+      "id": "CON mangbo C59",
+      "lines": [[60172, 60172]],
+      "common_name": {"english": "谒者"}
+    },
+    {
+      "id": "CON mangbo D01",
+      "lines": [[64407, 65639]],
+      "common_name": {"english": "天门"}
+    },
+    {
+      "id": "CON mangbo D02",
+      "lines": [[74395, 74006, 73095]],
+      "common_name": {"english": "车骑"}
+    },
+    {
+      "id": "CON mangbo D03",
+      "lines": [[76552, 76552]],
+      "common_name": {"english": "骑阵将军"}
+    },
+    {
+      "id": "CON mangbo D04",
+      "lines": [[68940, 69269, 69658, 69792, 69929, 70518, 70469]],
+      "common_name": {"english": "折威"}
+    },
+    {
+      "id": "CON mangbo D05",
+      "lines": [[72571, 73714, 74857]],
+      "common_name": {"english": "阵车"}
+    },
+    {
+      "id": "CON mangbo D06",
+      "lines": [[77840, 77840]],
+      "common_name": {"english": "日"}
+    },
+    {
+      "id": "CON mangbo D07",
+      "lines": [[86565, 86019, 86284, 88404, 88684, 88175, 86565]],
+      "common_name": {"english": "市楼"}
+    },
+    {
+      "id": "CON mangbo D08",
+      "lines": [[89290, 89290]],
+      "common_name": {"english": "糠"}
+    },
+    {
+      "id": "CON mangbo D09",
+      "lines": [[91014, 91014]],
+      "common_name": {"english": "农丈人"}
+    },
+    {
+      "id": "CON mangbo D10",
+      "lines": [[93667, 93134]],
+      "common_name": {"english": "狗"}
+    },
+    {
+      "id": "CON mangbo D11",
+      "lines": [[101923, 102026, 101984]],
+      "common_name": {"english": "罗堰"}
+    },
+    {
+      "id": "CON mangbo D12",
+      "lines": [[98066, 98162, 98688, 100738, 101384, 101090, 100062, 98575, 98066], [98353, 98688], [98353, 100062]],
+      "common_name": {"english": "南天田"}
+    },
+    {
+      "id": "CON mangbo D13",
+      "lines": [[96950, 98258]],
+      "common_name": {"english": "天鸡"}
+    },
+    {
+      "id": "CON mangbo D14",
+      "lines": [[95077, 95477, 96465, 97290]],
+      "common_name": {"english": "狗国"}
+    },
+    {
+      "id": "CON mangbo D15",
+      "lines": [[106985, 107556]],
+      "common_name": {"english": "哭"}
+    },
+    {
+      "id": "CON mangbo D16",
+      "lines": [[110273, 110003]],
+      "common_name": {"english": "泣"}
+    },
+    {
+      "id": "CON mangbo D17",
+      "lines": [[108874, 108991]],
+      "common_name": {"english": "盖屋"}
+    },
+    {
+      "id": "CON mangbo D18",
+      "lines": [[113889, 115227, 115830, 116771, 118268]],
+      "common_name": {"english": "霹雳"}
+    },
+    {
+      "id": "CON mangbo D19",
+      "lines": [[114971, 115738, 116928, 117245]],
+      "common_name": {"english": "云雨"}
+    },
+    {
+      "id": "CON mangbo D20",
+      "lines": [[117797, 117452, 116820, 117931, 950, 1288, 1708, 930, 117797], [117452, 183, 1288], [930, 183, 117931]],
+      "common_name": {"english": "八魁"}
+    },
+    {
+      "id": "CON mangbo D21",
+      "lines": [[2210, 2661, 4577, 4852, 6502]],
+      "common_name": {"english": "𫓧锧"}
+    },
+    {
+      "id": "CON mangbo D22",
+      "lines": [[4147, 2762, 3193, 4914, 5951, 6061, 5346, 4147]],
+      "common_name": {"english": "天溷"}
+    },
+    {
+      "id": "CON mangbo D23",
+      "lines": [[11029, 12444, 11345, 12390, 11783, 12562]],
+      "common_name": {"english": "刍藁"}
+    },
+    {
+      "id": "CON mangbo D24",
+      "lines": [[9440, 9677, 10320]],
+      "common_name": {"english": "天庾"}
+    },
+    {
+      "id": "CON mangbo D25",
+      "lines": [[21248, 21393, 20535, 20042, 17874, 17797, 17351, 16870, 16285, 15510, 13847, 12486, 12413]],
+      "common_name": {"english": "天园"}
+    },
+    {
+      "id": "CON mangbo D26",
+      "lines": [[21139, 22109, 22701, 22024, 21644, 21594, 21763, 22086, 21743]],
+      "common_name": {"english": "九游"}
+    },
+    {
+      "id": "CON mangbo D27",
+      "lines": [[19587, 19849, 19511, 19777, 21297, 21296, 21278, 21444, 20507, 19587]],
+      "common_name": {"english": "九州殊口"}
+    },
+    {
+      "id": "CON mangbo D28",
+      "lines": [[24244, 24327, 24845, 24873]],
+      "common_name": {"english": "军井"}
+    },
+    {
+      "id": "CON mangbo D29",
+      "lines": [[25859, 26634]],
+      "common_name": {"english": "丈人"}
+    },
+    {
+      "id": "CON mangbo D30",
+      "lines": [[27628, 28199]],
+      "common_name": {"english": "子"}
+    },
+    {
+      "id": "CON mangbo D31",
+      "lines": [[29807, 30277]],
+      "common_name": {"english": "孙"}
+    },
+    {
+      "id": "CON mangbo D32",
+      "lines": [[31685, 34922, 32768], [34922, 36377], [39429, 36377, 39953]],
+      "common_name": {"english": "天社"}
+    },
+    {
+      "id": "CON mangbo D33",
+      "lines": [[37447, 38048], [38253, 38048, 37891, 36773, 35951, 35727]],
+      "common_name": {"english": "天狗"}
+    },
+    {
+      "id": "CON mangbo D34",
+      "lines": [[42835, 43305, 43142, 42028, 41307, 42146]],
+      "common_name": {"english": "外厨"}
+    },
+    {
+      "id": "CON mangbo D35",
+      "lines": [[43067, 43067]],
+      "common_name": {"english": "天记"}
+    },
+    {
+      "id": "CON mangbo D36",
+      "lines": [[46026, 46657, 46515, 45448, 45001, 44824, 45902, 47187, 48559, 48748, 48926, 47224, 47199, 46810, 46026]],
+      "common_name": {"english": "天庙"}
+    },
+    {
+      "id": "CON mangbo D37",
+      "lines": [[52727, 53773, 50191, 48374, 46651]],
+      "common_name": {"english": "东瓯"}
+    },
+    {
+      "id": "CON mangbo D39",
+      "lines": [[61720, 62131, 62500, 64803, 63490, 62683, 62360, 61720]],
+      "common_name": {"english": "青丘"}
+    },
+    {
+      "id": "CON mangbo E01",
+      "lines": [[72573, 37391, 47193, 59504]],
+      "common_name": {"english": "四辅"}
+    },
+    {
+      "id": "CON mangbo E02",
+      "lines": [[5372, 5372]],
+      "common_name": {"english": "天皇大帝"}
+    },
+    {
+      "id": "CON mangbo E03",
+      "lines": [[78893, 80650, 85805, 82860, 81660]],
+      "common_name": {"english": "天柱"}
+    },
+    {
+      "id": "CON mangbo E04",
+      "lines": [[89937, 89937]],
+      "common_name": {"english": "女史"}
+    },
+    {
+      "id": "CON mangbo E05",
+      "lines": [[86614, 86614]],
+      "common_name": {"english": "柱下史"}
+    },
+    {
+      "id": "CON mangbo E06",
+      "lines": [[77277, 75974], [77277, 75260], [77277, 75256], [77277, 75696]],
+      "common_name": {"english": "尚书"}
+    },
+    {
+      "id": "CON mangbo E07",
+      "lines": [[74605, 73199]],
+      "common_name": {"english": "阴德"}
+    },
+    {
+      "id": "CON mangbo E08",
+      "lines": [[62423, 63076, 63432, 66798, 67627, 67485]],
+      "common_name": {"english": "天床"}
+    },
+    {
+      "id": "CON mangbo E09",
+      "lines": [[56583, 57111]],
+      "common_name": {"english": "内厨"}
+    },
+    {
+      "id": "CON mangbo E10",
+      "lines": [[99255, 94083], [99255, 101260], [99255, 104105], [99255, 95167]],
+      "common_name": {"english": "五帝内座"}
+    },
+    {
+      "id": "CON mangbo E11",
+      "lines": [[108535, 106032], [108535, 107119], [108535, 109400], [108535, 111532], [108535, 114222], [108535, 116727]],
+      "common_name": {"english": "华盖"}
+    },
+    {
+      "id": "CON mangbo E12",
+      "lines": [[5928, 115746, 109693, 112833, 113116, 112519, 111056, 111242, 111660, 108535]],
+      "common_name": {"english": "杠(附华盖)"}
+    },
+    {
+      "id": "CON mangbo E13",
+      "lines": [[100965, 101082, 102599, 105727, 104756, 102208, 100965]],
+      "common_name": {"english": "六甲"}
+    },
+    {
+      "id": "CON mangbo E14",
+      "lines": [[102422, 105199, 108917, 112724, 113864, 115088, 9598, 12273, 17959]],
+      "common_name": {"english": "传舍"}
+    },
+    {
+      "id": "CON mangbo E15",
+      "lines": [[92782, 94648, 94376, 97433, 95081, 98702]],
+      "common_name": {"english": "天厨"}
+    },
+    {
+      "id": "CON mangbo E16",
+      "lines": [[91755, 92512, 90905], [90156, 92512, 91315, 90344], [89348, 91315]],
+      "common_name": {"english": "扶筐"}
+    },
+    {
+      "id": "CON mangbo E17",
+      "lines": [[66234, 64906, 65550, 66234]],
+      "common_name": {"english": "三公"}
+    },
+    {
+      "id": "CON mangbo E18",
+      "lines": [[56083, 57477, 58181, 56944, 56083]],
+      "common_name": {"english": "天理"}
+    },
+    {
+      "id": "CON mangbo E19",
+      "lines": [[52469, 53781, 55086, 53706, 52469]],
+      "common_name": {"english": "势"}
+    },
+    {
+      "id": "CON mangbo E20",
+      "lines": [[42080, 42527, 44390, 45038, 46977, 47594]],
+      "common_name": {"english": "内阶"}
+    },
+    {
+      "id": "CON mangbo E21",
+      "lines": [[37609, 33449, 30060, 29997, 22783, 23522, 23040, 28358, 30060, 23522]],
+      "common_name": {"english": "八谷"}
+    },
+    {
+      "id": "CON mangbo F01",
+      "lines": [[80463, 79488]],
+      "common_name": {"english": "列肆"}
+    },
+    {
+      "id": "CON mangbo F02",
+      "lines": [[88267, 88886]],
+      "common_name": {"english": "屠肆"}
+    },
+    {
+      "id": "CON mangbo F03",
+      "lines": [[88331, 88899]],
+      "common_name": {"english": "帛度"}
+    },
+    {
+      "id": "CON mangbo F04",
+      "lines": [[94779, 95853, 96441], [95853, 96014]],
+      "common_name": {"english": "奚仲"}
+    },
+    {
+      "id": "CON mangbo F05",
+      "lines": [[841, 2225, 2900, 3414, 3504, 3300, 2497, 1921, 1415, 967, 841]],
+      "common_name": {"english": "天厩"}
+    },
+    {
+      "id": "CON mangbo F06",
+      "lines": [[15737, 14838], [15737, 15110], [15737, 15627], [15737, 15870]],
+      "common_name": {"english": "天阴"}
+    },
+    {
+      "id": "CON mangbo F07",
+      "lines": [[48113, 48113]],
+      "common_name": {"english": "太尊"}
+    },
+    {
+      "id": "CON mangbo F08",
+      "lines": [[54951, 54951]],
+      "common_name": {"english": "虎贲"}
+    },
+    {
+      "id": "CON mangbo F09",
+      "lines": [[52911, 52689, 52686, 52457]],
+      "common_name": {"english": "长垣"}
+    },
+    {
+      "id": "CON mangbo F10",
+      "lines": [[79822, 80480, 88136, 87234, 79822]],
+      "common_name": {"english": "女御"}
+    },
+    {
+      "id": "CON mangbo F11",
+      "lines": [[69373, 67589]],
+      "common_name": {"english": "大理"}
+    },
+    {
+      "id": "CON mangbo F12",
+      "lines": [[50933, 52353, 51448]],
+      "common_name": {"english": "三师"}
+    },
+    {
+      "id": "CON mangbo F13",
+      "lines": [[104194, 102724, 103089, 104060, 106481, 107533, 107136, 107259, 107418]],
+      "common_name": {"english": "钩"}
+    },
+    {
+      "id": "CON mangbo G01",
+      "lines": [[70090, 70300]],
+      "common_name": {"english": "阳门"}
+    },
+    {
+      "id": "CON mangbo G02",
+      "lines": [[70306, 70753]],
+      "common_name": {"english": "顿顽"}
+    },
+    {
+      "id": "CON mangbo G03",
+      "lines": [[79374, 79374]],
+      "common_name": {"english": "键闭"}
+    },
+    {
+      "id": "CON mangbo G04",
+      "lines": [[80343, 80569, 80894]],
+      "common_name": {"english": "罚"}
+    },
+    {
+      "id": "CON mangbo G05",
+      "lines": [[76470, 76600]],
+      "common_name": {"english": "天福"}
+    },
+    {
+      "id": "CON mangbo G06",
+      "lines": [[84880, 85365]],
+      "common_name": {"english": "车肆"}
+    },
+    {
+      "id": "CON mangbo G07",
+      "lines": [[77634, 78105]],
+      "common_name": {"english": "从官"}
+    },
+    {
+      "id": "CON mangbo G08",
+      "lines": [[88116, 87706, 87836, 88012, 88839, 89678, 89980, 89153, 88116]],
+      "common_name": {"english": "天籥"}
+    },
+    {
+      "id": "CON mangbo G09",
+      "lines": [[100541, 98823, 97938, 97675]],
+      "common_name": {"english": "天桴"}
+    },
+    {
+      "id": "CON mangbo G10",
+      "lines": [[103226, 103226], [102487, 102487], [102485, 102978], [102831, 102831], [104019, 104139], [103389, 103389], [104148, 104148], [104963, 105515], [104234, 104234], [104750, 104750], [103738, 103738], [104174, 105140]],
+      "common_name": {"english": "十二国"}
+    },
+    {
+      "id": "CON mangbo G11",
+      "lines": [[95347, 95241, 95294, 96341, 96178, 95823, 95347], [95241, 94157], [95294, 94712], [96178, 97598], [95823, 96234]],
+      "common_name": {"english": "天渊"}
+    },
+    {
+      "id": "CON mangbo G12",
+      "lines": [[106723, 107188, 107901, 108784, 109332, 109786, 110018, 109737, 109667, 108661, 106654, 106590, 106559, 106723]],
+      "common_name": {"english": "天垒城"}
+    },
+    {
+      "id": "CON mangbo G13",
+      "lines": [[105881, 106039, 105665]],
+      "common_name": {"english": "离瑜"}
+    },
+    {
+      "id": "CON mangbo G14",
+      "lines": [[111188, 111600, 111934, 112102, 111954, 111515, 110746, 110529, 109990, 109789, 111188]],
+      "common_name": {"english": "天钱"}
+    },
+    {
+      "id": "CON mangbo G15",
+      "lines": [[111710, 111170, 110532, 110023]],
+      "common_name": {"english": "虚梁"}
+    },
+    {
+      "id": "CON mangbo G16",
+      "lines": [[112948, 112948]],
+      "common_name": {"english": "天纲"}
+    },
+    {
+      "id": "CON mangbo G17",
+      "lines": [[115102, 114366, 113562]],
+      "common_name": {"english": "𫓧钺"}
+    },
+    {
+      "id": "CON mangbo G18",
+      "lines": [[48437, 46982, 48341]],
+      "common_name": {"english": "天相"}
+    },
+    {
+      "id": "CON mangbo G19",
+      "lines": [[60425, 61621]],
+      "common_name": {"english": "军门"}
+    },
+    {
+      "id": "CON mangbo G20",
+      "lines": [[60735, 60449, 61789, 62896]],
+      "common_name": {"english": "土司空"}
+    },
+    {
+      "id": "CON mangbo H01",
+      "lines": [[78820, 78933]],
+      "common_name": {"english": ""}
+    },
+    {
+      "id": "CON mangbo H02",
+      "lines": [[82514, 82545]],
+      "common_name": {"english": ""}
+    },
+    {
+      "id": "CON mangbo H03",
+      "lines": [[109427, 110672]],
+      "common_name": {"english": ""}
+    },
+    {
+      "id": "CON mangbo H04",
+      "lines": [[113881, 112748], [113881, 112158], [113881, 115250]],
+      "common_name": {"english": ""}
+    },
+    {
+      "id": "CON mangbo H05",
+      "lines": [[21421, 21683]],
+      "common_name": {"english": ""}
+    },
+    {
+      "id": "CON mangbo H06",
+      "lines": [[26311, 26237]],
+      "common_name": {"english": ""}
+    },
+    {
+      "id": "CON mangbo H07",
+      "lines": [[30343, 29655]],
+      "common_name": {"english": ""}
+    },
+    {
+      "id": "CON mangbo H08",
+      "lines": [[60965, 61174], [59316, 59199], [59316, 60189]],
+      "common_name": {"english": ""}
+    },
+    {
+      "id": "CON mangbo H09",
+      "lines": [[65378, 65477]],
+      "common_name": {"english": ""}
+    },
+    {
+      "id": "CON mangbo H10",
+      "lines": [[12394, 11001], [3781, 2021]],
+      "common_name": {"english": ""}
+    },
+    {
+      "id": "CON mangbo I01",
+      "lines": [[51232, "5350358584482202880", 54463, 56656, 56561, 57363]],
+      "common_name": {"english": "海山", "native": "Hai Shan"}
+    },
+    {
+      "id": "CON mangbo I02",
+      "lines": [[60710, 59449, 59196]],
+      "common_name": {"english": "Horse's Tail", "native": "马尾", "pronounce": "Ma Wei"}
+    },
+    {
+      "id": "CON mangbo I03",
+      "lines": [[62322, 61585], [62322, 61199], [62322, 63613]],
+      "common_name": {"english": "Bee", "native": "蜜蜂", "pronounce": "Mi Feng"}
+    },
+    {
+      "id": "CON mangbo I04",
+      "lines": [[74946, 77952, 82273, 74946]],
+      "common_name": {"english": "Triangle", "native": "三角形", "pronounce": "San Jiao Xing"}
+    },
+    {
+      "id": "CON mangbo I05",
+      "lines": [[84969, 84979, 81852, 81065, 73771, 70638], [81852, 80047, 72370, 70248, 69896], [81852, 76996, 74296]],
+      "common_name": {"english": "Exotic Bird", "native": "异雀", "pronounce": "Yi Que"}
+    },
+    {
+      "id": "CON mangbo I06",
+      "lines": [[86929, 88866, 90797, 92609, 93015, 99240, 102395], [86929, 91792, 98495, 105858, 100751]],
+      "common_name": {"english": "Peafowl", "native": "孔雀", "pronounce": "Kong Que"}
+    },
+    {
+      "id": "CON mangbo I07",
+      "lines": [[99120, 101772, 103673, 105319, 106419, 108431, 108870, 104085, 102333, 102950, 103260]],
+      "common_name": {"english": "Persia", "native": "波斯", "pronounce": "Bo Si"}
+    },
+    {
+      "id": "CON mangbo I08",
+      "lines": [[2021, 110078, 107089, 104043, 112405, 1074, 115836]],
+      "common_name": {"english": "Snake's Tail", "native": "蛇尾", "pronounce": "She Wei"}
+    },
+    {
+      "id": "CON mangbo I09",
+      "lines": [[11001, 8928, 5896, 3781]],
+      "common_name": {"english": "Snake's Abdomen", "native": "蛇腹", "pronounce": "She Fu"}
+    },
+    {
+      "id": "CON mangbo I10",
+      "lines": [[9236, 13141, 13884, 12394]],
+      "common_name": {"english": "Snake's Head", "native": "蛇首", "pronounce": "She Shou"}
+    },
+    {
+      "id": "CON mangbo I11",
+      "lines": [[110130, 110838, 118092, 2484, 3330, 1599, 118322]],
+      "common_name": {"english": "Bird's Beak", "native": "鸟喙", "pronounce": "Niao Hui"}
+    },
+    {
+      "id": "CON mangbo I12",
+      "lines": [[109268, 112122, 112623, 112374, 114996, 113638, 112122, 114421], [112122, 114131], [112122, 112203, 110936], [112122, 111043, 109908]],
+      "common_name": {"english": "Crane", "native": "鹤", "pronounce": "He"}
+    },
+    {
+      "id": "CON mangbo I13",
+      "lines": [[116231, 116389, 116602, 765, 2072, 2081, 3245, 2472, 5165, 6867]],
+      "common_name": {"english": "Firebird", "native": "火鸟", "pronounce": "Huo Niao"}
+    },
+    {
+      "id": "CON mangbo I14",
+      "lines": [[7588, 5348, 3405]],
+      "common_name": {"english": "Crooked Running Water", "native": "水委", "pronounce": "Shui Wei"}
+    },
+    {
+      "id": "CON mangbo I15",
+      "lines": [[17678, 13244]],
+      "common_name": {"english": "White Patched Nearby", "native": "附白", "pronounce": "Fu Bai"}
+    },
+    {
+      "id": "CON mangbo I16",
+      "lines": [[24372, 19780]],
+      "common_name": {"english": "White Patches Attached", "native": "夹白", "pronounce": "Jia Bai"}
+    },
+    {
+      "id": "CON mangbo I17",
+      "lines": [[19893, 21281, 26069, 27100, 29134]],
+      "common_name": {"english": "Goldfish", "native": "金鱼", "pronounce": "Jin Yu"}
+    },
+    {
+      "id": "CON mangbo I18",
+      "lines": [[41037, 43783, 47391, 47854, 48002]],
+      "common_name": {"english": "海石", "native": "Hai Shi"}
+    },
+    {
+      "id": "CON mangbo I19",
+      "lines": [[44382, 39794, 34481], [44382, 41312], [44382, 40817], [39794, 35228], [39794, 37504]],
+      "common_name": {"english": "Flying Fish", "native": "飞鱼", "pronounce": "Fei Yu"}
+    },
+    {
+      "id": "CON mangbo I20",
+      "lines": [[50371, 51576, 52419, 50099, 45238]],
+      "common_name": {"english": "Southern Boat", "native": "南船", "pronounce": "Nan Chuan"}
+    },
+    {
+      "id": "CON mangbo I21",
+      "lines": [[60000, 58484, 51839, 52633, 46928, 46107, 43012, 40888, 40702]],
+      "common_name": {"english": "Little Dipper", "native": "小斗", "pronounce": "Xiao Dou"}
+    },
+    {
+      "id": "CON mangbo I22",
+      "lines": [[83153, 85258, 85267, 85727, 82363, 83081, 83153]],
+      "common_name": {"english": "天坛", "native": "Tian Tan"}
+    },
+
+    {
+      "id": "CON mangbo Aql",
+      "lines": [],
+      "common_name": {"english": "Aquila", "native": "Aquila"}
+    },
+    {
+      "id": "CON mangbo And",
+      "lines": [],
+      "common_name": {"english": "Andromeda", "native": "Andromeda"}
+    },
+    {
+      "id": "CON mangbo Scl",
+      "lines": [],
+      "common_name": {"english": "Sculptor", "native": "Sculptor"}
+    },
+    {
+      "id": "CON mangbo Ara",
+      "lines": [],
+      "common_name": {"english": "Ara", "native": "Ara"}
+    },
+    {
+      "id": "CON mangbo Lib",
+      "lines": [],
+      "common_name": {"english": "Libra", "native": "Libra"}
+    },
+    {
+      "id": "CON mangbo Cet",
+      "lines": [],
+      "common_name": {"english": "Cetus", "native": "Cetus"}
+    },
+    {
+      "id": "CON mangbo Ari",
+      "lines": [],
+      "common_name": {"english": "Aries", "native": "Aries"}
+    },
+    {
+      "id": "CON mangbo Sct",
+      "lines": [],
+      "common_name": {"english": "Scutum", "native": "Scutum"}
+    },
+    {
+      "id": "CON mangbo Pyx",
+      "lines": [],
+      "common_name": {"english": "Pyxis", "native": "Pyxis"}
+    },
+    {
+      "id": "CON mangbo Boo",
+      "lines": [],
+      "common_name": {"english": "Bootes", "native": "Bootes"}
+    },
+    {
+      "id": "CON mangbo Cae",
+      "lines": [],
+      "common_name": {"english": "Caelum", "native": "Caelum"}
+    },
+    {
+      "id": "CON mangbo Cha",
+      "lines": [],
+      "common_name": {"english": "Chamaeleon", "native": "Chamaeleon"}
+    },
+    {
+      "id": "CON mangbo Cnc",
+      "lines": [],
+      "common_name": {"english": "Cancer", "native": "Cancer"}
+    },
+    {
+      "id": "CON mangbo Cap",
+      "lines": [],
+      "common_name": {"english": "Capricornus", "native": "Capricornus"}
+    },
+    {
+      "id": "CON mangbo Car",
+      "lines": [],
+      "common_name": {"english": "Carina", "native": "Carina"}
+    },
+    {
+      "id": "CON mangbo Cas",
+      "lines": [],
+      "common_name": {"english": "Cassiopeia", "native": "Cassiopeia"}
+    },
+    {
+      "id": "CON mangbo Cen",
+      "lines": [],
+      "common_name": {"english": "Centaurus", "native": "Centaurus"}
+    },
+    {
+      "id": "CON mangbo Cep",
+      "lines": [],
+      "common_name": {"english": "Cepheus", "native": "Cepheus"}
+    },
+    {
+      "id": "CON mangbo Com",
+      "lines": [],
+      "common_name": {"english": "Coma Berenices", "native": "Coma Berenices"}
+    },
+    {
+      "id": "CON mangbo CVn",
+      "lines": [],
+      "common_name": {"english": "Canes Venatici", "native": "Canes Venatici"}
+    },
+    {
+      "id": "CON mangbo Aur",
+      "lines": [],
+      "common_name": {"english": "Auriga", "native": "Auriga"}
+    },
+    {
+      "id": "CON mangbo Col",
+      "lines": [],
+      "common_name": {"english": "Columba", "native": "Columba"}
+    },
+    {
+      "id": "CON mangbo Cir",
+      "lines": [],
+      "common_name": {"english": "Circinus", "native": "Circinus"}
+    },
+    {
+      "id": "CON mangbo Crt",
+      "lines": [],
+      "common_name": {"english": "Crater", "native": "Crater"}
+    },
+    {
+      "id": "CON mangbo CrA",
+      "lines": [],
+      "common_name": {"english": "Corona Australis", "native": "Corona Australis"}
+    },
+    {
+      "id": "CON mangbo CrB",
+      "lines": [],
+      "common_name": {"english": "Corona Borealis", "native": "Corona Borealis"}
+    },
+    {
+      "id": "CON mangbo Crv",
+      "lines": [],
+      "common_name": {"english": "Corvus", "native": "Corvus"}
+    },
+    {
+      "id": "CON mangbo Cru",
+      "lines": [],
+      "common_name": {"english": "Crux", "native": "Crux"}
+    },
+    {
+      "id": "CON mangbo Cyg",
+      "lines": [],
+      "common_name": {"english": "Cygnus", "native": "Cygnus"}
+    },
+    {
+      "id": "CON mangbo Del",
+      "lines": [],
+      "common_name": {"english": "Delphinus", "native": "Delphinus"}
+    },
+    {
+      "id": "CON mangbo Dor",
+      "lines": [],
+      "common_name": {"english": "Dorado", "native": "Dorado"}
+    },
+    {
+      "id": "CON mangbo Dra",
+      "lines": [],
+      "common_name": {"english": "Draco", "native": "Draco"}
+    },
+    {
+      "id": "CON mangbo Nor",
+      "lines": [],
+      "common_name": {"english": "Norma", "native": "Norma"}
+    },
+    {
+      "id": "CON mangbo Eri",
+      "lines": [],
+      "common_name": {"english": "Eridanus", "native": "Eridanus"}
+    },
+    {
+      "id": "CON mangbo Sge",
+      "lines": [],
+      "common_name": {"english": "Sagitta", "native": "Sagitta"}
+    },
+    {
+      "id": "CON mangbo For",
+      "lines": [],
+      "common_name": {"english": "Fornax", "native": "Fornax"}
+    },
+    {
+      "id": "CON mangbo Gem",
+      "lines": [],
+      "common_name": {"english": "Gemini", "native": "Gemini"}
+    },
+    {
+      "id": "CON mangbo Cam",
+      "lines": [],
+      "common_name": {"english": "Camelopardalis", "native": "Camelopardalis"}
+    },
+    {
+      "id": "CON mangbo CMa",
+      "lines": [],
+      "common_name": {"english": "Canis Major", "native": "Canis Major"}
+    },
+    {
+      "id": "CON mangbo UMa",
+      "lines": [],
+      "common_name": {"english": "Ursa Major", "native": "Ursa Major"}
+    },
+    {
+      "id": "CON mangbo Gru",
+      "lines": [],
+      "common_name": {"english": "Grus", "native": "Grus"}
+    },
+    {
+      "id": "CON mangbo Her",
+      "lines": [],
+      "common_name": {"english": "Hercules", "native": "Hercules"}
+    },
+    {
+      "id": "CON mangbo Hor",
+      "lines": [],
+      "common_name": {"english": "Horologium", "native": "Horologium"}
+    },
+    {
+      "id": "CON mangbo Hya",
+      "lines": [],
+      "common_name": {"english": "Hydra", "native": "Hydra"}
+    },
+    {
+      "id": "CON mangbo Hyi",
+      "lines": [],
+      "common_name": {"english": "Hydrus", "native": "Hydrus"}
+    },
+    {
+      "id": "CON mangbo Ind",
+      "lines": [],
+      "common_name": {"english": "Indus", "native": "Indus"}
+    },
+    {
+      "id": "CON mangbo Lac",
+      "lines": [],
+      "common_name": {"english": "Lacerta", "native": "Lacerta"}
+    },
+    {
+      "id": "CON mangbo Mon",
+      "lines": [],
+      "common_name": {"english": "Monoceros", "native": "Monoceros"}
+    },
+    {
+      "id": "CON mangbo Lep",
+      "lines": [],
+      "common_name": {"english": "Lepus", "native": "Lepus"}
+    },
+    {
+      "id": "CON mangbo Leo",
+      "lines": [],
+      "common_name": {"english": "Leo", "native": "Leo"}
+    },
+    {
+      "id": "CON mangbo Lup",
+      "lines": [],
+      "common_name": {"english": "Lupus", "native": "Lupus"}
+    },
+    {
+      "id": "CON mangbo Lyn",
+      "lines": [],
+      "common_name": {"english": "Lynx", "native": "Lynx"}
+    },
+    {
+      "id": "CON mangbo Lyr",
+      "lines": [],
+      "common_name": {"english": "Lyra", "native": "Lyra"}
+    },
+    {
+      "id": "CON mangbo Ant",
+      "lines": [],
+      "common_name": {"english": "Antlia", "native": "Antlia"}
+    },
+    {
+      "id": "CON mangbo Mic",
+      "lines": [],
+      "common_name": {"english": "Microscopium", "native": "Microscopium"}
+    },
+    {
+      "id": "CON mangbo Mus",
+      "lines": [],
+      "common_name": {"english": "Musca", "native": "Musca"}
+    },
+    {
+      "id": "CON mangbo Oct",
+      "lines": [],
+      "common_name": {"english": "Octans", "native": "Octans"}
+    },
+    {
+      "id": "CON mangbo Aps",
+      "lines": [],
+      "common_name": {"english": "Apus", "native": "Apus"}
+    },
+    {
+      "id": "CON mangbo Oph",
+      "lines": [],
+      "common_name": {"english": "Ophiuchus", "native": "Ophiuchus"}
+    },
+    {
+      "id": "CON mangbo Ori",
+      "lines": [],
+      "common_name": {"english": "Orion", "native": "Orion"}
+    },
+    {
+      "id": "CON mangbo Pav",
+      "lines": [],
+      "common_name": {"english": "Pavo", "native": "Pavo"}
+    },
+    {
+      "id": "CON mangbo Peg",
+      "lines": [],
+      "common_name": {"english": "Pegasus", "native": "Pegasus"}
+    },
+    {
+      "id": "CON mangbo Pic",
+      "lines": [],
+      "common_name": {"english": "Pictor", "native": "Pictor"}
+    },
+    {
+      "id": "CON mangbo Per",
+      "lines": [],
+      "common_name": {"english": "Perseus", "native": "Perseus"}
+    },
+    {
+      "id": "CON mangbo Equ",
+      "lines": [],
+      "common_name": {"english": "Equuleus", "native": "Equuleus"}
+    },
+    {
+      "id": "CON mangbo CMi",
+      "lines": [],
+      "common_name": {"english": "Canis Minor", "native": "Canis Minor"}
+    },
+    {
+      "id": "CON mangbo LMi",
+      "lines": [],
+      "common_name": {"english": "Leo Minor", "native": "Leo Minor"}
+    },
+    {
+      "id": "CON mangbo Vul",
+      "lines": [],
+      "common_name": {"english": "Vulpecula", "native": "Vulpecula"}
+    },
+    {
+      "id": "CON mangbo UMi",
+      "lines": [],
+      "common_name": {"english": "Ursa Minor", "native": "Ursa Minor"}
+    },
+    {
+      "id": "CON mangbo Phe",
+      "lines": [],
+      "common_name": {"english": "Phoenix", "native": "Phoenix"}
+    },
+    {
+      "id": "CON mangbo Psc",
+      "lines": [],
+      "common_name": {"english": "Pisces", "native": "Pisces"}
+    },
+    {
+      "id": "CON mangbo PsA",
+      "lines": [],
+      "common_name": {"english": "Piscis Austrinus", "native": "Piscis Austrinus"}
+    },
+    {
+      "id": "CON mangbo Vol",
+      "lines": [],
+      "common_name": {"english": "Volans", "native": "Volans"}
+    },
+    {
+      "id": "CON mangbo Pup",
+      "lines": [],
+      "common_name": {"english": "Puppis", "native": "Puppis"}
+    },
+    {
+      "id": "CON mangbo Ret",
+      "lines": [],
+      "common_name": {"english": "Reticulum", "native": "Reticulum"}
+    },
+    {
+      "id": "CON mangbo Sgr",
+      "lines": [],
+      "common_name": {"english": "Sagittarius", "native": "Sagittarius"}
+    },
+    {
+      "id": "CON mangbo Sco",
+      "lines": [],
+      "common_name": {"english": "Scorpius", "native": "Scorpius"}
+    },
+    {
+      "id": "CON mangbo Ser",
+      "lines": [],
+      "common_name": {"english": "Serpens", "native": "Serpens"}
+    },
+    {
+      "id": "CON mangbo Sex",
+      "lines": [],
+      "common_name": {"english": "Sextans", "native": "Sextans"}
+    },
+    {
+      "id": "CON mangbo Men",
+      "lines": [],
+      "common_name": {"english": "Mensa", "native": "Mensa"}
+    },
+    {
+      "id": "CON mangbo Tau",
+      "lines": [],
+      "common_name": {"english": "Taurus", "native": "Taurus"}
+    },
+    {
+      "id": "CON mangbo Tel",
+      "lines": [],
+      "common_name": {"english": "Telescopium", "native": "Telescopium"}
+    },
+    {
+      "id": "CON mangbo Tuc",
+      "lines": [],
+      "common_name": {"english": "Tucana", "native": "Tucana"}
+    },
+    {
+      "id": "CON mangbo Tri",
+      "lines": [],
+      "common_name": {"english": "Triangulum", "native": "Triangulum"}
+    },
+    {
+      "id": "CON mangbo TrA",
+      "lines": [],
+      "common_name": {"english": "Triangulum Australe", "native": "Triangulum Australe"}
+    },
+    {
+      "id": "CON mangbo Aqr",
+      "lines": [],
+      "common_name": {"english": "Aquarius", "native": "Aquarius"}
+    },
+    {
+      "id": "CON mangbo Vir",
+      "lines": [],
+      "common_name": {"english": "Virgo", "native": "Virgo"}
+    },
+    {
+      "id": "CON mangbo Vel",
+      "lines": [],
+      "common_name": {"english": "Vela", "native": "Vela"}
+    }
+  ],
+  "edges_type": "own",
+  "edges": [
+    "___:___ __ 0:0:0 +90:0:0 13:25:17 -11:08:41 028 001",
+    "___:___ __ 13:25:17 -11:08:41 0:0:0 -90:0:0 028 001",
+    "___:___ __ 0:0:0 +90:0:0 14:12:53 -10:20:51 001 002",
+    "___:___ __ 14:12:53 -10:20:51 0:0:0 -90:0:0 001 002",
+    "___:___ __ 0:0:0 +90:0:0 14:51:06 -16:00:35 002 003",
+    "___:___ __ 14:51:06 -16:00:35 0:0:0 -90:0:0 002 003",
+    "___:___ __ 0:0:0 +90:0:0 15:58:53 -26:06:06 003 004",
+    "___:___ __ 15:58:53 -26:06:06 0:0:0 -90:0:0 003 004",
+    "___:___ __ 0:0:0 +90:0:0 16:21:14 -25:35:04 004 005",
+    "___:___ __ 16:21:14 -25:35:04 0:0:0 -90:0:0 004 005",
+    "___:___ __ 0:0:0 +90:0:0 16:51:54 -38:02:13 005 006",
+    "___:___ __ 16:51:54 -38:02:13 0:0:0 -90:0:0 005 006",
+    "___:___ __ 0:0:0 +90:0:0 18:06:03 -30:19:22 006 007",
+    "___:___ __ 18:06:03 -30:19:22 0:0:0 -90:0:0 006 007",
+    "___:___ __ 0:0:0 +90:0:0 18:45:34 -26:59:27 007 008",
+    "___:___ __ 18:45:34 -26:59:27 0:0:0 -90:0:0 007 008",
+    "___:___ __ 0:0:0 +90:0:0 20:20:57 -14:46:47 008 009",
+    "___:___ __ 20:20:57 -14:46:47 0:0:0 -90:0:0 008 009",
+    "___:___ __ 0:0:0 +90:0:0 20:47:37 -09:28:42 009 010",
+    "___:___ __ 20:47:37 -09:28:42 0:0:0 -90:0:0 009 010",
+    "___:___ __ 0:0:0 +90:0:0 21:31:32 -05:34:01 010 011",
+    "___:___ __ 21:31:32 -05:34:01 0:0:0 -90:0:0 010 011",
+    "___:___ __ 0:0:0 +90:0:0 22:05:45 -00:18:47 011 012",
+    "___:___ __ 22:05:45 -00:18:47 0:0:0 -90:0:0 011 012",
+    "___:___ __ 0:0:0 +90:0:0 23:04:38 +15:13:16 012 013",
+    "___:___ __ 23:04:38 +15:13:16 0:0:0 -90:0:0 012 013",
+    "___:___ __ 0:0:0 +90:0:0 00:13:14 +15:11:12 013 014",
+    "___:___ __ 00:13:14 +15:11:12 0:0:0 -90:0:0 013 014",
+    "___:___ __ 0:0:0 +90:0:0 00:47:34 +24:18:01 014 015",
+    "___:___ __ 00:47:34 +24:18:01 0:0:0 -90:0:0 014 015",
+    "___:___ __ 0:0:0 +90:0:0 01:54:24 +20:51:07 015 016",
+    "___:___ __ 01:54:24 +20:51:07 0:0:0 -90:0:0 015 016",
+    "___:___ __ 0:0:0 +90:0:0 02:43:25 +27:42:34 016 017",
+    "___:___ __ 02:43:25 +27:42:34 0:0:0 -90:0:0 016 017",
+    "___:___ __ 0:0:0 +90:0:0 03:44:49 +24:08:07 017 018",
+    "___:___ __ 03:44:49 +24:08:07 0:0:0 -90:0:0 017 018",
+    "___:___ __ 0:0:0 +90:0:0 04:28:23 +19:11:51 018 019",
+    "___:___ __ 04:28:23 +19:11:51 0:0:0 -90:0:0 018 019",
+    "___:___ __ 0:0:0 +90:0:0 05:34:48 +09:29:26 019 020",
+    "___:___ __ 05:34:48 +09:29:26 0:0:0 -90:0:0 019 020",
+    "___:___ __ 0:0:0 +90:0:0 05:31:59 -00:17:57 020 021",
+    "___:___ __ 05:31:59 -00:17:57 0:0:0 -90:0:0 020 021",
+    "___:___ __ 0:0:0 +90:0:0 06:22:47 +22:34:13 021 022",
+    "___:___ __ 06:22:47 +22:34:13 0:0:0 -90:0:0 021 022",
+    "___:___ __ 0:0:0 +90:0:0 08:31:41 +18:07:33 022 023",
+    "___:___ __ 08:31:41 +18:07:33 0:0:0 -90:0:0 022 023",
+    "___:___ __ 0:0:0 +90:0:0 08:37:47 +05:42:26 023 024",
+    "___:___ __ 08:37:47 +05:42:26 0:0:0 -90:0:0 023 024",
+    "___:___ __ 0:0:0 +90:0:0 09:27:36 -08:40:34 024 025",
+    "___:___ __ 09:27:36 -08:40:34 0:0:0 -90:0:0 024 025",
+    "___:___ __ 0:0:0 +90:0:0 09:51:26 -14:50:10 025 026",
+    "___:___ __ 09:51:26 -14:50:10 0:0:0 -90:0:0 025 026",
+    "___:___ __ 0:0:0 +90:0:0 11:00:41 -18:22:55 026 027",
+    "___:___ __ 11:00:41 -18:22:55 0:0:0 -90:0:0 026 027",
+    "___:___ __ 0:0:0 +90:0:0 12:16:07 -17:33:07 027 028",
+    "___:___ __ 12:16:07 -17:33:07 0:0:0 -90:0:0 027 028"
+  ],
+  "zodiac": {
+    "name": {"native": "Zodiacus", "english": "Zodiac"},
+    "partitions": [ 12, 3, 2, 5],
+    "context": "Mangbo month names",
+    "extent": 9,
+    "names": [
+      { "symbol": "并肩", "native": "Imcin",      "english": "依玛沁"},
+      { "symbol": "星见", "native": "Narhū",      "english": "那拉呼"},
+      { "symbol": "神鹰", "native": "Gasha",      "english": "嘎思哈"},
+      { "symbol": "兄长", "native": "Ilan",       "english": "依兰"},
+      { "symbol": "幼弟", "native": "Fodoho",     "english": "佛朵"},
+      { "symbol": "鼠", "native": "Singgeri",   "english": "兴格里"},
+      { "symbol": "阶梯", "native": "Terkin",     "english": "特尔钦"},
+      { "symbol": "迎日", "native": "Buruhun",    "english": "布鲁浑"},
+      { "symbol": "狩猎", "native": "Asubanda",  "english": "阿苏班达"},
+      { "symbol": "耕织", "native": "Jodorgan",   "english": "卓朵尔甘"},
+      { "symbol": "刺猬", "native": "Sengge",     "english": "僧格"},
+      { "symbol": "营室", "native": "Tehe",       "english": "特赫"}
+    ]
+  },
+  "lunar_system": {
+    "comment": "Needs confirmation, then remove edges (edges_type=none)",
+    "context": "chinese lunar mansion",
+    "name": { "native": "二十八宿", "pronounce": "Xiù", "english": "Lunar Mansion"},
+    "defining_stars": [65474, 69427, 72622, 78265, 80112, 82514, 88635, 92041, 100345, 102618, 106278, 109074, 113963, 1067,
+                       3693, 8903, 12719, 17499, 20889, 26176, 26727, 30343, 41822, 42313, 46390, 48356, 53740, 59803],
+    "coordsys": "equatorial",
+    "extent": 90,
+    "names":    [ { "symbol":  "1", "native": "角", "pronounce": "Jiǎo", "english": "Horn"},
+                  { "symbol":  "2", "native": "亢", "pronounce": "Kàng", "english": "Neck"},
+                  { "symbol":  "3", "native": "氐", "pronounce": "Dī", "english": "Root"},
+                  { "symbol":  "4", "native": "房", "pronounce": "Fáng", "english": "Room"},
+                  { "symbol":  "5", "native": "心", "pronounce": "Xīn", "english": "Heart"},
+                  { "symbol":  "6", "native": "尾", "pronounce": "Wěi", "english": "Tail"},
+                  { "symbol":  "7", "native": "箕", "pronounce": "Jī", "english": "Winnowing Basket"},
+                  { "symbol":  "8", "native": "斗", "pronounce": "Dǒu", "english": "Dipper"},
+                  { "symbol":  "9", "native": "牛", "pronounce": "Niú", "english": "Ox"},
+                  { "symbol": "10", "native": "女", "pronounce": "Nǚ", "english": "Girl"},
+                  { "symbol": "11", "native": "虛", "pronounce": "Xū", "english": "Emptiness"},
+                  { "symbol": "12", "native": "危", "pronounce": "Wēi", "english": "Rooftop"},
+                  { "symbol": "13", "native": "室", "pronounce": "Shì", "english": "Encampment"},
+                  { "symbol": "14", "native": "壁", "pronounce": "Bì", "english": "Wall"},
+                  { "symbol": "15", "native": "奎", "pronounce": "Kuí", "english": "Legs"},
+                  { "symbol": "16", "native": "婁", "pronounce": "Lóu", "english": "Bond"},
+                  { "symbol": "17", "native": "胃", "pronounce": "Wèi", "english": "Stomach"},
+                  { "symbol": "18", "native": "昴", "pronounce": "Mǎo", "english": "Hairy Head"},
+                  { "symbol": "19", "native": "畢", "pronounce": "Bì", "english": "Net"},
+                  { "symbol": "20", "native": "觜", "pronounce": "Zī", "english": "Turtle Beak"},
+                  { "symbol": "21", "native": "参", "pronounce": "Shēn", "english": "Three Stars"},
+                  { "symbol": "22", "native": "井", "pronounce": "Jǐng", "english": "Well"},
+                  { "symbol": "23", "native": "鬼", "pronounce": "Guǐ", "english": "Ghost"},
+                  { "symbol": "24", "native": "柳", "pronounce": "Liǔ", "english": "Willow"},
+                  { "symbol": "25", "native": "星", "pronounce": "Xīng", "english": "Star"},
+                  { "symbol": "26", "native": "張", "pronounce": "Zhāng", "english": "Extended Net"},
+                  { "symbol": "27", "native": "翼", "pronounce": "Yì", "english": "Wings"},
+                  { "symbol": "28", "native": "軫", "pronounce": "Zhěn", "english": "Chariot"}]},
+  "common_names": {
+    "HIP 183": [{"english": "羽林军三十四*"}],
+    "HIP 238": [{"english": "羽林军二十八*"}],
+    "HIP 301": [{"english": "羽林军二十五*"}],
+    "HIP 355": [{"english": "羽林军二十一*"}],
+    "HIP 417": [{"english": "垒壁阵东第四星"},
+                {"english": "垒壁阵九"}],
+    "HIP 636": [{"english": "羽林军二十九*"}],
+    "HIP 677": [{"english": "东壁北星"},
+                {"english": "壁宿二"}],
+    "HIP 746": [{"english": "王良"},
+                {"english": "王良西星"},
+                {"english": "王良一"}],
+    "HIP 813": [{"english": "土公西星"},
+                {"english": "土公一"}],
+    "HIP 873": [{"english": "羽林军二十二*"}],
+    "HIP 910": [{"english": "羽林军二十四*"}],
+    "HIP 983": [{"english": "羽林军二十六*"}],
+    "HIP 1067": [{"english": "东壁南星"},
+                 {"english": "壁宿一"}],
+    "HIP 1170": [{"english": "羽林军二十七*"}],
+    "HIP 1288": [{"english": "羽林军三十三*"}],
+    "HIP 1421": [{"english": "垒壁阵东第三星"},
+                 {"english": "垒壁阵十"}],
+    "HIP 1465": [{"english": "土公东星"},
+                 {"english": "土公二"}],
+    "HIP 1562": [{"english": "羽林军二十三*"}],
+    "HIP 1939": [{"english": "垒壁阵东第二星"},
+                 {"english": "垒壁阵十二"}],
+    "HIP 2599": [{"english": "策"}],
+    "HIP 2787": [{"english": "垒壁阵东头觜星"},
+                 {"english": "垒壁阵东第一星"},
+                 {"english": "垒壁阵十一"}],
+    "HIP 2912": [{"english": "奎西北第一星"},
+                 {"english": "奎宿四"}],
+    "HIP 2920": [{"english": "天驷南第一星"},
+                 {"english": "王良南第一星"},
+                 {"english": "王良五"},
+                 {"english": "天驷一"}],
+    "HIP 2942": [{"english": "奎西北第二星"},
+                 {"english": "奎宿五"}],
+    "HIP 3031": [{"english": "奎西南第二星"},
+                 {"english": "奎宿二"}],
+    "HIP 3092": [{"english": "奎西星"},
+                 {"english": "奎宿三"}],
+    "HIP 3179": [{"english": "天驷南第二星"},
+                 {"english": "王良南第二星"},
+                 {"english": "王良四"},
+                 {"english": "天驷二"}],
+    "HIP 3231": [{"english": "奎西北第三星"},
+                 {"english": "奎宿六"}],
+    "HIP 3419": [{"english": "土司空"}],
+    "HIP 3455": [{"english": "天仓一"}],
+    "HIP 3693": [{"english": "奎西南大星"},
+                 {"english": "奎宿一"}],
+    "HIP 3786": [{"english": "外屏西第一星"},
+                 {"english": "外屏西星"},
+                 {"english": "外屏一"}],
+    "HIP 3801": [{"english": "阁道南第一星"},
+                 {"english": "阁道一"}],
+    "HIP 3821": [{"english": "天驷北第二星"},
+                 {"english": "王良南第三星"},
+                 {"english": "王良三"},
+                 {"english": "天驷三"}],
+    "HIP 3881": [{"english": "奎东北第一星"},
+                 {"english": "奎宿八"}],
+    "HIP 3992": [{"english": "天圂二*"}],
+    "HIP 4147": [{"english": "天圂三"}],
+    "HIP 4283": [{"english": "钩陈北第一星"},
+                 {"english": "钩陈六"}],
+    "HIP 4427": [{"english": "天驷北第一星"},
+                 {"english": "王良东北星"},
+                 {"english": "王良二"},
+                 {"english": "天驷四"}],
+    "HIP 4436": [{"english": "奎东北第二星"},
+                 {"english": "奎宿九"}],
+    "HIP 4463": [{"english": "奎西南小星"},
+                 {"english": "奎宿十六"}],
+    "HIP 4577": [{"english": "𫓧锧三"}],
+    "HIP 4852": [{"english": "𫓧锧四"}],
+    "HIP 4906": [{"english": "外屏西第二星"},
+                 {"english": "外屏二"}],
+    "HIP 4914": [{"english": "天圂四*"}],
+    "HIP 5346": [{"english": "天圂一*"}],
+    "HIP 5364": [{"english": "天仓二"}],
+    "HIP 5372": [{"english": "天皇大帝"}],
+    "HIP 5447": [{"english": "奎东北大星"},
+                 {"english": "奎东北第三星"},
+                 {"english": "奎宿十"}],
+    "HIP 5542": [{"english": "阁道南第二星"},
+                 {"english": "阁道二"}],
+    "HIP 5544": [{"english": "奎东北第四星"},
+                 {"english": "奎宿十一"}],
+    "HIP 5571": [{"english": "奎东南第四星"},
+                 {"english": "奎宿十五"}],
+    "HIP 5586": [{"english": "奎东南第一星"},
+                 {"english": "奎宿十二"}],
+    "HIP 5636": [{"english": "𫓧锧二"}],
+    "HIP 5737": [{"english": "外屏西第三星"},
+                 {"english": "外屏三"}],
+    "HIP 5742": [{"english": "奎东南第三星"},
+                 {"english": "奎宿十四"}],
+    "HIP 5743": [{"english": "外屏西第三星"},
+                 {"english": "外屏三"}],
+    "HIP 5928": [{"english": "杠第一星"},
+                 {"english": "杠一"}],
+    "HIP 5951": [{"english": "天圂五*"}],
+    "HIP 6061": [{"english": "天圂七*"}],
+    "HIP 6193": [{"english": "奎东南第二星"},
+                 {"english": "奎宿十三"}],
+    "HIP 6226": [{"english": "天圂六*"}],
+    "HIP 6242": [{"english": "阁道南第三星"},
+                 {"english": "阁道三"}],
+    "HIP 6502": [{"english": "𫓧锧一"}],
+    "HIP 6537": [{"english": "天仓三"}],
+    "HIP 6686": [{"english": "阁道北第三星"},
+                 {"english": "阁道四"}],
+    "HIP 6759": [{"english": "𫓧锧五"}],
+    "HIP 6813": [{"english": "天大将军西第三星"},
+                 {"english": "天大将军四"}],
+    "HIP 6981": [{"english": "右更三"}],
+    "HIP 7007": [{"english": "外屏中星"},
+                 {"english": "外屏四"}],
+    "HIP 7097": [{"english": "右更四"}],
+    "HIP 7294": [{"english": "附路"}],
+    "HIP 7359": [{"english": "右更二"}],
+    "HIP 7513": [{"english": "天大将军西第四星"},
+                 {"english": "天大将军五"}],
+    "HIP 7607": [{"english": "天大将军西第二星"},
+                 {"english": "天大将军三"}],
+    "HIP 7740": [{"english": "右更五"}],
+    "HIP 7884": [{"english": "外屏东第三星"},
+                 {"english": "外屏五"}],
+    "HIP 7981": [{"english": "右更一"}],
+    "HIP 8068": [{"english": "天大将军西第一星"},
+                 {"english": "天大将军二"}],
+    "HIP 8102": [{"english": "天仓五"}],
+    "HIP 8645": [{"english": "天仓四"}],
+    "HIP 8832": [{"english": "娄宿二"}],
+    "HIP 8833": [{"english": "外屏东第二星"},
+                 {"english": "外屏六"}],
+    "HIP 8886": [{"english": "阁道北第二星"},
+                 {"english": "阁道五"}],
+    "HIP 8903": [{"english": "娄宿一"}],
+    "HIP 9307": [{"english": "左更四"}],
+    "HIP 9347": [{"english": "天仓六"}],
+    "HIP 9440": [{"english": "天庾二"}],
+    "HIP 9487": [{"english": "外屏东第一星"},
+                 {"english": "外屏东星"},
+                 {"english": "外屏七"}],
+    "HIP 9598": [{"english": "传舍东第三星"},
+                 {"english": "传舍七"}],
+    "HIP 9640": [{"english": "天大将军中大星"},
+                 {"english": "天大将军一"}],
+    "HIP 9677": [{"english": "天庾一"}],
+    "HIP 9884": [{"english": "娄宿三"}],
+    "HIP 9977": [{"english": "天大将军东南第五星"},
+                 {"english": "天大将军七"}],
+    "HIP 10064": [{"english": "天大将军东南第四星"},
+                  {"english": "天大将军八"}],
+    "HIP 10155": [{"english": "左更一"}],
+    "HIP 10306": [{"english": "左更三"}],
+    "HIP 10320": [{"english": "天庾三"}],
+    "HIP 10340": [{"english": "天大将军东中星"},
+                  {"english": "天大将军六"}],
+    "HIP 10644": [{"english": "天大将军东南第三星"},
+                  {"english": "天大将军九"}],
+    "HIP 10670": [{"english": "天大将军东南第二星"},
+                  {"english": "天大将军十"}],
+    "HIP 10732": [{"english": "左更二"}],
+    "HIP 10795": [{"english": "左更五"}],
+    "HIP 11029": [{"english": "刍藁六"}],
+    "HIP 11345": [{"english": "刍藁一"}],
+    "HIP 11348": [{"english": "刍藁二"}],
+    "HIP 11484": [{"english": "天囷五"}],
+    "HIP 11569": [{"english": "阁道北第一星"},
+                  {"english": "阁道六"}],
+    "HIP 11767": [{"english": "钩陈大星"},
+                  {"english": "钩陈一"}],
+    "HIP 11784": [{"english": "天大将军东南第一星"},
+                  {"english": "天大将军十一"}],
+    "HIP 11791": [{"english": "天囷九"}],
+    "HIP 12093": [{"english": "天囷六"}],
+    "HIP 12273": [{"english": "传舍东第二星"},
+                  {"english": "传舍八"}],
+    "HIP 12387": [{"english": "天囷八"}],
+    "HIP 12390": [{"english": "刍藁四"}],
+    "HIP 12413": [{"english": "天园十三"}],
+    "HIP 12444": [{"english": "刍藁五"}],
+    "HIP 12486": [{"english": "天园十二"}],
+    "HIP 12562": [{"english": "刍藁三"}],
+    "HIP 12623": [{"english": "大陵八"}],
+    "HIP 12692": [{"english": "大陵一#"}],
+    "HIP 12706": [{"english": "天囷七"}],
+    "HIP 12719": [{"english": "胃宿一"}],
+    "HIP 12770": [{"english": "天苑七"}],
+    "HIP 12828": [{"english": "天囷四"}],
+    "HIP 12843": [{"english": "天苑八"}],
+    "HIP 13061": [{"english": "胃宿二"}],
+    "HIP 13209": [{"english": "胃宿三"}],
+    "HIP 13254": [{"english": "大陵七"}],
+    "HIP 13268": [{"english": "天船一"}],
+    "HIP 13288": [{"english": "天苑九"}],
+    "HIP 13531": [{"english": "大陵二"}],
+    "HIP 13701": [{"english": "天苑六"}],
+    "HIP 13847": [{"english": "天园十一"}],
+    "HIP 13879": [{"english": "积尸"}],
+    "HIP 13954": [{"english": "天囷三"}],
+    "HIP 14135": [{"english": "天囷一"}],
+    "HIP 14146": [{"english": "天苑十"}],
+    "HIP 14293": [{"english": "天苑北增一"}],
+    "HIP 14328": [{"english": "天船二"}],
+    "HIP 14354": [{"english": "大陵六"}],
+    "HIP 14576": [{"english": "大陵五"}],
+    "HIP 14632": [{"english": "大陵三"}],
+    "HIP 14668": [{"english": "大陵四"}],
+    "HIP 14838": [{"english": "天阴一"}],
+    "HIP 14915": [{"english": "天囷二"}],
+    "HIP 15110": [{"english": "天阴五"}],
+    "HIP 15197": [{"english": "天苑五"}],
+    "HIP 15474": [{"english": "天苑十一"}],
+    "HIP 15510": [{"english": "天园十"}],
+    "HIP 15549": [{"english": "天阿"}],
+    "HIP 15555": [{"english": "天阴二*"}],
+    "HIP 15627": [{"english": "天阴四"}],
+    "HIP 15737": [{"english": "天阴三*"}],
+    "HIP 15863": [{"english": "天船三"}],
+    "HIP 15900": [{"english": "天廪四"}],
+    "HIP 16083": [{"english": "天廪三"}],
+    "HIP 16285": [{"english": "天园九"}],
+    "HIP 16322": [{"english": "天廪二#"}],
+    "HIP 16369": [{"english": "天廪一"}],
+    "HIP 16489": [{"english": "钩陈北第二星"},
+                  {"english": "钩陈五"}],
+    "HIP 16537": [{"english": "天苑四"}],
+    "HIP 16611": [{"english": "天苑十二"}],
+    "HIP 16826": [{"english": "天船四#"}],
+    "HIP 16870": [{"english": "天园八"}],
+    "HIP 17313": [{"english": "卷舌六"}],
+    "HIP 17351": [{"english": "天园七"}],
+    "HIP 17358": [{"english": "天船五"}],
+    "HIP 17378": [{"english": "天苑三"}],
+    "HIP 17448": [{"english": "卷舌五"}],
+    "HIP 17489": [{"english": "昴宿二"}],
+    "HIP 17499": [{"english": "昴宿一"}],
+    "HIP 17529": [{"english": "卷舌一"}],
+    "HIP 17531": [{"english": "昴宿三"}],
+    "HIP 17573": [{"english": "昴宿四"}],
+    "HIP 17593": [{"english": "天苑二"}],
+    "HIP 17608": [{"english": "昴宿五"}],
+    "HIP 17651": [{"english": "天苑十三"}],
+    "HIP 17702": [{"english": "昴宿六"}],
+    "HIP 17717": [{"english": "天苑十四"}],
+    "HIP 17797": [{"english": "天园六"}],
+    "HIP 17847": [{"english": "昴宿七"}],
+    "HIP 17874": [{"english": "天园五"}],
+    "HIP 17886": [{"english": "天谗"}],
+    "HIP 17959": [{"english": "传舍东星"},
+                  {"english": "传舍九"}],
+    "HIP 18216": [{"english": "天苑十五"}],
+    "HIP 18246": [{"english": "卷舌四"}],
+    "HIP 18396": [{"english": "天船六"}],
+    "HIP 18532": [{"english": "卷舌二"}],
+    "HIP 18543": [{"english": "天苑一"}],
+    "HIP 18614": [{"english": "卷舌三"}],
+    "HIP 18673": [{"english": "天苑十六"}],
+    "HIP 18724": [{"english": "毕宿八"}],
+    "HIP 18907": [{"english": "天节八"}],
+    "HIP 18975": [{"english": "天节七"}],
+    "HIP 19038": [{"english": "月"}],
+    "HIP 19167": [{"english": "积水"}],
+    "HIP 19171": [{"english": "砺石二"}],
+    "HIP 19205": [{"english": "砺石一"}],
+    "HIP 19343": [{"english": "天船七"}],
+    "HIP 19513": [{"english": "砺石三"}],
+    "HIP 19777": [{"english": "九州殊口九"}],
+    "HIP 19812": [{"english": "天船八"}],
+    "HIP 19849": [{"english": "九州殊口一"}],
+    "HIP 19860": [{"english": "天节六"}],
+    "HIP 20042": [{"english": "天园四"}],
+    "HIP 20070": [{"english": "天船九"}],
+    "HIP 20205": [{"english": "毕宿四"}],
+    "HIP 20212": [{"english": "九州殊口八*"}],
+    "HIP 20430": [{"english": "砺石四"}],
+    "HIP 20455": [{"english": "毕宿三"}],
+    "HIP 20507": [{"english": "九州殊口二*"}],
+    "HIP 20522": [{"english": "天节五"}],
+    "HIP 20535": [{"english": "天园三"}],
+    "HIP 20635": [{"english": "天街一"}],
+    "HIP 20648": [{"english": "毕宿二"}],
+    "HIP 20711": [{"english": "天街二"}],
+    "HIP 20713": [{"english": "毕宿七"}],
+    "HIP 20804": [{"english": "天节三"}],
+    "HIP 20889": [{"english": "毕宿一"}],
+    "HIP 20894": [{"english": "毕宿六"}],
+    "HIP 20901": [{"english": "天节二"}],
+    "HIP 20922": [{"english": "九州殊口七"}],
+    "HIP 21239": [{"english": "九州殊口六"}],
+    "HIP 21248": [{"english": "天园一"}],
+    "HIP 21278": [{"english": "九州殊口三"}],
+    "HIP 21296": [{"english": "九州殊口四"}],
+    "HIP 21297": [{"english": "九州殊口五"}],
+    "HIP 21393": [{"english": "天园二"}],
+    "HIP 21402": [{"english": "天节四"}],
+    "HIP 21421": [{"english": "毕宿五"}],
+    "HIP 21589": [{"english": "天节一"}],
+    "HIP 21683": [{"english": "附耳/听"}],
+    "HIP 21881": [{"english": "诸王一"}],
+    "HIP 22449": [{"english": "参旗二"}],
+    "HIP 22509": [{"english": "参旗三"}],
+    "HIP 22549": [{"english": "参旗一"}],
+    "HIP 22565": [{"english": "天高一"}],
+    "HIP 22783": [{"english": "八谷西北星"},
+                  {"english": "八谷五"}],
+    "HIP 22833": [{"english": "参旗五"}],
+    "HIP 22845": [{"english": "参旗四"}],
+    "HIP 22957": [{"english": "参旗六"}],
+    "HIP 23015": [{"english": "五车一"}],
+    "HIP 23040": [{"english": "八谷西南星"},
+                  {"english": "八谷七"}],
+    "HIP 23043": [{"english": "天高二"}],
+    "HIP 23161": [{"english": "参旗七"}],
+    "HIP 23364": [{"english": "玉井二"}],
+    "HIP 23416": [{"english": "西北柱一"}],
+    "HIP 23453": [{"english": "西北柱二"}],
+    "HIP 23497": [{"english": "诸王二*"}],
+    "HIP 23522": [{"english": "八谷西中星"},
+                  {"english": "八谷六"}],
+    "HIP 23607": [{"english": "参旗八"}],
+    "HIP 23685": [{"english": "屏二"}],
+    "HIP 23767": [{"english": "西北柱三"}],
+    "HIP 23835": [{"english": "天高三"}],
+    "HIP 23871": [{"english": "天高四*"}],
+    "HIP 23875": [{"english": "玉井三"}],
+    "HIP 23883": [{"english": "诸王三*"}],
+    "HIP 23972": [{"english": "玉井一"}],
+    "HIP 24010": [{"english": "参旗九"}],
+    "HIP 24244": [{"english": "军井一"}],
+    "HIP 24305": [{"english": "屏一"}],
+    "HIP 24327": [{"english": "军井二"}],
+    "HIP 24340": [{"english": "咸池二"}],
+    "HIP 24436": [{"english": "参宿七"}],
+    "HIP 24504": [{"english": "天潢一"}],
+    "HIP 24512": [{"english": "诸王四*"}],
+    "HIP 24608": [{"english": "五车二"}],
+    "HIP 24674": [{"english": "玉井四"}],
+    "HIP 24727": [{"english": "天潢二"}],
+    "HIP 24813": [{"english": "咸池一*"}],
+    "HIP 24822": [{"english": "诸王五*"}],
+    "HIP 24845": [{"english": "军井三"}],
+    "HIP 24873": [{"english": "军井四"}],
+    "HIP 24879": [{"english": "天潢三"}],
+    "HIP 25110": [{"english": "紫微西蕃第七星"},
+                  {"english": "紫微西蕃七"}],
+    "HIP 25291": [{"english": "东南柱三"}],
+    "HIP 25292": [{"english": "咸池三"}],
+    "HIP 25336": [{"english": "参宿五"}],
+    "HIP 25428": [{"english": "五车五"}],
+    "HIP 25475": [{"english": "天潢五*"}],
+    "HIP 25492": [{"english": "东南柱二"}],
+    "HIP 25539": [{"english": "诸王六*"}],
+    "HIP 25541": [{"english": "天潢四*"}],
+    "HIP 25606": [{"english": "厕二"}],
+    "HIP 25859": [{"english": "丈人二"}],
+    "HIP 25930": [{"english": "参宿一"}],
+    "HIP 25984": [{"english": "东南柱一"}],
+    "HIP 25985": [{"english": "厕一"}],
+    "HIP 26176": [{"english": "觜宿一"}],
+    "HIP 26207": [{"english": "觜宿三"}],
+    "HIP 26235": [{"english": "伐二"}],
+    "HIP 26237": [{"english": "伐一"}],
+    "HIP 26241": [{"english": "伐三"}],
+    "HIP 26311": [{"english": "参宿二"}],
+    "HIP 26366": [{"english": "觜宿二"}],
+    "HIP 26451": [{"english": "天关"}],
+    "HIP 26460": [{"english": "屎"}],
+    "HIP 26634": [{"english": "丈人一"}],
+    "HIP 26727": [{"english": "参宿三"}],
+    "HIP 27072": [{"english": "厕三"}],
+    "HIP 27366": [{"english": "参宿六"}],
+    "HIP 27483": [{"english": "东北柱一"}],
+    "HIP 27628": [{"english": "子二"}],
+    "HIP 27639": [{"english": "东北柱三"}],
+    "HIP 27654": [{"english": "厕四"}],
+    "HIP 27673": [{"english": "东北柱二"}],
+    "HIP 27830": [{"english": "司怪一"}],
+    "HIP 27913": [{"english": "司怪四"}],
+    "HIP 27989": [{"english": "参宿四"}],
+    "HIP 28010": [{"english": "子南增一"}],
+    "HIP 28199": [{"english": "子一"}],
+    "HIP 28237": [{"english": "司怪二"}],
+    "HIP 28358": [{"english": "八谷东南大星"},
+                  {"english": "八谷八"}],
+    "HIP 28360": [{"english": "五车三"}],
+    "HIP 28380": [{"english": "五车四"}],
+    "HIP 28734": [{"english": "司怪三"}],
+    "HIP 28816": [{"english": "军市十三"}],
+    "HIP 28910": [{"english": "军市一"}],
+    "HIP 29038": [{"english": "水府一"}],
+    "HIP 29048": [{"english": "军市十二"}],
+    "HIP 29426": [{"english": "水府二"}],
+    "HIP 29434": [{"english": "水府四"}],
+    "HIP 29655": [{"english": "钺"}],
+    "HIP 29679": [{"english": "军市十一"}],
+    "HIP 29704": [{"english": "水府三"}],
+    "HIP 29735": [{"english": "军市二"}],
+    "HIP 29997": [{"english": "八谷东北星"},
+                  {"english": "八谷四"}],
+    "HIP 30011": [{"english": "军市十"}],
+    "HIP 30060": [{"english": "八谷中星"},
+                  {"english": "八谷三"}],
+    "HIP 30122": [{"english": "孙北增一"}],
+    "HIP 30277": [{"english": "孙二"}],
+    "HIP 30324": [{"english": "野鸡"}],
+    "HIP 30343": [{"english": "井宿一"}],
+    "HIP 30419": [{"english": "四渎四"}],
+    "HIP 30438": [{"english": "老人"}],
+    "HIP 30457": [{"english": "军市三"}],
+    "HIP 30788": [{"english": "孙一"}],
+    "HIP 30827": [{"english": "坐旗二*"}],
+    "HIP 30883": [{"english": "井宿二"}],
+    "HIP 30972": [{"english": "坐旗八*"}],
+    "HIP 31084": [{"english": "军市四"}],
+    "HIP 31173": [{"english": "坐旗三*"}],
+    "HIP 31216": [{"english": "四渎三"}],
+    "HIP 31266": [{"english": "军市九"}],
+    "HIP 31434": [{"english": "坐旗一*"}],
+    "HIP 31579": [{"english": "坐旗四"}],
+    "HIP 31592": [{"english": "军市八"}],
+    "HIP 31681": [{"english": "井宿三"}],
+    "HIP 31685": [{"english": "天社一"}],
+    "HIP 31700": [{"english": "军市七"}],
+    "HIP 31758": [{"english": "军市六"}],
+    "HIP 31789": [{"english": "坐旗五"}],
+    "HIP 31827": [{"english": "军市五"}],
+    "HIP 31832": [{"english": "坐旗六"}],
+    "HIP 31978": [{"english": "四渎二"}],
+    "HIP 32173": [{"english": "坐旗七*"}],
+    "HIP 32246": [{"english": "井宿五"}],
+    "HIP 32349": [{"english": "狼星"}],
+    "HIP 32362": [{"english": "井宿四"}],
+    "HIP 32537": [{"english": "天社二"}],
+    "HIP 32562": [{"english": "坐旗九*"}],
+    "HIP 32759": [{"english": "弧矢一"}],
+    "HIP 32921": [{"english": "井宿六"}],
+    "HIP 33018": [{"english": "五诸侯一"}],
+    "HIP 33184": [{"english": "阙丘二"}],
+    "HIP 33202": [{"english": "四渎一"}],
+    "HIP 33449": [{"english": "八谷东第二星"},
+                  {"english": "八谷二"}],
+    "HIP 33579": [{"english": "弧矢八"}],
+    "HIP 33694": [{"english": "紫微西蕃第六星"},
+                  {"english": "紫微西蕃六"}],
+    "HIP 33977": [{"english": "弧矢九"}],
+    "HIP 34081": [{"english": "天社三"}],
+    "HIP 34088": [{"english": "井宿七"}],
+    "HIP 34444": [{"english": "弧矢七"}],
+    "HIP 34693": [{"english": "五诸侯二"}],
+    "HIP 34769": [{"english": "阙丘一"}],
+    "HIP 35037": [{"english": "弧矢六"}],
+    "HIP 35350": [{"english": "井宿八"}],
+    "HIP 35415": [{"english": "弧矢五"}],
+    "HIP 35550": [{"english": "天尊一"}],
+    "HIP 35699": [{"english": "天尊二"}],
+    "HIP 35904": [{"english": "弧矢内增一"}],
+    "HIP 36041": [{"english": "南河一"}],
+    "HIP 36046": [{"english": "五诸侯三"}],
+    "HIP 36188": [{"english": "南河二"}],
+    "HIP 36238": [{"english": "天尊三"}],
+    "HIP 36366": [{"english": "北河一"}],
+    "HIP 36377": [{"english": "天社四"}],
+    "HIP 36514": [{"english": "弧矢二"}],
+    "HIP 36760": [{"english": "水位一"}],
+    "HIP 36817": [{"english": "弧矢四"}],
+    "HIP 36850": [{"english": "北河二"}],
+    "HIP 36962": [{"english": "五诸侯四"}],
+    "HIP 37265": [{"english": "积水"}],
+    "HIP 37279": [{"english": "南河三"}],
+    "HIP 37300": [{"english": "水位二"}],
+    "HIP 37447": [{"english": "天狗五"}],
+    "HIP 37609": [{"english": "八谷东第一星"},
+                  {"english": "八谷一"}],
+    "HIP 37740": [{"english": "五诸侯五"}],
+    "HIP 37819": [{"english": "天社五"}],
+    "HIP 37826": [{"english": "北河三"}],
+    "HIP 37908": [{"english": "水位三"}],
+    "HIP 38170": [{"english": "弧矢三"}],
+    "HIP 38722": [{"english": "水位四"}],
+    "HIP 39429": [{"english": "天社六"}],
+    "HIP 39659": [{"english": "积薪*"}],
+    "HIP 40793": [{"english": "紫微西蕃第五星"},
+                  {"english": "紫微西蕃五"}],
+    "HIP 40843": [{"english": "爟一"}],
+    "HIP 40881": [{"english": "爟二"}],
+    "HIP 41307": [{"english": "外厨一"}],
+    "HIP 41404": [{"english": "爟四*"}],
+    "HIP 41452": [{"english": "外厨二*"}],
+    "HIP 41704": [{"english": "上将"},
+                  {"english": "文昌西星"},
+                  {"english": "文昌一"}],
+    "HIP 41816": [{"english": "爟三*"}],
+    "HIP 41822": [{"english": "鬼宿一"}],
+    "HIP 41909": [{"english": "鬼宿二"}],
+    "HIP 42028": [{"english": "外厨六"}],
+    "HIP 42080": [{"english": "内阶西北星"},
+                  {"english": "内阶一"}],
+    "HIP 42146": [{"english": "外厨三"}],
+    "HIP 42312": [{"english": "天稷五#"}],
+    "HIP 42313": [{"english": "柳宿一"}],
+    "HIP 42402": [{"english": "柳宿二"}],
+    "HIP 42527": [{"english": "内阶西南星"},
+                  {"english": "内阶二"}],
+    "HIP 42662": [{"english": "天纪南增一"}],
+    "HIP 42799": [{"english": "柳宿三"}],
+    "HIP 42806": [{"english": "鬼宿三"}],
+    "HIP 42884": [{"english": "天稷三"}],
+    "HIP 42911": [{"english": "鬼宿四"}],
+    "HIP 43067": [{"english": "天纪"}],
+    "HIP 43109": [{"english": "柳宿五"}],
+    "HIP 43234": [{"english": "柳宿四"}],
+    "HIP 43305": [{"english": "外厨五"}],
+    "HIP 43496": [{"english": "外厨四"}],
+    "HIP 43813": [{"english": "柳宿六"}],
+    "HIP 44127": [{"english": "上台西北星"},
+                  {"english": "上台一"}],
+    "HIP 44191": [{"english": "天稷二"}],
+    "HIP 44248": [{"english": "轩辕一"}],
+    "HIP 44390": [{"english": "内阶中北星"},
+                  {"english": "内阶三"}],
+    "HIP 44471": [{"english": "上台东南星"},
+                  {"english": "上台二"}],
+    "HIP 44511": [{"english": "天稷四"}],
+    "HIP 44659": [{"english": "柳宿七"}],
+    "HIP 44700": [{"english": "轩辕二"}],
+    "HIP 44816": [{"english": "天稷四"},
+                  {"english": "天稷一"}],
+    "HIP 44824": [{"english": "天庙五"}],
+    "HIP 44901": [{"english": "文昌西南星"},
+                  {"english": "文昌七"}],
+    "HIP 45001": [{"english": "天庙四"}],
+    "HIP 45037": [{"english": "天庙六"}],
+    "HIP 45038": [{"english": "内阶中南星"},
+                  {"english": "内阶四"}],
+    "HIP 45075": [{"english": "次将"},
+                  {"english": "文昌西北星"},
+                  {"english": "文昌二"}],
+    "HIP 45336": [{"english": "柳宿八"}],
+    "HIP 45688": [{"english": "轩辕三"}],
+    "HIP 45751": [{"english": "星宿六"}],
+    "HIP 45811": [{"english": "星宿五"}],
+    "HIP 45860": [{"english": "轩辕四"}],
+    "HIP 45902": [{"english": "天庙一"}],
+    "HIP 46026": [{"english": "天庙二"}],
+    "HIP 46146": [{"english": "轩辕七"}],
+    "HIP 46371": [{"english": "天庙七"}],
+    "HIP 46390": [{"english": "星宿一"}],
+    "HIP 46509": [{"english": "星宿二"}],
+    "HIP 46578": [{"english": "天庙十四"}],
+    "HIP 46657": [{"english": "天庙三"}],
+    "HIP 46733": [{"english": "贵相"},
+                  {"english": "文昌北星"},
+                  {"english": "文昌三"}],
+    "HIP 46744": [{"english": "星宿七"}],
+    "HIP 46750": [{"english": "轩辕八"}],
+    "HIP 46771": [{"english": "酒旗二*"}],
+    "HIP 46776": [{"english": "星宿三"}],
+    "HIP 46810": [{"english": "天庙十三"}],
+    "HIP 46853": [{"english": "司禄"},
+                  {"english": "文昌东南星"},
+                  {"english": "文昌六"}],
+    "HIP 46897": [{"english": "天庙八"}],
+    "HIP 46977": [{"english": "内阶东北星"},
+                  {"english": "内阶五"}],
+    "HIP 47006": [{"english": "主禄"}],
+    "HIP 47168": [{"english": "轩辕五"}],
+    "HIP 47193": [{"english": "四辅北星"},
+                  {"english": "四辅二"}],
+    "HIP 47199": [{"english": "天庙十二"}],
+    "HIP 47205": [{"english": "酒旗三"}],
+    "HIP 47249": [{"english": "天相二"}],
+    "HIP 47431": [{"english": "星宿四"}],
+    "HIP 47452": [{"english": "张宿五"}],
+    "HIP 47508": [{"english": "上民"}],
+    "HIP 47522": [{"english": "天庙九"}],
+    "HIP 47594": [{"english": "内阶东南星"},
+                  {"english": "内阶六"}],
+    "HIP 47654": [{"english": "紫微西蕃第四星"},
+                  {"english": "紫微西蕃四"}],
+    "HIP 47701": [{"english": "轩辕六"}],
+    "HIP 47723": [{"english": "酒旗一*"}],
+    "HIP 47908": [{"english": "轩辕九"}],
+    "HIP 48319": [{"english": "司命"},
+                  {"english": "文昌东北星"},
+                  {"english": "文昌四"}],
+    "HIP 48356": [{"english": "张宿一"}],
+    "HIP 48402": [{"english": "司中"},
+                  {"english": "文昌东星"},
+                  {"english": "文昌五"}],
+    "HIP 48437": [{"english": "天相一#"}],
+    "HIP 48455": [{"english": "轩辕十"}],
+    "HIP 48559": [{"english": "天庙十"}],
+    "HIP 48615": [{"english": "张宿四"}],
+    "HIP 48748": [{"english": "天庙十一"}],
+    "HIP 48926": [{"english": "东瓯五"}],
+    "HIP 49293": [{"english": "天相三"}],
+    "HIP 49583": [{"english": "轩辕十三"}],
+    "HIP 49637": [{"english": "御女"}],
+    "HIP 49669": [{"english": "权"}],
+    "HIP 49841": [{"english": "张宿二"}],
+    "HIP 50066": [{"english": "翼宿二十"}],
+    "HIP 50191": [{"english": "东瓯一"}],
+    "HIP 50335": [{"english": "轩辕十一"}],
+    "HIP 50372": [{"english": "中台西北星"},
+                  {"english": "中台一"}],
+    "HIP 50583": [{"english": "轩辕十二"}],
+    "HIP 50801": [{"english": "中台东南星"},
+                  {"english": "中台二"}],
+    "HIP 50888": [{"english": "东瓯二"}],
+    "HIP 50933": [{"english": "三公西星"},
+                  {"english": "三公一"}],
+    "HIP 51056": [{"english": "内屏二"}],
+    "HIP 51069": [{"english": "张宿三"}],
+    "HIP 51161": [{"english": "长垣北第一星"},
+                  {"english": "长垣四"}],
+    "HIP 51172": [{"english": "翼宿十九"}],
+    "HIP 51233": [{"english": "内屏一"}],
+    "HIP 51448": [{"english": "三公南星"},
+                  {"english": "三公三"}],
+    "HIP 51459": [{"english": "天牢西星"},
+                  {"english": "天牢二"}],
+    "HIP 51585": [{"english": "长垣北第二星"},
+                  {"english": "长垣三"}],
+    "HIP 51624": [{"english": "大民"}],
+    "HIP 51775": [{"english": "长垣南第一星"},
+                  {"english": "长垣一"}],
+    "HIP 51802": [{"english": "长垣南第二星"},
+                  {"english": "长垣二"}],
+    "HIP 51808": [{"english": "四辅西星"},
+                  {"english": "四辅三"}],
+    "HIP 51814": [{"english": "天牢西北星"},
+                  {"english": "天牢一"}],
+    "HIP 52085": [{"english": "张宿六"}],
+    "HIP 52098": [{"english": "内屏三"}],
+    "HIP 52136": [{"english": "天牢南星"},
+                  {"english": "天牢三"}],
+    "HIP 52353": [{"english": "三公东北星"},
+                  {"english": "三公二"}],
+    "HIP 52425": [{"english": "紫微西蕃第三星"},
+                  {"english": "紫微西蕃三"}],
+    "HIP 52457": [{"english": "少微北第一星"},
+                  {"english": "少微四"}],
+    "HIP 52469": [{"english": "势西南星"},
+                  {"english": "势一"}],
+    "HIP 52478": [{"english": "天牢北星"},
+                  {"english": "天牢六"}],
+    "HIP 52686": [{"english": "少微北第二星"},
+                  {"english": "少微三"}],
+    "HIP 52689": [{"english": "少微南第二星"},
+                  {"english": "少微二"}],
+    "HIP 52911": [{"english": "少微南第一星"},
+                  {"english": "少微一"}],
+    "HIP 52943": [{"english": "翼宿五"}],
+    "HIP 53043": [{"english": "天牢东北星"},
+                  {"english": "天牢五"}],
+    "HIP 53229": [{"english": "内屏四"}],
+    "HIP 53261": [{"english": "天牢东星"},
+                  {"english": "天牢四"}],
+    "HIP 53273": [{"english": "翼宿十二*"}],
+    "HIP 53502": [{"english": "东瓯三"}],
+    "HIP 53706": [{"english": "势西北星"},
+                  {"english": "势四"}],
+    "HIP 53740": [{"english": "翼宿一"}],
+    "HIP 53773": [{"english": "东瓯四"}],
+    "HIP 53781": [{"english": "势东南星"},
+                  {"english": "势二"}],
+    "HIP 53807": [{"english": "灵台南星"},
+                  {"english": "灵台三"}],
+    "HIP 53824": [{"english": "灵台中星"},
+                  {"english": "灵台二"}],
+    "HIP 53910": [{"english": "天璇"},
+                  {"english": "北斗二"}],
+    "HIP 54061": [{"english": "天枢"},
+                  {"english": "北斗一"}],
+    "HIP 54182": [{"english": "灵台北星"},
+                  {"english": "灵台一"}],
+    "HIP 54204": [{"english": "翼宿十六"}],
+    "HIP 54430": [{"english": "翼宿十八"}],
+    "HIP 54477": [{"english": "翼宿十七"}],
+    "HIP 54539": [{"english": "太阳守"}],
+    "HIP 54682": [{"english": "翼宿四"}],
+    "HIP 54703": [{"english": "翼宿十五"}],
+    "HIP 54872": [{"english": "上相"},
+                  {"english": "太微西蕃第五星"},
+                  {"english": "太微西蕃五"}],
+    "HIP 54879": [{"english": "次相"},
+                  {"english": "太微西蕃第四星"},
+                  {"english": "太微西蕃四"}],
+    "HIP 54951": [{"english": "虎贲"}],
+    "HIP 55084": [{"english": "明堂西星"},
+                  {"english": "明堂一"}],
+    "HIP 55086": [{"english": "势东北星"},
+                  {"english": "势三"}],
+    "HIP 55106": [{"english": "翼宿十一"}],
+    "HIP 55203": [{"english": "下台东南星"},
+                  {"english": "下台二"}],
+    "HIP 55219": [{"english": "下台西北星"},
+                  {"english": "下台一"}],
+    "HIP 55282": [{"english": "翼宿二"}],
+    "HIP 55425": [{"english": "器府一"}],
+    "HIP 55434": [{"english": "上将"},
+                  {"english": "太微西蕃第二星"},
+                  {"english": "太微西蕃二"}],
+    "HIP 55581": [{"english": "器府九"}],
+    "HIP 55642": [{"english": "次将"},
+                  {"english": "太微西蕃第三星"},
+                  {"english": "太微西蕃三"}],
+    "HIP 55687": [{"english": "翼宿七*"}],
+    "HIP 55705": [{"english": "翼宿三"}],
+    "HIP 55831": [{"english": "器府二十三"}],
+    "HIP 56083": [{"english": "天理西南星"},
+                  {"english": "天理一"}],
+    "HIP 56127": [{"english": "明堂中星"},
+                  {"english": "明堂二"}],
+    "HIP 56211": [{"english": "紫微西蕃第二星"},
+                  {"english": "紫微西蕃二"}],
+    "HIP 56243": [{"english": "器府十七"}],
+    "HIP 56280": [{"english": "翼宿二十一"}],
+    "HIP 56332": [{"english": "土司空四"}],
+    "HIP 56343": [{"english": "土司空三"}],
+    "HIP 56480": [{"english": "器府二"}],
+    "HIP 56561": [{"english": "器府二十九"}],
+    "HIP 56583": [{"english": "内厨北星"},
+                  {"english": "内厨一"}],
+    "HIP 56620": [{"english": "土司空二"}],
+    "HIP 56633": [{"english": "翼宿九"}],
+    "HIP 56647": [{"english": "明堂东星"},
+                  {"english": "明堂三"}],
+    "HIP 56802": [{"english": "翼宿八"}],
+    "HIP 56944": [{"english": "天理西北星"},
+                  {"english": "天理四"}],
+    "HIP 56975": [{"english": "从官"}],
+    "HIP 56986": [{"english": "器府二十四"}],
+    "HIP 56997": [{"english": "常陈西南第一星"},
+                  {"english": "常陈一"}],
+    "HIP 57111": [{"english": "内厨南星"},
+                  {"english": "内厨二"}],
+    "HIP 57214": [{"english": "翼宿十"}],
+    "HIP 57283": [{"english": "翼宿六"}],
+    "HIP 57328": [{"english": "内屏西北星"},
+                  {"english": "内屏一"}],
+    "HIP 57380": [{"english": "内屏西南星"},
+                  {"english": "内屏二"}],
+    "HIP 57399": [{"english": "相"}],
+    "HIP 57439": [{"english": "器府十八"}],
+    "HIP 57477": [{"english": "天理东南星"},
+                  {"english": "天理二"}],
+    "HIP 57512": [{"english": "器府十"}],
+    "HIP 57565": [{"english": "太子"}],
+    "HIP 57606": [{"english": "白帝座"},
+                  {"english": "五帝座三"}],
+    "HIP 57613": [{"english": "翼宿二十二"}],
+    "HIP 57632": [{"english": "黄帝座"},
+                  {"english": "五帝座中星"},
+                  {"english": "五帝座一"}],
+    "HIP 57646": [{"english": "黑帝座"},
+                  {"english": "五帝座二"}],
+    "HIP 57669": [{"english": "器府三十"}],
+    "HIP 57741": [{"english": "器府二十五"}],
+    "HIP 57757": [{"english": "右执法"},
+                  {"english": "太微门右星"},
+                  {"english": "太微西蕃一"}],
+    "HIP 57779": [{"english": "赤帝座"},
+                  {"english": "五帝座五"}],
+    "HIP 57870": [{"english": "器府三"}],
+    "HIP 57936": [{"english": "土司空一"}],
+    "HIP 58001": [{"english": "天玑"},
+                  {"english": "北斗三"}],
+    "HIP 58082": [{"english": "军门一"}],
+    "HIP 58158": [{"english": "军门二"}],
+    "HIP 58159": [{"english": "苍帝座"},
+                  {"english": "五帝座四"}],
+    "HIP 58181": [{"english": "天理东北星"},
+                  {"english": "天理三"}],
+    "HIP 58576": [{"english": "翼宿十三"}],
+    "HIP 58590": [{"english": "内屏东南星"},
+                  {"english": "内屏三"}],
+    "HIP 58642": [{"english": "器府四"}],
+    "HIP 58654": [{"english": "常陈西南第二星"},
+                  {"english": "常陈二"}],
+    "HIP 58758": [{"english": "器府二十六"}],
+    "HIP 58858": [{"english": "幸臣"}],
+    "HIP 58901": [{"english": "器府十一"}],
+    "HIP 58921": [{"english": "器府十九"}],
+    "HIP 58948": [{"english": "内屏东北星"},
+                  {"english": "内屏四"}],
+    "HIP 59072": [{"english": "器府三十一"}],
+    "HIP 59199": [{"english": "右辖#"}],
+    "HIP 59200": [{"english": "器府二十"}],
+    "HIP 59316": [{"english": "轸宿二"}],
+    "HIP 59504": [{"english": "四辅南星"},
+                  {"english": "四辅四"}],
+    "HIP 59747": [{"english": "库楼楼西星"},
+                  {"english": "库楼十"},
+                  {"english": "器府十二"}],
+    "HIP 59774": [{"english": "天权"},
+                  {"english": "北斗四"}],
+    "HIP 59803": [{"english": "轸宿一"}],
+    "HIP 59819": [{"english": "九卿内座西南星"},
+                  {"english": "九卿内座一"}],
+    "HIP 59827": [{"english": "常陈西南第三星"},
+                  {"english": "常陈三"}],
+    "HIP 59831": [{"english": "常陈西南第三星"},
+                  {"english": "常陈三"}],
+    "HIP 59847": [{"english": "郎位西南星"},
+                  {"english": "郎位十五"}],
+    "HIP 59856": [{"english": "常陈南第一星"},
+                  {"english": "常陈七"}],
+    "HIP 60009": [{"english": "器府三十二"}],
+    "HIP 60066": [{"english": "郎位下右星"},
+                  {"english": "郎位十"}],
+    "HIP 60129": [{"english": "左执法"},
+                  {"english": "太微门左星"},
+                  {"english": "太微东蕃一"}],
+    "HIP 60170": [{"english": "郎位西中星"},
+                  {"english": "郎位六"}],
+    "HIP 60172": [{"english": "谒者"}],
+    "HIP 60189": [{"english": "长沙"}],
+    "HIP 60197": [{"english": "郎位上右星"},
+                  {"english": "郎位三"}],
+    "HIP 60202": [{"english": "五诸侯南第一星"},
+                  {"english": "五诸侯一"}],
+    "HIP 60260": [{"english": "器府二十一"}],
+    "HIP 60327": [{"english": "郎位南右星"},
+                  {"english": "郎位十四"}],
+    "HIP 60351": [{"english": "郎位中右星"},
+                  {"english": "郎位九"}],
+    "HIP 60379": [{"english": "器府五"}],
+    "HIP 60514": [{"english": "郎位中央星"},
+                  {"english": "郎位五"}],
+    "HIP 60525": [{"english": "郎位中左星"},
+                  {"english": "郎位八"}],
+    "HIP 60599": [{"english": "郎位南中星"},
+                  {"english": "郎位十三"}],
+    "HIP 60646": [{"english": "常陈南第二星"},
+                  {"english": "常陈六"}],
+    "HIP 60697": [{"english": "郎位上左星"},
+                  {"english": "郎位二"}],
+    "HIP 60718": [{"english": "库楼楼南星"},
+                  {"english": "库楼九"},
+                  {"english": "器府二十七"}],
+    "HIP 60742": [{"english": "郎位头大星"},
+                  {"english": "郎位北星"},
+                  {"english": "郎位一"}],
+    "HIP 60746": [{"english": "郎位东中星"},
+                  {"english": "郎位四"}],
+    "HIP 60904": [{"english": "郎位下左星"},
+                  {"english": "郎位七"}],
+    "HIP 60941": [{"english": "郎位南左星"},
+                  {"english": "郎位十二"}],
+    "HIP 60957": [{"english": "五诸侯南第二星"},
+                  {"english": "五诸侯二"}],
+    "HIP 60965": [{"english": "轸宿三"}],
+    "HIP 60998": [{"english": "太一"}],
+    "HIP 61071": [{"english": "郎位东南星"},
+                  {"english": "郎位十一"}],
+    "HIP 61084": [{"english": "库楼楼北星"},
+                  {"english": "库楼七"},
+                  {"english": "器府六"}],
+    "HIP 61136": [{"english": "器府十三"}],
+    "HIP 61174": [{"english": "左辖"}],
+    "HIP 61281": [{"english": "天一"}],
+    "HIP 61317": [{"english": "常陈大星"},
+                  {"english": "常陈五"}],
+    "HIP 61359": [{"english": "轸宿四"}],
+    "HIP 61384": [{"english": "紫微门右星"},
+                  {"english": "紫微西蕃一"}],
+    "HIP 61394": [{"english": "五诸侯中星"},
+                  {"english": "五诸侯三"}],
+    "HIP 61418": [{"english": "九卿内座中星"},
+                  {"english": "九卿内座二"}],
+    "HIP 61740": [{"english": "翼宿十四*"}],
+    "HIP 61932": [{"english": "库楼西星"},
+                  {"english": "库楼六"}],
+    "HIP 61941": [{"english": "上相"},
+                  {"english": "太微东蕃第二星"},
+                  {"english": "太微东蕃二"}],
+    "HIP 61960": [{"english": "三公内座北星"},
+                  {"english": "三公内座一"}],
+    "HIP 61966": [{"english": "器府十四"}],
+    "HIP 61968": [{"english": "三公内座南星"},
+                  {"english": "三公内座三"}],
+    "HIP 62027": [{"english": "器府二十八"}],
+    "HIP 62223": [{"english": "常陈北星"},
+                  {"english": "常陈四"}],
+    "HIP 62267": [{"english": "三公内座中星"},
+                  {"english": "三公内座二"}],
+    "HIP 62268": [{"english": "器府二十二"}],
+    "HIP 62327": [{"english": "器府七"}],
+    "HIP 62434": [{"english": "库楼楼东星"},
+                  {"english": "库楼八"},
+                  {"english": "器府十五"}],
+    "HIP 62523": [{"english": "五诸侯北第二星"},
+                  {"english": "五诸侯四"}],
+    "HIP 62561": [{"english": "四辅东星"},
+                  {"english": "四辅一"}],
+    "HIP 62572": [{"english": "四辅东星"},
+                  {"english": "四辅一"}],
+    "HIP 62763": [{"english": "五诸侯北第一星"},
+                  {"english": "五诸侯五"}],
+    "HIP 62886": [{"english": "九卿内座东北星"},
+                  {"english": "九卿内座三"}],
+    "HIP 62956": [{"english": "玉衡"},
+                  {"english": "北斗五"}],
+    "HIP 63003": [{"english": "器府八"}],
+    "HIP 63007": [{"english": "器府十六"}],
+    "HIP 63090": [{"english": "次相"},
+                  {"english": "太微东蕃第三星"},
+                  {"english": "太微东蕃三"}],
+    "HIP 63121": [{"english": "郎将"}],
+    "HIP 63125": [{"english": "郎将"}],
+    "HIP 63608": [{"english": "次将"},
+                  {"english": "太微东蕃第四星"},
+                  {"english": "太微东蕃四"}],
+    "HIP 64238": [{"english": "进贤"}],
+    "HIP 64241": [{"english": "上将"},
+                  {"english": "太微东蕃第五星"},
+                  {"english": "太微东蕃五"}],
+    "HIP 64407": [{"english": "天门西星"},
+                  {"english": "天门一"}],
+    "HIP 64906": [{"english": "三公西北星"},
+                  {"english": "三公三"}],
+    "HIP 64962": [{"english": "平西星"},
+                  {"english": "平一"}],
+    "HIP 65109": [{"english": "库楼西北星"},
+                  {"english": "库楼五"}],
+    "HIP 65378": [{"english": "开阳"},
+                  {"english": "北斗六"}],
+    "HIP 65420": [{"english": "平道西星"},
+                  {"english": "平道二"}],
+    "HIP 65474": [{"english": "左角"},
+                  {"english": "角南星"},
+                  {"english": "角宿一"},
+                  {"english": "理"}],
+    "HIP 65477": [{"english": "辅"}],
+    "HIP 65535": [{"english": "柱第十五星"},
+                  {"english": "柱十五"}],
+    "HIP 65550": [{"english": "三公南星"},
+                  {"english": "三公一"}],
+    "HIP 65595": [{"english": "天枢"},
+                  {"english": "纽星"},
+                  {"english": "北极五"}],
+    "HIP 65639": [{"english": "天门东星"},
+                  {"english": "天门二"}],
+    "HIP 65936": [{"english": "柱第十三星"},
+                  {"english": "柱十三"}],
+    "HIP 66006": [{"english": "平道东星"},
+                  {"english": "平道一"}],
+    "HIP 66200": [{"english": "天田西星"},
+                  {"english": "天田一"}],
+    "HIP 66234": [{"english": "三公东星"},
+                  {"english": "三公二"}],
+    "HIP 66249": [{"english": "右角"},
+                  {"english": "角北星"},
+                  {"english": "角宿二"},
+                  {"english": "将"}],
+    "HIP 66656": [{"english": "柱第十四星"},
+                  {"english": "柱十四"}],
+    "HIP 66657": [{"english": "库楼门左星"},
+                  {"english": "库楼一"}],
+    "HIP 66727": [{"english": "周鼎西南星"},
+                  {"english": "周鼎三"}],
+    "HIP 66763": [{"english": "周鼎北星"},
+                  {"english": "周鼎二"}],
+    "HIP 66936": [{"english": "天田东星"},
+                  {"english": "天田二"}],
+    "HIP 67153": [{"english": "柱第十二星"},
+                  {"english": "柱十二"}],
+    "HIP 67275": [{"english": "西摄提中星"},
+                  {"english": "西摄提二"}],
+    "HIP 67301": [{"english": "摇光"},
+                  {"english": "北斗七"}],
+    "HIP 67457": [{"english": "柱第十一星"},
+                  {"english": "柱十一"}],
+    "HIP 67459": [{"english": "西摄提南星"},
+                  {"english": "西摄提三"}],
+    "HIP 67464": [{"english": "衡西北星"},
+                  {"english": "衡一"}],
+    "HIP 67472": [{"english": "衡西南星"},
+                  {"english": "衡二"}],
+    "HIP 67480": [{"english": "周鼎东星"},
+                  {"english": "周鼎一"}],
+    "HIP 67589": [{"english": "大理西南星"},
+                  {"english": "大理二"}],
+    "HIP 67669": [{"english": "柱第十星"},
+                  {"english": "柱十"}],
+    "HIP 67927": [{"english": "西摄提北大星"},
+                  {"english": "西摄提一"}],
+    "HIP 68002": [{"english": "柱第一星"},
+                  {"english": "柱一"}],
+    "HIP 68245": [{"english": "衡东南星"},
+                  {"english": "衡三"}],
+    "HIP 68276": [{"english": "帝席西星"},
+                  {"english": "帝席二"}],
+    "HIP 68282": [{"english": "柱第二星"},
+                  {"english": "柱二"}],
+    "HIP 68498": [{"english": "亢池西北星"},
+                  {"english": "亢池六"}],
+    "HIP 68523": [{"english": "柱第三星"},
+                  {"english": "柱三"}],
+    "HIP 68702": [{"english": "南门西星"},
+                  {"english": "南门一"}],
+    "HIP 68707": [{"english": "亢池西南星"},
+                  {"english": "亢池五"}],
+    "HIP 68756": [{"english": "紫微门左星"},
+                  {"english": "紫微东蕃一"}],
+    "HIP 68862": [{"english": "衡东星"},
+                  {"english": "衡四"}],
+    "HIP 68895": [{"english": "平东星"},
+                  {"english": "平二"}],
+    "HIP 68933": [{"english": "库楼东北星"},
+                  {"english": "库楼四"}],
+    "HIP 68940": [{"english": "折威西星"},
+                  {"english": "折威一"}],
+    "HIP 69112": [{"english": "后宫"},
+                  {"english": "北极四"}],
+    "HIP 69226": [{"english": "帝席中星"},
+                  {"english": "帝席一"}],
+    "HIP 69269": [{"english": "折威西第二星"},
+                  {"english": "折威二"}],
+    "HIP 69373": [{"english": "大理东北星"},
+                  {"english": "大理一"}],
+    "HIP 69389": [{"english": "亢池南星"},
+                  {"english": "亢池四"}],
+    "HIP 69427": [{"english": "亢宿南第二星"},
+                  {"english": "亢宿一"}],
+    "HIP 69481": [{"english": "天枪西星"},
+                  {"english": "天枪一"}],
+    "HIP 69483": [{"english": "天枪西星"},
+                  {"english": "天枪一"}],
+    "HIP 69612": [{"english": "亢池北星"},
+                  {"english": "亢池一"}],
+    "HIP 69658": [{"english": "折威西第三星"},
+                  {"english": "折威三"}],
+    "HIP 69673": [{"english": "大角"}],
+    "HIP 69701": [{"english": "亢宿北第二星"},
+                  {"english": "亢宿二"}],
+    "HIP 69713": [{"english": "天枪南星"},
+                  {"english": "天枪二"}],
+    "HIP 69732": [{"english": "玄戈"}],
+    "HIP 69792": [{"english": "折威西第四星"},
+                  {"english": "折威四"}],
+    "HIP 69929": [{"english": "折威东第三星"},
+                  {"english": "折威五"}],
+    "HIP 69974": [{"english": "亢宿南星"},
+                  {"english": "亢宿四"}],
+    "HIP 69996": [{"english": "柱第七星"},
+                  {"english": "柱七"}],
+    "HIP 70090": [{"english": "阳门西北星"},
+                  {"english": "阳门一"}],
+    "HIP 70104": [{"english": "柱第九星"},
+                  {"english": "柱九"}],
+    "HIP 70300": [{"english": "阳门东南星"},
+                  {"english": "阳门二"}],
+    "HIP 70306": [{"english": "顿顽西北星"},
+                  {"english": "顿顽一"}],
+    "HIP 70327": [{"english": "亢池东北星"},
+                  {"english": "亢池二"}],
+    "HIP 70400": [{"english": "亢池东南星"},
+                  {"english": "亢池三"}],
+    "HIP 70469": [{"english": "折威东星"},
+                  {"english": "折威七"}],
+    "HIP 70497": [{"english": "天枪东大星"},
+                  {"english": "天枪三"}],
+    "HIP 70518": [{"english": "折威东第二星"},
+                  {"english": "折威六"}],
+    "HIP 70576": [{"english": "柱第八星"},
+                  {"english": "柱八"}],
+    "HIP 70602": [{"english": "帝席东星"},
+                  {"english": "帝席三"}],
+    "HIP 70692": [{"english": "庶子"},
+                  {"english": "北极三"}],
+    "HIP 70753": [{"english": "顿顽东南星"},
+                  {"english": "顿顽二"}],
+    "HIP 70755": [{"english": "亢宿北星"},
+                  {"english": "亢宿三"}],
+    "HIP 70931": [{"english": "柱第六星"},
+                  {"english": "柱六"}],
+    "HIP 71053": [{"english": "梗河西北星"},
+                  {"english": "梗河三"}],
+    "HIP 71075": [{"english": "招摇"},
+                  {"english": "天矛"},
+                  {"english": "七公一"}],
+    "HIP 71121": [{"english": "柱第四星"},
+                  {"english": "柱四"}],
+    "HIP 71284": [{"english": "梗河中星"},
+                  {"english": "梗河二"}],
+    "HIP 71352": [{"english": "库楼东星"},
+                  {"english": "库楼三"}],
+    "HIP 71536": [{"english": "柱第五星"},
+                  {"english": "柱五"}],
+    "HIP 71681": [{"english": "南门东星"},
+                  {"english": "南门二"}],
+    "HIP 71683": [{"english": "南门东星"},
+                  {"english": "南门二"}],
+    "HIP 71762": [{"english": "东摄提中星"},
+                  {"english": "东摄提二"}],
+    "HIP 71795": [{"english": "东摄提南星"},
+                  {"english": "东摄提三"}],
+    "HIP 71860": [{"english": "库楼东南星"},
+                  {"english": "库楼二"}],
+    "HIP 72105": [{"english": "天锋"},
+                  {"english": "梗河东南大星"},
+                  {"english": "梗河一"}],
+    "HIP 72125": [{"english": "东摄提北星"},
+                  {"english": "东摄提一"}],
+    "HIP 72607": [{"english": "帝"},
+                  {"english": "北极二"}],
+    "HIP 72622": [{"english": "氐宿西南星"},
+                  {"english": "氐宿一"}],
+    "HIP 73095": [{"english": "车骑三"}],
+    "HIP 73199": [{"english": "阴德西南星"},
+                  {"english": "阴德二"},
+                  {"english": "阳德"}],
+    "HIP 73284": [{"english": "阵车三"}],
+    "HIP 73555": [{"english": "七公二"}],
+    "HIP 73714": [{"english": "阵车二"}],
+    "HIP 74006": [{"english": "车骑二"}],
+    "HIP 74239": [{"english": "阵车一"}],
+    "HIP 74392": [{"english": "氐宿东南星"},
+                  {"english": "氐宿二"}],
+    "HIP 74395": [{"english": "车骑一"}],
+    "HIP 74605": [{"english": "阴德东北星"},
+                  {"english": "阴德一"},
+                  {"english": "阴德"}],
+    "HIP 74785": [{"english": "氐宿西北星"},
+                  {"english": "氐宿四"}],
+    "HIP 75097": [{"english": "太子"},
+                  {"english": "北极一"}],
+    "HIP 75256": [{"english": "尚书西南星"},
+                  {"english": "尚书四"}],
+    "HIP 75260": [{"english": "尚书西北星"},
+                  {"english": "尚书三"}],
+    "HIP 75411": [{"english": "七公三"}],
+    "HIP 75458": [{"english": "紫微东蕃第二星"},
+                  {"english": "紫微东蕃二"}],
+    "HIP 75695": [{"english": "贯索三"}],
+    "HIP 75696": [{"english": "尚书南星"},
+                  {"english": "尚书五"}],
+    "HIP 75974": [{"english": "尚书北星"},
+                  {"english": "尚书二"}],
+    "HIP 76127": [{"english": "贯索二"}],
+    "HIP 76267": [{"english": "贯索四"}],
+    "HIP 76276": [{"english": "秦"}],
+    "HIP 76333": [{"english": "氐宿东北星"},
+                  {"english": "氐宿三"}],
+    "HIP 76470": [{"english": "天辐一"}],
+    "HIP 76600": [{"english": "天辐二"}],
+    "HIP 76669": [{"english": "七公四"}],
+    "HIP 76952": [{"english": "贯索五"}],
+    "HIP 77048": [{"english": "贯索一"}],
+    "HIP 77055": [{"english": "钩陈柄第一星"},
+                  {"english": "钩陈四"}],
+    "HIP 77070": [{"english": "蜀"}],
+    "HIP 77233": [{"english": "周"}],
+    "HIP 77277": [{"english": "尚书东星"},
+                  {"english": "尚书一"}],
+    "HIP 77512": [{"english": "贯索六"}],
+    "HIP 77516": [{"english": "天乳"}],
+    "HIP 77622": [{"english": "巴"}],
+    "HIP 77634": [{"english": "从官一"}],
+    "HIP 77840": [{"english": "日"}],
+    "HIP 77853": [{"english": "西咸一"}],
+    "HIP 78072": [{"english": "郑"}],
+    "HIP 78104": [{"english": "房宿二"}],
+    "HIP 78159": [{"english": "贯索七"}],
+    "HIP 78207": [{"english": "西咸二"}],
+    "HIP 78265": [{"english": "房宿一"}],
+    "HIP 78323": [{"english": "积卒二"}],
+    "HIP 78384": [{"english": "积卒一"}],
+    "HIP 78401": [{"english": "房宿三"}],
+    "HIP 78459": [{"english": "贯索九"}],
+    "HIP 78493": [{"english": "贯索八"}],
+    "HIP 78527": [{"english": "紫微东蕃第三星"},
+                  {"english": "紫微东蕃三"}],
+    "HIP 78727": [{"english": "西咸三"}],
+    "HIP 78820": [{"english": "房宿四"}],
+    "HIP 78893": [{"english": "天柱西南星"},
+                  {"english": "天柱一"}],
+    "HIP 78914": [{"english": "积卒三"}],
+    "HIP 78933": [{"english": "钩钤一"}],
+    "HIP 78990": [{"english": "钩钤二"}],
+    "HIP 79043": [{"english": "晋"}],
+    "HIP 79119": [{"english": "七公五"}],
+    "HIP 79199": [{"english": "从官二*"}],
+    "HIP 79320": [{"english": "积卒九"}],
+    "HIP 79374": [{"english": "键闭"}],
+    "HIP 79375": [{"english": "西咸四*"}],
+    "HIP 79488": [{"english": "列肆西南星"},
+                  {"english": "列肆二"}],
+    "HIP 79593": [{"english": "梁"}],
+    "HIP 79653": [{"english": "积卒四"}],
+    "HIP 79822": [{"english": "女御南星"},
+                  {"english": "女御一"}],
+    "HIP 79882": [{"english": "楚"}],
+    "HIP 79963": [{"english": "积卒十*"}],
+    "HIP 80112": [{"english": "心宿一"}],
+    "HIP 80170": [{"english": "河间"}],
+    "HIP 80181": [{"english": "天纪一"}],
+    "HIP 80331": [{"english": "紫微东蕃第四星"},
+                  {"english": "紫微东蕃四"}],
+    "HIP 80337": [{"english": "积卒十二*"}],
+    "HIP 80343": [{"english": "罚一"}],
+    "HIP 80460": [{"english": "七公六"}],
+    "HIP 80463": [{"english": "列肆东北星"},
+                  {"english": "列肆一"}],
+    "HIP 80473": [{"english": "东咸一*"}],
+    "HIP 80480": [{"english": "女御西星"},
+                  {"english": "女御二"}],
+    "HIP 80569": [{"english": "罚二"}],
+    "HIP 80650": [{"english": "天柱西北星"},
+                  {"english": "天柱二"}],
+    "HIP 80763": [{"english": "心宿二"}],
+    "HIP 80816": [{"english": "河中"}],
+    "HIP 80894": [{"english": "罚三"}],
+    "HIP 80911": [{"english": "积卒八"}],
+    "HIP 80945": [{"english": "积卒十一"}],
+    "HIP 80975": [{"english": "东咸二"}],
+    "HIP 81126": [{"english": "七公七"}],
+    "HIP 81266": [{"english": "心宿三"}],
+    "HIP 81304": [{"english": "积卒七"}],
+    "HIP 81377": [{"english": "韩"}],
+    "HIP 81472": [{"english": "积卒五"}],
+    "HIP 81641": [{"english": "斛一"}],
+    "HIP 81660": [{"english": "天柱东南星"},
+                  {"english": "天柱五"}],
+    "HIP 81693": [{"english": "天纪二"}],
+    "HIP 81724": [{"english": "东咸四"}],
+    "HIP 81734": [{"english": "斛二"}],
+    "HIP 81754": [{"english": "东咸三"}],
+    "HIP 81972": [{"english": "积卒六"}],
+    "HIP 82073": [{"english": "斗三"}],
+    "HIP 82080": [{"english": "钩陈柄第二星"},
+                  {"english": "钩陈三"}],
+    "HIP 82216": [{"english": "斗五"}],
+    "HIP 82369": [{"english": "车肆一#"}],
+    "HIP 82396": [{"english": "尾宿二"}],
+    "HIP 82402": [{"english": "斗四"}],
+    "HIP 82480": [{"english": "斛三"}],
+    "HIP 82514": [{"english": "尾宿一"}],
+    "HIP 82545": [{"english": "神宫"}],
+    "HIP 82673": [{"english": "斗二"}],
+    "HIP 82729": [{"english": "尾宿三"}],
+    "HIP 82860": [{"english": "天柱东北星"},
+                  {"english": "天柱四"}],
+    "HIP 82979": [{"english": "车肆二#"}],
+    "HIP 83000": [{"english": "斗一"}],
+    "HIP 83207": [{"english": "天纪三"}],
+    "HIP 83262": [{"english": "市楼三"}],
+    "HIP 83308": [{"english": "宦者北星"},
+                  {"english": "宦者一"}],
+    "HIP 83430": [{"english": "宦者北第二星"},
+                  {"english": "宦者二"}],
+    "HIP 83504": [{"english": "宦者南第二星"},
+                  {"english": "宦者三"}],
+    "HIP 83613": [{"english": "宦者南星"},
+                  {"english": "宦者四"}],
+    "HIP 83895": [{"english": "紫微东蕃第五星"},
+                  {"english": "紫微东蕃五"}],
+    "HIP 83962": [{"english": "市楼四"}],
+    "HIP 84012": [{"english": "天市南门左星"}],
+    "HIP 84143": [{"english": "尾宿四"}],
+    "HIP 84345": [{"english": "帝座"}],
+    "HIP 84379": [{"english": "天市北门左星"}],
+    "HIP 84380": [{"english": "女床一"}],
+    "HIP 84405": [{"english": "天江一"}],
+    "HIP 84573": [{"english": "天纪四"}],
+    "HIP 84606": [{"english": "女床二"}],
+    "HIP 84862": [{"english": "天纪五"}],
+    "HIP 84880": [{"english": "市楼五"}],
+    "HIP 84970": [{"english": "天江二"}],
+    "HIP 85079": [{"english": "龟五"}],
+    "HIP 85112": [{"english": "女床三"}],
+    "HIP 85340": [{"english": "天江三"}],
+    "HIP 85365": [{"english": "市楼二"}],
+    "HIP 85382": [{"english": "天纪六"}],
+    "HIP 85389": [{"english": "龟一"}],
+    "HIP 85670": [{"english": "天棓西南星"},
+                  {"english": "天棓三"}],
+    "HIP 85693": [{"english": "天市东蕃第十星"}],
+    "HIP 85696": [{"english": "尾宿九"}],
+    "HIP 85755": [{"english": "天江四"}],
+    "HIP 85792": [{"english": "龟四"}],
+    "HIP 85805": [{"english": "天柱北星"},
+                  {"english": "天柱三"}],
+    "HIP 85819": [{"english": "天棓西北星"},
+                  {"english": "天棓二"}],
+    "HIP 85822": [{"english": "钩陈柄第三星"},
+                  {"english": "钩陈二"}],
+    "HIP 85927": [{"english": "尾宿八"}],
+    "HIP 86032": [{"english": "侯"}],
+    "HIP 86092": [{"english": "龟二"}],
+    "HIP 86201": [{"english": "紫微东蕃第六星"},
+                  {"english": "紫微东蕃六"}],
+    "HIP 86228": [{"english": "尾宿五"}],
+    "HIP 86263": [{"english": "天市东蕃第二星"}],
+    "HIP 86284": [{"english": "市楼一"}],
+    "HIP 86414": [{"english": "天棓南星"},
+                  {"english": "天棓五"}],
+    "HIP 86486": [{"english": "龟三"}],
+    "HIP 86565": [{"english": "市楼六"}],
+    "HIP 86614": [{"english": "柱下史"}],
+    "HIP 86620": [{"english": "柱下史"}],
+    "HIP 86670": [{"english": "尾宿七"}],
+    "HIP 86742": [{"english": "宗正一"}],
+    "HIP 86974": [{"english": "天市东蕃第九星"}],
+    "HIP 87024": [{"english": "天纪七*"}],
+    "HIP 87073": [{"english": "尾宿六"}],
+    "HIP 87108": [{"english": "宗正二"}],
+    "HIP 87234": [{"english": "女御东星"},
+                  {"english": "女御四"}],
+    "HIP 87261": [{"english": "傅说"}],
+    "HIP 87563": [{"english": "天纪九"}],
+    "HIP 87585": [{"english": "天棓东北星"},
+                  {"english": "天棓一"}],
+    "HIP 87706": [{"english": "天籥二"}],
+    "HIP 87808": [{"english": "天纪八"}],
+    "HIP 87833": [{"english": "天棓东中星"},
+                  {"english": "天棓四"}],
+    "HIP 87836": [{"english": "天籥三*"}],
+    "HIP 88012": [{"english": "天籥四"}],
+    "HIP 88048": [{"english": "天市东蕃第三星"}],
+    "HIP 88116": [{"english": "天籥一"}],
+    "HIP 88136": [{"english": "女御北星"},
+                  {"english": "女御三"}],
+    "HIP 88149": [{"english": "宗人一"}],
+    "HIP 88192": [{"english": "宗人二"}],
+    "HIP 88267": [{"english": "屠肆西北星"},
+                  {"english": "屠肆一"}],
+    "HIP 88290": [{"english": "宗人三"}],
+    "HIP 88331": [{"english": "帛度西北星"},
+                  {"english": "帛度一"}],
+    "HIP 88550": [{"english": "糠"}],
+    "HIP 88601": [{"english": "宗人四"}],
+    "HIP 88635": [{"english": "箕宿一"}],
+    "HIP 88765": [{"english": "宗南星"},
+                  {"english": "宗二"}],
+    "HIP 88771": [{"english": "宗北星"},
+                  {"english": "宗一"}],
+    "HIP 88794": [{"english": "天市东蕃第八星"}],
+    "HIP 88839": [{"english": "天籥五"}],
+    "HIP 88886": [{"english": "屠肆东南星"},
+                  {"english": "屠肆二"}],
+    "HIP 88899": [{"english": "帛度东南星"},
+                  {"english": "帛度二"}],
+    "HIP 89153": [{"english": "天籥八"}],
+    "HIP 89341": [{"english": "斗宿三"}],
+    "HIP 89642": [{"english": "箕宿二"}],
+    "HIP 89678": [{"english": "天籥六"}],
+    "HIP 89908": [{"english": "紫微东蕃第七星"},
+                  {"english": "紫微东蕃七"}],
+    "HIP 89931": [{"english": "箕宿四"}],
+    "HIP 89937": [{"english": "女史"}],
+    "HIP 89962": [{"english": "天市东蕃第四星"}],
+    "HIP 89980": [{"english": "天籥七*"}],
+    "HIP 90185": [{"english": "箕宿三"}],
+    "HIP 90422": [{"english": "杵二"}],
+    "HIP 90496": [{"english": "斗宿二"}],
+    "HIP 90568": [{"english": "杵三"}],
+    "HIP 90982": [{"english": "杵一"}],
+    "HIP 91014": [{"english": "农丈人"}],
+    "HIP 91117": [{"english": "天弁一"}],
+    "HIP 91262": [{"english": "织女大星"},
+                  {"english": "织女一"}],
+    "HIP 91726": [{"english": "天弁二"}],
+    "HIP 91845": [{"english": "天弁三"}],
+    "HIP 91875": [{"english": "鳖十二*"}],
+    "HIP 91880": [{"english": "天弁四"}],
+    "HIP 91901": [{"english": "鳖十一*"}],
+    "HIP 91918": [{"english": "鳖十*"}],
+    "HIP 91919": [{"english": "织女东北星"},
+                  {"english": "织女二"}],
+    "HIP 91971": [{"english": "织女东南星"},
+                  {"english": "织女三"}],
+    "HIP 91989": [{"english": "鳖十三*"}],
+    "HIP 92041": [{"english": "斗宿一"}],
+    "HIP 92043": [{"english": "天市东蕃第七星"}],
+    "HIP 92056": [{"english": "紫微东蕃第八星"},
+                  {"english": "紫微东蕃八"}],
+    "HIP 92175": [{"english": "天弁五"}],
+    "HIP 92226": [{"english": "鳖十四*"}],
+    "HIP 92420": [{"english": "渐台二"}],
+    "HIP 92608": [{"english": "鳖一*"}],
+    "HIP 92782": [{"english": "天厨西北星"},
+                  {"english": "天厨六"}],
+    "HIP 92791": [{"english": "渐台一"}],
+    "HIP 92855": [{"english": "斗宿四"}],
+    "HIP 92862": [{"english": "辇道一"}],
+    "HIP 92946": [{"english": "天市东蕃第五星"}],
+    "HIP 92951": [{"english": "天市东蕃第五星"}],
+    "HIP 92989": [{"english": "鳖九"}],
+    "HIP 93026": [{"english": "天弁六"}],
+    "HIP 93074": [{"english": "鳖二*"}],
+    "HIP 93085": [{"english": "建一"}],
+    "HIP 93174": [{"english": "鳖八"}],
+    "HIP 93194": [{"english": "渐台三"}],
+    "HIP 93371": [{"english": "鳖北增一*"}],
+    "HIP 93429": [{"english": "天弁七"}],
+    "HIP 93506": [{"english": "斗宿六"}],
+    "HIP 93526": [{"english": "天弁九"}],
+    "HIP 93542": [{"english": "鳖三"}],
+    "HIP 93683": [{"english": "建二"}],
+    "HIP 93747": [{"english": "天市东蕃第六星"}],
+    "HIP 93805": [{"english": "天弁八"}],
+    "HIP 93825": [{"english": "鳖七"}],
+    "HIP 93864": [{"english": "斗宿五"}],
+    "HIP 93903": [{"english": "渐台四"}],
+    "HIP 94005": [{"english": "鳖四"}],
+    "HIP 94083": [{"english": "五帝内座东南星"},
+                  {"english": "五帝内座二"}],
+    "HIP 94114": [{"english": "鳖六"}],
+    "HIP 94141": [{"english": "建三"}],
+    "HIP 94160": [{"english": "鳖五"}],
+    "HIP 94376": [{"english": "天厨西大星"},
+                  {"english": "天厨一"}],
+    "HIP 94481": [{"english": "辇道二#"}],
+    "HIP 94648": [{"english": "天厨东北星"},
+                  {"english": "天厨五"}],
+    "HIP 94713": [{"english": "辇道三"}],
+    "HIP 94779": [{"english": "奚仲一"}],
+    "HIP 94820": [{"english": "建四"}],
+    "HIP 95081": [{"english": "天厨西南星"},
+                  {"english": "天厨二"}],
+    "HIP 95167": [{"english": "五帝内座西南星"},
+                  {"english": "五帝内座五"}],
+    "HIP 95168": [{"english": "建五"}],
+    "HIP 95176": [{"english": "建六"}],
+    "HIP 95241": [{"english": "天渊九"}],
+    "HIP 95347": [{"english": "天渊十"}],
+    "HIP 95477": [{"english": "狗二"}],
+    "HIP 95501": [{"english": "鼓旗北第三星"},
+                  {"english": "鼓旗三"}],
+    "HIP 95556": [{"english": "辇道四#"}],
+    "HIP 95585": [{"english": "鼓旗北第四星"},
+                  {"english": "鼓旗四"}],
+    "HIP 95853": [{"english": "奚仲二"}],
+    "HIP 96052": [{"english": "辇道五"}],
+    "HIP 96229": [{"english": "鼓旗北第一星"},
+                  {"english": "鼓旗一"}],
+    "HIP 96441": [{"english": "奚仲三"}],
+    "HIP 96465": [{"english": "狗一"}],
+    "HIP 96468": [{"english": "鼓旗北第五星"},
+                  {"english": "鼓旗五"}],
+    "HIP 96536": [{"english": "天鸡二*"}],
+    "HIP 96665": [{"english": "鼓旗北第二星"},
+                  {"english": "鼓旗二"}],
+    "HIP 96721": [{"english": "天渊五*"}],
+    "HIP 96757": [{"english": "左旗西第一星"},
+                  {"english": "左旗一"}],
+    "HIP 96837": [{"english": "左旗西第二星"},
+                  {"english": "左旗二"}],
+    "HIP 96895": [{"english": "奚仲四"}],
+    "HIP 96950": [{"english": "天鸡一"}],
+    "HIP 97165": [{"english": "天津西北第一星"},
+                  {"english": "天津二"}],
+    "HIP 97278": [{"english": "河鼓右星"},
+                  {"english": "河鼓三"},
+                  {"english": "右将军"}],
+    "HIP 97365": [{"english": "左旗西第三星"},
+                  {"english": "左旗三"}],
+    "HIP 97370": [{"english": "天渊六*"}],
+    "HIP 97433": [{"english": "天厨东中星"},
+                  {"english": "天厨四"}],
+    "HIP 97598": [{"english": "天渊四"}],
+    "HIP 97649": [{"english": "河鼓中大星"},
+                  {"english": "河鼓二"},
+                  {"english": "大将军"}],
+    "HIP 97675": [{"english": "天桴北第一星"},
+                  {"english": "天桴四"}],
+    "HIP 97804": [{"english": "鼓旗南第四星"},
+                  {"english": "鼓旗六"}],
+    "HIP 97938": [{"english": "天桴北第二星"},
+                  {"english": "天桴三"}],
+    "HIP 98032": [{"english": "天渊一"}],
+    "HIP 98036": [{"english": "河鼓左星"},
+                  {"english": "河鼓一"},
+                  {"english": "左将军"}],
+    "HIP 98066": [{"english": "狗国一"}],
+    "HIP 98162": [{"english": "狗国四"}],
+    "HIP 98337": [{"english": "左旗西第四星"},
+                  {"english": "左旗四"}],
+    "HIP 98353": [{"english": "狗国二"}],
+    "HIP 98438": [{"english": "左旗南第四星"},
+                  {"english": "左旗六"}],
+    "HIP 98485": [{"english": "天渊二"}],
+    "HIP 98512": [{"english": "天渊三"}],
+    "HIP 98688": [{"english": "狗国三"}],
+    "HIP 98702": [{"english": "天厨东南星"},
+                  {"english": "天厨三"}],
+    "HIP 98738": [{"english": "左旗西第五星"},
+                  {"english": "左旗五"}],
+    "HIP 98754": [{"english": "左旗南第二星"},
+                  {"english": "左旗八"}],
+    "HIP 98819": [{"english": "左旗南第三星"},
+                  {"english": "左旗七"}],
+    "HIP 98823": [{"english": "天桴南第二星"},
+                  {"english": "天桴二"}],
+    "HIP 99255": [{"english": "五帝内座中星"},
+                  {"english": "五帝内座一"}],
+    "HIP 99473": [{"english": "鼓旗南第三星"},
+                  {"english": "鼓旗七"}],
+    "HIP 99631": [{"english": "鼓旗南第二星"},
+                  {"english": "鼓旗八"}],
+    "HIP 99675": [{"english": "天津西北第二星"},
+                  {"english": "天津三"}],
+    "HIP 99742": [{"english": "左旗南第一星"},
+                  {"english": "左旗九"}],
+    "HIP 100064": [{"english": "牛上右星"},
+                   {"english": "牛宿二"},
+                   {"english": "即路"},
+                   {"english": "聚火"}],
+    "HIP 100184": [{"english": "天渊八"}],
+    "HIP 100310": [{"english": "牛上左星"},
+                   {"english": "牛宿三"},
+                   {"english": "即路"},
+                   {"english": "聚火"}],
+    "HIP 100345": [{"english": "牛中大星"},
+                   {"english": "牛宿一"}],
+    "HIP 100453": [{"english": "天津西南第一星"},
+                   {"english": "天津一"}],
+    "HIP 100469": [{"english": "天渊七"}],
+    "HIP 100541": [{"english": "天桴南第一星"},
+                   {"english": "天桴一"}],
+    "HIP 100664": [{"english": "离珠五*"}],
+    "HIP 100881": [{"english": "牛下右星"},
+                   {"english": "牛宿四"}],
+    "HIP 100965": [{"english": "六甲南星"},
+                   {"english": "六甲一"}],
+    "HIP 101027": [{"english": "牛下左星"},
+                   {"english": "牛宿六"}],
+    "HIP 101082": [{"english": "六甲东南星"},
+                   {"english": "六甲二"}],
+    "HIP 101101": [{"english": "鼓旗南第一星"},
+                   {"english": "鼓旗九"},
+                   {"english": "离珠四"}],
+    "HIP 101120": [{"english": "牛下中星"},
+                   {"english": "牛宿五"}],
+    "HIP 101123": [{"english": "牛下中星"},
+                   {"english": "牛宿五"}],
+    "HIP 101260": [{"english": "五帝内座东北星"},
+                   {"english": "五帝内座三"}],
+    "HIP 101421": [{"english": "败瓜一"}],
+    "HIP 101477": [{"english": "九坎三"}],
+    "HIP 101483": [{"english": "败瓜二"}],
+    "HIP 101589": [{"english": "瓠瓜五"}],
+    "HIP 101692": [{"english": "离珠一"}],
+    "HIP 101769": [{"english": "瓠瓜四"}],
+    "HIP 101772": [{"english": "九坎一"}],
+    "HIP 101800": [{"english": "败瓜三"}],
+    "HIP 101847": [{"english": "离珠二*"}],
+    "HIP 101882": [{"english": "败瓜五"}],
+    "HIP 101916": [{"english": "败瓜四"}],
+    "HIP 101923": [{"english": "罗堰一"}],
+    "HIP 101936": [{"english": "离珠三*"}],
+    "HIP 101958": [{"english": "瓠瓜一"}],
+    "HIP 101984": [{"english": "罗堰三"}],
+    "HIP 102026": [{"english": "罗堰二"}],
+    "HIP 102098": [{"english": "江星"},
+                   {"english": "天津大星"},
+                   {"english": "天津四"}],
+    "HIP 102208": [{"english": "六甲西南星"},
+                   {"english": "六甲六"}],
+    "HIP 102281": [{"english": "瓠瓜三"}],
+    "HIP 102422": [{"english": "传舍西星"},
+                   {"english": "传舍一"}],
+    "HIP 102485": [{"english": "赵北星"},
+                   {"english": "赵一"}],
+    "HIP 102487": [{"english": "郑"}],
+    "HIP 102488": [{"english": "天津西南第二星"},
+                   {"english": "天津九"}],
+    "HIP 102532": [{"english": "瓠瓜二"}],
+    "HIP 102599": [{"english": "六甲东北星"},
+                   {"english": "六甲三"}],
+    "HIP 102618": [{"english": "女宿一"}],
+    "HIP 102624": [{"english": "女宿四"}],
+    "HIP 102724": [{"english": "钩南第一星"},
+                   {"english": "钩二"}],
+    "HIP 102790": [{"english": "九坎二"}],
+    "HIP 102831": [{"english": "齐"}],
+    "HIP 102978": [{"english": "赵南星"},
+                   {"english": "赵二"}],
+    "HIP 103005": [{"english": "女宿三"}],
+    "HIP 103045": [{"english": "女宿二"}],
+    "HIP 103089": [{"english": "钩南第二星"},
+                   {"english": "钩三"}],
+    "HIP 103226": [{"english": "越"}],
+    "HIP 103389": [{"english": "楚"}],
+    "HIP 103413": [{"english": "天津东中星"},
+                   {"english": "天津五"}],
+    "HIP 103738": [{"english": "晋"}],
+    "HIP 104019": [{"english": "周南星"},
+                   {"english": "周一"}],
+    "HIP 104060": [{"english": "钩南第三星"},
+                   {"english": "钩四"}],
+    "HIP 104105": [{"english": "五帝内座西北星"},
+                   {"english": "五帝内座四"}],
+    "HIP 104139": [{"english": "周北星"},
+                   {"english": "周二"}],
+    "HIP 104148": [{"english": "燕"}],
+    "HIP 104174": [{"english": "代西星"},
+                   {"english": "代一"}],
+    "HIP 104194": [{"english": "钩头星"},
+                   {"english": "钩一"}],
+    "HIP 104234": [{"english": "魏"}],
+    "HIP 104521": [{"english": "司命西星"},
+                   {"english": "司命一"}],
+    "HIP 104732": [{"english": "天津东南第一星"},
+                   {"english": "天津八"}],
+    "HIP 104750": [{"english": "韩"}],
+    "HIP 104756": [{"english": "六甲西北星"},
+                   {"english": "六甲五"}],
+    "HIP 104858": [{"english": "司命东星"},
+                   {"english": "司命二"}],
+    "HIP 104887": [{"english": "天津东南第三星"},
+                   {"english": "天津六"}],
+    "HIP 104963": [{"english": "秦南星"},
+                   {"english": "秦一"}],
+    "HIP 104987": [{"english": "虚北星"},
+                   {"english": "虚宿二"}],
+    "HIP 105138": [{"english": "天津东南第二星"},
+                   {"english": "天津七"}],
+    "HIP 105140": [{"english": "代东星"},
+                   {"english": "代二"}],
+    "HIP 105199": [{"english": "传舍大星"},
+                   {"english": "传舍二"}],
+    "HIP 105334": [{"english": "九坎六*"}],
+    "HIP 105425": [{"english": "九坎四*"}],
+    "HIP 105502": [{"english": "司禄西星"},
+                   {"english": "司禄一"}],
+    "HIP 105515": [{"english": "秦北星"},
+                   {"english": "秦二"}],
+    "HIP 105652": [{"english": "司危西星"},
+                   {"english": "司危一"}],
+    "HIP 105665": [{"english": "离瑜北星"},
+                   {"english": "离瑜三"}],
+    "HIP 105685": [{"english": "九坎五*"}],
+    "HIP 105727": [{"english": "六甲北星"},
+                   {"english": "六甲四"}],
+    "HIP 105860": [{"english": "司禄东星"},
+                   {"english": "司禄二"}],
+    "HIP 105881": [{"english": "离瑜中大星"},
+                   {"english": "离瑜二"}],
+    "HIP 105966": [{"english": "司非西星"},
+                   {"english": "司非一"}],
+    "HIP 106032": [{"english": "华盖西大星"},
+                   {"english": "华盖二"}],
+    "HIP 106140": [{"english": "司危东星"},
+                   {"english": "司危二"}],
+    "HIP 106278": [{"english": "虚南星"},
+                   {"english": "虚宿一"}],
+    "HIP 106363": [{"english": "离瑜南星"},
+                   {"english": "离瑜一"}],
+    "HIP 106429": [{"english": "九坎九*"}],
+    "HIP 106481": [{"english": "钩南第四星"},
+                   {"english": "钩五"}],
+    "HIP 106559": [{"english": "天垒城西北小星"},
+                   {"english": "天垒城十三"}],
+    "HIP 106590": [{"english": "天垒城西星"},
+                   {"english": "天垒城十二"}],
+    "HIP 106654": [{"english": "天垒城西南星"},
+                   {"english": "天垒城十一"}],
+    "HIP 106723": [{"english": "天垒城西北星"},
+                   {"english": "天垒城一"}],
+    "HIP 106872": [{"english": "司非东星"},
+                   {"english": "司非二"}],
+    "HIP 106985": [{"english": "哭西星"},
+                   {"english": "哭一"}],
+    "HIP 107119": [{"english": "华盖西第二星"},
+                   {"english": "华盖三"}],
+    "HIP 107136": [{"english": "钩北第三星"},
+                   {"english": "钩七"}],
+    "HIP 107188": [{"english": "天垒城西北第二星"},
+                   {"english": "天垒城二"}],
+    "HIP 107259": [{"english": "钩北第二星"},
+                   {"english": "钩八"}],
+    "HIP 107310": [{"english": "人西北星"},
+                   {"english": "人二"}],
+    "HIP 107315": [{"english": "危北大星"},
+                   {"english": "危宿三"}],
+    "HIP 107354": [{"english": "人西南星"},
+                   {"english": "人三"}],
+    "HIP 107380": [{"english": "败臼西南星"},
+                   {"english": "败臼二"}],
+    "HIP 107409": [{"english": "九坎七*"}],
+    "HIP 107418": [{"english": "钩北第一星"},
+                   {"english": "钩九"}],
+    "HIP 107533": [{"english": "钩北第四星"},
+                   {"english": "钩六"}],
+    "HIP 107556": [{"english": "哭东星"},
+                   {"english": "哭二"}],
+    "HIP 107608": [{"english": "败臼西北星"},
+                   {"english": "败臼一"}],
+    "HIP 107649": [{"english": "九坎八*"}],
+    "HIP 107763": [{"english": "人北星"},
+                   {"english": "人一"}],
+    "HIP 107901": [{"english": "天垒城西北第三星"},
+                   {"english": "天垒城三"}],
+    "HIP 107975": [{"english": "人东北星"},
+                   {"english": "人五"}],
+    "HIP 108022": [{"english": "人东南星"},
+                   {"english": "人四"}],
+    "HIP 108535": [{"english": "华盖中星"},
+                   {"english": "华盖一"}],
+    "HIP 108661": [{"english": "天垒城南星"},
+                   {"english": "天垒城十"}],
+    "HIP 108784": [{"english": "天垒城北星"},
+                   {"english": "天垒城四"}],
+    "HIP 108874": [{"english": "盖屋西南星"},
+                   {"english": "盖屋一"}],
+    "HIP 108917": [{"english": "传舍西第三星"},
+                   {"english": "传舍三"}],
+    "HIP 108991": [{"english": "盖屋东北星"},
+                   {"english": "盖屋二"}],
+    "HIP 109056": [{"english": "臼西北星"},
+                   {"english": "臼一"}],
+    "HIP 109074": [{"english": "危南星"},
+                   {"english": "危宿一"}],
+    "HIP 109139": [{"english": "垒壁阵西头觜星"},
+                   {"english": "垒壁阵西第一星"},
+                   {"english": "垒壁阵一"}],
+    "HIP 109176": [{"english": "臼西南大星"},
+                   {"english": "臼二"}],
+    "HIP 109285": [{"english": "败臼东北星"},
+                   {"english": "败臼四"}],
+    "HIP 109289": [{"english": "败臼东南星"},
+                   {"english": "败臼三"}],
+    "HIP 109332": [{"english": "天垒城东北第一星"},
+                   {"english": "天垒城五"}],
+    "HIP 109400": [{"english": "华盖西第三星"},
+                   {"english": "华盖四"}],
+    "HIP 109410": [{"english": "内杵南星"},
+                   {"english": "内杵一"}],
+    "HIP 109427": [{"english": "危中星"},
+                   {"english": "危宿二"}],
+    "HIP 109472": [{"english": "垒壁阵西第三星"},
+                   {"english": "垒壁阵三"}],
+    "HIP 109602": [{"english": "臼东南星"},
+                   {"english": "臼三"}],
+    "HIP 109624": [{"english": "羽林军一"}],
+    "HIP 109667": [{"english": "天垒城东南第二星"},
+                   {"english": "天垒城九"}],
+    "HIP 109693": [{"english": "杠第三星"},
+                   {"english": "杠三"}],
+    "HIP 109737": [{"english": "天垒城东南第一星"},
+                   {"english": "天垒城八"}],
+    "HIP 109754": [{"english": "内杵北星"},
+                   {"english": "内杵三"}],
+    "HIP 109786": [{"english": "天垒城东北第二星"},
+                   {"english": "天垒城六"}],
+    "HIP 109789": [{"english": "天钱西南星"},
+                   {"english": "天钱西星"},
+                   {"english": "天钱十"}],
+    "HIP 109937": [{"english": "内杵中星"},
+                   {"english": "内杵二"}],
+    "HIP 109990": [{"english": "天钱西北第二星"},
+                   {"english": "天钱九"}],
+    "HIP 110000": [{"english": "垒壁阵西第二星"},
+                   {"english": "垒壁阵二"},
+                   {"english": "羽林军二"}],
+    "HIP 110003": [{"english": "泣西星"},
+                   {"english": "泣二"}],
+    "HIP 110018": [{"english": "天垒城东星"},
+                   {"english": "天垒城七"}],
+    "HIP 110023": [{"english": "虚梁西星"},
+                   {"english": "虚梁四"}],
+    "HIP 110116": [{"english": "杠第八星"},
+                   {"english": "杠八"}],
+    "HIP 110273": [{"english": "泣东星"},
+                   {"english": "泣一"}],
+    "HIP 110371": [{"english": "臼东北星"},
+                   {"english": "臼四"}],
+    "HIP 110395": [{"english": "坟墓西南星"},
+                   {"english": "坟墓二"}],
+    "HIP 110529": [{"english": "天钱西北第一星"},
+                   {"english": "天钱八"}],
+    "HIP 110532": [{"english": "虚梁西第二星"},
+                   {"english": "虚梁三"}],
+    "HIP 110602": [{"english": "羽林军三"}],
+    "HIP 110672": [{"english": "坟墓西北星"},
+                   {"english": "坟墓四"}],
+    "HIP 110746": [{"english": "天钱北星"},
+                   {"english": "天钱七"}],
+    "HIP 110960": [{"english": "坟墓中星"},
+                   {"english": "坟墓一"}],
+    "HIP 111056": [{"english": "杠第七星"},
+                   {"english": "杠七"}],
+    "HIP 111123": [{"english": "垒壁阵西第四星"},
+                   {"english": "垒壁阵四"}],
+    "HIP 111170": [{"english": "虚梁东第二星"},
+                   {"english": "虚梁二"}],
+    "HIP 111188": [{"english": "天钱南星"},
+                   {"english": "天钱一"}],
+    "HIP 111242": [{"english": "杠第九星"},
+                   {"english": "杠九"}],
+    "HIP 111497": [{"english": "坟墓东南星"},
+                   {"english": "坟墓三"}],
+    "HIP 111515": [{"english": "天钱东北星"},
+                   {"english": "天钱六"}],
+    "HIP 111532": [{"english": "华盖东第三星"},
+                   {"english": "华盖五"}],
+    "HIP 111600": [{"english": "天钱东南第一星"},
+                   {"english": "天钱二"}],
+    "HIP 111710": [{"english": "虚梁东星"},
+                   {"english": "虚梁一"}],
+    "HIP 111934": [{"english": "天钱东南第二星"},
+                   {"english": "天钱三"}],
+    "HIP 111954": [{"english": "天钱东大星"},
+                   {"english": "天钱五"}],
+    "HIP 112029": [{"english": "土公吏西南大星"},
+                   {"english": "土公吏一"}],
+    "HIP 112051": [{"english": "离宫西北第一星"},
+                   {"english": "离宫三"}],
+    "HIP 112102": [{"english": "天钱东南第三星"},
+                   {"english": "天钱四"}],
+    "HIP 112158": [{"english": "离宫西北第二星"},
+                   {"english": "离宫四"}],
+    "HIP 112440": [{"english": "离宫西南第一星"},
+                   {"english": "离宫一"}],
+    "HIP 112447": [{"english": "土公吏东北星"},
+                   {"english": "土公吏二"}],
+    "HIP 112519": [{"english": "杠第六星"},
+                   {"english": "杠六"}],
+    "HIP 112716": [{"english": "羽林军四"}],
+    "HIP 112724": [{"english": "传舍西第四星"},
+                   {"english": "传舍四"}],
+    "HIP 112748": [{"english": "离宫西南第二星"},
+                   {"english": "离宫二"}],
+    "HIP 112833": [{"english": "杠第四星"},
+                   {"english": "杠四"}],
+    "HIP 112935": [{"english": "雷电西北星"},
+                   {"english": "雷电一"}],
+    "HIP 112948": [{"english": "天纲"}],
+    "HIP 112961": [{"english": "垒壁阵中第一星"},
+                   {"english": "垒壁阵中大星"},
+                   {"english": "垒壁阵五"}],
+    "HIP 113031": [{"english": "羽林军五"}],
+    "HIP 113116": [{"english": "杠第五星"},
+                   {"english": "杠五"}],
+    "HIP 113186": [{"english": "雷电西南星"},
+                   {"english": "雷电二"}],
+    "HIP 113368": [{"english": "北落师门"}],
+    "HIP 113445": [{"english": "雷电西第三星"},
+                   {"english": "雷电三"}],
+    "HIP 113531": [{"english": "羽林军六"}],
+    "HIP 113562": [{"english": "𫓧钺北星"},
+                   {"english": "𫓧钺三"}],
+    "HIP 113686": [{"english": "垒壁阵中第二星"},
+                   {"english": "垒壁阵六"}],
+    "HIP 113801": [{"english": "羽林军十*"}],
+    "HIP 113864": [{"english": "传舍西第五星"},
+                   {"english": "传舍五"}],
+    "HIP 113881": [{"english": "营室北星"},
+                   {"english": "室宿二"}],
+    "HIP 113889": [{"english": "霹雳西第一星"},
+                   {"english": "霹雳西星"},
+                   {"english": "霹雳一"}],
+    "HIP 113963": [{"english": "营室南星"},
+                   {"english": "室宿一"}],
+    "HIP 114144": [{"english": "雷电东第三星"},
+                   {"english": "雷电四"}],
+    "HIP 114222": [{"english": "华盖东第二星"},
+                   {"english": "华盖六"}],
+    "HIP 114341": [{"english": "羽林军十一"}],
+    "HIP 114366": [{"english": "𫓧钺中星"},
+                   {"english": "𫓧钺二"}],
+    "HIP 114371": [{"english": "羽林军九"}],
+    "HIP 114375": [{"english": "羽林军十二"}],
+    "HIP 114389": [{"english": "雷电东北星"},
+                   {"english": "雷电五"}],
+    "HIP 114520": [{"english": "雷电东南星"},
+                   {"english": "雷电六"}],
+    "HIP 114822": [{"english": "垒壁阵中第三星"},
+                   {"english": "垒壁阵七"}],
+    "HIP 114971": [{"english": "云雨西北大星"},
+                   {"english": "云雨一"}],
+    "HIP 115088": [{"english": "传舍东第四星"},
+                   {"english": "传舍六"}],
+    "HIP 115102": [{"english": "𫓧钺南星"},
+                   {"english": "𫓧钺一"}],
+    "HIP 115126": [{"english": "羽林军八"}],
+    "HIP 115227": [{"english": "霹雳西第二星"},
+                   {"english": "霹雳二"}],
+    "HIP 115250": [{"english": "离宫东第一星"},
+                   {"english": "离宫五"}],
+    "HIP 115312": [{"english": "羽林军三十八*"}],
+    "HIP 115404": [{"english": "羽林军七"}],
+    "HIP 115438": [{"english": "羽林军十三"}],
+    "HIP 115528": [{"english": "羽林军十四"}],
+    "HIP 115623": [{"english": "离宫东第二星"},
+                   {"english": "离宫六"}],
+    "HIP 115669": [{"english": "羽林军十五"}],
+    "HIP 115738": [{"english": "云雨西南星"},
+                   {"english": "云雨二"}],
+    "HIP 115746": [{"english": "杠第二星"},
+                   {"english": "杠二"}],
+    "HIP 115830": [{"english": "霹雳中星"},
+                   {"english": "霹雳三"}],
+    "HIP 116247": [{"english": "羽林军三十二*"}],
+    "HIP 116727": [{"english": "华盖东大星"},
+                   {"english": "华盖七"}],
+    "HIP 116758": [{"english": "羽林军十七"}],
+    "HIP 116771": [{"english": "霹雳东第二星"},
+                   {"english": "霹雳四"}],
+    "HIP 116820": [{"english": "羽林军三十七*"}],
+    "HIP 116901": [{"english": "羽林军三十*"}],
+    "HIP 116928": [{"english": "云雨东南星"},
+                   {"english": "云雨三"}],
+    "HIP 116957": [{"english": "羽林军十八"}],
+    "HIP 116971": [{"english": "羽林军十六"}],
+    "HIP 117245": [{"english": "云雨东北星"},
+                   {"english": "云雨四"}],
+    "HIP 117375": [{"english": "垒壁阵中第四星"},
+                   {"english": "垒壁阵八"}],
+    "HIP 117452": [{"english": "羽林军三十六*"}],
+    "HIP 117541": [{"english": "羽林军二十*"}],
+    "HIP 117629": [{"english": "羽林军三十一*"}],
+    "HIP 117756": [{"english": "羽林军十九*"}],
+    "HIP 117931": [{"english": "羽林军三十五*"}],
+    "HIP 118268": [{"english": "霹雳东第一星"},
+                   {"english": "霹雳五"}],
+    "M 31": [{"english": "奎北星"},
+             {"english": "奎宿七"}],
+    "M 44": [{"english": "积尸气"}],
+    "M 7": [{"english": "鱼"}],
+    "NAME Jupiter": [{"english": "Sui Star", "native": "岁星", "translators_comments": "Native name of Jupiter in Chinese culture"}],
+    "NAME Mars": [{"english": "Yinghuo", "native": "荧惑", "translators_comments": "Native name of Mars in Chinese culture"}],
+    "NAME Mercury": [{"english": "Chen Star", "native": "辰星", "translators_comments": "Native name of Mercury in Chinese culture"}],
+    "NAME Moon": [{"english": "Taiyin", "native": "太阴", "translators_comments": "Native name of the Moon in Chinese culture"}],
+    "NAME Saturn": [{"english": "Zhen Star", "native": "填星", "translators_comments": "Native name of Saturn in Chinese culture"}],
+    "NAME Sun": [{"english": "Taiyang", "native": "太阳", "translators_comments": "Native name of the Sun in Chinese culture"}],
+    "NAME Venus": [{"english": "Taibai", "native": "太白", "translators_comments": "Native name of Venus in Chinese culture"}]
+  }
+}

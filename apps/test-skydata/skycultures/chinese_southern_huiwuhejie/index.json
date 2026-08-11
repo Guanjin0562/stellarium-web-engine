@@ -1,0 +1,454 @@
+{
+  "id": "chinese_southern_huiwuhejie",
+  "region": "Eastern Asia",
+  "classification": ["single"],
+  "fallback_to_international_names": false,
+  "asterisms": [
+  ],
+  "constellations": [
+    {
+      "id": "CON chinese_southern_huiwuhejie 000",
+      "common_name": {"english": "天稷"},
+      "lines": [[44816, 44511, 43023, 42570, 42312, 42884, 44191, 44816]]
+    },
+    {
+      "common_name": {"english": "垒"},
+      "id": "CON chinese_southern_huiwuhejie 001",
+      "lines": [[43878, "DSO:C85", 42913, 43105, 41037, 38827, "DSO:C85"]]
+    },
+    {
+      "common_name": {"english": "岐"},
+      "id": "CON chinese_southern_huiwuhejie 002",
+      "lines": [[42568, 43937, 45080, 45556, 45496, 45941, 46701, 46974, 47391, 47854, 48002],[45941, 48774, 49712]]
+    },
+    {
+      "common_name": {"english": "会市"},
+      "id": "CON chinese_southern_huiwuhejie 003",
+      "lines": [[50371, 51232, 51192, 50676, 50555, 51523, 52154, 52742, 53154, 54463, 54751, 54461, 54301, 51576, 50371]]
+    },
+    {
+      "common_name": {"english": "晏池"},
+      "id": "CON chinese_southern_huiwuhejie 003",
+      "lines": [[52468, 53253, 51849, 52468]]
+    },
+    {
+      "common_name": {"english": "盈桥"},
+      "id": "CON chinese_southern_huiwuhejie 004",
+      "lines": [[52419, 50099, 51438, 50954], [50099, 45238, 45856, 45101, 43783]]
+    },
+    {
+      "common_name": {"english": "粢道"},
+      "id": "CON chinese_southern_huiwuhejie 005",
+      "lines": [[52727, 51986, 49485, 48374, 47175, 46651, 48374]]
+    },
+    {
+      "common_name": {"english": "水阙"},
+      "id": "CON chinese_southern_huiwuhejie 006",
+      "lines": [[60009, 58758, 57439, 56243, 55425, 56480, 59196, 59449, 60710, 60823, 59196]]
+    },
+    {
+      "common_name": {"english": "南挂"},
+      "id": "CON chinese_southern_huiwuhejie 007",
+      "lines": [[60718, 62434, 61084, 59747, 60718]]
+    },
+    {
+      "common_name": {"english": "门旗"},
+      "id": "CON chinese_southern_huiwuhejie 008",
+      "lines": [[62327, 63003, 64580, 64583, 64425, 65271, 65387, 64094, 64820, 64661, 62322]]
+    },
+    {
+      "common_name": {"english": "舶司"},
+      "id": "CON chinese_southern_huiwuhejie 009",
+      "lines": [[63613, 61585, 59929, 59072, 57669, 56561, 57363, 59929],[ 61585, 61199]]
+    },
+    {
+      "common_name": {"english": "水门"},
+      "id": "CON chinese_southern_huiwuhejie 011",
+      "lines": [[71683, 68702, 66657, 71683]]
+    },
+    {
+      "common_name": {"english": "阬"},
+      "id": "CON chinese_southern_huiwuhejie 012",
+      "lines": [[74824, 73129, 71908, 74946, 76440, 77952, 75323, 74824], [77952, 79664]]
+    },
+    {
+      "common_name": {"english": "鳐妇"},
+      "id": "CON chinese_southern_huiwuhejie 013",
+      "lines": [[78662, 79509, 80000, 80582, 81122, 78914, 78639, 80000]]
+    },
+    {
+      "common_name": {"english": "渔火"},
+      "id": "CON chinese_southern_huiwuhejie 014",
+      "lines": [[82273, 82273]]
+    },
+    {
+      "common_name": {"english": "鲗"},
+      "id": "CON chinese_southern_huiwuhejie 015",
+      "lines": [[70638, 73771, 81065, 81852, 84979, 84969],[ 81852, 80047, 69896],[ 81852, 72370, 70248]]
+    },
+    {
+      "common_name": {"english": "鲛人"},
+      "id": "CON chinese_southern_huiwuhejie 016",
+      "lines": [[83153, 85267, 85727, 82363, 83081],[ 85727, 86929, 88866, 90098, 92609, 88866]]
+    },
+    {
+      "common_name": {"english": "鲸鲵"},
+      "id": "CON chinese_southern_huiwuhejie 017",
+      "lines": [[105858, 102395, 99240, 93015, 91792, 98495, 105858]]
+    },
+    {
+      "common_name": {"english": "望乡"},
+      "id": "CON chinese_southern_huiwuhejie 018",
+      "lines": [[100751, 100751]]
+    },
+    {
+      "common_name": {"english": "星舟"},
+      "id": "CON chinese_southern_huiwuhejie 019",
+      "lines": [[103227, 105319, 102790, 101772, 102333, 103227]]
+    },
+    {
+      "common_name": {"english": "珈连"},
+      "id": "CON chinese_southern_huiwuhejie 020",
+      "lines": [[107649, 106429, 105913, 105382, 104738, 103882, 102916, 102497, 103127]]
+    },
+    {
+      "common_name": {"english": "九凤"},
+      "id": "CON chinese_southern_huiwuhejie 021",
+      "lines": [[109908, 110997, 111043, 112122, 109268, 111043],[ 112122, 112623, 112374, 114996, 113638, 112623],[ 114421, 112122, 114131],[ 112122, 112203, 110936]]
+    },
+    {
+      "common_name": {"english": "委蛇"},
+      "id": "CON chinese_southern_huiwuhejie 022",
+      "lines": [[108431, 108870, 110130, 111310, 110838, 110935, 110618, 110078, 107089, 104043]]
+    },
+    {
+      "common_name": {"english": "溟渊"},
+      "id": "CON chinese_southern_huiwuhejie 023",
+      "lines": [[7601, 7568, 1074, 814, 117689, 112405, 107843, 111196, 115836, 104382, 92824],[ 112405, 112781, 110256]]
+    },
+    {
+      "common_name": {"english": "沉河"},
+      "id": "CON chinese_southern_huiwuhejie 024",
+      "lines": [[930, 183, 117452, 116820, 115102, 116231, 116389, 116602, 765, 2072, 2081, 3245, 2383, 2472, 3949, 2711]]
+    },
+    {
+      "common_name": {"english": "水委"},
+      "id": "CON chinese_southern_huiwuhejie 025",
+      "lines": [[7588, 5348, 3405]]
+    },
+    {
+      "common_name": {"english": "瑶浦"},
+      "id": "CON chinese_southern_huiwuhejie 026",
+      "lines": [[10602, 9007, 7083, 5165, 5862, 6867, 8882, 9459, 11407, 10602]]
+    },
+    {
+      "common_name": {"english": "采人"},
+      "id": "CON chinese_southern_huiwuhejie 027",
+      "lines": [[8837, 8837]]
+    },
+    {
+      "common_name": {"english": "珞明"},
+      "id": "CON chinese_southern_huiwuhejie 028",
+      "lines": [[9095, 9095]]
+    },
+    {
+      "common_name": {"english": "天际"},
+      "id": "CON chinese_southern_huiwuhejie 029",
+      "lines": [[13847, 12486, 12413, 13847, 15510, 16870, 17351]]
+    },
+    {
+      "common_name": {"english": "幽宫"},
+      "id": "CON chinese_southern_huiwuhejie 030",
+      "lines": [[19893, 21281, 23693, 22040, 19921, 19893]]
+    },
+    {
+      "common_name": {"english": "水令大夫"},
+      "id": "CON chinese_southern_huiwuhejie 031",
+      "lines": [[20384, 19780, 18772, 18597, 18744, 19780]]
+    },
+    {
+      "common_name": {"english": "祝台"},
+      "id": "CON chinese_southern_huiwuhejie 032",
+      "lines": [[17440, 16245, 15371, 14240, 11258, 9236, 8928, 11001, 12394, 12876, 17440]]
+    },
+    {
+      "common_name": {"english": "龙妪"},
+      "id": "CON chinese_southern_huiwuhejie 033",
+      "lines": [[2021, 122]]
+    },
+    {
+      "common_name": {"english": "积珠"},
+      "id": "CON chinese_southern_huiwuhejie 034",
+      "lines": [[17678, 13244, 3781, 377, 1647, 4293, 5896, 13244]]
+    },
+    {
+      "common_name": {"english": "积白"},
+      "id": "CON chinese_southern_huiwuhejie 035",
+      "lines": [["DSO:NGC292", "DSO:NGC292"]]
+    },
+    {
+      "common_name": {"english": "灵座"},
+      "id": "CON chinese_southern_huiwuhejie 036",
+      "lines": [[27100, 27100, 27100]]
+    },
+    {
+      "common_name": {"english": "承堂"},
+      "id": "CON chinese_southern_huiwuhejie 037",
+      "lines": [[26069, 27890, 28991, 29353, 30321, 29271, 25918, 22871, 21949, 23840, 26069]]
+    },
+    {
+      "common_name": {"english": "承白"},
+      "id": "CON chinese_southern_huiwuhejie 038",
+      "lines": [["DSO:PGC17223", "DSO:PGC17223"]]
+    },
+    {
+      "common_name": {"english": "鱼伯长"},
+      "id": "CON chinese_southern_huiwuhejie 039",
+      "lines": [[32607, 32607]]
+    },
+    {
+      "common_name": {"english": "海宗"},
+      "id": "CON chinese_southern_huiwuhejie 040",
+      "lines": [[27321, 27530, 29276, 32761, 32768, 31765, 30591, 27321]]
+    },
+    {
+      "common_name": {"english": "绝南"},
+      "id": "CON chinese_southern_huiwuhejie 041",
+      "lines": [[44599, 45581, 47956, 51839, 52633, 46928, 42637, 40888, 40702, 44599]]
+    },
+    {
+      "common_name": {"english": "石塘"},
+      "id": "CON chinese_southern_huiwuhejie 042",
+      "lines": [[117088, 118121, 118322, 1599, 2484, 5268, 3330, 1599]]
+    },
+    {
+      "common_name": {"english": "虚鱼"},
+      "id": "CON chinese_southern_huiwuhejie 043",
+      "lines": [[44382, 39794, 34481], [37504, 39794, 35228], [40817, 42425, 44382, 41312, 39138]]
+    }
+  ],
+  "common_names": {
+    "HIP 43878": [{"english": "垒一"}],
+    "C85": [{"english": "垒二"}],
+    "HIP 42913": [{"english": "垒三"}],
+    "HIP 43105": [{"english": "垒四"}],
+    "HIP 41037": [{"english": "垒五"}],
+    "HIP 38827": [{"english": "垒六"}],
+    "HIP 45941": [{"english": "岐一"}],
+    "HIP 48774": [{"english": "岐二"}],
+    "HIP 49712": [{"english": "岐三"}],
+    "HIP 46701": [{"english": "岐四"}],
+    "HIP 46974": [{"english": "岐五"}],
+    "HIP 47391": [{"english": "岐六"}],
+    "HIP 47854": [{"english": "岐七"}],
+    "HIP 48002": [{"english": "岐八"}],
+    "HIP 45496": [{"english": "岐九"}],
+    "HIP 45556": [{"english": "岐十"}],
+    "HIP 45080": [{"english": "岐十一"}],
+    "HIP 43937": [{"english": "岐十二"}],
+    "HIP 42568": [{"english": "岐十三"}],
+    "HIP 50371": [{"english": "会市一"}],
+    "HIP 51232": [{"english": "会市二"}],
+    "HIP 51192": [{"english": "会市三"}],
+    "HIP 50676": [{"english": "会市四"}],
+    "HIP 50555": [{"english": "会市五"}],
+    "HIP 51523": [{"english": "会市六"}],
+    "HIP 52154": [{"english": "会市七"}],
+    "HIP 52742": [{"english": "会市八"}],
+    "HIP 53154": [{"english": "会市九"}],
+    "HIP 54463": [{"english": "会市十"}],
+    "HIP 54751": [{"english": "会市十一"}],
+    "HIP 54461": [{"english": "会市十二"}],
+    "HIP 54301": [{"english": "会市十三"}],
+    "HIP 51576": [{"english": "会市十四"}],
+    "HIP 52468": [{"english": "晏池一"}],
+    "HIP 53253": [{"english": "晏池二"}],
+    "HIP 51849": [{"english": "晏池三"}],
+    "Gaia DR3 5350358584482202880": [{"english": "海山"}],
+    "HIP 52419": [{"english": "盈桥一"}],
+    "HIP 50099": [{"english": "盈桥二"}],
+    "HIP 51438": [{"english": "盈桥三"}],
+    "HIP 50954": [{"english": "盈桥四"}],
+    "HIP 45238": [{"english": "盈桥五"}],
+    "HIP 45856": [{"english": "盈桥六"}],
+    "HIP 45101": [{"english": "盈桥七"}],
+    "HIP 43783": [{"english": "盈桥八"}],
+    "HIP 52727": [{"english": "粢道一"}],
+    "HIP 51986": [{"english": "粢道二"}],
+    "HIP 49485": [{"english": "粢道三"}],
+    "HIP 48374": [{"english": "粢道四"}],
+    "HIP 47175": [{"english": "粢道五"}],
+    "HIP 46651": [{"english": "粢道六"}],
+    "HIP 60009": [{"english": "水阙一"}],
+    "HIP 58758": [{"english": "水阙二"}],
+    "HIP 57439": [{"english": "水阙三"}],
+    "HIP 56243": [{"english": "水阙四"}],
+    "HIP 55425": [{"english": "水阙五"}],
+    "HIP 56480": [{"english": "水阙六"}],
+    "HIP 59196": [{"english": "水阙七"}],
+    "HIP 59449": [{"english": "水阙八"}],
+    "HIP 60710": [{"english": "水阙九"}],
+    "HIP 60823": [{"english": "水阙十"}],
+    "HIP 61084": [{"english": "南挂一"}],
+    "HIP 62434": [{"english": "南挂二"}],
+    "HIP 60718": [{"english": "南挂三"}],
+    "HIP 59747": [{"english": "南挂四"}],
+    "HIP 71683": [{"english": "水门一"}],
+    "HIP 68702": [{"english": "水门二"}],
+    "HIP 66657": [{"english": "水门三"}],
+    "HIP 56561": [{"english": "舶司一"}],
+    "HIP 57669": [{"english": "舶司二"}],
+    "HIP 59072": [{"english": "舶司三"}],
+    "HIP 57363": [{"english": "舶司四"}],
+    "HIP 59929": [{"english": "舶司五"}],
+    "HIP 61585": [{"english": "舶司六"}],
+    "HIP 63613": [{"english": "舶司七"}],
+    "HIP 61199": [{"english": "舶司八"}],
+    "HIP 74824": [{"english": "阬一"}],
+    "HIP 75323": [{"english": "阬二"}],
+    "HIP 73129": [{"english": "阬三"}],
+    "HIP 71908": [{"english": "阬四"}],
+    "HIP 74946": [{"english": "阬五"}],
+    "HIP 76440": [{"english": "阬六"}],
+    "HIP 77952": [{"english": "阬七"}],
+    "HIP 79664": [{"english": "阬八"}],
+    "HIP 78662": [{"english": "鳐妇一"}],
+    "HIP 79509": [{"english": "鳐妇二"}],
+    "HIP 80000": [{"english": "鳐妇三"}],
+    "HIP 80582": [{"english": "鳐妇四"}],
+    "HIP 81122": [{"english": "鳐妇五"}],
+    "HIP 78914": [{"english": "鳐妇六"}],
+    "HIP 78639": [{"english": "鳐妇七"}],
+    "HIP 100751": [{"english": "望乡"}],
+    "HIP 103227": [{"english": "星舟一"}],
+    "HIP 105319": [{"english": "星舟二"}],
+    "HIP 102333": [{"english": "星舟三"}],
+    "HIP 101772": [{"english": "星舟四"}],
+    "HIP 102790": [{"english": "星舟五"}],
+    "HIP 82273": [{"english": "渔火"}],
+    "HIP 83153": [{"english": "鲛人一"}],
+    "HIP 85267": [{"english": "鲛人二"}],
+    "HIP 85727": [{"english": "鲛人三"}],
+    "HIP 82363": [{"english": "鲛人四"}],
+    "HIP 83081": [{"english": "鲛人五"}],
+    "HIP 86929": [{"english": "鲛人六"}],
+    "HIP 88866": [{"english": "鲛人七"}],
+    "HIP 90098": [{"english": "鲛人八"}],
+    "HIP 92609": [{"english": "鲛人九"}],
+    "HIP 108431": [{"english": "委蛇一"}],
+    "HIP 108870": [{"english": "委蛇二"}],
+    "HIP 110130": [{"english": "委蛇三"}],
+    "HIP 111310": [{"english": "委蛇四"}],
+    "HIP 110838": [{"english": "委蛇五"}],
+    "HIP 107089": [{"english": "委蛇六"}],
+    "HIP 84969": [{"english": "鰂一"}],
+    "HIP 81852": [{"english": "鰂二"}],
+    "HIP 80057": [{"english": "鰂三"}],
+    "HIP 72370": [{"english": "鰂四"}],
+    "HIP 70248": [{"english": "鰂五"}],
+    "HIP 69896": [{"english": "鰂六"}],
+    "HIP 70638": [{"english": "鰂七"}],
+    "HIP 105858": [{"english": "鲸鲵一"}],
+    "HIP 102395": [{"english": "鲸鲵二"}],
+    "HIP 99240": [{"english": "鲸鲵三"}],
+    "HIP 98495": [{"english": "鲸鲵四"}],
+    "HIP 91792": [{"english": "鲸鲵五"}],
+    "HIP 93015": [{"english": "鲸鲵六"}],
+    "HIP 107089": [{"english": "溟渊一"}],
+    "HIP 110256": [{"english": "溟渊二"}],
+    "HIP 112405": [{"english": "溟渊三"}],
+    "HIP 107843": [{"english": "溟渊四"}],
+    "HIP 2484": [{"english": "石塘一"}],
+    "HIP 1599": [{"english": "石塘二"}],
+    "HIP 118322": [{"english": "石塘三"}],
+    "HIP 118121": [{"english": "石塘四"}],
+    "HIP 32761": [{"english": "海宗一"}],
+    "HIP 32768": [{"english": "海宗二"}],
+    "HIP 27321": [{"english": "海宗三"}],
+    "HIP 27530": [{"english": "海宗四"}],
+    "HIP 29276": [{"english": "海宗五"}],
+    "HIP 27100": [{"english": "灵座"}],
+    "HIP 2021": [{"english": "龙妪"}],
+    "HIP 21479": [{"english": "水令大夫一"}],
+    "HIP 19780": [{"english": "水令大夫二"}],
+    "HIP 18744": [{"english": "水令大夫三"}],
+    "HIP 18597": [{"english": "水令大夫四"}],
+    "HIP 17678": [{"english": "积珠一"}],
+    "HIP 13244": [{"english": "积珠二"}],
+    "HIP 5896": [{"english": "积珠三"}],
+    "NGC 104": [{"english": "积珠四"}],
+    "HIP 122": [{"english": "积珠五"}],
+    "HIP 29134": [{"english": "承堂一"}],
+    "HIP 27534": [{"english": "承堂二"}],
+    "HIP 24372": [{"english": "承堂三"}],
+    "HIP 26069": [{"english": "承堂四"}],
+    "HIP 27890": [{"english": "承堂五"}],
+    "HIP 29353": [{"english": "承堂六"}],
+    "HIP 23693": [{"english": "幽宫一"}],
+    "HIP 19921": [{"english": "幽宫二"}],
+    "HIP 21281": [{"english": "幽宫三"}],
+    "HIP 19893": [{"english": "幽宫四"}],
+    "HIP 9007": [{"english": "瑶浦一"}],
+    "HIP 10602": [{"english": "瑶浦二"}],
+    "HIP 11407": [{"english": "瑶浦三"}],
+    "HIP 8882": [{"english": "瑶浦四"}],
+    "HIP 6867": [{"english": "瑶浦五"}],
+    "HIP 5862": [{"english": "瑶浦六"}],
+    "HIP 5165": [{"english": "瑶浦七"}],
+    "HIP 7083": [{"english": "瑶浦八"}],
+    "HIP 8837": [{"english": "采人"}],
+    "HIP 9095": [{"english": "珞明"}],
+    "HIP 44382": [{"english": "虚鱼一"}],
+    "HIP 39138": [{"english": "虚鱼二"}],
+    "HIP 41312": [{"english": "虚鱼三"}],
+    "HIP 44626": [{"english": "虚鱼四"}],
+    "HIP 44599": [{"english": "虚鱼五"}],
+    "HIP 39794": [{"english": "虚鱼六"}],
+    "HIP 35228": [{"english": "虚鱼七"}],
+    "HIP 34481": [{"english": "虚鱼八"}],
+    "HIP 37504": [{"english": "虚鱼九"}],
+    "HIP 109268": [{"english": "九凤一"}],
+    "HIP 112122": [{"english": "九凤二"}],
+    "HIP 112623": [{"english": "九凤三"}],
+    "HIP 112374": [{"english": "九凤四"}],
+    "HIP 114996": [{"english": "九凤五"}],
+    "HIP 113638": [{"english": "九凤六"}],
+    "HIP 114421": [{"english": "九凤七"}],
+    "HIP 114131": [{"english": "九凤八"}],
+    "HIP 112203": [{"english": "九凤九"}],
+    "HIP 110936": [{"english": "九凤十"}],
+    "HIP 111043": [{"english": "九凤十一"}],
+    "HIP 109908": [{"english": "九凤十二"}],
+    "HIP 9236": [{"english": "祝台一"}],
+    "HIP 8928": [{"english": "祝台二"}],
+    "HIP 11001": [{"english": "祝台三"}],
+    "HIP 12394": [{"english": "祝台四"}],
+    "HIP 12876": [{"english": "祝台五"}],
+    "HIP 17440": [{"english": "祝台六"}],
+    "HIP 16245": [{"english": "祝台七"}],
+    "HIP 13884": [{"english": "祝台八"}],
+    "HIP 7588": [{"english": "水委一"}],
+    "HIP 5348": [{"english": "水委二"}],
+    "HIP 3405": [{"english": "水委三"}],
+    "HIP 2472": [{"english": "沉河一"}],
+    "HIP 3245": [{"english": "沉河二"}],
+    "HIP 2081": [{"english": "沉河三"}],
+    "HIP 2072": [{"english": "沉河四"}],
+    "HIP 765": [{"english": "沉河五"}],
+    "HIP 116602": [{"english": "沉河六"}],
+    "HIP 116389": [{"english": "沉河七"}],
+    "HIP 116231": [{"english": "沉河八"}],
+    "HIP 115102": [{"english": "沉河九"}],
+    "HIP 117452": [{"english": "沉河十"}],
+    "HIP 2210": [{"english": "沉河十一"}],
+    "HIP 32607": [{"english": "鱼伯长"}],
+    "HIP 60000": [{"english": "绝南一"}],
+    "HIP 58484": [{"english": "绝南二"}],
+    "HIP 52633": [{"english": "绝南三"}],
+    "HIP 51839": [{"english": "绝南四"}],
+    "HIP 46928": [{"english": "绝南五"}],
+    "HIP 40888": [{"english": "绝南六"}],
+    "HIP 40702": [{"english": "绝南七"}]
+  },
+  "peferences": {}
+}

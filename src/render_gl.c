@@ -36,6 +36,20 @@ enum {
     FONT_BOLD    = 1,
 };
 
+/*
+ * Manchu vertical label layout tuning knobs (user-adjustable).
+ * 满文竖排标签布局可调参数（用户可按需修改）：
+ *   MANCHU_SIZE_FACTOR  - 满文字号倍率：满文词列相对基础字号放大的倍数。
+ *   MANCHU_WORD_GAP     - 词间空隙（px）：每个满文词列之间额外留白像素数。
+ *   MANCHU_ENGLISH_DX   - 英文行水平右移量（px）：英文相对满文列右移。
+ *   MANCHU_ENGLISH_DY   - 英文行额外下移量（px）：在自动垂直补偿之外手动微调
+ *                         （正数下移，负数上移）。
+ */
+static const float MANCHU_SIZE_FACTOR = 2.5f;
+static const float MANCHU_WORD_GAP = 5.0f;
+static const float MANCHU_ENGLISH_DX = 10.0f;
+static const float MANCHU_ENGLISH_DY = 5.0f;
+
 // All the shader attribute locations.
 enum {
     ATTR_POS,
@@ -1397,6 +1411,70 @@ static void item_vg_render(renderer_t *rend, const item_t *item)
     GL(glColorMask(true, true, true, false));
 }
 
+/*
+ * Render a vertical Manchu label.  The text was prepared by
+ * u8_verticalize_manchu: one Manchu word per line (the characters of a word
+ * stay contiguous so that HarfBuzz shapes the whole word into a vertical
+ * column) and the horizontal (english) name on the last line.
+ * The AlariŠanyanManchu glyphs are horizontal (pointing left), so the shaped
+ * quads are rotated 90° (nvgSetRotate90) to make the glyphs point up.
+ */
+static void render_text_manchu(renderer_t *rend, const item_t *item,
+                               const double bounds[4], float w)
+{
+    float ascender, descender, lineh;
+    double y, cx;
+    const char *p;
+    float base_size = item->text.size;
+    float manchu_size = base_size * MANCHU_SIZE_FACTOR;
+
+    nvgTextMetrics(rend->vg, &ascender, &descender, &lineh);
+    // The vertical anchor offset (fons__getVertAlign, ZERO_TOPLEFT+TOP =
+    // ascender*size) scales with the font size.  When the english line
+    // switches back to base_size, its anchor moves up by ascender times the
+    // size difference; compensate so it starts below the Manchu column
+    // instead of overlapping it.
+    float vert_comp = ascender * (manchu_size / base_size - 1.0f);
+    nvgTextAlign(rend->vg, NVG_ALIGN_TOP | NVG_ALIGN_CENTER);
+    y = bounds[1] - descender;
+    cx = (bounds[0] + bounds[2]) / 2;
+    p = item->text.text;
+    while (*p) {
+        const char *nl = strchr(p, '\n');
+        int len = nl ? (int)(nl - p) : (int)strlen(p);
+        if (len > 0) {
+            char line[128];
+            if (len >= (int)sizeof(line)) len = sizeof(line) - 1;
+            memcpy(line, p, len);
+            line[len] = 0;
+            if (u8_is_mongolian_visible(u8_char_code(line))) {
+                // Manchu word: shaped with HarfBuzz into a vertical column,
+                // drawn with an enlarged font size.
+                float fb[4];
+                nvgSetRotate90(rend->vg, 1);
+                nvgFontSize(rend->vg, manchu_size);
+                nvgTextBounds(rend->vg, cx, y, line, NULL, fb);
+                nvgText(rend->vg, cx, y, line, NULL);
+                nvgSetRotate90(rend->vg, 0);
+                // Column height + the adjustable gap between words.
+                y += (fb[3] - fb[1]) + MANCHU_WORD_GAP;
+            } else {
+                // Horizontal (english) line, regular size.  vert_comp
+                // cancels the font-size dependent vertical anchor offset;
+                // MANCHU_ENGLISH_DX / DY allow manual tweaking.
+                nvgFontSize(rend->vg, base_size);
+                nvgTextBox(rend->vg, bounds[0] + MANCHU_ENGLISH_DX,
+                           y + vert_comp + MANCHU_ENGLISH_DY, w, line, NULL);
+                y += lineh;
+            }
+        } else {
+            y += lineh; // blank line between stacked words
+        }
+        if (!nl) break;
+        p = nl + 1;
+    }
+}
+
 static void item_text_render(renderer_t *rend, const item_t *item)
 {
     int font = (item->text.effects & TEXT_BOLD) ? FONT_BOLD : FONT_REGULAR;
@@ -1419,6 +1497,13 @@ static void item_text_render(renderer_t *rend, const item_t *item)
     set_nvg_text_settings(rend, font, item->text.size, item->text.effects);
     get_nvg_text_bounds(rend, item->text.text, item->text.align, pos, bounds);
     w = bounds[2] - bounds[0];
+
+    if (item->text.effects & TEXT_MANCHU) {
+        render_text_manchu(rend, item, bounds, w);
+        nvgRestore(rend->vg);
+        nvgEndFrame(rend->vg);
+        return;
+    }
 
     nvgTextAlign(rend->vg, NVG_ALIGN_TOP |
                  (item->text.align & (NVG_ALIGN_LEFT | NVG_ALIGN_RIGHT |

@@ -134,10 +134,10 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
 <script src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
 <script src="https://www.unpkg.com/i18next-xhr-backend/dist/umd/i18nextXHRBackend.min.js"></script>
-<script src="../../build/stellarium-web-engine.js"></script>
+<script type="module" src="../../build/stellarium-web-engine.js"></script>
 
 <!-- Button component -->
 <script type="text/x-template" id="stel-button-template">
@@ -166,7 +166,11 @@
 </script>
 
 
-<script>
+<script type="module">
+
+  import StelWebEngine from '../../build/stellarium-web-engine.js';
+
+  Vue.use(Vuetify);
 
   // Setup i18next for translations.
   i18next.use(i18nextXHRBackend).init({
@@ -183,7 +187,10 @@
   // Used because at the moment emscripten doesn't support relative url
   // properly.
   function getBaseUrl() {
-    let url = document.location.href.split('/');
+    // Use pathname (not href) so that a query string (?sc=... etc.) is not
+    // mistaken for a path segment, which would corrupt every relative data
+    // source url (e.g. .../stellarium-web-engine.html?sc=x/../test-skydata/).
+    let url = document.location.pathname.split('/');
     url.pop();
     url = url.join('/');
     return url + '/';
@@ -205,12 +212,16 @@
         },
         onReady: function(stel) {
           that.stel = stel;
+          window.stel = stel; // For debugging.
           // Add all data sources.
           var baseUrl = getBaseUrl() + '../test-skydata/';
           let core = stel.core;
 
           core.stars.addDataSource({ url: baseUrl + 'stars' })
           core.skycultures.addDataSource({ url: baseUrl + 'skycultures/western', key: 'western' })
+          core.skycultures.addDataSource({ url: baseUrl + 'skycultures/modern', key: 'modern' })
+          core.skycultures.addDataSource({ url: baseUrl + 'skycultures/chinese_mdn', key: 'chinese_mdn' })
+          core.skycultures.addDataSource({ url: baseUrl + 'skycultures/indian', key: 'indian' })
           core.dsos.addDataSource({ url: baseUrl + 'dso' })
           core.landscapes.addDataSource({ url: baseUrl + 'landscapes/guereins', key: 'guereins' })
           core.milkyway.addDataSource({ url: baseUrl + 'surveys/milkyway' })
@@ -225,10 +236,32 @@
           stel.change(function(obj, attr) {
             if (attr !== "hovered") {
               that.stel = Object.assign(Object.create(stel), {}, stel)
+            }
           })
+
+          // Default "sky chart" mode: clean star chart without atmosphere,
+          // landscape, grids and solar system bodies.  URL args can
+          // override these defaults (e.g. show=sso to display the planets).
+          core.constellations.show_only_pointed = false;
+          core.constellations.lines_visible = true;
+          core.constellations.labels_visible = true;
+          core.constellations.bounds_visible = true;
+          core.atmosphere.visible = false;
+          core.landscapes.visible = false;
+          core.landscapes.fog_visible = false;
+          core.lines.azimuthal.visible = false;
+          core.cardinals.visible = false;
+          core.mount_frame = stel.FRAME_ICRF;
+          core.planets.visible = false;
+          core.stars.labels_visible = false;
+          // Names default to english (no translation) so that a sky chart
+          // always shows the english names whatever the page locale is.
+          core.skycultures.name_format_style = stel.NAME_ENGLISH;
 
           stel.setFont('regular', 'static/fonts/Roboto-Regular.ttf', 1.38);
           stel.setFont('bold', 'static/fonts/Roboto-Bold.ttf', 1.38);
+
+          that.applyEmbedQueryArgs();
         }
       })
     },
@@ -310,6 +343,287 @@
           value: formatAz(az) + '&nbsp;&nbsp;&nbsp;' + formatDec(alt)
         })
         return ret;
+      },
+
+      getQueryParams: function() {
+        const params = {}
+        const search = document.location.search
+        if (!search) return params
+        for (const pair of search.substring(1).split('&')) {
+          if (!pair) continue
+          const eq = pair.indexOf('=')
+          const k = eq >= 0 ? decodeURIComponent(pair.substring(0, eq)) : decodeURIComponent(pair)
+          const v = eq >= 0 ? decodeURIComponent(pair.substring(eq + 1)) : ''
+          if (params[k] === undefined) params[k] = v
+          else if (Array.isArray(params[k])) params[k].push(v)
+          else params[k] = [params[k], v]
+        }
+        return params
+      },
+
+      fullIdCandidates: function(id, culture) {
+        const parts = id.trim().split(/\s+/)
+        if (parts.length >= 3 && (parts[0] === 'CON' || parts[0] === 'AST')) {
+          return [id.trim()]
+        }
+        if (parts.length === 2 && (parts[0] === 'CON' || parts[0] === 'AST')) {
+          return [parts[0] + ' ' + culture + ' ' + parts[1]]
+        }
+        const core = parts.length === 2 ? id.trim() : culture + ' ' + id.trim()
+        return ['CON ' + core, 'AST ' + core]
+      },
+
+      // Apply the embed URL parameters: cst / cst_json / frame / show /
+      // interact / hide_others.  This must be called once all the data
+      // sources have been configured.
+      applyEmbedQueryArgs: function() {
+        const stel = this.stel
+        const q = this.getQueryParams()
+
+        // 0. Sky culture: switch to the requested culture.  The key is the
+        // last path segment of the sc value, matching the data source keys
+        // registered in onReady (western / modern / chinese_mdn / indian).
+        // The culture data loads asynchronously, so the activation completes
+        // over the following frames.
+        if (q.sc) {
+          const key = q.sc.substring(q.sc.lastIndexOf('/') + 1)
+          stel.core.skycultures.current_id = key
+        }
+
+        // Gather the repeatable cst / cst_json parameters.
+        const cstParams = []
+        if (Array.isArray(q.cst)) cstParams.push(...q.cst)
+        else if (q.cst) cstParams.push(q.cst)
+        const cstJsonParams = []
+        if (Array.isArray(q.cst_json)) cstJsonParams.push(...q.cst_json)
+        else if (q.cst_json) cstJsonParams.push(q.cst_json)
+
+        const hasSubset = cstParams.length > 0 || cstJsonParams.length > 0
+
+        // 1. Create the custom skyculture from the cst_json objects.
+        const customObjs = []
+        for (const s of cstJsonParams) {
+          try {
+            customObjs.push(JSON.parse(decodeURIComponent(s)))
+          } catch (e) {
+            console.warn('Cannot parse cst_json parameter: ' + s)
+          }
+        }
+        if (customObjs.length) {
+          stel.core.skycultures.add_custom_csts(customObjs)
+        }
+
+        // 2. View frame (equatorial / altaz).  When a subset is set we
+        // default to the equatorial frame so that the display does not
+        // depend on time or location.
+        let frame = q.frame
+        if (!frame && hasSubset) frame = 'icrf'
+        if (frame === 'icrf') {
+          stel.core.mount_frame = stel.FRAME_ICRF
+        } else if (frame === 'altaz') {
+          stel.core.mount_frame = stel.FRAME_OBSERVED
+        }
+
+        // 2b. Name fields, freely combinable via a comma separated list:
+        // english / native / pronounce / ipa / abbr.  Default is english.
+        // Legacy single values (both, native_pronounce) are still accepted.
+        const nameFormat = {
+          english: 'english',
+          native: 'native',
+          both: 'english,native',
+          native_pronounce: 'native,pronounce'
+        }
+        if (q.names) {
+          stel.core.skycultures.name_format =
+            nameFormat[q.names] || q.names
+        }
+
+        // 3. Display toggles.
+        if (q.show) {
+          const list = q.show.split(',').map(s => s.trim())
+          const allOff = list.indexOf('none') >= 0
+          const apply = (mod, attr, name) => {
+            if (!mod) return
+            if (allOff) {
+              // 'none' turns off every optional layer, but keeps the base
+              // star field: stars must never be hidden by 'none'.
+              if (name !== 'stars') mod[attr] = false
+            } else if (list.indexOf(name) >= 0) {
+              mod[attr] = true
+            }
+          }
+          apply(stel.core.constellations, 'lines_visible', 'lines')
+          apply(stel.core.constellations, 'labels_visible', 'labels')
+          apply(stel.core.constellations, 'bounds_visible', 'bounds')
+          apply(stel.core.constellations, 'images_visible', 'images')
+          apply(stel.core.stars, 'visible', 'stars')
+          apply(stel.core.stars, 'labels_visible', 'star_labels')
+          apply(stel.core.planets, 'visible', 'sso')
+          // Landscape, cardinal points and coordinate grids/lines.
+          apply(stel.core.landscapes, 'visible', 'landscape')
+          apply(stel.core.cardinals, 'visible', 'cardinals')
+          apply(stel.core.lines.horizon, 'visible', 'horizon')
+          apply(stel.core.lines.equator_line, 'visible', 'equator')
+          apply(stel.core.lines.ecliptic, 'visible', 'ecliptic')
+          apply(stel.core.lines.galactic, 'visible', 'galactic')
+          apply(stel.core.lines.azimuthal, 'visible', 'azimuthal')
+          apply(stel.core.lines.equatorial, 'visible', 'equatorial')
+          apply(stel.core.lines.equatorial_jnow, 'visible', 'equatorial_jnow')
+          apply(stel.core.lines.galactic_grid, 'visible', 'galactic_grid')
+          apply(stel.core.lines.meridian, 'visible', 'meridian')
+        }
+
+        // 4. Interaction mode.
+        if (q.interact === 'view' || q.interact === 'none') {
+          const appBar = document.querySelector('.v-app-bar')
+          if (appBar) appBar.style.display = 'none'
+          const footer = document.querySelector('.v-footer')
+          if (footer) footer.style.display = 'none'
+        }
+        if (q.interact === 'none') {
+          // Swallow clicks and disable the canvas input.
+          stel.on('click', function () { return true })
+          const canvas = document.getElementById('stel-canvas')
+          if (canvas) canvas.style.pointerEvents = 'none'
+        }
+
+        // 5. Focus subset: hide_others / set_focus / framing.  The
+        // constellation objects only exist once the skyculture data has
+        // been loaded asynchronously, so we poll until they are
+        // available before applying the subset.
+        if (!hasSubset) return
+
+        const culture = q.sc ? q.sc.substring(q.sc.lastIndexOf('/') + 1) : 'western'
+
+        if (q.hide_others === undefined) {
+          // Default: hide everything outside the subset.
+          stel.core.constellations.hide_others = true
+        } else if (q.hide_others === '1' || q.hide_others === 'true') {
+          stel.core.constellations.hide_others = true
+        } else if (q.hide_others === '0' || q.hide_others === 'false') {
+          stel.core.constellations.hide_others = false
+        }
+
+        const showLines = !(q.show && q.show.split(',').indexOf('none') >= 0)
+        this.applyFocusAndFrame(cstParams, culture, frame, customObjs, showLines)
+      },
+
+      // Wait for the constellation objects to be available (their data is
+      // loaded asynchronously), then set the focus subset, make sure the
+      // lines are visible and frame the view on all the subset members.
+      applyFocusAndFrame: function(cstParams, culture, frame, customObjs, showLines) {
+        const stel = this.stel
+        const self = this
+        const tryResolve = function(attempt) {
+          const focusObjs = []
+          const matchedIds = []
+          for (const c of cstParams) {
+            const candidates = self.fullIdCandidates(c, culture)
+            let found = false
+            for (const cand of candidates) {
+              const obj = stel.getObj(cand)
+              if (obj) {
+                focusObjs.push(obj)
+                matchedIds.push(cand)
+                found = true
+                break
+              }
+            }
+            if (!found) {
+              if (attempt < 40) {
+                setTimeout(function () { tryResolve(attempt + 1) }, 500)
+                return
+              }
+              console.warn('Cannot find constellation: ' + c)
+              return
+            }
+          }
+          // Custom constellations from cst_json: their id is already a full
+          // id, so resolve them directly through getObj().
+          for (const o of (customObjs || [])) {
+            if (!o || !o.id) continue
+            const obj = stel.getObj(o.id)
+            if (obj) {
+              focusObjs.push(obj)
+              matchedIds.push(o.id)
+            } else {
+              if (attempt < 40) {
+                setTimeout(function () { tryResolve(attempt + 1) }, 500)
+                return
+              }
+              console.warn('Cannot find custom constellation: ' + o.id)
+              return
+            }
+          }
+          // The focus list uses the exact matched ids so that
+          // constellation_in_focus() can match them (it needs the full id
+          // or a suffix starting right after a space).
+          stel.core.constellations.set_focus(matchedIds)
+          // Only force the lines on when they were not explicitly disabled
+          // through the show parameter.
+          stel.core.constellations.lines_visible = showLines !== false
+          if (focusObjs.length) {
+            self.frameOnConstellations(focusObjs, frame || 'icrf')
+          }
+        }
+        tryResolve(0)
+      },
+
+      // Compute the bounding cap of a list of constellation objects and
+      // frame the view so that all of them are visible.  The constellation
+      // data is loaded lazily, so we poll until everything is ready.
+      frameOnConstellations: function(objs, frame) {
+        const stel = this.stel
+        const obs = stel.observer.clone()
+        const tryFrame = function(attempt) {
+          const caps = []
+          for (const obj of objs) {
+            const pvo = obj.getInfo('pvo', obs)
+            if (pvo === undefined) {
+              if (attempt < 40) {
+                setTimeout(function () { tryFrame(attempt + 1) }, 500)
+                return
+              }
+              continue
+            }
+            const radius = obj.getInfo('radius', obs)
+            caps.push({ c: [pvo[0][0], pvo[0][1], pvo[0][2]], r: radius })
+          }
+          if (!caps.length) return
+          // Center: mean direction of all the caps.
+          let cx = 0, cy = 0, cz = 0
+          for (const cap of caps) {
+            cx += cap.c[0]
+            cy += cap.c[1]
+            cz += cap.c[2]
+          }
+          const n = Math.sqrt(cx * cx + cy * cy + cz * cz)
+          if (n < 1e-9) return
+          cx /= n
+          cy /= n
+          cz /= n
+          // Maximum angular distance to any cap rim.
+          let maxAng = 0
+          for (const cap of caps) {
+            const dot = Math.max(-1, Math.min(1,
+              cap.c[0] * cx + cap.c[1] * cy + cap.c[2] * cz))
+            const d = Math.acos(dot) + cap.r
+            if (d > maxAng) maxAng = d
+          }
+          const fov = Math.min(maxAng * 2 * 1.2, 170 * Math.PI / 180)
+          stel.core.fov = fov
+          // In altaz mode the lookAt position must be converted to the
+          // observed frame, otherwise the yaw/pitch directly are the ICRF
+          // (equatorial) coordinates.
+          let dir
+          if (frame === 'altaz') {
+            dir = stel.convertFrame(obs, 'ICRF', 'OBSERVED', [cx, cy, cz, 0])
+          } else {
+            dir = [cx, cy, cz, 0]
+          }
+          stel.lookAt([dir[0], dir[1], dir[2]], 0)
+        }
+        tryFrame(0)
       }
     }
   })

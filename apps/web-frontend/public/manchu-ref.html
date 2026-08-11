@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>Manchu 参考渲染</title>
+<style>
+  body { background: #111; color: #eee; font-family: sans-serif; padding: 20px; }
+  .col { display: flex; gap: 60px; align-items: flex-start; }
+  .box { background: #222; padding: 16px; border-radius: 8px; }
+  .box h3 { margin: 0 0 10px; font-size: 14px; color: #aaa; }
+  .h { font-family: "AlariSanyanManchu", monospace; font-size: 64px; }
+  .v { writing-mode: vertical-lr; text-orientation: mixed; font-family: "AlariSanyanManchu", monospace; font-size: 64px; }
+  @font-face {
+    font-family: "AlariSanyanManchu";
+    src: url("/fonts/AlariŠanyanManchu-Regular.ttf") format("truetype");
+  }
+</style>
+</head>
+<body>
+<h2>满文 manju (ᠮᠠᠨᠵᡠ) 参考渲染 - 浏览器原生</h2>
+<div class="col">
+  <div class="box">
+    <h3>横排 (horizontal LTR)</h3>
+    <div class="h">ᠮᠠᠨᠵᡠ</div>
+  </div>
+  <div class="box">
+    <h3>竖排 (writing-mode: vertical-lr, 浏览器原生蒙古文竖排)</h3>
+    <div class="v">ᠮᠠᠨᠵᡠ</div>
+  </div>
+</div>
+</body>
+</html>

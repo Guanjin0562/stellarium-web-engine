@@ -621,6 +621,90 @@ void dso_get_designations(
     }
 }
 
+// Compare two designations for equality, ignoring case and spaces.
+// This allows matching e.g. "M 45" (survey ids) with "M45" (sky culture).
+static int designation_equal(const char *a, const char *b)
+{
+    char ca, cb;
+    while (*a && *b) {
+        if (*a == ' ') { a++; continue; }
+        if (*b == ' ') { b++; continue; }
+        ca = *a;
+        cb = *b;
+        if (ca >= 'a' && ca <= 'z') ca -= 'a' - 'A';
+        if (cb >= 'a' && cb <= 'z') cb -= 'a' - 'A';
+        if (ca != cb) return 0;
+        a++; b++;
+    }
+    while (*a == ' ') a++;
+    while (*b == ' ') b++;
+    return *a == 0 && *b == 0;
+}
+
+/*
+ * Function: dso_get_by_name
+ * Find a DSO object by its designation, e.g. "M45" or "NGC869".
+ *
+ * This is used by the skycultures module to resolve the "DSO:xxx"
+ * references of the constellation lines.  As there is no name index we
+ * have to scan the tiles of the survey; since only a handful of DSOs are
+ * referenced by sky cultures this is acceptable, and the tiles are cached.
+ *
+ * Parameters:
+ *   name   - The designation to look for.  Matching is case-insensitive and
+ *            ignores spaces, so "M 45" matches "M45".
+ *   code   - Output for request code:
+ *            200 - OK
+ *            404 - Not found.
+ *              0 - Not found yet, but we can try again later.
+ *
+ * Return:
+ *   A DSO object, or NULL.  The caller is responsible for calling
+ *   obj_release on the object.
+ */
+obj_t *dso_get_by_name(const char *name, int *code)
+{
+    dsos_t *dsos = g_dsos;
+    survey_t *survey;
+    hips_iterator_t iter;
+    tile_t *tile;
+    const dso_t *dso;
+    const char *names;
+    int order, pix, i;
+
+    assert(code);
+    if (!dsos || !name || !*name) {
+        *code = 404;
+        return NULL;
+    }
+
+    DL_FOREACH(dsos->surveys, survey) {
+        if (!survey->hips) {
+            *code = 0; // Not ready yet.
+            return NULL;
+        }
+        hips_iter_init(&iter);
+        while (hips_iter_next(&iter, &order, &pix)) {
+            tile = get_tile(survey, order, pix, true, code);
+            if (*code == 0) return NULL; // Still loading, try again later.
+            if (!tile) continue;
+            for (i = 0; i < tile->nb; i++) {
+                dso = &tile->sources[i];
+                names = dso->names;
+                while (names && *names) {
+                    if (designation_equal(names, name))
+                        return obj_retain(&tile->sources[i].obj);
+                    names += strlen(names) + 1;
+                }
+            }
+            // Descend into the children to cover the whole survey.
+            hips_iter_push_children(&iter, order, pix);
+        }
+    }
+    *code = 404;
+    return NULL;
+}
+
 static int render_visitor(int order, int pix, void *user)
 {
     painter_t painter = *(const painter_t*)USER_GET(user, 0);

@@ -106,6 +106,14 @@ let routes = [
     path: '/skysource/:name',
     component: App,
     alias: '/'
+  },
+  {
+    // Demo page: the same App, with the demo parameter panel enabled on
+    // the right side (see App.vue isDemoMode and demo-param-panel.vue).
+    path: '/demo',
+    name: 'Demo',
+    component: App,
+    alias: '/'
   }
 ]
 // Routes exposed by plugins

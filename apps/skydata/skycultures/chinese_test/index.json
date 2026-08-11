@@ -1,0 +1,154 @@
+{
+  "id": "chinese_test",
+  "region": "Eastern Asia",
+  "classification": ["single"],
+  "fallback_to_international_names": false,
+  "asterisms": [
+  ],
+  "constellations": [
+    {
+      "id": "CON chinese_xianglin H16",
+      "lines1": [[76127, 75695, 76267, 76952, 77512, 78159, 78493, 78459, 77048]],
+      "lines": [[77048, 76127, 75695, 76267, 76952, 77512, 78159, 78493, 78459]],
+      "common_name": {"english": "Coiled Thong", "native": "贯索", "pronounce": "Guàn Suǒ", "IPA": "kwan˥˩.swo˨˩˦"}
+    },
+    {
+      "id": "CON chinese_xianglin H17",
+      "lines": [[81833, 80460, 79119, 77655, 76669, 75411, 74666]],
+      "common_name": {"english": "Seven Excellencies", "native": "七公", "pronounce": "Qī Gōng", "IPA": "t͡ɕʰi˥.kʊŋ˥"}
+    },
+    {
+      "id": "CON chinese_test 001",
+      "lines": [[746, 2920], [746, 3179], [746, 3821], [746, 4427]],
+      "common_name": {"english": "Wang Liang", "native": "王良", "pronounce": ""}
+    },
+    {
+      "id": "CON chinese_jin_dynasty C22",
+      "lines": [[110991, 109857], [110991, 109492], [110991, 109556], [110991, 109592]],
+      "common_name": {"english": "Zaofu", "native": "造父", "pronounce": ""}
+    },
+    {
+      "id": "CON chinese_mdn 06C",
+      "lines1": [[85792, 86092, 87846, 89112, 88714, 85792]],
+      "lines": [[86486, 86092, 87846, 89112, 88714, 86486]],
+      "common_name": {"english": "Tortoise", "native": "龟", "pronounce": "Guī", "IPA": "kweɪ˥"}
+    },
+    {
+      "id": "CON chinese_mdn 08D",
+      "lines1": [[92953, 92608, 92226, 91989, 91875, 91901, 91918, 92989, 93174, 93825, 94114, 94160, 94005, 93542, 92953]],
+      "lines": [[94114, 93825, 93174, 92989, 91875, 90968, 90887, 90982, 91494, 92308, 92953, 93542, 94005, 94160, 94114]],
+      "common_name": {"english": "River Turtle", "native": "鳖", "pronounce": "Biē", "IPA": "pjɛ˥"}
+    },
+    {
+      "id": "CON chinese_mdn 10E",
+      "lines": [[100453, 97165, 99675, 102098, 103413, 104887, 105138, 104732, 102488, 100453]],
+      "common_name": {"english": "Celestial Ford (bridge of magpies)", "native": "天津", "pronounce": "Tiān Jīn", "IPA": "tʰjɛn˥.t͡ɕin˥"}
+    },
+    {
+      "id": "CON chinese_mdn 001",
+      "lines": [[91262, 91262]],
+      "common_name": {"english": "Weaving Girl", "native": "织女", "pronounce": "Tiān Jīn", "IPA": "tʰjɛn˥.t͡ɕin˥"}
+    },
+    {
+      "id": "CON chinese_mdn 002",
+      "lines": [[97278, 97649, 98036]],
+      "common_name": {"english": "Cowherd", "native": "牛郎", "pronounce": "Tiān Jīn", "IPA": "tʰjɛn˥.t͡ɕin˥"}
+    },
+    {
+      "id": "CON chinese_mdn 08F",
+      "lines": [[87706, 88116, 89153, 89980, 89678, 88839, 88012, 87836, 87706]],
+      "common_name": {"english": "Celestial Keyhole", "native": "天籥", "pronounce": "Tiān Yuè", "IPA": "tʰjɛn˥.ɥɛ˥˩"}
+    },
+    {
+      "id": "CON chinese_mdn 08H",
+      "lines": [[97290, 96465, 95477, 95564, 97290]],
+      "common_name": {"english": "Territory of Dog", "native": "狗国", "pronounce": "Gǒu Guó", "IPA": "koʊ˨˩˩.kwo˧˥", "byname": "Northeastern Barbarian Tribes"}
+    },
+    {
+      "id": "CON chinese_mdn 15A",
+      "lines": [[3693, 3031, 3092, 2912, 2942, 3231, "DSO:M31", 3881, 4436, 5447, 5544, 5586, 6193, 5742, 5571, 4463, 3693]],
+      "common_name": {"english": "Legs", "native": "【奎】", "pronounce": "Kuí", "IPA": "kʰweɪ˧˥", "byname": "Double Headed Pig"}
+    },
+    {
+      "id": "CON chinese_test 19A",
+      "lines": [[20889, 20648, 20455, 20205], [21683, 21421, 20894, 20713, 20205, 18724]],
+      "common_name": {"native": "Bixiu"}
+    },
+    {
+      "id": "CON chinese_test 19B",
+      "lines": [[21683, 21683]],
+      "common_name": {"native": "Fuer"}
+    },
+    {
+      "id": "CON chinese_test 21D",
+      "lines": [[23685, 24927]],
+      "common_name": {"english": "Screen", "native": "屏", "pronounce": "Ping"}
+    }
+  ],
+  "edges_type": "own",
+  "edges_epoch": "J2017.5278633264887",
+  "edges": [
+    "___:___ M+ 14:00:00 +70:00:00 14:00:00 +74:00:00 P01 P07"
+  ],
+  "lunar_system": {
+                   "comment": "Needs confirmation, then remove edges (edges_type=none)",
+                   "context": "chinese lunar mansion",
+                   "name": { "native": "二十八宿", "pronounce": "Xiù", "english": "Lunar Mansion"},
+                   "defining_stars": [65474, 69427, 72622, 78265, 80112, 82514, 88635, 92041, 100345, 102618, 106278, 109074, 113963, 1067,
+                    3693, 8903, 12719, 17499, 20889, 26176, 26727, 30343, 41822, 42313, 46390, 48356, 53740, 59803],
+                   "coordsys": "equatorial",
+                   "extent": 90,
+                   "names": [ { "symbol":  "1", "native": "角", "pronounce": "Jiǎo", "english": "Horn"},
+                              { "symbol":  "2", "native": "亢", "pronounce": "Kàng", "english": "Neck"},
+                              { "symbol":  "3", "native": "氐", "pronounce": "Dī", "english": "Root"},
+                              { "symbol":  "4", "native": "房", "pronounce": "Fáng", "english": "Room"},
+                              { "symbol":  "5", "native": "心", "pronounce": "Xīn", "english": "Heart"},
+                              { "symbol":  "6", "native": "尾", "pronounce": "Wěi", "english": "Tail"},
+                              { "symbol":  "7", "native": "箕", "pronounce": "Jī", "english": "Winnowing Basket"},
+                              { "symbol":  "8", "native": "斗", "pronounce": "Dǒu", "english": "Dipper"},
+                              { "symbol":  "9", "native": "牛", "pronounce": "Niú", "english": "Ox"},
+                              { "symbol": "10", "native": "女", "pronounce": "Nǚ", "english": "Girl"},
+                              { "symbol": "11", "native": "虚", "pronounce": "Xū", "english": "Emptiness"},
+                              { "symbol": "12", "native": "危", "pronounce": "Wēi", "english": "Rooftop"},
+                              { "symbol": "13", "native": "室", "pronounce": "Shì", "english": "Encampment"},
+                              { "symbol": "14", "native": "壁", "pronounce": "Bì", "english": "Wall"},
+                              { "symbol": "15", "native": "奎", "pronounce": "Kuí", "english": "Legs"},
+                              { "symbol": "16", "native": "娄", "pronounce": "Lóu", "english": "Bond"},
+                              { "symbol": "17", "native": "胃", "pronounce": "Wèi", "english": "Stomach"},
+                              { "symbol": "18", "native": "昴", "pronounce": "Mǎo", "english": "Hairy Head"},
+                              { "symbol": "19", "native": "毕", "pronounce": "Bì", "english": "Net"},
+                              { "symbol": "20", "native": "觜", "pronounce": "Zī", "english": "Turtle Beak"},
+                              { "symbol": "21", "native": "参", "pronounce": "Shēn", "english": "Three Stars"},
+                              { "symbol": "22", "native": "井", "pronounce": "Jǐng", "english": "Well"},
+                              { "symbol": "23", "native": "鬼", "pronounce": "Guǐ", "english": "Ghost"},
+                              { "symbol": "24", "native": "柳", "pronounce": "Liǔ", "english": "Willow"},
+                              { "symbol": "25", "native": "星", "pronounce": "Xīng", "english": "Star"},
+                              { "symbol": "26", "native": "张", "pronounce": "Zhāng", "english": "Extended Net"},
+                              { "symbol": "27", "native": "翼", "pronounce": "Yì", "english": "Wings"},
+                              { "symbol": "28", "native": "轸", "pronounce": "Zhěn", "english": "Chariot"}]},
+  "common_names": {
+    "HIP   3693": [{"native": "天豕目", "references": [3]}],
+    "M 44": [{"native": "积尸气", "references": [1,3]}],
+    "M 7": [{"native": "鱼", "references": [1,3]}],
+    "NGC 4490": [{"native": "常陈增九", "references": [7]}],
+    "NGC 5195": [{"native": "三公增九", "references": [7]}],
+    "NAME Jupiter": [{"native": "木星", "pronounce": "Muxing"}],
+    "NAME Mars": [{"native": "火星", "pronounce": "Huoxing"}],
+    "NAME Mercury": [{"native": "水星", "pronounce": "Shuixing"}],
+    "NAME Moon": [{"native": "月", "pronounce": "Yue"}],
+    "NAME Saturn": [{"native": "土星", "pronounce": "Tuxing"}],
+    "NAME Sun": [{"native": "日", "pronounce": "Ri"}],
+    "NAME Venus": [{"native": "金星", "pronounce": "Jinxing"}]
+  },
+  "peferences": {
+    "1": "[北宋]皇祐星表（潘鼐.中国恒星观测史, 齐锐、万昊宜.漫步中国星空）",
+    "2": "[清]仪象考成",
+    "3": "观津邀月.中国星官计划第一版",
+    "4": "观津邀月.中国星官计划第二版",
+    "5": "[元]三垣列舍入宿去极集",
+    "6": "[朝]天象列次分野之图",
+    "7": "观津邀月.中国星官计划第三版",
+    "8": "观津邀月.中国星官计划第四版",
+    "9": "观津邀月.中国星官计划第五版 3C7.5-"
+  }
+}

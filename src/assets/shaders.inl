@@ -1,6 +1,6 @@
 // Auto generated from tools/makeassets.py
 
-static const unsigned char DATA_shaders_atmosphere_glsl[3770] __attribute__((aligned(4))) =
+static const unsigned char DATA_shaders_atmosphere_glsl[3886] __attribute__((aligned(4))) =
     "/* Stellarium Web Engine - Copyright (c) 2022 - Stellarium Labs SRL\n"
     " *\n"
     " * This program is licensed under the terms of the GNU AGPL v3, or\n"
@@ -121,7 +121,7 @@ static const unsigned char DATA_shaders_atmosphere_glsl[3770] __attribute__((ali
 
 ASSET_REGISTER(shaders_atmosphere_glsl, "shaders/atmosphere.glsl", DATA_shaders_atmosphere_glsl, false)
 
-static const unsigned char DATA_shaders_blit_glsl[984] __attribute__((aligned(4))) =
+static const unsigned char DATA_shaders_blit_glsl[1032] __attribute__((aligned(4))) =
     "/* Stellarium Web Engine - Copyright (c) 2022 - Stellarium Labs SRL\n"
     " *\n"
     " * This program is licensed under the terms of the GNU AGPL v3, or\n"
@@ -174,7 +174,7 @@ static const unsigned char DATA_shaders_blit_glsl[984] __attribute__((aligned(4)
 
 ASSET_REGISTER(shaders_blit_glsl, "shaders/blit.glsl", DATA_shaders_blit_glsl, false)
 
-static const unsigned char DATA_shaders_fog_glsl[855] __attribute__((aligned(4))) =
+static const unsigned char DATA_shaders_fog_glsl[898] __attribute__((aligned(4))) =
     "/* Stellarium Web Engine - Copyright (c) 2022 - Stellarium Labs SRL\n"
     " *\n"
     " * This program is licensed under the terms of the GNU AGPL v3, or\n"
@@ -222,7 +222,7 @@ static const unsigned char DATA_shaders_fog_glsl[855] __attribute__((aligned(4))
 
 ASSET_REGISTER(shaders_fog_glsl, "shaders/fog.glsl", DATA_shaders_fog_glsl, false)
 
-static const unsigned char DATA_shaders_lines_glsl[2117] __attribute__((aligned(4))) =
+static const unsigned char DATA_shaders_lines_glsl[2193] __attribute__((aligned(4))) =
     "/* Stellarium Web Engine - Copyright (c) 2022 - Stellarium Labs SRL\n"
     " *\n"
     " * This program is licensed under the terms of the GNU AGPL v3, or\n"
@@ -303,7 +303,7 @@ static const unsigned char DATA_shaders_lines_glsl[2117] __attribute__((aligned(
 
 ASSET_REGISTER(shaders_lines_glsl, "shaders/lines.glsl", DATA_shaders_lines_glsl, false)
 
-static const unsigned char DATA_shaders_mesh_glsl[588] __attribute__((aligned(4))) =
+static const unsigned char DATA_shaders_mesh_glsl[621] __attribute__((aligned(4))) =
     "/* Stellarium Web Engine - Copyright (c) 2022 - Stellarium Labs SRL\n"
     " *\n"
     " * This program is licensed under the terms of the GNU AGPL v3, or\n"
@@ -341,7 +341,7 @@ static const unsigned char DATA_shaders_mesh_glsl[588] __attribute__((aligned(4)
 
 ASSET_REGISTER(shaders_mesh_glsl, "shaders/mesh.glsl", DATA_shaders_mesh_glsl, false)
 
-static const unsigned char DATA_shaders_planet_glsl[7260] __attribute__((aligned(4))) =
+static const unsigned char DATA_shaders_planet_glsl[7474] __attribute__((aligned(4))) =
     "/* Stellarium Web Engine - Copyright (c) 2022 - Stellarium Labs SRL\n"
     " *\n"
     " * This program is licensed under the terms of the GNU AGPL v3, or\n"
@@ -560,7 +560,7 @@ static const unsigned char DATA_shaders_planet_glsl[7260] __attribute__((aligned
 
 ASSET_REGISTER(shaders_planet_glsl, "shaders/planet.glsl", DATA_shaders_planet_glsl, false)
 
-static const unsigned char DATA_shaders_points_glsl[1361] __attribute__((aligned(4))) =
+static const unsigned char DATA_shaders_points_glsl[1422] __attribute__((aligned(4))) =
     "/* Stellarium Web Engine - Copyright (c) 2022 - Stellarium Labs SRL\n"
     " *\n"
     " * This program is licensed under the terms of the GNU AGPL v3, or\n"
@@ -626,7 +626,7 @@ static const unsigned char DATA_shaders_points_glsl[1361] __attribute__((aligned
 
 ASSET_REGISTER(shaders_points_glsl, "shaders/points.glsl", DATA_shaders_points_glsl, false)
 
-static const unsigned char DATA_shaders_projections_glsl[1831] __attribute__((aligned(4))) =
+static const unsigned char DATA_shaders_projections_glsl[1913] __attribute__((aligned(4))) =
     "/* Stellarium Web Engine - Copyright (c) 2022 - Stellarium Labs SRL\n"
     " *\n"
     " * This program is licensed under the terms of the GNU AGPL v3, or\n"
@@ -713,7 +713,7 @@ static const unsigned char DATA_shaders_projections_glsl[1831] __attribute__((al
 
 ASSET_REGISTER(shaders_projections_glsl, "shaders/projections.glsl", DATA_shaders_projections_glsl, false)
 
-static const unsigned char DATA_shaders_texture_2d_glsl[1210] __attribute__((aligned(4))) =
+static const unsigned char DATA_shaders_texture_2d_glsl[1262] __attribute__((aligned(4))) =
     "/* Stellarium Web Engine - Copyright (c) 2022 - Stellarium Labs SRL\n"
     " *\n"
     " * This program is licensed under the terms of the GNU AGPL v3, or\n"

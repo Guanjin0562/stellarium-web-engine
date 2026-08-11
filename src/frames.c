@@ -14,6 +14,31 @@ static void correct_speed_of_light(double pv[2][3]) {
     vec3_addk(pv[0], pv[1], -ldt, pv[0]);
 }
 
+/*
+ * IAU galactic coordinate system rotations (aligned on ICRS / J2000).
+ *
+ * Note: mat3_mul_vec3() follows the convention out = v . M (i.e.
+ * out = M^T . v in column notation).  Therefore, to apply the standard
+ * "galactic -> ICRS" rotation R (out = R . v_gal) we must hand the
+ * function the transpose of R, which is exactly the "ICRS -> galactic"
+ * matrix, and vice-versa.
+ *
+ * EQ2GAL is the standard "equatorial -> galactic" matrix published in
+ * "The Hipparcos and Tycho Catalogues" (1997), Vol. 1, section 1.5.3
+ * (verified against the galactic center and the north galactic pole).
+ * GAL2EQ is its transpose ("galactic -> equatorial").
+ */
+static const double EQ2GAL[3][3] = {
+    { -0.0548755604, -0.8734370902, -0.4838350155 },
+    {  0.4941094279, -0.4448296300,  0.7469822445 },
+    { -0.8676661490, -0.1980763734,  0.4559837762 },
+};
+static const double GAL2EQ[3][3] = {
+    { -0.0548755604,  0.4941094279, -0.8676661490 },
+    { -0.8734370902, -0.4448296300, -0.1980763734 },
+    { -0.4838350155,  0.7469822445,  0.4559837762 },
+};
+
 void position_to_apparent(const observer_t *obs, int origin, bool at_inf,
                           const double in[2][3], double out[2][3])
 {
@@ -201,6 +226,20 @@ int convert_frame(const observer_t *obs,
     if (dest == FRAME_ECLIPTIC) {
         convert_frame(obs, origin, FRAME_ICRF, at_inf, out, out);
         mat3_mul_vec3(obs->ri2e, out, out);
+        return 0;
+    }
+
+    if (origin == FRAME_GALACTIC) {
+        // galactic -> ICRS: out = v . EQ2GAL (= GAL2EQ . v).
+        mat3_mul_vec3(EQ2GAL, out, out);
+        convert_frame(obs, FRAME_ICRF, dest, at_inf, out, out);
+        return 0;
+    }
+
+    if (dest == FRAME_GALACTIC) {
+        // ICRS -> galactic: out = v . GAL2EQ (= EQ2GAL . v).
+        convert_frame(obs, origin, FRAME_ICRF, at_inf, out, out);
+        mat3_mul_vec3(GAL2EQ, out, out);
         return 0;
     }
 

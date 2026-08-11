@@ -70,6 +70,9 @@ def encode_str(data):
     assert isinstance(data, bytes)
     ret = '    "'
     for c in data.decode('utf8'):
+        if c == '\r':
+            # Windows CRLF 源文件中的 \r 不应进入生成的 C 字符串。
+            continue
         if c == '\n':
             ret += '\\n"\n    "'
             continue

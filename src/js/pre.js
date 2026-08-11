@@ -88,6 +88,14 @@ Module['FRAME_OBSERVED'] = 5;
 Module['FRAME_MOUNT'] = 6;
 Module['FRAME_VIEW'] = 7;
 Module['FRAME_ECLIPTIC'] = 8;
+Module['FRAME_GALACTIC'] = 9;
+
+// Sky culture name format styles (see skycultures.c NAME_* enum).
+Module['NAME_AUTO'] = 0;
+Module['NAME_NATIVE'] = 1;
+Module['NAME_NATIVE_AND_PRONOUNCE'] = 2;
+Module['NAME_ENGLISH'] = 4;
+Module['NAME_ENGLISH_AND_NATIVE'] = 8;
 
 Module['MJD2date'] = function(v) {
   return new Date(Math.round((v + 2400000.5 - 2440587.5) * 86400000));

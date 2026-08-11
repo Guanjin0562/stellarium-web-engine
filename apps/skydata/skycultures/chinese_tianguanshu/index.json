@@ -1,0 +1,694 @@
+{
+  "id": "chinese_tianguanshu",
+  "region": "Eastern Asia",
+  "classification": ["traditional"],
+  "fallback_to_international_names": false,
+  "constellations": [
+    {
+      "id": "CON chinese_tianguanshu Lh'ingGyk",
+      "lines": [[75097, 72607, 70692, 69112]],
+      "common_name": {"english": "天极", "native": "Tianji"}
+    },
+    {
+      "id": "CON chinese_tianguanshu G'oqK'o",
+      "lines": [[11767, 85822, 82080, 77055]],
+      "common_name": {"english": "后勾", "native": "Hougou"}
+    },
+    {
+      "id": "CON chinese_tianguanshu ParGinT'ong",
+      "lines": [[68756, 75458, 78527, 80331, 83895, 89908]],
+      "common_name": {"english": "籓臣", "native": "Fanchen"}
+    },
+    {
+      "id": "CON chinese_tianguanshu ParGinS'yn",
+      "lines": [[61384, 56211, 52425, 46977, 33694, 25110]],
+      "common_name": {"english": "籓臣", "native": "Fanchen"}
+    },
+    {
+      "id": "CON chinese_tianguanshu UmT'yk",
+      "lines": [[61384, 61281, 60998]],
+      "common_name": {"english": "阴德·天一", "native": "Yinde"}
+    },
+    {
+      "id": "CON chinese_tianguanshu Lh'ingTshang",
+      "lines": [[69483, 70497, 69713]],
+      "common_name": {"english": "天枪", "native": "Tianqiang"}
+    },
+    {
+      "id": "CON chinese_tianguanshu Lh'ingPh'oq",
+      "lines": [[87585, 85829, 85670, 87833, 86414]],
+      "common_name": {"english": "天棓", "native": "Tianbang"}
+    },
+    {
+      "id": "CON chinese_tianguanshu K'akL'uq",
+      "lines": [[11569, 8886, 6686, 5542, 3801, 3504]],
+      "common_name": {"english": "阁道", "native": "Gedao"}
+    },
+    {
+      "id": "CON chinese_tianguanshu P'ykT'oq",
+      "lines": [[54061, 53910, 58001, 59774, 62956, 65378, 67301]],
+      "common_name": {"english": "北斗", "native": "Beidou"}
+    },
+    {
+      "id": "CON chinese_tianguanshu MynThangKung",
+      "lines": [[41704, 42527, 46733, 48319, 46853, 44901]],
+      "common_name": {"english": "文昌宫", "native": "WenchangGong"}
+    },
+    {
+      "id": "CON chinese_tianguanshu KuhNingTyR'u",
+      "lines": [[58181, 57477, 56083, 56944, 58181]],
+      "common_name": {"english": "贵人之牢", "native": "GuirenZhiLao"}
+    },
+    {
+      "id": "CON chinese_tianguanshu S'umN'y",
+      "lines": [[44127, 44471, 50372, 50801, 55219, 55203]],
+      "common_name": {"english": "三能", "native": "Sanneng"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 013",
+      "lines": [[65477, 65477]],
+      "common_name": {"english": "辅", "native": "Fu"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 014",
+      "lines": [[71075, 71075]],
+      "common_name": {"english": "招摇（矛）", "native": "Zhaoyao"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 015",
+      "lines": [[72105, 72105]],
+      "common_name": {"english": "天锋（盾）", "native": "Tianfeng"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 016",
+      "lines": [[76127, 75695, 76267, 76952, 77512, 78159, 78493, 78459, 77655, 76669, 75411, 76307, 78012, 79119, 79607]],
+      "common_name": {"english": "勾圜（贱人之牢）", "native": "Gouhuan"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 017",
+      "lines": [[79375, 78727, 78207, 77853]],
+      "common_name": {"english": "右骖", "native": "Youcan"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 018",
+      "lines": [[78933, 78990]],
+      "common_name": {"english": "衿", "native": "Jin"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 019",
+      "lines": [[79374, 79374]],
+      "common_name": {"english": "辖", "native": "Xia"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 020",
+      "lines": [[80816, 80170, 78072, 77233, 76276, 77070, 77622, 79593, 79882, 81377, 84012, 86263]],
+      "common_name": {"english": "旗", "native": "Qi"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 021",
+      "lines": [[86565, 84880, 86284, 88048, 89962, 88175, 86565]],
+      "common_name": {"english": "市楼", "native": "Shilou"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 022",
+      "lines": [[[-8.1,-32.5],[-8.3,-33],[-8.7,-34.5],[-9.1,-38.4],[-9.2,-42.5],[-9.2,-46.3],[-9,-49.5],[-8.6,-49.8],[-8.4,-48.1],[-7.9,-42.1],[-7.8,-37.8],[-7.8,-34.8],[-7.9,-32.9],[-8.1,-32.5]]],
+      "common_name": {"english": "骑官", "native": "Qiguan"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 023",
+      "lines": [[69673, 69673]],
+      "common_name": {"english": "大角（天王帝廷）", "native": "Dajiao"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 024",
+      "lines": [[67927, 67275, 67459]],
+      "common_name": {"english": "摄提", "native": "Sheti"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 025",
+      "lines": [[71795, 71762, 72125]],
+      "common_name": {"english": "摄提", "native": "Sheti"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 026",
+      "lines": [[68702, 71683]],
+      "common_name": {"english": "南门", "native": "Nanmen"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 027",
+      "lines": [[41075, 43531, 44248, 44700, 45688, 45860, 46146, 46750, 47908, 48455, 50335, 50583, 49583, 49669, 47508], [49669, 51624], [49669, 49637]],
+      "common_name": {"english": "轩辕（权）", "native": "Xuanyuan"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 028",
+      "lines": [[57757, 55434, 55642, 54879, 54872, 54951]],
+      "common_name": {"english": "籓臣", "native": "Fanchen"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 029",
+      "lines": [[60129, 61941, 63090, 63608, 64241, 64394]],
+      "common_name": {"english": "籓臣", "native": "Fanchen"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 030",
+      "lines": [[59819, 60202, 61418, 62886, 64022]],
+      "common_name": {"english": "诸侯", "native": "Zhuhou"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 031",
+      "lines": [[57632, 57646], [57632, 57606], [57632, 58159], [57632, 57779]],
+      "common_name": {"english": "五帝座", "native": "Wudizuo"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 032",
+      "lines": [[60742, 60197, 60170, 60066, 59847], [61071, 60904, 60746, 60697, 60742], [60697, 60514, 60197], [60746, 60525, 60514, 60351, 60170], [60904, 60941, 60525, 60599, 60351, 60327, 60066]],
+      "common_name": {"english": "郎位", "native": "Langwei"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 033",
+      "lines": [[63125, 63125]],
+      "common_name": {"english": "将位", "native": "Jangwei"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 034",
+      "lines": [[52911, 52689, 52686, 52457, 52422]],
+      "common_name": {"english": "少微", "native": "Shaowei"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 035",
+      "lines": [[29655, 29655]],
+      "common_name": {"english": "钺", "native": "Yue"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 036",
+      "lines": [[36366, 36850, 37826]],
+      "common_name": {"english": "北河", "native": "Beihe"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 037",
+      "lines": [[36284, 36188, 37279]],
+      "common_name": {"english": "南河", "native": "Nanhe"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 038",
+      "lines": [["DSO:M44", "DSO:M44"]],
+      "common_name": {"english": "质", "native": "Zhi"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 039",
+      "lines": [[60189, 60189]],
+      "common_name": {"english": "长沙", "native": "Changsha"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 040",
+      "lines": [[66657, 71860, 71352, 68933, 65109, 61932, 61084, 62434, 60718, 59747, 61084]],
+      "common_name": {"english": "天库楼", "native": "Tiankulou"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 041",
+      "lines": [[68523, 68002, 68282]],
+      "common_name": {"english": "五车", "native": "Wuzhu"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 042",
+      "lines": [[70931, 71536, 71121]],
+      "common_name": {"english": "五车", "native": "Wuzhu"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 043",
+      "lines": [[69996, 70574, 70104]],
+      "common_name": {"english": "五车", "native": "Wuzhu"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 044",
+      "lines": [[67669, 67457, 67153]],
+      "common_name": {"english": "五车", "native": "Wuzhu"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 045",
+      "lines": [[65936, 66656, 65535]],
+      "common_name": {"english": "五车", "native": "Wuzhu"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 046",
+      "lines": [[23015, 24608, 28360, 28380, 25428, 23015]],
+      "common_name": {"english": "咸池·天五潢（五帝车舍）", "native": "Xianchi"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 047",
+      "lines": [[23453, 23416, 23767]],
+      "common_name": {"english": "三柱", "native": "Sanzhu"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 048",
+      "lines": [[27483, 27639, 27673]],
+      "common_name": {"english": "三柱", "native": "Sanzhu"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 049",
+      "lines": [[26712, 25984, 26536]],
+      "common_name": {"english": "三柱", "native": "Sanzhu"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 050",
+      "lines": [[[3.1,16.3],[2.6,16.7],[2.3,14],[2.1,9.1],[2.1,-0.3],[2.1,-6.4],[2.3,-13.2],[2.5,-15],[2.5,-15],[2.5,-15],[2.6,-15.1],[2.7,-13.1],[3.1,-3.6],[3.4,1.1],[3.6,7.8],[3.7,12],[3.5,14.8],[3.3,15.8],[3.1,16.3]]],
+      "common_name": {"english": "廥积", "native": "Kuaiji"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 051",
+      "lines": [[21683, 21683]],
+      "common_name": {"english": "附耳", "native": "Fuer"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 052",
+      "lines": [[20711, 20635]],
+      "common_name": {"english": "天街", "native": "Tianjie"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 053",
+      "lines": [[26237, 26221, 26241]],
+      "common_name": {"english": "罚", "native": "Fa"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 054",
+      "lines": [[25985, 25606, 27072, 27654]],
+      "common_name": {"english": "天厕", "native": "Tiance"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 055",
+      "lines": [[26460, 26460]],
+      "common_name": {"english": "天矢", "native": "Tianshi"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 056",
+      "lines": [[24010, 23607, 22957, 22833, 22845, 22509, 22449, 22549, 22797]],
+      "common_name": {"english": "天旗", "native": "Tianqi"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 057",
+      "lines": [[19398, 18543, 17593, 17378, 16537, 15197, 13701, 12770, 12843, 13288, 14146, 15474, 16611, 17651, 18216, 18673]],
+      "common_name": {"english": "天苑", "native": "Tianyuan"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 058",
+      "lines": [[22109, 22701, 23364, 23221, 23231, 22479, 22263, 22028, 21763]],
+      "common_name": {"english": "九游", "native": "Jiuyou"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 059",
+      "lines": [[32349, 32349]],
+      "common_name": {"english": "狼", "native": "Lang"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 060",
+      "lines": [[35904, 34444, 33579], [34444, 33977]],
+      "common_name": {"english": "弧", "native": "Hu"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 061",
+      "lines": [[30438, 30438]],
+      "common_name": {"english": "南极老人", "native": "NanjiLaoren"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 062",
+      "lines": [[[0.2,-2],[0,-2.5],[-0.4,-3.5],[-0.8,-5.2],[-1.1,-8.1],[-1.3,-10.6],[-1.5,-14.3],[-1.5,-17.7],[-1.5,-21.8],[-1.4,-24.2],[-1.1,-25.9],[-0.7,-24.9],[0.1,-21.4],[0.4,-18.7],[0.5,-15.3],[0.5,-8.8],[0.4,-4.4],[0.2,-2]]],
+      "common_name": {"english": "羽林天军", "native": "YulinTianjun"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 063",
+      "lines": [[111123, 110000, 109139, 109472, 111123, 112961, 113686, 114822, 117375, 417, 1421, 2787, 1939, 417]],
+      "common_name": {"english": "垒·钺", "native": "Lei"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 064",
+      "lines": [[113368, 113368]],
+      "common_name": {"english": "北落", "native": "Beiluo"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 065",
+      "lines": [[110395, 110960]],
+      "common_name": {"english": "司空", "native": "Sikong"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 066",
+      "lines": [[112029, 112447]],
+      "common_name": {"english": "司空", "native": "Sikong"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 067",
+      "lines": [[112440, 112748]],
+      "common_name": {"english": "司空", "native": "Sikong"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 068",
+      "lines": [[2920, 2920], [3179, 3179], [3821, 3821], [4427, 4427]],
+      "common_name": {"english": "天驷", "native": "Tiansi"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 069",
+      "lines": [[746, 746]],
+      "common_name": {"english": "王良", "native": "Wangliang"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 070",
+      "lines": [[100453, 97165, 99675, 103413, 104887, 105138, 104732, 102488, 100453]],
+      "common_name": {"english": "天潢", "native": "Tianhuang"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 071",
+      "lines": [[102098, 102098]],
+      "common_name": {"english": "江星", "native": "Jiangxing"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 072",
+      "lines": [[109410, 109654, 109937]],
+      "common_name": {"english": "杵", "native": "Chu"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 073",
+      "lines": [[109056, 109176, 109602, 110371]],
+      "common_name": {"english": "臼", "native": "Jiu"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 074",
+      "lines": [[101589, 101769, 101958, 102532, 102281, 101769]],
+      "common_name": {"english": "匏瓜", "native": "Paogua"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 075",
+      "lines": [[93085, 93683, 94141], [94820, 95168, 95176]],
+      "common_name": {"english": "建星（旗）", "native": "Jianxing"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 076",
+      "lines": [[98036, 97649, 97278]],
+      "common_name": {"english": "河鼓", "native": "Hegu"}
+    },
+    {
+      "id": "CON chinese_tianguanshu 077",
+      "lines": [[91919, 91262, 91971]],
+      "common_name": {"english": "织女", "native": "Zhinü"}
+    },
+    {
+      "id": "CON chinese_tianguanshu A01",
+      "lines": [[65474, 66249]],
+      "common_name": {"english": "角", "native": "Jiao"}
+    },
+    {
+      "id": "CON chinese_tianguanshu A02",
+      "lines": [[69427, 69701, 70755], [69427, 69974]],
+      "common_name": {"english": "亢（疏庙）", "native": "Kang"}
+    },
+    {
+      "id": "CON chinese_tianguanshu A03",
+      "lines": [[72622, 74392, 76333, 74785]],
+      "common_name": {"english": "氐（天根）", "native": "Di"}
+    },
+    {
+      "id": "CON chinese_tianguanshu A04",
+      "lines": [[78820, 78401, 78265, 78104]],
+      "common_name": {"english": "房（府·天驷）", "native": "Fang"}
+    },
+    {
+      "id": "CON chinese_tianguanshu A05",
+      "lines": [[80112, 80763, 81266]],
+      "common_name": {"english": "心（明堂）", "native": "Xin"}
+    },
+    {
+      "id": "CON chinese_tianguanshu A06",
+      "lines": [[82396, 82514, 82729, 84143, 86228, 87073, 86670, 85927, 85696]],
+      "common_name": {"english": "尾（九子·君臣）", "native": "Wei"}
+    },
+    {
+      "id": "CON chinese_tianguanshu A07",
+      "lines": [[88635, 89931, 90185, 89642]],
+      "common_name": {"english": "箕（敖客·口舌）", "native": "Ji"}
+    },
+    {
+      "id": "CON chinese_tianguanshu A08",
+      "lines": [[89341, 90496, 92041, 92855, 93864, 93506]],
+      "common_name": {"english": "南斗（庙）", "native": "Nandou"}
+    },
+    {
+      "id": "CON chinese_tianguanshu A09",
+      "lines": [[100345, 100064], [100345, 100310], [100345, 100881, 101123, 101027, 100345]],
+      "common_name": {"english": "牵牛（牺牲）", "native": "Qianniu"}
+    },
+    {
+      "id": "CON chinese_tianguanshu A10",
+      "lines": [[102618, 103045, 103005, 102624]],
+      "common_name": {"english": "婺女", "native": "Wunv"}
+    },
+    {
+      "id": "CON chinese_tianguanshu A11",
+      "lines": [[106278, 104987]],
+      "common_name": {"english": "虚", "native": "Xu"}
+    },
+    {
+      "id": "CON chinese_tianguanshu A12",
+      "lines": [[109074, 109427, 107315]],
+      "common_name": {"english": "危", "native": "Wei"}
+    },
+    {
+      "id": "CON chinese_tianguanshu A13",
+      "lines": [[113963, 113881]],
+      "common_name": {"english": "营室（清庙·离宫）", "native": "Yingshi"}
+    },
+    {
+      "id": "CON chinese_tianguanshu A14",
+      "lines": [[1067, 677]],
+      "common_name": {"english": "东壁", "native": "Dongbi"}
+    },
+    {
+      "id": "CON chinese_tianguanshu A15",
+      "lines": [[3693, 3031, 3092, 2912, 2942, 3231, "DSO:M31", 3881, 4436, 5447, 5544, 5586, 6193, 5742, 5571, 4463, 3693]],
+      "common_name": {"english": "奎（封豕·沟渎）", "native": "Kui"}
+    },
+    {
+      "id": "CON chinese_tianguanshu A16",
+      "lines": [[9884, 8903, 8832]],
+      "common_name": {"english": "娄（聚众）", "native": "Lou"}
+    },
+    {
+      "id": "CON chinese_tianguanshu A17",
+      "lines": [[12719, 13061, 13209]],
+      "common_name": {"english": "胃（天仓）", "native": "Wei"}
+    },
+    {
+      "id": "CON chinese_tianguanshu A18",
+      "lines": [[17489, 17531, 17499, 17573, 17608, 17702, 17847]],
+      "common_name": {"english": "昴（髦头·胡星·白衣会）", "native": "Mao"}
+    },
+    {
+      "id": "CON chinese_tianguanshu A19",
+      "lines": [[20889, 20648, 20455, 20205], [21421, 20894, 20713, 20205, 18724]],
+      "common_name": {"english": "毕（罕车·边兵）", "native": "Bi"}
+    },
+    {
+      "id": "CON chinese_tianguanshu A20",
+      "lines": [[26176, 26207, 26366]],
+      "common_name": {"english": "觜觿（虎首）", "native": "Zixi"}
+    },
+    {
+      "id": "CON chinese_tianguanshu A21",
+      "lines": [[27989, 26727, 26311, 25930, 24436], [25930, 25336], [26727, 27366]],
+      "common_name": {"english": "参（白虎）", "native": "Shen"}
+    },
+    {
+      "id": "CON chinese_tianguanshu A22",
+      "lines": [[30343, 30883, 31681, 32362], [32246, 32921, 34088, 35350]],
+      "common_name": {"english": "东井（水事）", "native": "Dongjing"}
+    },
+    {
+      "id": "CON chinese_tianguanshu A23",
+      "lines": [[41822, 41909, 42806, 42911, 41822]],
+      "common_name": {"english": "舆鬼", "native": "Yugui"}
+    },
+    {
+      "id": "CON chinese_tianguanshu A24",
+      "lines": [[43234, 42799, 42402, 42313, 43109, 43813, 44659, 45336]],
+      "common_name": {"english": "柳（鸟注）", "native": "Liu"}
+    },
+    {
+      "id": "CON chinese_tianguanshu A25",
+      "lines": [[47431, 46776, 46509, 46404, 46390, 45811, 45751]],
+      "common_name": {"english": "七星（颈·员官）", "native": "Qixing"}
+    },
+    {
+      "id": "CON chinese_tianguanshu A26",
+      "lines": [[48356, 49841, 51069, 48615, 48356, 47452], [51069, 52085]],
+      "common_name": {"english": "张（厨）", "native": "Zhang"}
+    },
+    {
+      "id": "CON chinese_tianguanshu A27",
+      "lines": [[53740, 55282, 55705, 54682, 53740, 52943], [55705, 57283], [55282, 54029, 52948, 51933], [56802, 55687, 54029], [55687, 56633, 58576], [54682, 54204, 54477, 56280], [54204, 52407, 53502, 55588, 56922, 57936], [52407, 51172]],
+      "common_name": {"english": "翼（羽翮）", "native": "Yi"}
+    },
+    {
+      "id": "CON chinese_tianguanshu A28",
+      "lines": [[59803, 59316, 61359, 60965, 59803]],
+      "common_name": {"english": "轸（车）", "native": "Zhen"}
+    },
+    {
+      "id": "CON chinese_tianguanshu B01",
+      "lines": [[68756, 75458, 78527, 80331, 83895, 89908], [61384, 56211, 52425, 46977, 33694, 25110]],
+      "label_positions": [[15, 82]],
+      "common_name": {"english": "紫宫", "native": "Zigong"}
+    },
+    {
+      "id": "CON chinese_tianguanshu B02",
+      "lines": [[84345, 83000, 86742, 86032, 84345]],
+      "common_name": {"english": "天市", "native": "Tianshi"}
+    },
+    {
+      "id": "CON chinese_tianguanshu B03",
+      "lines": [[54879, 54879], [63608, 63608]],
+      "common_name": {"english": "太微（衡）", "native": "Taiwei"}
+    },
+    {
+      "id": "CON chinese_tianguanshu C01",
+      "lines": [[57757, 57757], [60129, 60129]],
+      "common_name": {"english": "端门", "native": "Duanmen"}
+    },
+    {
+      "id": "CON chinese_tianguanshu C02",
+      "lines": [[57757, 57757], [55434, 55434]],
+      "common_name": {"english": "右掖门", "native": "YouYemen"}
+    },
+    {
+      "id": "CON chinese_tianguanshu C03",
+      "lines": [[60129, 60129], [61941, 61941]],
+      "common_name": {"english": "左掖门", "native": "ZuoYemen"}
+    },
+    {
+      "id": "CON chinese_tianguanshu C04",
+      "lines": [[746, 2920], [746, 3179], [746, 3821], [746, 4427]],
+      "common_name": {"english": ""}
+    },
+    {
+      "id": "CON chinese_tianguanshu C05",
+      "lines": [[36284, 36188, 37279], [36366, 36850, 37826]],
+      "common_name": {"english": "关梁", "native": "Guanliang"}
+    }
+  ],
+  "zodiac": {
+    "name": {"native": "十二星次", "pronounce": "Xīng Cì", "english": "Chinese Jupiter Station"},
+    "partitions": [12, 2],
+    "context": "Chinese Earthly Branches (Dizhi)",
+    "coordsys": "equatorial",
+    "extent": 90,
+    "start_offset": 255,
+    "label_latitude": 9,
+    "names": [ 
+      {"symbol": "丑", "native": "星纪", "pronounce": "Xīng Jì", "english": "Star Record"},
+      {"symbol": "子", "native": "玄枵", "pronounce": "Xuán Xiāo", "english": "Xuanxiao"},
+      {"symbol": "亥", "native": "娵訾", "pronounce": "Jū Zī", "english": "Juzi"},
+      {"symbol": "戌", "native": "降娄", "pronounce": "Jiàng Lóu", "english": "Jianglou"},
+      {"symbol": "酉", "native": "大梁", "pronounce": "Dà Liáng", "english": "Daliang"},
+      {"symbol": "申", "native": "实沈", "pronounce": "Shí Shěn", "english": "Shishen"},
+      {"symbol": "未", "native": "鹑首", "pronounce": "Chún Shǒu", "english": "Quail Head"},
+      {"symbol": "午", "native": "鹑火", "pronounce": "Chún Huǒ", "english": "Quail Fire"},
+      {"symbol": "巳", "native": "鹑尾", "pronounce": "Chún Wěi", "english": "Quail Tail"},
+      {"symbol": "辰", "native": "寿星", "pronounce": "Shòu Xīng", "english": "Longevity Star"},
+      {"symbol": "卯", "native": "大火", "pronounce": "Dà Huǒ", "english": "Great Fire"},
+      {"symbol": "寅", "native": "析木", "pronounce": "Xī Mù", "english": "Ximu"}
+    ]
+  },
+  "lunar_system": {
+                   "context": "chinese lunar mansion",
+                   "name": { "native": "二十八宿", "pronounce": "Xiù", "english": "Lunar Mansion"},
+                   "defining_stars": [65474, 69427, 72622, 78265, 80112, 82514, 88635, 92041, 100345, 102618, 106278, 109074, 113963, 1067,
+                    3693, 8903, 12719, 17499, 20889, 26176, 26727, 30343, 41822, 42313, 46390, 48356, 53740, 59803],
+                   "coordsys": "equatorial",
+                   "extent": 90,
+                   "names": [ { "symbol":  "1", "native": "角", "pronounce": "Jiǎo", "english": "Horn"},
+                              { "symbol":  "2", "native": "亢", "pronounce": "Kàng", "english": "Neck"},
+                              { "symbol":  "3", "native": "氐", "pronounce": "Dī", "english": "Root"},
+                              { "symbol":  "4", "native": "房", "pronounce": "Fáng", "english": "Room"},
+                              { "symbol":  "5", "native": "心", "pronounce": "Xīn", "english": "Heart"},
+                              { "symbol":  "6", "native": "尾", "pronounce": "Wěi", "english": "Tail"},
+                              { "symbol":  "7", "native": "箕", "pronounce": "Jī", "english": "Winnowing Basket"},
+                              { "symbol":  "8", "native": "斗", "pronounce": "Dǒu", "english": "Dipper"},
+                              { "symbol":  "9", "native": "牛", "pronounce": "Niú", "english": "Ox"},
+                              { "symbol": "10", "native": "女", "pronounce": "Nǚ", "english": "Girl"},
+                              { "symbol": "11", "native": "虚", "pronounce": "Xū", "english": "Emptiness"},
+                              { "symbol": "12", "native": "危", "pronounce": "Wēi", "english": "Rooftop"},
+                              { "symbol": "13", "native": "室", "pronounce": "Shì", "english": "Encampment"},
+                              { "symbol": "14", "native": "壁", "pronounce": "Bì", "english": "Wall"},
+                              { "symbol": "15", "native": "奎", "pronounce": "Kuí", "english": "Legs"},
+                              { "symbol": "16", "native": "娄", "pronounce": "Lóu", "english": "Bond"},
+                              { "symbol": "17", "native": "胃", "pronounce": "Wèi", "english": "Stomach"},
+                              { "symbol": "18", "native": "昴", "pronounce": "Mǎo", "english": "Hairy Head"},
+                              { "symbol": "19", "native": "毕", "pronounce": "Bì", "english": "Net"},
+                              { "symbol": "20", "native": "觜", "pronounce": "Zī", "english": "Turtle Beak"},
+                              { "symbol": "21", "native": "参", "pronounce": "Shēn", "english": "Three Stars"},
+                              { "symbol": "22", "native": "井", "pronounce": "Jǐng", "english": "Well"},
+                              { "symbol": "23", "native": "鬼", "pronounce": "Guǐ", "english": "Ghost"},
+                              { "symbol": "24", "native": "柳", "pronounce": "Liǔ", "english": "Willow"},
+                              { "symbol": "25", "native": "星", "pronounce": "Xīng", "english": "Star"},
+                              { "symbol": "26", "native": "张", "pronounce": "Zhāng", "english": "Extended Net"},
+                              { "symbol": "27", "native": "翼", "pronounce": "Yì", "english": "Wings"},
+                              { "symbol": "28", "native": "轸", "pronounce": "Zhěn", "english": "Chariot"}
+                            ]
+                 },
+  "common_names": {
+    "HIP 746": [{"english": "王良"}],
+    "HIP 11767": [{"english": "正妃"}],
+    "HIP 24436": [{"english": "右股"}],
+    "HIP 25336": [{"english": "右肩"}],
+    "HIP 25930": [{"english": "衡石"}],
+    "HIP 26311": [{"english": "衡石"}],
+    "HIP 26727": [{"english": "衡石"}],
+    "HIP 27366": [{"english": "左股"}],
+    "HIP 27989": [{"english": "左肩"}],
+    "HIP 30438": [{"english": "老人"}],
+    "HIP 32349": [{"english": "狼"}],
+    "HIP 41704": [{"english": "上将"}],
+    "HIP 42527": [{"english": "次将"}],
+    "HIP 44901": [{"english": "司禄"}],
+    "HIP 46733": [{"english": "贵相"}],
+    "HIP 46853": [{"english": "司中"}],
+    "HIP 48319": [{"english": "司命"}],
+    "HIP 49637": [{"english": "御者"}],
+    "HIP 49669": [{"english": "女主"}],
+    "HIP 53910": [{"english": "天璇"}],
+    "HIP 54061": [{"english": "天枢"}],
+    "HIP 54872": [{"english": "将"}],
+    "HIP 54879": [{"english": "将"}],
+    "HIP 54951": [{"english": "将"}],
+    "HIP 55434": [{"english": "执法"}],
+    "HIP 55642": [{"english": "将"}],
+    "HIP 57757": [{"english": "执法"}],
+    "HIP 58001": [{"english": "天玑"}],
+    "HIP 59774": [{"english": "天权"}],
+    "HIP 60129": [{"english": "执法"}],
+    "HIP 61281": [{"english": "天一"}],
+    "HIP 61941": [{"english": "执法"}],
+    "HIP 62956": [{"english": "玉衡"}],
+    "HIP 63090": [{"english": "相"}],
+    "HIP 63608": [{"english": "相"}],
+    "HIP 64241": [{"english": "相"}],
+    "HIP 64394": [{"english": "相"}],
+    "HIP 65378": [{"english": "开阳"}],
+    "HIP 65474": [{"english": "左角·李"}],
+    "HIP 65477": [{"english": "辅"}],
+    "HIP 66249": [{"english": "右角·将"}],
+    "HIP 67301": [{"english": "摇光"}],
+    "HIP 69112": [{"english": "三公/子属"}],
+    "HIP 69673": [{"english": "大角"}],
+    "HIP 70692": [{"english": "三公/子属"}],
+    "HIP 72607": [{"english": "太一"}],
+    "HIP 75097": [{"english": "三公/子属"}],
+    "HIP 77055": [{"english": "后宫"}],
+    "HIP 80112": [{"english": "子属"}],
+    "HIP 80763": [{"english": "天王"}],
+    "HIP 81266": [{"english": "子属"}],
+    "HIP 82080": [{"english": "后宫"}],
+    "HIP 85822": [{"english": "后宫"}],
+    "HIP 97278": [{"english": "右将"}],
+    "HIP 97649": [{"english": "上将"}],
+    "HIP 98036": [{"english": "左将"}],
+    "HIP 102098": [{"english": "江星"}],
+    "M 44": [{"english": "质"}]
+  }
+}

@@ -1049,8 +1049,15 @@ static void planet_render_label(
     char buf[256];
     snprintf(buf, sizeof(buf), "NAME %s", planet->name);
     name = skycultures_get_label(buf, buf, sizeof(buf));
-    if (!name)
+    if (!name) {
         name = sys_translate("sky", planet->name);
+        snprintf(buf, sizeof(buf), "%s", name);
+    }
+
+    // Layout labels containing Manchu (Mongolian script) text vertically:
+    // the Manchu words are stacked into vertical columns, with the
+    // horizontal part (e.g. the english name) below them.
+    bool manchu = u8_verticalize_manchu(buf, sizeof(buf), buf);
 
     planet_get_pvo(planet, painter->obs, pvo);
     vec3_copy(pvo[0], pos);
@@ -1064,10 +1071,12 @@ static void planet_render_label(
     s = point_size * 0.9;
     s = fmax(s, radius);
 
-    labels_add_3d(name, FRAME_ICRF, pos,
+    labels_add_3d(buf, FRAME_ICRF, pos,
                   false, s + 4, FONT_SIZE_BASE,
                   selected ? white : label_color, 0, 0,
-                  TEXT_SEMI_SPACED | TEXT_BOLD | (selected ? 0 : TEXT_FLOAT),
+                  TEXT_SEMI_SPACED | TEXT_BOLD | TEXT_MULTILINES |
+                  (manchu ? TEXT_MANCHU : 0) |
+                  (selected ? 0 : TEXT_FLOAT),
                   -vmag, &planet->obj);
 }
 

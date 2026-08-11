@@ -1,0 +1,1530 @@
+{
+  "id": "chinese_yuanming",
+  "region": "Eastern Asia",
+  "classification": ["historical"],
+  "fallback_to_international_names": false,
+  "constellations": [
+    {
+      "id": "CON chinese_yuanming P01",
+      "lines": [[75097, 72607, 70692, 69112, 62572]],
+      "common_name": {"english": "北极"}
+    },
+    {
+      "id": "CON chinese_yuanming P02",
+      "lines": [[58874, 51384, 51502, 56253]],
+      "common_name": {"english": "四辅"}
+    },
+    {
+      "id": "CON chinese_yuanming P03",
+      "lines": [[67627, 67627]],
+      "common_name": {"english": "天乙"}
+    },
+    {
+      "id": "CON chinese_yuanming P04",
+      "lines": [[66798, 66798]],
+      "common_name": {"english": "太乙"}
+    },
+    {
+      "id": "CON chinese_yuanming P05",
+      "lines": [[75458, 78527, 80331, 83895, 89908, 101260, 114222, 3721]],
+      "common_name": {"english": "紫微垣东蕃"}
+    },
+    {
+      "id": "CON chinese_yuanming P06",
+      "lines": [[68756, 61281, 56211, 46977, 33827, 17959, 12273]],
+      "common_name": {"english": "紫微垣西蕃"}
+    },
+    {
+      "id": "CON chinese_yuanming P07",
+      "lines": [[74605, 73199]],
+      "common_name": {"english": "阴德"}
+    },
+    {
+      "id": "CON chinese_yuanming P08",
+      "lines": [[82860, 81660], [82860, 78893], [82860, 80650], [82860, 83114]],
+      "common_name": {"english": "尚书"}
+    },
+    {
+      "id": "CON chinese_yuanming P09",
+      "lines": [[86614, 86614]],
+      "common_name": {"english": "女史"}
+    },
+    {
+      "id": "CON chinese_yuanming P10",
+      "lines": [[89937, 89937]],
+      "common_name": {"english": "柱史"}
+    },
+    {
+      "id": "CON chinese_yuanming P11",
+      "lines": [[88136, 84769, 87234, 90647, 88136]],
+      "common_name": {"english": "御女"}
+    },
+    {
+      "id": "CON chinese_yuanming P12",
+      "lines": [[99255, 104105, 105727, 100965, 95167]],
+      "common_name": {"english": "天柱"}
+    },
+    {
+      "id": "CON chinese_yuanming P13",
+      "lines": [[77277, 75974]],
+      "common_name": {"english": "大理"}
+    },
+    {
+      "id": "CON chinese_yuanming P14",
+      "lines": [[112833, 5372, 11767, 85822, 82080, 77055]],
+      "common_name": {"english": "钩陈"}
+    },
+    {
+      "id": "CON chinese_yuanming P15",
+      "lines": [[13055, 16129], [20860, 16129], [14844, 16129], [16489, 16129], [20982, 16129], [10623, 16129]],
+      "common_name": {"english": "六甲"}
+    },
+    {
+      "id": "CON chinese_yuanming P16",
+      "lines": [[115746, 115746]],
+      "common_name": {"english": "天皇大帝"}
+    },
+    {
+      "id": "CON chinese_yuanming P17",
+      "lines": [[4283, 118027], [113116, 118027], [112519, 118027], [3132, 118027]],
+      "common_name": {"english": "五帝内座"}
+    },
+    {
+      "id": "CON chinese_yuanming P18",
+      "lines": [[7078, 9598], [7078, 9480], [7078, 9009], [7078, 7965], [7078, 6692], [7078, 5518], [7078, 5926]],
+      "common_name": {"english": "华盖"}
+    },
+    {
+      "id": "CON chinese_yuanming P19",
+      "lines": [[25110, 23265, 20776, 19461, 14417, 9727, 9763, 7650, 7078]],
+      "common_name": {"english": "杠(附华盖)"}
+    },
+    {
+      "id": "CON chinese_yuanming P20",
+      "lines": [[21452, 20266, 19177, 17884, 15520, 5589, 3299, 379, 117371]],
+      "common_name": {"english": "传舍"}
+    },
+    {
+      "id": "CON chinese_yuanming P21",
+      "lines": [[36211, 33104, 29490], [36528, 32864, 29997]],
+      "common_name": {"english": "内阶"}
+    },
+    {
+      "id": "CON chinese_yuanming P22",
+      "lines": [[94648, 97433, 98702, 95081, 94376, 92782, 94648], [94376, 97433]],
+      "common_name": {"english": "天厨"}
+    },
+    {
+      "id": "CON chinese_yuanming P24",
+      "lines": [[87585, 85819, 85670, 87833, 86414]],
+      "common_name": {"english": "天棓"}
+    },
+    {
+      "id": "CON chinese_yuanming P25",
+      "lines": [[70952, 71040, 73507], [72664, 71876, 68184]],
+      "common_name": {"english": "天床"}
+    },
+    {
+      "id": "CON chinese_yuanming P26",
+      "lines": [[62423, 63076]],
+      "common_name": {"english": "内厨"}
+    },
+    {
+      "id": "CON chinese_yuanming P27",
+      "lines": [[46733, 48319, 48402, 46853, 44901, 44504]],
+      "common_name": {"english": "文昌"}
+    },
+    {
+      "id": "CON chinese_yuanming P28",
+      "lines": [[50933, 52353, 51448]],
+      "common_name": {"english": "三师"}
+    },
+    {
+      "id": "CON chinese_yuanming P29",
+      "lines": [[54539, 54539]],
+      "common_name": {"english": "太尊"}
+    },
+    {
+      "id": "CON chinese_yuanming P30",
+      "lines": [[51814, 51459, 52136, 53261, 53043, 52478, 51814]],
+      "common_name": {"english": "天牢"}
+    },
+    {
+      "id": "CON chinese_yuanming P31",
+      "lines": [[57399, 57399]],
+      "common_name": {"english": "太阳守"}
+    },
+    {
+      "id": "CON chinese_yuanming P32",
+      "lines": [[55044, 53706, 55086, 56731, 55044]],
+      "common_name": {"english": "势"}
+    },
+    {
+      "id": "CON chinese_yuanming P33",
+      "lines": [[60485, 60485]],
+      "common_name": {"english": "相"}
+    },
+    {
+      "id": "CON chinese_yuanming P34",
+      "lines": [[66234, 65754, 64906]],
+      "common_name": {"english": "三公(紫微垣)"}
+    },
+    {
+      "id": "CON chinese_yuanming P35",
+      "lines": [[69732, 69732]],
+      "common_name": {"english": "玄戈"}
+    },
+    {
+      "id": "CON chinese_yuanming P36",
+      "lines": [[57477, 56083, 56944, 58181, 57477]],
+      "common_name": {"english": "天理"}
+    },
+    {
+      "id": "CON chinese_yuanming P37",
+      "lines": [[54061, 53910, 58001, 59774, 62956, 65378, 67301], [65378, 65477]],
+      "common_name": {"english": "北斗"}
+    },
+    {
+      "id": "CON chinese_yuanming P38",
+      "lines": [[65477, 65477]],
+      "common_name": {"english": "辅(附北斗)"}
+    },
+    {
+      "id": "CON chinese_yuanming P39",
+      "lines": [[70497, 69713, 69483]],
+      "common_name": {"english": "天枪"}
+    },
+    {
+      "id": "CON chinese_yuanming S01",
+      "lines": [[60129, 61941, 63090, 63608, 64241]],
+      "common_name": {"english": "太微垣东蕃"}
+    },
+    {
+      "id": "CON chinese_yuanming S02",
+      "lines": [[57757, 55434, 55642, 54879, 54872]],
+      "common_name": {"english": "太微垣西蕃"}
+    },
+    {
+      "id": "CON chinese_yuanming S03",
+      "lines": [[60172, 60172]],
+      "common_name": {"english": "谒者"}
+    },
+    {
+      "id": "CON chinese_yuanming S04",
+      "lines": [[61658, 61637, 61428]],
+      "common_name": {"english": "三公(太微垣)"}
+    },
+    {
+      "id": "CON chinese_yuanming S05",
+      "lines": [[61960, 62267, 61968]],
+      "common_name": {"english": "九卿"}
+    },
+    {
+      "id": "CON chinese_yuanming S06",
+      "lines": [[59819, 60202, 61418, 61394, 62886]],
+      "common_name": {"english": "五诸侯(太微垣)"}
+    },
+    {
+      "id": "CON chinese_yuanming S07",
+      "lines": [[57328, 57380, 58590, 58948]],
+      "common_name": {"english": "内屏"}
+    },
+    {
+      "id": "CON chinese_yuanming S08",
+      "lines": [[57632, 57646], [57632, 57320], [57632, 58159], [57632, 57779]],
+      "common_name": {"english": "五帝座"}
+    },
+    {
+      "id": "CON chinese_yuanming S09",
+      "lines": [[58858, 58858]],
+      "common_name": {"english": "幸臣"}
+    },
+    {
+      "id": "CON chinese_yuanming S10",
+      "lines": [[57565, 57565]],
+      "common_name": {"english": "太子"}
+    },
+    {
+      "id": "CON chinese_yuanming S11",
+      "lines": [[56975, 56975]],
+      "common_name": {"english": "从官(太微垣)"}
+    },
+    {
+      "id": "CON chinese_yuanming S12",
+      "lines": [[63121, 63121]],
+      "common_name": {"english": "郎将"}
+    },
+    {
+      "id": "CON chinese_yuanming S13",
+      "lines": [[54951, 54951]],
+      "common_name": {"english": "虎贲"}
+    },
+    {
+      "id": "CON chinese_yuanming S14",
+      "lines": [[59856, 58369, 58460, 58654, 57670, 56997, 56410]],
+      "common_name": {"english": "常陈"}
+    },
+    {
+      "id": "CON chinese_yuanming S15",
+      "lines": [[60742, 60197, 60170, 60066, 59847], [61071, 60904, 60746, 60697, 60742], [60697, 60514, 60197], [60746, 60525, 60514, 60351, 60170], [60904, 60941, 60525, 60599, 60351, 60327, 60066]],
+      "common_name": {"english": "郎位"}
+    },
+    {
+      "id": "CON chinese_yuanming S16",
+      "lines": [[56647, 56127, 55084]],
+      "common_name": {"english": "明堂"}
+    },
+    {
+      "id": "CON chinese_yuanming S17",
+      "lines": [[54182, 53824, 53807]],
+      "common_name": {"english": "灵台"}
+    },
+    {
+      "id": "CON chinese_yuanming S19",
+      "lines": [[52911, 52689, 52686, 52457]],
+      "common_name": {"english": "长垣"}
+    },
+    {
+      "id": "CON chinese_yuanming S20",
+      "lines": [[44127, 44471]],
+      "common_name": {"english": "三台(上台)"}
+    },
+    {
+      "id": "CON chinese_yuanming S21",
+      "lines": [[50372, 50801]],
+      "common_name": {"english": "三台(中台)"}
+    },
+    {
+      "id": "CON chinese_yuanming S22",
+      "lines": [[55219, 55203]],
+      "common_name": {"english": "三台(下台)"}
+    },
+    {
+      "id": "CON chinese_yuanming S23",
+      "lines": [[44127, 44471, 50372, 50801, 55219, 55203]],
+      "common_name": {"english": ""}
+    },
+    {
+      "id": "CON chinese_yuanming H01",
+      "lines": [[84379, 85693, 86974, 88794, 92043, 93747, 92946, 89962, 88048, 86263, 84012]],
+      "common_name": {"english": "天市垣东蕃"}
+    },
+    {
+      "id": "CON chinese_yuanming H02",
+      "lines": [[80816, 80170, 79043, 78072, 77233, 76276, 77070, 77622, 79593, 79882, 81377]],
+      "common_name": {"english": "天市垣西蕃"}
+    },
+    {
+      "id": "CON chinese_yuanming H03",
+      "lines": [[86565, 83262], [84880, 85365], [83962, 86284]],
+      "common_name": {"english": "市楼"}
+    },
+    {
+      "id": "CON chinese_yuanming H04",
+      "lines": [[80628, 82369]],
+      "common_name": {"english": "车肆"}
+    },
+    {
+      "id": "CON chinese_yuanming H05",
+      "lines": [[86742, 87108]],
+      "common_name": {"english": "宗正"}
+    },
+    {
+      "id": "CON chinese_yuanming H06",
+      "lines": [[88601, 88192], [88290, 88601, 88149]],
+      "common_name": {"english": "宗人"}
+    },
+    {
+      "id": "CON chinese_yuanming H07",
+      "lines": [[88765, 88771]],
+      "common_name": {"english": "宗星"}
+    },
+    {
+      "id": "CON chinese_yuanming H08",
+      "lines": [[88899, 88331]],
+      "common_name": {"english": "帛度"}
+    },
+    {
+      "id": "CON chinese_yuanming H09",
+      "lines": [[88886, 88267]],
+      "common_name": {"english": "屠肆"}
+    },
+    {
+      "id": "CON chinese_yuanming H10",
+      "lines": [[86032, 86032]],
+      "common_name": {"english": "候星"}
+    },
+    {
+      "id": "CON chinese_yuanming H11",
+      "lines": [[84345, 84345]],
+      "common_name": {"english": "帝座"}
+    },
+    {
+      "id": "CON chinese_yuanming H12",
+      "lines": [[83430, 83478, 83613, 84177]],
+      "common_name": {"english": "宦者"}
+    },
+    {
+      "id": "CON chinese_yuanming H13",
+      "lines": [[80179, 80883]],
+      "common_name": {"english": "列肆"}
+    },
+    {
+      "id": "CON chinese_yuanming H14",
+      "lines": [[83000, 82673, 82073, 82402, 82216]],
+      "common_name": {"english": "斗星"}
+    },
+    {
+      "id": "CON chinese_yuanming H15",
+      "lines": [[81641, 81734, 82480]],
+      "common_name": {"english": "斛星"}
+    },
+    {
+      "id": "CON chinese_yuanming H16",
+      "lines": [[77048, 76127, 75695, 76267, 76952, 77512, 78159, 78493, 78459]],
+      "common_name": {"english": "贯索"}
+    },
+    {
+      "id": "CON chinese_yuanming H17",
+      "lines": [[81833, 80460, 79119, 77655, 76669, 75411, 74666]],
+      "common_name": {"english": "七公"}
+    },
+    {
+      "id": "CON chinese_yuanming H18",
+      "lines": [[80181, 81693, 83207, 83834, 84573, 84862, 85810, 87808, 87563]],
+      "common_name": {"english": "天纪"}
+    },
+    {
+      "id": "CON chinese_yuanming H19",
+      "lines": [[84380, 84606, 85112]],
+      "common_name": {"english": "女床"}
+    },
+    {
+      "id": "CON chinese_yuanming 01A",
+      "lines": [[65474, 66249]],
+      "common_name": {"english": "角宿"}
+    },
+    {
+      "id": "CON chinese_yuanming 01B",
+      "lines": [[65420, 66006]],
+      "common_name": {"english": "平道"}
+    },
+    {
+      "id": "CON chinese_yuanming 01C",
+      "lines": [[66936, 66200]],
+      "common_name": {"english": "天田(角宿)"}
+    },
+    {
+      "id": "CON chinese_yuanming 01D",
+      "lines": [[64238, 64238]],
+      "common_name": {"english": "进贤"}
+    },
+    {
+      "id": "CON chinese_yuanming 01E",
+      "lines": [[67480, 66763, 66727]],
+      "common_name": {"english": "周鼎"}
+    },
+    {
+      "id": "CON chinese_yuanming 01F",
+      "lines": [[65639, 64407]],
+      "common_name": {"english": "天门"}
+    },
+    {
+      "id": "CON chinese_yuanming 01G",
+      "lines": [[68895, 64962]],
+      "common_name": {"english": "平星"}
+    },
+    {
+      "id": "CON chinese_yuanming 01H",
+      "lines": [[68002, 71860, 71352, 68933, 65109, 64408, 63066, 61379, 60823, 61932, 63066]],
+      "common_name": {"english": "库楼"}
+    },
+    {
+      "id": "CON chinese_yuanming 02A",
+      "lines": [[69427, 69701, 70755], [69427, 69974]],
+      "common_name": {"english": "亢宿"}
+    },
+    {
+      "id": "CON chinese_yuanming 02B",
+      "lines": [[69673, 69673]],
+      "common_name": {"english": "大角"}
+    },
+    {
+      "id": "CON chinese_yuanming 02C",
+      "lines": [[67172, 68763, 69269, 69658, 69929, 70518, 71295]],
+      "common_name": {"english": "折威"}
+    },
+    {
+      "id": "CON chinese_yuanming 02D",
+      "lines": [[72125, 71762, 71795]],
+      "common_name": {"english": "左摄提"}
+    },
+    {
+      "id": "CON chinese_yuanming 02E",
+      "lines": [[67927, 67275, 67459]],
+      "common_name": {"english": "右摄提"}
+    },
+    {
+      "id": "CON chinese_yuanming 03A",
+      "lines": [[72622, 74392, 76333, 74785]],
+      "common_name": {"english": "氐宿"}
+    },
+    {
+      "id": "CON chinese_yuanming 03B",
+      "lines": [[77516, 77516]],
+      "common_name": {"english": "天乳"}
+    },
+    {
+      "id": "CON chinese_yuanming 03C",
+      "lines": [[71075, 71075]],
+      "common_name": {"english": "招摇"}
+    },
+    {
+      "id": "CON chinese_yuanming 03D",
+      "lines": [[72105, 71284, 71053]],
+      "common_name": {"english": "梗河"}
+    },
+    {
+      "id": "CON chinese_yuanming 03E",
+      "lines": [[72659, 71115, 70602]],
+      "common_name": {"english": "帝席"}
+    },
+    {
+      "id": "CON chinese_yuanming 03F",
+      "lines": [[69612, 70327, 70400, 69389, 68707, 68498, 69612]],
+      "common_name": {"english": "亢池"}
+    },
+    {
+      "id": "CON chinese_yuanming 03I",
+      "lines": [[76470, 76600]],
+      "common_name": {"english": "天辐"}
+    },
+    {
+      "id": "CON chinese_yuanming 04A",
+      "lines": [[78820, 78401, 78265, 78104]],
+      "common_name": {"english": "房宿"}
+    },
+    {
+      "id": "CON chinese_yuanming 04B",
+      "lines": [[78933, 78990]],
+      "common_name": {"english": "钩钤(附房宿)"}
+    },
+    {
+      "id": "CON chinese_yuanming 04C",
+      "lines": [[79374, 79374]],
+      "common_name": {"english": "键闭"}
+    },
+    {
+      "id": "CON chinese_yuanming 04D",
+      "lines": [[80343, 80569, 80894]],
+      "common_name": {"english": "罚星"}
+    },
+    {
+      "id": "CON chinese_yuanming 04E",
+      "lines": [[81724, 81754, 80975, 80473]],
+      "common_name": {"english": "东咸"}
+    },
+    {
+      "id": "CON chinese_yuanming 04F",
+      "lines": [[79375, 78727, 78207, 77853]],
+      "common_name": {"english": "西咸"}
+    },
+    {
+      "id": "CON chinese_yuanming 04G",
+      "lines": [[77840, 77840]],
+      "common_name": {"english": "日星"}
+    },
+    {
+      "id": "CON chinese_yuanming 04H",
+      "lines": [[78105, 77634]],
+      "common_name": {"english": "从官(房宿)"}
+    },
+    {
+      "id": "CON chinese_yuanming 04I",
+      "lines": [[78820, 78933]],
+      "common_name": {"english": ""}
+    },
+    {
+      "id": "CON chinese_yuanming 05A",
+      "lines": [[80112, 80763, 81266]],
+      "common_name": {"english": "心宿"}
+    },
+    {
+      "id": "CON chinese_yuanming 05B",
+      "lines": [[78384, 79320, 79963, 79653], [80911, 80337, 80945, 81472], [81304, 80337, 79320, 78323], [81972, 80945, 79963, 78914]],
+      "common_name": {"english": "积卒"}
+    },
+    {
+      "id": "CON chinese_yuanming 06A",
+      "lines": [[82396, 82514, 82729, 84143, 86228, 87073, 86670, 85927], [86670, 85696], [82514, 82545]],
+      "common_name": {"english": "尾宿"}
+    },
+    {
+      "id": "CON chinese_yuanming 06B",
+      "lines": [[82545, 82545]],
+      "common_name": {"english": "神宫(附房宿)"}
+    },
+    {
+      "id": "CON chinese_yuanming 06C",
+      "lines": [[84720, 86092, 86486, 85792, 84105]],
+      "common_name": {"english": "龟"}
+    },
+    {
+      "id": "CON chinese_yuanming 06D",
+      "lines": [[85755, 85340, 84970, 84405]],
+      "common_name": {"english": "天江"}
+    },
+    {
+      "id": "CON chinese_yuanming 06E",
+      "lines": [[87261, 87261]],
+      "common_name": {"english": "傅说"}
+    },
+    {
+      "id": "CON chinese_yuanming 06F",
+      "lines": [[87616, 87616]],
+      "common_name": {"english": "鱼"}
+    },
+    {
+      "id": "CON chinese_yuanming 07A",
+      "lines": [[88635, 89931, 90185, 89642]],
+      "common_name": {"english": "箕宿"}
+    },
+    {
+      "id": "CON chinese_yuanming 07B",
+      "lines": [[90568, 90422, 90982]],
+      "common_name": {"english": "杵(箕宿)"}
+    },
+    {
+      "id": "CON chinese_yuanming 07C",
+      "lines": [[88694, 88694]],
+      "common_name": {"english": "糠星"}
+    },
+    {
+      "id": "CON chinese_yuanming 08A",
+      "lines": [[89341, 90496, 92041, 92855, 93864, 93506]],
+      "common_name": {"english": "斗宿"}
+    },
+    {
+      "id": "CON chinese_yuanming 08B",
+      "lines": [[93085, 93683, 94141, 94820, 95168, 95176]],
+      "common_name": {"english": "建星"}
+    },
+    {
+      "id": "CON chinese_yuanming 08C",
+      "lines": [[93526, 93805, 93429, 93026, 92175, 92202, 91845, 91726, 91117]],
+      "common_name": {"english": "天弁"}
+    },
+    {
+      "id": "CON chinese_yuanming 08D",
+      "lines": [[94114, 93825, 93174, 92989, 91918, 91901, 91875, 91989, 92226, 92953, 93074, 93542, 94005, 94160, 94114]],
+      "lines1": [[94114, 93825, 93174, 92989, 91875, 90968, 90887, 90982, 91494, 92308, 92953, 93542, 94005, 94160, 94114]],
+      "common_name": {"english": "鳖"}
+    },
+    {
+      "id": "CON chinese_yuanming 08E",
+      "lines": [[96950, 97290]],
+      "common_name": {"english": "天鸡"}
+    },
+    {
+      "id": "CON chinese_yuanming 08G",
+      "lines": [[96465, 95477]],
+      "common_name": {"english": "狗星"}
+    },
+    {
+      "id": "CON chinese_yuanming 08H",
+      "lines": [[98066, 98353, 98688, 98162, 98066]],
+      "common_name": {"english": "狗国"}
+    },
+    {
+      "id": "CON chinese_yuanming 09A",
+      "lines": [[100345, 100881], [100881, 101123, 101027, 100345, 100310], [100345, 100064]],
+      "common_name": {"english": "牛宿"}
+    },
+    {
+      "id": "CON chinese_yuanming 09D",
+      "lines": [[98036, 97649, 97278]],
+      "common_name": {"english": "河鼓"}
+    },
+    {
+      "id": "CON chinese_yuanming 09E",
+      "lines": [[91919, 91262, 91971]],
+      "common_name": {"english": "织女"}
+    },
+    {
+      "id": "CON chinese_yuanming 09F",
+      "lines": [[96757, 97365], [96837, 97365, 98337, 98920, 98738, 98438, 98754, 99742]],
+      "common_name": {"english": "左旗"}
+    },
+    {
+      "id": "CON chinese_yuanming 09G",
+      "lines": [[96229, 95501], [96665, 95501, 94885, 95585, 96468, 95937, 95066, 96483]],
+      "common_name": {"english": "右旗"}
+    },
+    {
+      "id": "CON chinese_yuanming 09H",
+      "lines": [[99473, 98844, 97980, 97804]],
+      "common_name": {"english": "天桴"}
+    },
+    {
+      "id": "CON chinese_yuanming 09I",
+      "lines": [[101923, 102026, 101984]],
+      "common_name": {"english": "罗堰"}
+    },
+    {
+      "id": "CON chinese_yuanming 09J",
+      "lines": [[92791, 92420, 93194, 93903, 92791]],
+      "common_name": {"english": "渐台"}
+    },
+    {
+      "id": "CON chinese_yuanming 09K",
+      "lines": [[92862, 94481, 94713, 95556, 96052]],
+      "common_name": {"english": "辇道"}
+    },
+    {
+      "id": "CON chinese_yuanming 10A",
+      "lines": [[102618, 103045, 103005, 102624]],
+      "common_name": {"english": "女宿"}
+    },
+    {
+      "id": "CON chinese_yuanming 10B",
+      "lines": [[101692, 101847, 101936], [101692, 101101]],
+      "common_name": {"english": "离珠"}
+    },
+    {
+      "id": "CON chinese_yuanming 10C",
+      "lines": [[101483, 101421, 101916, 101800, 101483, 101882]],
+      "common_name": {"english": "败瓜"}
+    },
+    {
+      "id": "CON chinese_yuanming 10D",
+      "lines": [[102532, 101958, 101769, 102281, 102532], [101769, 101589]],
+      "common_name": {"english": "瓠瓜"}
+    },
+    {
+      "id": "CON chinese_yuanming 10E",
+      "lines": [[104732, 105138, 104887, 103413, 102098, 99639, 97165, 100453, 102488, 104732]],
+      "common_name": {"english": "天津"}
+    },
+    {
+      "id": "CON chinese_yuanming 10F",
+      "lines": [[94779, 95853, 96441], [95853, 96895]],
+      "common_name": {"english": "奚仲"}
+    },
+    {
+      "id": "CON chinese_yuanming 10H",
+      "lines": [[102978, 102485]],
+      "common_name": {"english": "赵"}
+    },
+    {
+      "id": "CON chinese_yuanming 10I",
+      "lines": [[102014, 102014]],
+      "common_name": {"english": "越"}
+    },
+    {
+      "id": "CON chinese_yuanming 10J",
+      "lines": [[103226, 102487]],
+      "common_name": {"english": "周"}
+    },
+    {
+      "id": "CON chinese_yuanming 10K",
+      "lines": [[102831, 102831]],
+      "common_name": {"english": "齐"}
+    },
+    {
+      "id": "CON chinese_yuanming 10L",
+      "lines": [[103738, 103738]],
+      "common_name": {"english": "郑"}
+    },
+    {
+      "id": "CON chinese_yuanming 10M",
+      "lines": [[103777, 103777]],
+      "common_name": {"english": "楚"}
+    },
+    {
+      "id": "CON chinese_yuanming 10N",
+      "lines": [[104139, 104019]],
+      "common_name": {"english": "秦"}
+    },
+    {
+      "id": "CON chinese_yuanming 10O",
+      "lines": [[104174, 104174]],
+      "common_name": {"english": "燕"}
+    },
+    {
+      "id": "CON chinese_yuanming 10P",
+      "lines": [[104234, 104234]],
+      "common_name": {"english": "魏"}
+    },
+    {
+      "id": "CON chinese_yuanming 10Q",
+      "lines": [[104963, 105515]],
+      "common_name": {"english": "代"}
+    },
+    {
+      "id": "CON chinese_yuanming 10R",
+      "lines": [[105140, 105140]],
+      "common_name": {"english": "晋"}
+    },
+    {
+      "id": "CON chinese_yuanming 10S",
+      "lines": [[104750, 104750]],
+      "common_name": {"english": "韩"}
+    },
+    {
+      "id": "CON chinese_yuanming 10T",
+      "lines": [[104234, 104234], [103738, 103738]],
+      "common_name": {"english": "十二国"}
+    },
+    {
+      "id": "CON chinese_yuanming 11A",
+      "lines": [[106278, 104987]],
+      "common_name": {"english": "虚宿"}
+    },
+    {
+      "id": "CON chinese_yuanming 11B",
+      "lines": [[107575, 106944]],
+      "common_name": {"english": "司命"}
+    },
+    {
+      "id": "CON chinese_yuanming 11C",
+      "lines": [[107151, 106856]],
+      "common_name": {"english": "司禄"}
+    },
+    {
+      "id": "CON chinese_yuanming 11D",
+      "lines": [[105570, 105413]],
+      "common_name": {"english": "司危"}
+    },
+    {
+      "id": "CON chinese_yuanming 11E",
+      "lines": [[104521, 104858]],
+      "common_name": {"english": "司非"}
+    },
+    {
+      "id": "CON chinese_yuanming 11F",
+      "lines": [[106039, 105881]],
+      "common_name": {"english": "哭"}
+    },
+    {
+      "id": "CON chinese_yuanming 11G",
+      "lines": [[110273, 110003]],
+      "common_name": {"english": "泣"}
+    },
+    {
+      "id": "CON chinese_yuanming 11H",
+      "lines": [[107238, 106559, 105815, 105646, 106564, 107608, 108259, 108661, 108975, 108960, 108494, 107238]],
+      "common_name": {"english": "天垒城"}
+    },
+    {
+      "id": "CON chinese_yuanming 12A",
+      "lines": [[109074, 109427, 107315], [109427, 110672]],
+      "common_name": {"english": "危宿"}
+    },
+    {
+      "id": "CON chinese_yuanming 12B",
+      "lines": [[110960, 110395], [110960, 111497], [110960, 110672]],
+      "common_name": {"english": "坟墓(附危宿)"}
+    },
+    {
+      "id": "CON chinese_yuanming 12C",
+      "lines": [[107763, 107975], [107763, 107310], [107763, 108022], [107763, 107354]],
+      "common_name": {"english": "人星"}
+    },
+    {
+      "id": "CON chinese_yuanming 12D",
+      "lines": [[109056, 109176, 109602, 110371]],
+      "common_name": {"english": "臼"}
+    },
+    {
+      "id": "CON chinese_yuanming 12G",
+      "lines": [[115088, 113864, 112724, 110817, 108917, 108317, 105199, 102422, 101093]],
+      "common_name": {"english": "天钩"}
+    },
+    {
+      "id": "CON chinese_yuanming 12I",
+      "lines": [[110532, 111170, 111710, 111965]],
+      "common_name": {"english": "虚梁"}
+    },
+    {
+      "id": "CON chinese_yuanming 12J",
+      "lines": [[110391, 110746, 110529, 109990, 109737, 109375, 109199, 109509, 109786, 110135, 110391]],
+      "common_name": {"english": "天钱"}
+    },
+    {
+      "id": "CON chinese_yuanming 13A",
+      "lines": [[113963, 113881]],
+      "common_name": {"english": "室宿"}
+    },
+    {
+      "id": "CON chinese_yuanming 13B",
+      "lines": [[112051, 112158]],
+      "common_name": {"english": "离宫(附室宿)"}
+    },
+    {
+      "id": "CON chinese_yuanming 13C",
+      "lines": [[112748, 112440]],
+      "common_name": {"english": "离宫(附室宿)"}
+    },
+    {
+      "id": "CON chinese_yuanming 13D",
+      "lines": [[115250, 115623]],
+      "common_name": {"english": "离宫(附室宿)"}
+    },
+    {
+      "id": "CON chinese_yuanming 13E",
+      "lines": [[112935, 113503, 114144, 114520, 115444, 115919]],
+      "common_name": {"english": "雷电"}
+    },
+    {
+      "id": "CON chinese_yuanming 13F",
+      "lines": [[112447, 112029]],
+      "common_name": {"english": "土公吏"}
+    },
+    {
+      "id": "CON chinese_yuanming 13G",
+      "lines": [[118209, 443, 840, 145, 118209, 114724, 112961, 111123, 109139, 107556, 106985, 106723, 107188, 107556]],
+      "common_name": {"english": "垒壁阵"}
+    },
+    {
+      "id": "CON chinese_yuanming 13I",
+      "lines": [[113368, 113368]],
+      "common_name": {"english": "北落师门"}
+    },
+    {
+      "id": "CON chinese_yuanming 13J",
+      "lines": [[108085, 108085]],
+      "common_name": {"english": "天纲"}
+    },
+    {
+      "id": "CON chinese_yuanming 13K",
+      "lines": [[115990, 117301, 117863, 117299, 114924, 114162, 113501, 112761, 111169], [112761, 113288, 113919, 114570, 115022, 116584, 116805, 116631], [111169, 111674], [111169, 110538], [111169, 109521], [111169, 110609], [111169, 111022], [111169, 113327]],
+      "common_name": {"english": "螣蛇"}
+    },
+    {
+      "id": "CON chinese_yuanming 13M",
+      "lines": [[109624, 110000, 110602], [111449, 112211, 112529], [111045, 111515, 111954], [114341, 114375, 114119], [113998, 113136, 113080], [112716, 113031, 113531], [114855, 115033, 115115], [114371, 115126, 115404], [115438, 115669, 116247], [116758, 116971, 116957], [116901, 117218, 117629], [301, 983, 1170], [910, 343, 117567], [117314, 355, 873], [117756, 154, 1158]],
+      "common_name": {"english": "羽林军"}
+    },
+    {
+      "id": "CON chinese_yuanming 13N",
+      "lines": [[113881, 115250], [113881, 112748], [113881, 112051]],
+      "common_name": {"english": ""}
+    },
+    {
+      "id": "CON chinese_yuanming 14A",
+      "lines": [[1067, 677]],
+      "common_name": {"english": "壁宿"}
+    },
+    {
+      "id": "CON chinese_yuanming 14B",
+      "lines": [[118268, 116771, 115830, 114971, 113889]],
+      "common_name": {"english": "霹雳"}
+    },
+    {
+      "id": "CON chinese_yuanming 14C",
+      "lines": [[116928, 117491, 117683, 117245, 116928]],
+      "common_name": {"english": "云雨"}
+    },
+    {
+      "id": "CON chinese_yuanming 14D",
+      "lines": [[3300, 3504, 3478, 3414, 2900, 2225, 841, 967, 1415, 1921, 3300]],
+      "common_name": {"english": "天厩"}
+    },
+    {
+      "id": "CON chinese_yuanming 14F",
+      "lines": [[1465, 813]],
+      "common_name": {"english": "土公"}
+    },
+    {
+      "id": "CON chinese_yuanming 15A",
+      "lines": [[3881, 4436, 5447, 5544, 5586, 6193, 5742, 5131, 4463, 3693, 3031, 3092, 2912, 2942, 3231, 3447, 3881]],
+      "common_name": {"english": "奎宿"}
+    },
+    {
+      "id": "CON chinese_yuanming 15B",
+      "lines": [[9487, 8833, 7884, 7007, 5737, 4906, 3786]],
+      "common_name": {"english": "外屏"}
+    },
+    {
+      "id": "CON chinese_yuanming 15C",
+      "lines": [[4147, 4914, 5951, 6226, 6061, 5346, 3992, 4147]],
+      "common_name": {"english": "天溷"}
+    },
+    {
+      "id": "CON chinese_yuanming 15D",
+      "lines": [[3419, 3419]],
+      "common_name": {"english": "土司空(奎宿)"}
+    },
+    {
+      "id": "CON chinese_yuanming 15E",
+      "lines": [[8796, 8796]],
+      "common_name": {"english": "军南门"}
+    },
+    {
+      "id": "CON chinese_yuanming 15F",
+      "lines": [[5434, 5542, 7294, 8886, 9573, 11569]],
+      "common_name": {"english": "阁道"}
+    },
+    {
+      "id": "CON chinese_yuanming 15G",
+      "lines": [[6686, 6686]],
+      "common_name": {"english": "附路"}
+    },
+    {
+      "id": "CON chinese_yuanming 15H",
+      "lines": [[4427, 3821, 3179, 2920], [746, 4427], [746, 3821], [746, 3179], [746, 2920]],
+      "common_name": {"english": "王良"}
+    },
+    {
+      "id": "CON chinese_yuanming 15I",
+      "lines": [[2599, 2599]],
+      "common_name": {"english": "策"}
+    },
+    {
+      "id": "CON chinese_yuanming 16A",
+      "lines": [[9884, 8903, 8832]],
+      "common_name": {"english": "娄宿"}
+    },
+    {
+      "id": "CON chinese_yuanming 16B",
+      "lines": [[11670, 10306, 10155, 10328, 10732, 10306]],
+      "common_name": {"english": "左更"}
+    },
+    {
+      "id": "CON chinese_yuanming 16C",
+      "lines": [[7981, 7447, 7097, 7535, 7740, 7447]],
+      "common_name": {"english": "右更"}
+    },
+    {
+      "id": "CON chinese_yuanming 16D",
+      "lines": [[1562, 5364, 6537, 8645, 8102, 9347]],
+      "common_name": {"english": "天仓"}
+    },
+    {
+      "id": "CON chinese_yuanming 16E",
+      "lines": [[10320, 9677, 9440]],
+      "common_name": {"english": "天庾"}
+    },
+    {
+      "id": "CON chinese_yuanming 16F",
+      "lines": [[8068, 7607, 7719, 7918, 7513, 7818, 9021, 9977, 10064, 10670, 9640, 8068], [9640, 7918], [9640, 7818]],
+      "common_name": {"english": "天大将军"}
+    },
+    {
+      "id": "CON chinese_yuanming 17A",
+      "lines": [[12719, 13061, 13209]],
+      "common_name": {"english": "胃宿"}
+    },
+    {
+      "id": "CON chinese_yuanming 17B",
+      "lines": [[12387, 12706, 14135, 13954, 12828, 11249, 10324, 11484, 12093, 12387, 12530, 11791, 11046, 10826]],
+      "common_name": {"english": "天囷"}
+    },
+    {
+      "id": "CON chinese_yuanming 17C",
+      "lines": [[16369, 16322, 16083, 15900]],
+      "common_name": {"english": "天廪"}
+    },
+    {
+      "id": "CON chinese_yuanming 17D",
+      "lines": [[13268, 13531, 14632, 14668, 14576, 14354, 13254, 12623]],
+      "common_name": {"english": "大陵"}
+    },
+    {
+      "id": "CON chinese_yuanming 17E",
+      "lines": [[14382, 14328, 15863, 16826, 17358, 19343, 19812, 20070, 19949]],
+      "common_name": {"english": "天船"}
+    },
+    {
+      "id": "CON chinese_yuanming 17F",
+      "lines": [[13879, 13879]],
+      "common_name": {"english": "积尸(胃宿)"}
+    },
+    {
+      "id": "CON chinese_yuanming 17G",
+      "lines": [[19167, 19167]],
+      "common_name": {"english": "积水(胃宿)"}
+    },
+    {
+      "id": "CON chinese_yuanming 18A",
+      "lines": [[17531, 17499, 17573, 17608, 17702, 17847, 17851]],
+      "common_name": {"english": "昴宿"}
+    },
+    {
+      "id": "CON chinese_yuanming 18B",
+      "lines": [[15549, 15549]],
+      "common_name": {"english": "天阿"}
+    },
+    {
+      "id": "CON chinese_yuanming 18C",
+      "lines": [[19038, 19038]],
+      "common_name": {"english": "月"}
+    },
+    {
+      "id": "CON chinese_yuanming 18D",
+      "lines": [[15737, 14838], [15737, 15110], [15737, 15627], [15737, 15870]],
+      "common_name": {"english": "天阴"}
+    },
+    {
+      "id": "CON chinese_yuanming 18E",
+      "lines": [[17529, 18532, 18614, 18246, 17448, 17313]],
+      "common_name": {"english": "卷舌"}
+    },
+    {
+      "id": "CON chinese_yuanming 18F",
+      "lines": [[17886, 17886]],
+      "common_name": {"english": "天谗"}
+    },
+    {
+      "id": "CON chinese_yuanming 18I",
+      "lines": [[18543, 17593, 17378, 16537, 15197, 13701, 12770, 12843, 14146, 15474, 16611, 17651, 17717, 18216, 18673]],
+      "common_name": {"english": "天苑"}
+    },
+    {
+      "id": "CON chinese_yuanming 19A",
+      "lines": [[20889, 20648, 20455, 20205], [21421, 20894, 20713, 20205, 18724], [21421, 21683]],
+      "common_name": {"english": "毕宿"}
+    },
+    {
+      "id": "CON chinese_yuanming 19B",
+      "lines": [[21683, 21683]],
+      "common_name": {"english": "附耳(附毕宿)"}
+    },
+    {
+      "id": "CON chinese_yuanming 19C",
+      "lines": [[20711, 20635]],
+      "common_name": {"english": "天街"}
+    },
+    {
+      "id": "CON chinese_yuanming 19D",
+      "lines": [[21589, 21273, 20732], [21273, 21036, 20901, 20804, 20522, 19860]],
+      "common_name": {"english": "天节"}
+    },
+    {
+      "id": "CON chinese_yuanming 19E",
+      "lines": [[21881, 23497, 23883, 24512, 24822, 25539]],
+      "common_name": {"english": "诸王"}
+    },
+    {
+      "id": "CON chinese_yuanming 19F",
+      "lines": [[22176, 22565, 23043, 22441, 22176]],
+      "common_name": {"english": "天高"}
+    },
+    {
+      "id": "CON chinese_yuanming 19H",
+      "lines": [[23015, 24608, 28360, 28380, 25428]],
+      "common_name": {"english": "五车"}
+    },
+    {
+      "id": "CON chinese_yuanming 19I",
+      "lines": [[26536, 25984, 26712]],
+      "common_name": {"english": "东南柱"}
+    },
+    {
+      "id": "CON chinese_yuanming 19J",
+      "lines": [[27483, 27639, 27673]],
+      "common_name": {"english": "东北柱"}
+    },
+    {
+      "id": "CON chinese_yuanming 19K",
+      "lines": [[23767, 23416, 23453]],
+      "common_name": {"english": "西北柱"}
+    },
+    {
+      "id": "CON chinese_yuanming 19L",
+      "lines": [[24879, 25475], [24879, 25580], [24879, 25541], [24879, 24727]],
+      "common_name": {"english": "天潢"}
+    },
+    {
+      "id": "CON chinese_yuanming 19N",
+      "lines": [[26451, 26451]],
+      "common_name": {"english": "天关"}
+    },
+    {
+      "id": "CON chinese_yuanming 19O",
+      "lines": [[24010, 23607, 22957, 22833, 22845, 22509, 22449, 22549, 22797]],
+      "common_name": {"english": "参旗"}
+    },
+    {
+      "id": "CON chinese_yuanming 19P",
+      "lines": [[21139, 22109, 22701, 23221, 23231, 22479, 22263, 22028, 23362]],
+      "common_name": {"english": "九斿"}
+    },
+    {
+      "id": "CON chinese_yuanming 19Q",
+      "lines": [[21248, 21393, 20535, 20042, 17874, 17797, 17351, 16870, 16285, 15510, 13847, 12486, 12413]],
+      "common_name": {"english": "天园"}
+    },
+    {
+      "id": "CON chinese_yuanming 20A",
+      "lines": [[26207, 26176], [26207, 26366]],
+      "common_name": {"english": "觜宿"}
+    },
+    {
+      "id": "CON chinese_yuanming 20B",
+      "lines": [[27830, 28237, 28734, 28716]],
+      "common_name": {"english": "司怪"}
+    },
+    {
+      "id": "CON chinese_yuanming 20C",
+      "lines": [[29696, 30827, 31173, 31579, 31771, 31789, 31832, 32173, 32562]],
+      "common_name": {"english": "座旗"}
+    },
+    {
+      "id": "CON chinese_yuanming 21A",
+      "lines": [[27989, 26727, 26311, 25930, 24436], [25930, 25336], [26727, 27366]],
+      "common_name": {"english": "参宿"}
+    },
+    {
+      "id": "CON chinese_yuanming 21B",
+      "lines": [[26237, 26235, 26241]],
+      "common_name": {"english": "伐(附参宿)"}
+    },
+    {
+      "id": "CON chinese_yuanming 21C",
+      "lines": [[23972, 23364, 23875, 24674]],
+      "common_name": {"english": "玉井"}
+    },
+    {
+      "id": "CON chinese_yuanming 21D",
+      "lines": [[24305, 23685]],
+      "common_name": {"english": "屏"}
+    },
+    {
+      "id": "CON chinese_yuanming 21E",
+      "lines": [[24244, 24327, 24845, 24873, 24244]],
+      "common_name": {"english": "军井"}
+    },
+    {
+      "id": "CON chinese_yuanming 21F",
+      "lines": [[25985, 25606, 27072, 27654]],
+      "common_name": {"english": "厕"}
+    },
+    {
+      "id": "CON chinese_yuanming 21G",
+      "lines": [[26460, 26460]],
+      "common_name": {"english": "屎"}
+    },
+    {
+      "id": "CON chinese_yuanming 22A",
+      "lines": [[35350, 34088, 32921, 32246], [32921, 30883, 30343], [30883, 31681, 34088], [31681, 32362], [30343, 29655]],
+      "common_name": {"english": "井宿"}
+    },
+    {
+      "id": "CON chinese_yuanming 22B",
+      "lines": [[29655, 29655]],
+      "common_name": {"english": "钺(井宿)"}
+    },
+    {
+      "id": "CON chinese_yuanming 22C",
+      "lines": [[37279, 36188, 36284]],
+      "common_name": {"english": "南河"}
+    },
+    {
+      "id": "CON chinese_yuanming 22D",
+      "lines": [[37826, 36850, 36366]],
+      "common_name": {"english": "北河"}
+    },
+    {
+      "id": "CON chinese_yuanming 22E",
+      "lines": [[35550, 35699, 36238]],
+      "common_name": {"english": "天罇"}
+    },
+    {
+      "id": "CON chinese_yuanming 22F",
+      "lines": [[33018, 34693, 36046, 36962, 37740]],
+      "common_name": {"english": "五诸侯(井宿)"}
+    },
+    {
+      "id": "CON chinese_yuanming 22G",
+      "lines": [[37265, 37265]],
+      "common_name": {"english": "积水(井宿)"}
+    },
+    {
+      "id": "CON chinese_yuanming 22H",
+      "lines": [[39780, 39780]],
+      "common_name": {"english": "积薪"}
+    },
+    {
+      "id": "CON chinese_yuanming 22I",
+      "lines": [[29038, 29426, 29704, 29434, 29038]],
+      "common_name": {"english": "水府"}
+    },
+    {
+      "id": "CON chinese_yuanming 22J",
+      "lines": [[36616, 37300, 37908, 38722]],
+      "common_name": {"english": "水位"}
+    },
+    {
+      "id": "CON chinese_yuanming 22K",
+      "lines": [[33202, 31978, 31216, 30419]],
+      "common_name": {"english": "四渎"}
+    },
+    {
+      "id": "CON chinese_yuanming 22L",
+      "lines": [[28910, 29735, 30214, 30457, 31084, 31827, 31700, 31592, 31416, 31125, 29150, 29048, 28816, 28910]],
+      "common_name": {"english": "军市"}
+    },
+    {
+      "id": "CON chinese_yuanming 22M",
+      "lines": [[30324, 30324]],
+      "common_name": {"english": "野鸡"}
+    },
+    {
+      "id": "CON chinese_yuanming 22N",
+      "lines": [[30788, 30277]],
+      "common_name": {"english": "孙"}
+    },
+    {
+      "id": "CON chinese_yuanming 22O",
+      "lines": [[28199, 27628]],
+      "common_name": {"english": "子"}
+    },
+    {
+      "id": "CON chinese_yuanming 22P",
+      "lines": [[26634, 25859]],
+      "common_name": {"english": "丈人"}
+    },
+    {
+      "id": "CON chinese_yuanming 22Q",
+      "lines": [[32578, 34769]],
+      "common_name": {"english": "阙丘"}
+    },
+    {
+      "id": "CON chinese_yuanming 22R",
+      "lines": [[32349, 32349]],
+      "common_name": {"english": "狼"}
+    },
+    {
+      "id": "CON chinese_yuanming 22S",
+      "lines": [[38170, 35904, 32759, 33579, 34444, 35037, 35415, 37173, 38170], [33977, 35037, 35904]],
+      "common_name": {"english": "弧矢"}
+    },
+    {
+      "id": "CON chinese_yuanming 22T",
+      "lines": [[30438, 30438]],
+      "common_name": {"english": "老人"}
+    },
+    {
+      "id": "CON chinese_yuanming 23A",
+      "lines": [[41822, 41909, 42806, 42911]],
+      "common_name": {"english": "鬼宿"}
+    },
+    {
+      "id": "CON chinese_yuanming 23B",
+      "lines": [[42578, 42578]],
+      "common_name": {"english": "积尸气"}
+    },
+    {
+      "id": "CON chinese_yuanming 23C",
+      "lines": [[40843, 40023, 39424, 40240, 40843]],
+      "common_name": {"english": "爟"}
+    },
+    {
+      "id": "CON chinese_yuanming 23E",
+      "lines": [[43142, 42028, 41307, 42146, 42835, 43305, 43142]],
+      "common_name": {"english": "外厨"}
+    },
+    {
+      "id": "CON chinese_yuanming 23F",
+      "lines": [[43067, 43067]],
+      "common_name": {"english": "天记"}
+    },
+    {
+      "id": "CON chinese_yuanming 24A",
+      "lines": [[42799, 42402, 42313, 43109, 43234, 43813, 44659, 45336]],
+      "common_name": {"english": "柳宿"}
+    },
+    {
+      "id": "CON chinese_yuanming 24B",
+      "lines": [[47723, 46771, 46774]],
+      "common_name": {"english": "酒旗"}
+    },
+    {
+      "id": "CON chinese_yuanming 25A",
+      "lines": [[46390, 46509, 46776, 47431], [46390, 45811, 45751, 46768], [46390, 46768]],
+      "common_name": {"english": "星宿"}
+    },
+    {
+      "id": "CON chinese_yuanming 25B",
+      "lines": [[44248, 44700, 45688, 45860, 47544, 47701, 46146, 46750, 47908, 48455, 50335, 50583, 49583, 49669, 47508], [49669, 51624], [49669, 49637]],
+      "common_name": {"english": "轩辕"}
+    },
+    {
+      "id": "CON chinese_yuanming 26A",
+      "lines": [[48356, 49841, 51069, 49569], [48356, 49569], [48356, 47452], [51069, 52085]],
+      "common_name": {"english": "张宿"}
+    },
+    {
+      "id1": "CON chinese_yuanming 26B",
+      "lines": [[45902, 46371, 46511, 46880, 46897, 47187, 48559, 48584, 48615, 48396, 46618, 45743, 44923, 44824, 45902]],
+      "common_name": {"english": "天庙"}
+    },
+    {
+      "id": "CON chinese_yuanming 27A",
+      "lines": [[52943, 53740, 54682, 55705, 57283], [55705, 55282, 53740], [55282, 56802, 55687, 56633, 56318, 57214, 57791], [56318, 55106, 52980]],
+      "common_name": {"english": "翼宿"}
+    },
+    {
+      "id": "CON chinese_yuanming 28A",
+      "lines": [[61359, 60965, 59803, 59316], [59803, 60189], [60965, 61174], [59316, 59199]],
+      "common_name": {"english": "轸宿"}
+    },
+    {
+      "id": "CON chinese_yuanming 28B",
+      "lines": [[60189, 60189]],
+      "common_name": {"english": "长沙(附轸宿)"}
+    },
+    {
+      "id": "CON chinese_yuanming 28C",
+      "lines": [[61174, 61174]],
+      "common_name": {"english": "左辖(附轸宿)"}
+    },
+    {
+      "id": "CON chinese_yuanming 28D",
+      "lines": [[59199, 59199]],
+      "common_name": {"english": "右辖(附轸宿)"}
+    }
+  ],
+  "edges_type": "own",
+  "edges": [
+    "___:___ __ 12:18:17 +85:59:25 13:25:12 -11:09:41 28A 01A",
+    "___:___ __ 13:25:12 -11:09:41 00:18:17 -85:59:25 28A 01A",
+    "___:___ __ 12:18:17 +85:59:25 14:12:54 -10:16:22 01A 02A",
+    "___:___ __ 14:12:54 -10:16:22 00:18:17 -85:59:25 01A 02A",
+    "___:___ __ 12:18:17 +85:59:25 14:51:00 -16:01:24 02A 03A",
+    "___:___ __ 14:51:00 -16:01:24 00:18:17 -85:59:25 02A 03A",
+    "___:___ __ 12:18:17 +85:59:25 15:58:51 -26:06:51 03A 04A",
+    "___:___ __ 15:58:51 -26:06:51 00:18:17 -85:59:25 03A 04A",
+    "___:___ __ 12:18:17 +85:59:25 16:21:11 -25:35:34 04A 05A",
+    "___:___ __ 16:21:11 -25:35:34 00:18:17 -85:59:25 04A 05A",
+    "___:___ __ 12:18:17 +85:59:25 16:51:52 -38:02:51 05A 06A",
+    "___:___ __ 16:51:52 -38:02:51 00:18:17 -85:59:25 05A 06A",
+    "___:___ __ 12:18:17 +85:59:25 18:05:55 -30:21:58 06A 07A",
+    "___:___ __ 18:05:55 -30:21:58 00:18:17 -85:59:25 06A 07A",
+    "___:___ __ 12:18:17 +85:59:25 18:45:35 -26:59:28 07A 08A",
+    "___:___ __ 18:45:35 -26:59:28 00:18:17 -85:59:25 07A 08A",
+    "___:___ __ 12:18:17 +85:59:25 20:20:56 -14:46:56 08A 09A",
+    "___:___ __ 20:20:56 -14:46:56 00:18:17 -85:59:25 08A 09A",
+    "___:___ __ 12:18:17 +85:59:25 20:47:37 -09:29:17 09A 10A",
+    "___:___ __ 20:47:37 -09:29:17 00:18:17 -85:59:25 09A 10A",
+    "___:___ __ 12:18:17 +85:59:25 21:31:34 -05:34:16 10A 11A",
+    "___:___ __ 21:31:34 -05:34:16 00:18:17 -85:59:25 10A 11A",
+    "___:___ __ 12:18:17 +85:59:25 22:05:47 -00:19:12 11A 12A",
+    "___:___ __ 22:05:47 -00:19:12 00:18:17 -85:59:25 11A 12A",
+    "___:___ __ 12:18:17 +85:59:25 23:04:46 +15:12:19 12A 13A",
+    "___:___ __ 23:04:46 +15:12:19 00:18:17 -85:59:25 12A 13A",
+    "___:___ __ 12:18:17 +85:59:25 00:13:14 +15:11:01 13A 14A",
+    "___:___ __ 00:13:14 +15:11:01 00:18:17 -85:59:25 13A 14A",
+    "___:___ __ 12:18:17 +85:59:25 00:47:27 +24:17:14 14A 15A",
+    "___:___ __ 00:47:27 +24:17:14 00:18:17 -85:59:25 14A 15A",
+    "___:___ __ 12:18:17 +85:59:25 01:54:30 +20:50:02 15A 16A",
+    "___:___ __ 01:54:30 +20:50:02 00:18:17 -85:59:25 15A 16A",
+    "___:___ __ 12:18:17 +85:59:25 02:43:27 +27:42:26 16A 17A",
+    "___:___ __ 02:43:27 +27:42:26 00:18:17 -85:59:25 16A 17A",
+    "___:___ __ 12:18:17 +85:59:25 03:44:52 +24:06:48 17A 18A",
+    "___:___ __ 03:44:52 +24:06:48 00:18:17 -85:59:25 17A 18A",
+    "___:___ __ 12:18:17 +85:59:25 04:28:30 +19:11:27 18A 19A",
+    "___:___ __ 04:28:30 +19:11:27 00:18:17 -85:59:25 18A 19A",
+    "___:___ __ 12:18:17 +85:59:25 05:34:50 +09:29:21 19A 20A",
+    "___:___ __ 05:34:50 +09:29:21 00:18:17 -85:59:25 19A 20A",
+    "___:___ __ 12:18:17 +85:59:25 05:32:01 -00:18:04 20A 21A",
+    "___:___ __ 05:32:01 -00:18:04 00:18:17 -85:59:25 20A 21A",
+    "___:___ __ 12:18:17 +85:59:25 06:22:54 +22:32:47 21A 22A",
+    "___:___ __ 06:22:54 +22:32:47 00:18:17 -85:59:25 21A 22A",
+    "___:___ __ 12:18:17 +85:59:25 08:31:36 +18:05:39 22A 23A",
+    "___:___ __ 08:31:36 +18:05:39 00:18:17 -85:59:25 22A 23A",
+    "___:___ __ 12:18:17 +85:59:25 08:37:39 +05:42:14 23A 24A",
+    "___:___ __ 08:37:39 +05:42:14 00:18:17 -85:59:25 23A 24A",
+    "___:___ __ 12:18:17 +85:59:25 09:27:35 -08:39:30 24A 25A",
+    "___:___ __ 09:27:35 -08:39:30 00:18:17 -85:59:25 24A 25A",
+    "___:___ __ 12:18:17 +85:59:25 09:51:29 -14:50:48 25A 26A",
+    "___:___ __ 09:51:29 -14:50:48 00:18:17 -85:59:25 25A 26A",
+    "___:___ __ 12:18:17 +85:59:25 11:00:19 -18:20:42 26A 27A",
+    "___:___ __ 11:00:19 -18:20:42 00:18:17 -85:59:25 26A 27A",
+    "___:___ __ 12:18:17 +85:59:25 12:16:00 -17:32:48 27A 28A",
+    "___:___ __ 12:16:00 -17:32:48 00:18:17 -85:59:25 27A 28A"
+  ],
+  "common_names": {
+    "HIP 3721": [{"english": "少丞"}],
+    "HIP 12273": [{"english": "上丞"}],
+    "HIP 17959": [{"english": "少卫"}],
+    "HIP 29997": [{"english": "上卫"}],
+    "HIP 46977": [{"english": "少辅"}],
+    "HIP 49637": [{"english": "御女"}],
+    "HIP 53910": [{"english": "天璇"}],
+    "HIP 54061": [{"english": "天枢"}],
+    "HIP 54872": [{"english": "上相"}],
+    "HIP 54879": [{"english": "次相"}],
+    "HIP 55434": [{"english": "上将"}],
+    "HIP 55642": [{"english": "次将"}],
+    "HIP 56211": [{"english": "上辅"}],
+    "HIP 57757": [{"english": "右执法"}],
+    "HIP 58001": [{"english": "天玑"}],
+    "HIP 59774": [{"english": "天权"}],
+    "HIP 60129": [{"english": "左执法"}],
+    "HIP 61281": [{"english": "少尉"}],
+    "HIP 61941": [{"english": "上相"}],
+    "HIP 62561": [{"english": "天枢"}],
+    "HIP 62572": [{"english": "天枢"}],
+    "HIP 62956": [{"english": "玉衡"}],
+    "HIP 63090": [{"english": "次相"}],
+    "HIP 63608": [{"english": "次将"}],
+    "HIP 64241": [{"english": "上将"}],
+    "HIP 65378": [{"english": "开阳"}],
+    "HIP 67301": [{"english": "摇光"}],
+    "HIP 68756": [{"english": "右枢"}],
+    "HIP 69112": [{"english": "后宫"}],
+    "HIP 70692": [{"english": "庶子"}],
+    "HIP 72607": [{"english": "帝"}],
+    "HIP 75097": [{"english": "太子"}],
+    "HIP 75458": [{"english": "左枢"}],
+    "HIP 76276": [{"english": "秦"}],
+    "HIP 77070": [{"english": "蜀"}],
+    "HIP 77233": [{"english": "周"}],
+    "HIP 77622": [{"english": "巴"}],
+    "HIP 78072": [{"english": "郑"}],
+    "HIP 78527": [{"english": "上宰"}],
+    "HIP 79043": [{"english": "晋"}],
+    "HIP 79593": [{"english": "梁"}],
+    "HIP 79882": [{"english": "楚"}],
+    "HIP 80170": [{"english": "河间"}],
+    "HIP 80331": [{"english": "少宰"}],
+    "HIP 80816": [{"english": "河中"}],
+    "HIP 81377": [{"english": "韩"}],
+    "HIP 83895": [{"english": "上弼"}],
+    "HIP 84012": [{"english": "宋"}],
+    "HIP 84379": [{"english": "魏"}],
+    "HIP 85693": [{"english": "赵"}],
+    "HIP 86263": [{"english": "南海"}],
+    "HIP 86974": [{"english": "九河"}],
+    "HIP 88048": [{"english": "燕"}],
+    "HIP 88794": [{"english": "中山"}],
+    "HIP 89937": [{"english": "少弼"}],
+    "HIP 89962": [{"english": "东海"}],
+    "HIP 92043": [{"english": "齐"}],
+    "HIP 92946": [{"english": "徐"}],
+    "HIP 92951": [{"english": "徐"}],
+    "HIP 93747": [{"english": "吴越"}],
+    "HIP 101260": [{"english": "上卫"}],
+    "HIP 102014": [{"english": "越"}],
+    "HIP 102831": [{"english": "齐"}],
+    "HIP 103738": [{"english": "郑"}],
+    "HIP 104148": [{"english": "楚"}],
+    "HIP 104234": [{"english": "燕"}],
+    "HIP 104750": [{"english": "魏"}],
+    "HIP 105140": [{"english": "晋"}],
+    "HIP 105228": [{"english": "韩"}],
+    "HIP 116727": [{"english": "少卫"}],
+    "M 31": [{"english": "奎西北第四星▂"}],
+    "M 44": [{"english": "积尸气"}],
+    "M 7": [{"english": "糠星"}],
+    "NAME Jupiter": [{"english": "Sui Star", "native": "岁星", "translators_comments": "Native name of Jupiter in Chinese culture"}],
+    "NAME Mars": [{"english": "Yinghuo", "native": "荧惑", "translators_comments": "Native name of Mars in Chinese culture"}],
+    "NAME Mercury": [{"english": "Chen Star", "native": "辰星", "translators_comments": "Native name of Mercury in Chinese culture"}],
+    "NAME Moon": [{"english": "Taiyin", "native": "太阴", "translators_comments": "Native name of the Moon in Chinese culture"}],
+    "NAME Saturn": [{"english": "Zhen Star", "native": "填星", "translators_comments": "Native name of Saturn in Chinese culture"}],
+    "NAME Sun": [{"english": "Taiyang", "native": "太阳", "translators_comments": "Native name of the Sun in Chinese culture"}],
+    "NAME Venus": [{"english": "Taibai", "native": "太白", "translators_comments": "Native name of Venus in Chinese culture"}]
+  }
+}

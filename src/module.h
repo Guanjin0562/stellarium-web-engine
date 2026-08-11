@@ -85,6 +85,27 @@ int module_add_data_source(obj_t *module, const char *url, const char *key);
 obj_t *obj_get_by_hip(int hip, int *code);
 
 /*
+ * Function: dso_get_by_name
+ * Find a DSO object by its designation.
+ *
+ * Note: there is no name index for the DSOs, so this scans the tiles of the
+ * survey.  It is only used for the few DSOs referenced by sky cultures.
+ *
+ * Parameters:
+ *   name   - The designation, e.g. "M45" or "NGC869".  Matching ignores
+ *            case and spaces ("M 45" matches "M45").
+ *   code   - Output for request code:
+ *            200 - OK
+ *            404 - Not found.
+ *              0 - Not found yet, but we can try again later.
+ *
+ * Return:
+ *   A DSO object, or NULL.  The caller is responsible for calling
+ *   obj_release on the object.
+ */
+obj_t *dso_get_by_name(const char *name, int *code);
+
+/*
  * Function: module_get_render_order
  *
  * For modules: return the order in which the modules should be rendered.

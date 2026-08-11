@@ -71,3 +71,36 @@ int u8_len(const char *str);
  *   min_chars  - minimum number of charaters of a line
  */
 int u8_split_line(char *dst, int len, const char *src, int min_chars);
+
+/*
+ * Function: u8_is_mongolian_visible
+ * True for the visible characters of the Mongolian block (U+1800-18AF),
+ * i.e. the Mongolian/Manchu letters.  The control and variant selectors
+ * (Nirugu, FVS1-3, MVS, reserved) are excluded: they must never be
+ * stacked as their own vertical line.
+ */
+int u8_is_mongolian_visible(int code);
+
+/*
+ * Function: u8_verticalize_manchu
+ * Layout a label containing Manchu (Mongolian script) text vertically:
+ * Mongolian characters are stacked one per line (glyphs of a vertical
+ * script font are already oriented vertically, so no rotation is needed),
+ * while any non-Mongolian part (e.g. the english name) is kept horizontal
+ * on its own line below the vertical column.
+ *
+ * Return 1 if the text contained Mongolian characters (dst was
+ * verticalized), 0 otherwise (dst is a plain copy of src).
+ *
+ * Parameters:
+ *   dst   - destination buffer
+ *   size  - size of the destination buffer
+ *   src   - source string
+ *
+ * NOTE (phase 2): correct Manchu rendering needs glyph shaping (e.g.
+ * HarfBuzz) to select the proper joined glyph forms from the font GSUB
+ * table; stb_truetype only fetches the default (isolated) forms.  This
+ * function is the hook where shaped glyph sequences should be fed in
+ * before applying the vertical layout.
+ */
+int u8_verticalize_manchu(char *dst, int size, const char *src);

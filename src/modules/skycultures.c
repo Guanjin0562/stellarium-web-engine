@@ -1,4 +1,4 @@
-﻿/* Stellarium Web Engine - Copyright (c) 2022 - Stellarium Labs SRL
+/* Stellarium Web Engine - Copyright (c) 2022 - Stellarium Labs SRL
  *
  * This program is licensed under the terms of the GNU AGPL v3, or
  * alternatively under a commercial licence.
@@ -88,11 +88,20 @@ typedef struct skyculture {
  *                        pronounciation if not available.
  *   NAME_NATIVE_AND_PRONOUNCE - Return native name + pronounciation if
  *                        available.
+ *   NAME_ENGLISH       - Return the english name as stored in the skyculture
+ *                        json, without any translation (used as the embed
+ *                        default so that a sky chart always shows english
+ *                        names whatever the page locale is).
+ *   NAME_ENGLISH_AND_NATIVE - Return "english (native)" like the host
+ *                        Stellarium does when both the native and the
+ *                        translation checkboxes are selected.
  */
 enum {
     NAME_AUTO                  = 0,
     NAME_NATIVE                = 1 << 0,
-    NAME_NATIVE_AND_PRONOUNCE  = 1 << 1
+    NAME_NATIVE_AND_PRONOUNCE  = 1 << 1,
+    NAME_ENGLISH               = 1 << 2,
+    NAME_ENGLISH_AND_NATIVE    = 1 << 3
 };
 
 /*
@@ -103,6 +112,10 @@ typedef struct skycultures_t {
     obj_t   obj;
     skyculture_t *current; // The current skyculture.
     int     name_format_style;
+    // Optional comma separated list of name fields to display, in order
+    // (e.g. "english,native,ipa").  When set it takes precedence over
+    // name_format_style.  Empty string means "use name_format_style".
+    char    name_format[64];
     regex_t chinese_re;
 } skycultures_t;
 
@@ -120,14 +133,15 @@ static void skyculture_deactivate(skyculture_t *cult)
     }
 }
 
-static void skyculture_activate(skyculture_t *cult)
+// Create the constellation objects of a skyculture in the constellations
+// module, without touching the current culture state.
+static void skyculture_create_constellations(skyculture_t *cult)
 {
     int i;
     json_value *args;
     constellation_infos_t *cst;
     obj_t *constellations;
 
-    // Create all the constellations object.
     constellations = core_get_module("constellations");
     assert(constellations);
     for (i = 0; i < cult->nb_constellations; i++) {
@@ -142,8 +156,13 @@ static void skyculture_activate(skyculture_t *cult)
         module_add_new(constellations, "constellation", args);
         json_builder_free(args);
     }
+}
 
-    obj_set_attr(constellations, "illustrations_bscale",
+static void skyculture_activate(skyculture_t *cult)
+{
+    skyculture_create_constellations(cult);
+
+    obj_set_attr(cult->obj.parent, "illustrations_bscale",
                  cult->illustrations_bscale),
     // Set the current attribute of the skycultures manager object.
     obj_set_attr(cult->obj.parent, "current", cult);
@@ -414,13 +433,13 @@ static int skyculture_update(obj_t *obj, double dt)
     int code, r;
     unsigned int i;
     json_value *doc;
-    const json_value *names = NULL, *features = NULL,
+    const json_value *names = NULL, *features = NULL, *asterisms = NULL,
                      *tour = NULL, *edges = NULL,
                      *langs_use_native_names = NULL,
                      *thumbnail_bscale = NULL, *illustrations_bscale = NULL;
     const char *description = NULL, *introduction = NULL,
                *references = NULL, *authors = NULL, *licence = NULL,
-               *thumbnail = NULL, *highlight = NULL;
+               *thumbnail = NULL, *highlight = NULL, *edges_epoch = NULL;
     const char* langname;
 
     constellation_infos_t *cst_info;
@@ -457,12 +476,14 @@ static int skyculture_update(obj_t *obj, double dt)
         "?langs_use_native_names", JCON_VAL(langs_use_native_names),
         "?common_names", JCON_VAL(names),
         "?constellations", JCON_VAL(features),
+        "?asterisms", JCON_VAL(asterisms),
         "?introduction", JCON_STR(introduction),
         "?description", JCON_STR(description),
         "?references", JCON_STR(references),
         "?authors", JCON_STR(authors),
         "?licence", JCON_STR(licence),
         "?edges", JCON_VAL(edges),
+        "?edges_epoch", JCON_STR(edges_epoch),
         "?tour", JCON_VAL(tour),
         "?thumbnail", JCON_STR(thumbnail),
         "?thumbnail_bscale", JCON_VAL(thumbnail_bscale),
@@ -507,22 +528,45 @@ static int skyculture_update(obj_t *obj, double dt)
         }
     }
 
-    if (!features) goto end;
-    cult->constellations = calloc(features->u.array.length,
-                                  sizeof(*cult->constellations));
-    for (i = 0; i < features->u.array.length; i++) {
-        cst_info = &cult->constellations[cult->nb_constellations];
-        r = skyculture_parse_feature_json(
-                &cult->names,
-                features->u.array.values[i],
-                cst_info);
-        cst_info->base_path = cult->uri;
-        if (r) continue;
-        cult->nb_constellations++;
+    // Parse the constellations and asterisms.  Asterisms are appended to the
+    // same array and use the exact same rendering pipeline as constellations.
+    if (!features && !asterisms) goto end;
+    cult->constellations = calloc(
+            (features ? features->u.array.length : 0) +
+            (asterisms ? asterisms->u.array.length : 0),
+            sizeof(*cult->constellations));
+    if (features) {
+        for (i = 0; i < features->u.array.length; i++) {
+            cst_info = &cult->constellations[cult->nb_constellations];
+            r = skyculture_parse_feature_json(
+                    &cult->names,
+                    features->u.array.values[i],
+                    cst_info);
+            cst_info->base_path = cult->uri;
+            if (r) continue;
+            cult->nb_constellations++;
+        }
+    }
+    if (asterisms) {
+        for (i = 0; i < asterisms->u.array.length; i++) {
+            cst_info = &cult->constellations[cult->nb_constellations];
+            r = skyculture_parse_asterism_json(
+                    &cult->names,
+                    asterisms->u.array.values[i],
+                    cst_info);
+            cst_info->base_path = cult->uri;
+            if (r) continue;
+            cult->nb_constellations++;
+        }
     }
 
     if (edges) {
+        double edges_rot[3][3];
         cult->has_boundaries = true;
+        skyculture_compute_edges_rot(edges_epoch, edges_rot);
+        for (i = 0; i < cult->nb_constellations; i++)
+            memcpy(cult->constellations[i].edges_rot, edges_rot,
+                   sizeof(edges_rot));
         skyculture_parse_edges(edges, cult->constellations,
                                cult->nb_constellations);
     }
@@ -612,6 +656,78 @@ static int skycultures_add_data_source(
 }
 
 /*
+ * Get (creating it if needed) the hidden custom skyculture.  It is used to
+ * host constellations passed directly from JS, without any skyculture data
+ * file.  It never appears in the skyculture list and can coexist with the
+ * regular current culture.
+ */
+static skyculture_t *skycultures_get_custom(skycultures_t *cults)
+{
+    skyculture_t *cult = (void*)module_get_child(&cults->obj, "__custom__");
+    if (cult) return cult;
+    cult = (void*)module_add_new(&cults->obj, "skyculture", NULL);
+    cult->key = strdup("__custom__");
+    cult->uri = strdup("__custom__");
+    cult->obj.id = cult->key;
+    cult->name = strdup("Custom");
+    // This culture has no data file: mark both files as parsed so that
+    // skyculture_update() returns immediately instead of trying to download
+    // __custom__/index.json and description.md every frame.
+    cult->parsed = SK_JSON | SK_MD;
+    return cult;
+}
+
+/*
+ * Add custom constellations to the hidden "__custom__" skyculture.
+ * args must be a json array of constellation objects in the index.json
+ * feature/asterism format.  Their "id" field must use the full id format
+ * ("CON culture id" / "AST culture id").  The features are rendered through
+ * the regular constellation pipeline and coexist with the current culture.
+ */
+static json_value *skycultures_add_custom_csts(
+        obj_t *obj, const attribute_t *attr, const json_value *args)
+{
+    skycultures_t *cults = (skycultures_t*)obj;
+    skyculture_t *cult;
+    constellation_infos_t *cst_info;
+    int i, j, r;
+
+    if (!args || args->type != json_array) return NULL;
+    cult = skycultures_get_custom(cults);
+    for (i = 0; i < args->u.array.length; i++) {
+        const json_value *v = args->u.array.values[i];
+        if (v->type != json_object) continue;
+        cult->constellations = realloc(cult->constellations,
+                (cult->nb_constellations + 1) * sizeof(*cult->constellations));
+        cst_info = &cult->constellations[cult->nb_constellations];
+        // realloc does not zero the memory, but the parsers only fill in the
+        // fields they know about.  Zero the struct (like the calloc used by
+        // the regular skyculture loader) so that optional fields such as
+        // "image" / "anchors" stay empty instead of holding garbage.
+        memset(cst_info, 0, sizeof(*cst_info));
+        // Use the asterism parser when the id starts with "AST " (this also
+        // covers dark asterisms), otherwise the feature parser.
+        bool is_asterism = false;
+        for (j = 0; j < v->u.object.length; j++) {
+            if (strcmp(v->u.object.values[j].name, "id") == 0 &&
+                v->u.object.values[j].value->type == json_string &&
+                strncmp(v->u.object.values[j].value->u.string.ptr, "AST ", 4) == 0)
+                is_asterism = true;
+        }
+        if (is_asterism)
+            r = skyculture_parse_asterism_json(&cult->names, v, cst_info);
+        else
+            r = skyculture_parse_feature_json(&cult->names, v, cst_info);
+        cst_info->base_path = cult->uri;
+        if (r) continue;
+        cult->nb_constellations++;
+    }
+    if (cult->nb_constellations)
+        skyculture_create_constellations(cult);
+    return NULL;
+}
+
+/*
  * Function: skycultures_get_name_info
  * Get the names of a sky object in the current skyculture.
  *
@@ -628,14 +744,52 @@ static int skycultures_add_data_source(
 static const skyculture_name_t *skycultures_get_name_info(const char* main_id)
 {
     const skyculture_t *cult = g_skycultures->current;
-    const skyculture_name_t *entry;
+    const skyculture_name_t *entry, *tmp;
 
     assert(main_id);
 
     if (!cult) return NULL;
 
     HASH_FIND_STR(cult->names, main_id, entry);
-    return entry;
+    if (entry) return entry;
+
+    // Some skyculture json files store the star ids with several spaces
+    // between "HIP" and the number (e.g. "HIP  75097").  Retry by comparing
+    // whitespace-collapsed ids.
+    {
+        char norm[256];
+        const char *s = main_id;
+        char *d = norm;
+        int skip = 0;
+        while (*s && d < norm + sizeof(norm) - 1) {
+            if (*s == ' ') {
+                if (!skip) *d++ = ' ';
+                skip = 1;
+            } else {
+                *d++ = *s;
+                skip = 0;
+            }
+            s++;
+        }
+        *d = 0;
+        HASH_ITER(hh, cult->names, entry, tmp) {
+            const char *k = entry->main_id;
+            const char *p = norm;
+            bool mismatch = false;
+            while (*k && *p) {
+                if (*k == ' ') { k++; continue; }
+                if (*p == ' ') { p++; continue; }
+                if (*k != *p) { mismatch = true; break; }
+                k++;
+                p++;
+            }
+            // Skip remaining spaces on both sides before deciding.
+            while (*k == ' ') k++;
+            while (*p == ' ') p++;
+            if (!mismatch && *k == 0 && *p == 0) return entry;
+        }
+    }
+    return NULL;
 }
 
 /*
@@ -762,6 +916,35 @@ static void skycultures_translate_english_name(const char* name, char *out,
 }
 
 /*
+ * Function: name_field
+ * Return the value of a single name field.
+ *
+ * Supported fields: english, native, pronounce, ipa, abbr.
+ * "abbr" is derived from the main id (last component, e.g. "Aql" from
+ * "CON western Aql", or the hipparcos number from "HIP 75097").
+ */
+static const char *name_field(const skyculture_name_t *entry,
+                              const char *field,
+                              const char *main_id,
+                              char *abbr_buf, int abbr_size)
+{
+    if (strcmp(field, "english") == 0)
+        return entry ? entry->name_english : NULL;
+    if (strcmp(field, "native") == 0)
+        return entry ? entry->name_native : NULL;
+    if (strcmp(field, "pronounce") == 0)
+        return entry ? entry->name_pronounce : NULL;
+    if (strcmp(field, "ipa") == 0)
+        return entry ? entry->name_ipa : NULL;
+    if (strcmp(field, "abbr") == 0) {
+        const char *sep = strrchr(main_id, ' ');
+        snprintf(abbr_buf, abbr_size, "%s", sep ? sep + 1 : main_id);
+        return abbr_buf;
+    }
+    return NULL;
+}
+
+/*
  * Function: skycultures_get_label
  * Get the label of a sky object in the current skyculture, translated
  * for the current language.
@@ -783,7 +966,39 @@ const char *skycultures_get_label(const char* main_id, char *out, int out_size)
     const skyculture_t *cult = g_skycultures->current;
     const skyculture_name_t *entry = skycultures_get_name_info(main_id);
 
-    if (!cult || !entry) return NULL;
+    if (!cult) return NULL;
+
+    // Free field combination, e.g. name_format = "english,native,ipa".
+    // Fields are output in the given order as "A (B) (C)".
+    if (g_skycultures->name_format[0]) {
+        char fmt[sizeof(g_skycultures->name_format)];
+        char abbr[64];
+        char *fields[16], *tok, *save = NULL;
+        int nb = 0, i;
+        snprintf(fmt, sizeof(fmt), "%s", g_skycultures->name_format);
+        for (tok = strtok_r(fmt, ",", &save); tok && nb < 16;
+             tok = strtok_r(NULL, ",", &save)) {
+            while (*tok == ' ') tok++;
+            char *end = tok + strlen(tok);
+            while (end > tok && end[-1] == ' ') *--end = 0;
+            if (*tok) fields[nb++] = tok;
+        }
+        out[0] = 0;
+        for (i = 0; i < nb; i++) {
+            const char *v = name_field(entry, fields[i], main_id,
+                                       abbr, sizeof(abbr));
+            if (!v || !v[0]) continue;
+            if (out[0])
+                snprintf(out + strlen(out), out_size - strlen(out),
+                         " (%s)", v);
+            else
+                snprintf(out, out_size, "%s", v);
+        }
+        if (out[0]) return out;
+        return NULL;
+    }
+
+    if (!entry) return NULL;
 
     switch (g_skycultures->name_format_style) {
     case NAME_AUTO:
@@ -800,6 +1015,29 @@ const char *skycultures_get_label(const char* main_id, char *out, int out_size)
         if (entry->name_english) {
             skycultures_translate_english_name(entry->name_english, out,
                                                out_size);
+            return out;
+        }
+        if (entry->name_pronounce) {
+            snprintf(out, out_size, "%s", entry->name_pronounce);
+            return out;
+        }
+        if (entry->name_native) {
+            snprintf(out, out_size, "%s", entry->name_native);
+            return out;
+        }
+        return NULL;
+    case NAME_ENGLISH_AND_NATIVE:
+        // "english (native)" like the host Stellarium dual name display.
+        if (entry->name_english && entry->name_native) {
+            snprintf(out, out_size, "%s (%s)", entry->name_english,
+                     entry->name_native);
+            return out;
+        }
+        /* fallthrough */
+    case NAME_ENGLISH:
+        if (entry->name_english) {
+            // Fixed english name, no translation.
+            snprintf(out, out_size, "%s", entry->name_english);
             return out;
         }
         if (entry->name_pronounce) {
@@ -1105,6 +1343,8 @@ static obj_klass_t skycultures_klass = {
         PROPERTY(current_id, TYPE_STRING, .fn = skycultures_current_id_fn),
         PROPERTY(name_format_style, TYPE_INT,
                  MEMBER(skycultures_t, name_format_style)),
+        PROPERTY(name_format, TYPE_STRING, MEMBER(skycultures_t, name_format)),
+        FUNCTION(add_custom_csts, .fn = skycultures_add_custom_csts),
         {}
     },
 };

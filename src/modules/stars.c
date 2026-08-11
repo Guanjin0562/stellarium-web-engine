@@ -64,6 +64,8 @@ struct stars {
     // Hints/labels magnitude offset
     double          hints_mag_offset;
     bool            hints_visible;
+    // Star name labels display flag (host Stellarium "setFlagLabels").
+    bool            labels_visible;
 };
 
 // Static instance.
@@ -328,7 +330,7 @@ static void star_render_name(const painter_t *painter, const star_t *s,
     double lim_mag3 = painter->hints_limit_mag - 9.0 + hints_mag_offset;
 
     // Decide whether a label must be displayed
-    if (!selected && s->vmag > lim_mag)
+    if (!selected && (!g_stars->labels_visible || s->vmag > lim_mag))
         return;
 
     buf[0] = 0;
@@ -366,10 +368,18 @@ static void star_render_name(const painter_t *painter, const star_t *s,
     }
     radius += LABEL_SPACING;
 
+    // Layout labels containing Manchu (Mongolian script) text vertically:
+    // the Manchu words are stacked into vertical columns, with the
+    // horizontal part (e.g. the english name) below them.  The produced
+    // '\n' markers are kept by u8_split_line below (it only splits at
+    // spaces).
+    bool manchu = u8_verticalize_manchu(buf, sizeof(buf), buf);
+
     u8_split_line(buf, sizeof(buf), buf, 16);
     labels_add_3d(buf, frame, pos, true,
                  radius, FONT_SIZE_BASE, label_color, 0, 0,
-                 effects | TEXT_MULTILINES, -s->vmag, &s->obj);
+                 effects | TEXT_MULTILINES |
+                 (manchu ? TEXT_MANCHU : 0), -s->vmag, &s->obj);
 }
 
 // Render a single star.
@@ -601,6 +611,7 @@ static int stars_init(obj_t *obj, json_value *args)
     regcomp(&stars->search_reg, "(hip|gaia) *([0-9]+)",
             REG_EXTENDED | REG_ICASE);
     stars->hints_visible = true;
+    stars->labels_visible = true;
     return 0;
 }
 
@@ -634,6 +645,9 @@ static tile_t *get_tile(survey_t *survey, int order, int pix,
     assert(code);
     assert(survey);
     if (!sync) flags |= HIPS_LOAD_IN_THREAD;
+    // Synchronous lookups (constellation star creation) resolve specific
+    // stars right away: skip the anti-burst delay used by the render path.
+    if (sync) flags |= HIPS_NO_DELAY;
     if (!survey->hips) {
         *code = 0;
         return NULL;
@@ -946,6 +960,14 @@ obj_t *obj_get_by_hip(int hip, int *code)
             }
         }
     }
+    // If no star catalog survey has been added yet, this is not a definitive
+    // "not found": the surveys are added asynchronously, so signal "still
+    // loading" to let the caller (e.g. constellation star creation at
+    // startup) retry later once the data is available.
+    if (!stars->surveys) {
+        *code = 0;
+        return NULL;
+    }
     *code = 404;
     return NULL;
 }
@@ -979,6 +1001,7 @@ static obj_klass_t stars_klass = {
         PROPERTY(hints_mag_offset, TYPE_FLOAT,
                  MEMBER(stars_t, hints_mag_offset)),
         PROPERTY(hints_visible, TYPE_BOOL, MEMBER(stars_t, hints_visible)),
+        PROPERTY(labels_visible, TYPE_BOOL, MEMBER(stars_t, labels_visible)),
         {},
     },
 };

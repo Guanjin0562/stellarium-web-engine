@@ -133,6 +133,8 @@ flags = [
          '-s', 'MODULARIZE=1', '-s', 'EXPORT_NAME=StelWebEngine',
          '-s', 'ALLOW_MEMORY_GROWTH=1',
          '-s', 'ALLOW_TABLE_GROWTH=1',
+         # HarfBuzz text shaping (Manchu vertical ligatures + Arabic RTL).
+         '-s', 'USE_HARFBUZZ=1',
          '--pre-js', 'src/js/pre.js',
          '--pre-js', 'src/js/obj.js',
          '--pre-js', 'src/js/geojson.js',

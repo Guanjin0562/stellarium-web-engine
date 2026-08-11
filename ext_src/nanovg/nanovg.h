@@ -595,6 +595,11 @@ void nvgFontFace(NVGcontext* ctx, const char* font);
 // Draws text string at specified location. If end is specified only the sub-string up to the end is drawn.
 float nvgText(NVGcontext* ctx, float x, float y, const char* string, const char* end);
 
+// Rotate shaped glyphs (Mongolian/Manchu vertical text) by 90° so that they
+// point up.  Pass 0 for regular horizontal text.  Only affects text drawn
+// afterwards; use nvgSave()/nvgRestore() to scope it.
+void nvgSetRotate90(NVGcontext* ctx, int rotate90);
+
 // Draws multi-line text string at specified location wrapped at the specified width. If end is specified only the sub-string up to the end is drawn.
 // White space is stripped at the beginning of the rows, the text is split at word boundaries or when new-line characters are encountered.
 // Words longer than the max width are slit at nearest character (i.e. no hyphenation).

@@ -86,6 +86,7 @@ struct NVGstate {
 	float fontBlur;
 	int textAlign;
 	int fontId;
+	int rotate90;   // Rotate shaped glyphs 90° (Manchu vertical).
 };
 typedef struct NVGstate NVGstate;
 
@@ -2460,6 +2461,13 @@ static int nvg__isTransformFlipped(const float *xform)
 	return( det < 0);
 }
 
+void nvgSetRotate90(NVGcontext* ctx, int rotate90)
+{
+	if (ctx == NULL) return;
+	nvg__getState(ctx)->rotate90 = rotate90;
+	fonsSetRotate90(ctx->fs, rotate90);
+}
+
 float nvgText(NVGcontext* ctx, float x, float y, const char* string, const char* end)
 {
 	NVGstate* state = nvg__getState(ctx);
@@ -2517,12 +2525,27 @@ float nvgText(NVGcontext* ctx, float x, float y, const char* string, const char*
 		nvgTransformPoint(&c[6],&c[7], state->xform, q.x0*invscale, q.y1*invscale);
 		// Create triangles
 		if (nverts+6 <= cverts) {
-			nvg__vset(&verts[nverts], c[0], c[1], q.s0, q.t0); nverts++;
-			nvg__vset(&verts[nverts], c[4], c[5], q.s1, q.t1); nverts++;
-			nvg__vset(&verts[nverts], c[2], c[3], q.s1, q.t0); nverts++;
-			nvg__vset(&verts[nverts], c[0], c[1], q.s0, q.t0); nverts++;
-			nvg__vset(&verts[nverts], c[6], c[7], q.s0, q.t1); nverts++;
-			nvg__vset(&verts[nverts], c[4], c[5], q.s1, q.t1); nverts++;
+			if (iter.rotate90) {
+				// Rotated quad (Manchu vertical column): the original bitmap
+				// corners land on the rotated corners as
+				//   topleft     <- bitmap bottom-left  (s0,t1)
+				//   topright    <- bitmap top-left     (s0,t0)
+				//   bottomleft  <- bitmap bottom-right (s1,t1)
+				//   bottomright <- bitmap top-right    (s1,t0)
+				nvg__vset(&verts[nverts], c[0], c[1], q.s0, q.t1); nverts++;
+				nvg__vset(&verts[nverts], c[4], c[5], q.s1, q.t0); nverts++;
+				nvg__vset(&verts[nverts], c[2], c[3], q.s0, q.t0); nverts++;
+				nvg__vset(&verts[nverts], c[0], c[1], q.s0, q.t1); nverts++;
+				nvg__vset(&verts[nverts], c[6], c[7], q.s1, q.t1); nverts++;
+				nvg__vset(&verts[nverts], c[4], c[5], q.s1, q.t0); nverts++;
+			} else {
+				nvg__vset(&verts[nverts], c[0], c[1], q.s0, q.t0); nverts++;
+				nvg__vset(&verts[nverts], c[4], c[5], q.s1, q.t1); nverts++;
+				nvg__vset(&verts[nverts], c[2], c[3], q.s1, q.t0); nverts++;
+				nvg__vset(&verts[nverts], c[0], c[1], q.s0, q.t0); nverts++;
+				nvg__vset(&verts[nverts], c[6], c[7], q.s0, q.t1); nverts++;
+				nvg__vset(&verts[nverts], c[4], c[5], q.s1, q.t1); nverts++;
+			}
 		}
 	}
 
@@ -2840,12 +2863,23 @@ float nvgTextBounds(NVGcontext* ctx, float x, float y, const char* string, const
 
 	width = fonsTextBounds(ctx->fs, x*scale, y*scale, string, end, bounds);
 	if (bounds != NULL) {
-		// Use line bounds for height.
-		fonsLineBounds(ctx->fs, y*scale, &bounds[1], &bounds[3]);
-		bounds[0] *= invscale;
-		bounds[1] *= invscale;
-		bounds[2] *= invscale;
-		bounds[3] *= invscale;
+		if (state->rotate90) {
+			// Vertical (Manchu) text: keep the true quad extents computed by
+			// fonsTextBounds (the actual column height).  Using the horizontal
+			// line height here would underestimate long columns and make the
+			// following words / the english line overlap the Manchu text.
+			bounds[0] *= invscale;
+			bounds[1] *= invscale;
+			bounds[2] *= invscale;
+			bounds[3] *= invscale;
+		} else {
+			// Use line bounds for height.
+			fonsLineBounds(ctx->fs, y*scale, &bounds[1], &bounds[3]);
+			bounds[0] *= invscale;
+			bounds[1] *= invscale;
+			bounds[2] *= invscale;
+			bounds[3] *= invscale;
+		}
 	}
 	return width * invscale;
 }

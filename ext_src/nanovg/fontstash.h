@@ -19,6 +19,13 @@
 #ifndef FONS_H
 #define FONS_H
 
+#include <stdbool.h>
+
+// HarfBuzz is used to shape text (Manchu/Mongolian vertical ligatures and
+// Arabic).  It is enabled at the engine level with -s USE_HARFBUZZ=1.
+#include <hb.h>
+#include <hb-ot.h>
+
 #define FONS_INVALID -1
 
 enum FONSflags {
@@ -73,6 +80,30 @@ struct FONSquad
 };
 typedef struct FONSquad FONSquad;
 
+#define FONS_MAX_SHAPED_RUNS 16
+#define FONS_MAX_SHAPED_GLYPHS 256
+
+/*
+ * A shaped run: a range of the text that is shaped as a whole with HarfBuzz.
+ * The glyphs (and their positions in font units) are stored so that the text
+ * iterator can output them one by one instead of decoding the raw codepoints.
+ */
+struct FONSshapeRun
+{
+	const char* start;      // UTF-8 range of the run.
+	const char* end;
+	struct FONSfont* font;  // Font used to shape the run.
+	float scale;            // Pixel scale of the run font.
+	hb_direction_t direction; // HB_DIRECTION_*.
+	hb_script_t script;
+	unsigned int nglyphs;   // Number of shaped glyphs.
+	unsigned int cur;       // Next glyph to output.
+	unsigned int gids[FONS_MAX_SHAPED_GLYPHS];
+	int xadv[FONS_MAX_SHAPED_GLYPHS];   // Advances in font units.
+	int yadv[FONS_MAX_SHAPED_GLYPHS];
+};
+typedef struct FONSshapeRun FONSshapeRun;
+
 struct FONStextIter {
 	float x, y, nextx, nexty, scale, spacing;
 	unsigned int codepoint;
@@ -84,6 +115,10 @@ struct FONStextIter {
 	const char* end;
 	unsigned int utf8state;
 	int bitmapOption;
+	int rotate90;                 // Rotate each shaped glyph 90° (Manchu vertical).
+	int nshaped;                  // Number of shaped runs in the text.
+	int shaped_cur;               // Current shaped run index, -1 if none.
+	FONSshapeRun shaped[FONS_MAX_SHAPED_RUNS];
 };
 typedef struct FONStextIter FONStextIter;
 
@@ -118,6 +153,10 @@ void fonsSetSpacing(FONScontext* s, float spacing);
 void fonsSetBlur(FONScontext* s, float blur);
 void fonsSetAlign(FONScontext* s, int align);
 void fonsSetFont(FONScontext* s, int font);
+// Rotate every shaped glyph (Mongolian/Manchu vertical text) by 90° so that
+// the glyphs, which are designed horizontally, point up.  Reset to 0 for
+// regular horizontal text.
+void fonsSetRotate90(FONScontext* s, int rotate90);
 
 // Draw text
 float fonsDrawText(FONScontext* s, float x, float y, const char* string, const char* end);
@@ -403,6 +442,15 @@ struct FONSfont
 	int lut[FONS_HASH_LUT_SIZE];
 	int fallbacks[FONS_MAX_FALLBACKS];
 	int nfallbacks;
+	// HarfBuzz handles, created lazily from 'data' when shaping is needed.
+	hb_blob_t* hb_blob;
+	hb_face_t* hb_face;
+	hb_font_t* hb_font;
+	// Cache of glyph bitmaps keyed by glyph index (shaped glyphs may not
+	// correspond to a single codepoint).
+	FONSglyph* sglyphs;
+	int csglyphs;
+	int nsglyphs;
 };
 typedef struct FONSfont FONSfont;
 
@@ -414,6 +462,7 @@ struct FONSstate
 	unsigned int color;
 	float blur;
 	float spacing;
+	int rotate90;   // Rotate shaped glyphs 90° clockwise (Manchu vertical).
 };
 typedef struct FONSstate FONSstate;
 
@@ -789,9 +838,19 @@ static FONSstate* fons__getState(FONScontext* stash)
 
 int fonsAddFallbackFont(FONScontext* stash, int base, int fallback)
 {
+	int i;
 	FONSfont* baseFont = stash->fonts[base];
 	if (baseFont->nfallbacks < FONS_MAX_FALLBACKS) {
 		baseFont->fallbacks[baseFont->nfallbacks++] = fallback;
+		// When a new fallback font is registered, clear the glyph cache
+		// of the base font.  Without this, codepoints that were looked up
+		// before the fallback was loaded (e.g. CJK characters rendered
+		// while the CJK font is still downloading) keep returning the
+		// cached empty glyph and the newly added fallback font is never
+		// used, so CJK labels stay as boxes.
+		baseFont->nglyphs = 0;
+		for (i = 0; i < FONS_HASH_LUT_SIZE; i++)
+			baseFont->lut[i] = -1;
 		return 1;
 	}
 	return 0;
@@ -838,6 +897,11 @@ void fonsSetFont(FONScontext* stash, int font)
 	fons__getState(stash)->font = font;
 }
 
+void fonsSetRotate90(FONScontext* stash, int rotate90)
+{
+	fons__getState(stash)->rotate90 = rotate90;
+}
+
 void fonsPushState(FONScontext* stash)
 {
 	if (stash->nstates >= FONS_MAX_STATES) {
@@ -869,12 +933,17 @@ void fonsClearState(FONScontext* stash)
 	state->blur = 0;
 	state->spacing = 0;
 	state->align = FONS_ALIGN_LEFT | FONS_ALIGN_BASELINE;
+	state->rotate90 = 0;
 }
 
 static void fons__freeFont(FONSfont* font)
 {
 	if (font == NULL) return;
 	if (font->glyphs) free(font->glyphs);
+	if (font->sglyphs) free(font->sglyphs);
+	if (font->hb_font) hb_font_destroy(font->hb_font);
+	if (font->hb_face) hb_face_destroy(font->hb_face);
+	if (font->hb_blob) hb_blob_destroy(font->hb_blob);
 	if (font->freeData && font->data) free(font->data);
 	free(font);
 }
@@ -1203,6 +1272,354 @@ static FONSglyph* fons__getGlyph(FONScontext* stash, FONSfont* font, unsigned in
 	return glyph;
 }
 
+/*
+ * True for codepoints that need complex text shaping: the Mongolian / Manchu
+ * block (U+1800-18AF, including the control characters that select glyph
+ * variants) and the Arabic blocks (plus ZWNJ/ZWJ which affect joining).
+ */
+static int fons__isShapingCodepoint(unsigned int c)
+{
+	if (c >= 0x1800 && c <= 0x18AF) return 1;
+	if (c >= 0x0600 && c <= 0x06FF) return 1;
+	if (c >= 0x0750 && c <= 0x077F) return 1;
+	if (c >= 0x08A0 && c <= 0x08FF) return 1;
+	if (c >= 0xFB50 && c <= 0xFDFF) return 1;
+	if (c >= 0xFE70 && c <= 0xFEFF) return 1;
+	if (c == 0x200C || c == 0x200D) return 1;
+	return 0;
+}
+
+/* Script and direction used to shape a given codepoint.
+ *
+ * Manchu/Mongolian is forced to HB_DIRECTION_LTR: the AlariSanyanManchu
+ * font is a HORIZONTAL font whose joining forms (.uju/.dara/.wei) are only
+ * produced by the GSUB context features (calt/rlig) when shaping LTR.
+ * HarfBuzz 1.7.5 has no Mongolian shaper, so TTB yields only the isolated
+ * base glyphs (no connection).  The renderer later rotates each shaped
+ * glyph by 90° (fonsSetRotate90) to build the vertical column, using the
+ * horizontal advances as the vertical step. */
+static void fons__shapingProps(unsigned int c, hb_direction_t* dir, hb_script_t* script)
+{
+	if (c >= 0x1800 && c <= 0x18AF) {
+		*dir = HB_DIRECTION_LTR;
+		*script = HB_SCRIPT_MONGOLIAN;
+	} else {
+		*dir = HB_DIRECTION_RTL;
+		*script = HB_SCRIPT_ARABIC;
+	}
+}
+
+/* Decode a single UTF-8 codepoint at 's'; returns its byte length. */
+static int fons__utf8DecodeAt(const char* s, const char* end, unsigned int* out)
+{
+	unsigned int state = 0, codep = 0;
+	const char* p = s;
+	while (p < end) {
+		if (fons__decutf8(&state, &codep, (unsigned int)(unsigned char)*p)) {
+			p++;
+			continue;
+		}
+		p++;
+		*out = codep;
+		return (int)(p - s);
+	}
+	return 0;
+}
+
+/* First font (main font then its fallbacks) that has a glyph for the codepoint. */
+static FONSfont* fons__fontForCodepoint(FONScontext* stash, FONSfont* font, unsigned int codepoint)
+{
+	int i;
+	if (fons__tt_getGlyphIndex(&font->font, codepoint)) return font;
+	for (i = 0; i < font->nfallbacks; ++i) {
+		FONSfont* fb = stash->fonts[font->fallbacks[i]];
+		if (fons__tt_getGlyphIndex(&fb->font, codepoint)) return fb;
+	}
+	return NULL;
+}
+
+/*
+ * Shape a run of text with HarfBuzz and store the resulting glyph sequence.
+ * Advances are kept in font units; they are scaled to pixels on output.
+ *
+ * The whole run is shaped in one call: with the TTB direction and
+ * HB_SCRIPT_MONGOLIAN, HarfBuzz's Mongolian shaper applies the joining
+ * init/medi/fina forms, yielding the connected Manchu glyphs.
+ */
+static void fons__shapeRun(FONScontext* stash, FONStextIter* iter, FONSshapeRun* run)
+{
+	FONSfont* font = run->font;
+	hb_buffer_t* buf;
+	unsigned int i, n;
+	hb_glyph_info_t* info;
+	hb_glyph_position_t* pos;
+
+	FONS_NOTUSED(stash);
+
+	if (!font->hb_face) {
+		font->hb_blob = hb_blob_create((const char*)font->data, font->dataSize,
+									   HB_MEMORY_MODE_READONLY, NULL, NULL);
+		font->hb_face = hb_face_create(font->hb_blob, 0);
+		font->hb_font = hb_font_create(font->hb_face);
+		hb_ot_font_set_funcs(font->hb_font);
+		hb_font_set_scale(font->hb_font, hb_face_get_upem(font->hb_face),
+						  hb_face_get_upem(font->hb_face));
+	}
+
+	run->scale = fons__tt_getPixelHeightScale(&font->font,
+											  (float)iter->isize / 10.0f);
+
+	// Shape the whole run at once.  Manchu runs are shaped LTR: the
+	// AlariSanyanManchu font is horizontal, and only LTR triggers the GSUB
+	// joining substitution, yielding the connected word glyphs (see
+	// fons__shapingProps).  The horizontal advances are later reused as the
+	// vertical step when the renderer rotates the glyphs 90°.
+	buf = hb_buffer_create();
+	hb_buffer_add_utf8(buf, run->start, run->end - run->start, 0,
+					   run->end - run->start);
+	hb_buffer_set_direction(buf, run->direction);
+	hb_buffer_set_script(buf, run->script);
+	hb_buffer_set_language(buf, hb_language_from_string("und", -1));
+	hb_shape(font->hb_font, buf, NULL, 0);
+
+	n = hb_buffer_get_length(buf);
+	if (n > FONS_MAX_SHAPED_GLYPHS)
+		n = FONS_MAX_SHAPED_GLYPHS;
+	info = hb_buffer_get_glyph_infos(buf, NULL);
+	pos = hb_buffer_get_glyph_positions(buf, NULL);
+	run->nglyphs = 0;
+	for (i = 0; i < n; i++) {
+		run->gids[i] = info[i].codepoint;
+		run->xadv[i] = pos[i].x_advance;
+		run->yadv[i] = pos[i].y_advance;
+		run->nglyphs++;
+	}
+	hb_buffer_destroy(buf);
+	run->cur = 0;
+}
+
+/*
+ * Split the text into shaped runs: consecutive codepoints that belong to a
+ * shaping script and that are covered by the same font are shaped together.
+ */
+static void fons__buildShapedRuns(FONScontext* stash, FONStextIter* iter)
+{
+	const char* p;
+	FONSfont* font = iter->font;
+	iter->nshaped = 0;
+	iter->shaped_cur = -1;
+
+	for (p = iter->next; p < iter->end; ) {
+		unsigned int cp;
+		int len = fons__utf8DecodeAt(p, iter->end, &cp);
+		if (len == 0) break;
+		if (fons__isShapingCodepoint(cp)) {
+			FONSshapeRun* run;
+			FONSfont* rfont = fons__fontForCodepoint(stash, font, cp);
+			if (rfont && iter->nshaped < FONS_MAX_SHAPED_RUNS) {
+				const char* q;
+				run = &iter->shaped[iter->nshaped];
+				run->start = p;
+				run->font = rfont;
+				fons__shapingProps(cp, &run->direction, &run->script);
+				// Extend the run while the script and the font stay the same.
+				q = p + len;
+				while (q < iter->end) {
+					unsigned int cp2;
+					int len2 = fons__utf8DecodeAt(q, iter->end, &cp2);
+					if (len2 == 0) break;
+					if (!fons__isShapingCodepoint(cp2)) break;
+					if (fons__fontForCodepoint(stash, font, cp2) != rfont) break;
+					q += len2;
+				}
+				run->end = q;
+				fons__shapeRun(stash, iter, run);
+				iter->nshaped++;
+				p = q;
+				continue;
+			}
+		}
+		p += len;
+	}
+}
+
+/*
+ * Get (and rasterize on demand) the glyph bitmap for a shaped glyph index.
+ * Glyphs are cached in the font's 'sglyphs' array, keyed by glyph index.
+ */
+static FONSglyph* fons__getShapedGlyph(FONScontext* stash, FONSfont* font, unsigned int gid,
+									   short isize, short iblur, int bitmapOption)
+{
+	int i, g, advance, lsb, x0, y0, x1, y1, gw, gh, gx, gy, x, y;
+	int added = 1;
+	int pad;
+	float scale;
+	FONSglyph* glyph = NULL;
+	unsigned char* bdst;
+	unsigned char* dst;
+	float size = isize / 10.0f;
+
+	if (isize < 2) return NULL;
+	if (iblur > 20) iblur = 20;
+	pad = iblur + 2;
+
+	// Reset allocator.
+	stash->nscratch = 0;
+
+	// Find a cached glyph.
+	for (i = 0; i < font->nsglyphs; i++) {
+		if (font->sglyphs[i].index == (int)gid &&
+			font->sglyphs[i].size == isize &&
+			font->sglyphs[i].blur == iblur) {
+			glyph = &font->sglyphs[i];
+			if (bitmapOption == FONS_GLYPH_BITMAP_OPTIONAL ||
+				(glyph->x0 >= 0 && glyph->y0 >= 0)) {
+				return glyph;
+			}
+			// Glyph cached but bitmap not created yet.
+			break;
+		}
+	}
+
+	scale = fons__tt_getPixelHeightScale(&font->font, size);
+	fons__tt_buildGlyphBitmap(&font->font, (int)gid, size, scale, &advance, &lsb,
+							  &x0, &y0, &x1, &y1);
+	gw = x1 - x0 + pad * 2;
+	gh = y1 - y0 + pad * 2;
+
+	if (bitmapOption == FONS_GLYPH_BITMAP_REQUIRED) {
+		added = fons__atlasAddRect(stash->atlas, gw, gh, &gx, &gy);
+		if (added == 0 && stash->handleError != NULL) {
+			stash->handleError(stash->errorUptr, FONS_ATLAS_FULL, 0);
+			added = fons__atlasAddRect(stash->atlas, gw, gh, &gx, &gy);
+		}
+		if (added == 0) return NULL;
+	} else {
+		gx = -1;
+		gy = -1;
+	}
+
+	if (glyph == NULL) {
+		if (font->nsglyphs >= font->csglyphs) {
+			int nc = font->csglyphs == 0 ? 64 : font->csglyphs * 2;
+			font->sglyphs = (FONSglyph*)realloc(font->sglyphs, nc * sizeof(FONSglyph));
+			font->csglyphs = nc;
+		}
+		glyph = &font->sglyphs[font->nsglyphs++];
+		memset(glyph, 0, sizeof(*glyph));
+		glyph->size = isize;
+		glyph->blur = iblur;
+	}
+	g = (int)gid;
+	glyph->index = g;
+	glyph->x0 = (short)gx;
+	glyph->y0 = (short)gy;
+	glyph->x1 = (short)(glyph->x0 + gw);
+	glyph->y1 = (short)(glyph->y0 + gh);
+	glyph->xadv = (short)(scale * advance * 10.0f);
+	glyph->xoff = (short)(x0 - pad);
+	glyph->yoff = (short)(y0 - pad);
+
+	if (bitmapOption == FONS_GLYPH_BITMAP_OPTIONAL) {
+		return glyph;
+	}
+
+	// Rasterize.
+	dst = &stash->texData[(glyph->x0 + pad) + (glyph->y0 + pad) * stash->params.width];
+	fons__tt_renderGlyphBitmap(&font->font, dst, gw - pad * 2, gh - pad * 2,
+							   stash->params.width, scale, scale, g);
+
+	// Make sure there is one pixel empty border.
+	dst = &stash->texData[glyph->x0 + glyph->y0 * stash->params.width];
+	for (y = 0; y < gh; y++) {
+		dst[y * stash->params.width] = 0;
+		dst[gw - 1 + y * stash->params.width] = 0;
+	}
+	for (x = 0; x < gw; x++) {
+		dst[x] = 0;
+		dst[x + (gh - 1) * stash->params.width] = 0;
+	}
+
+	if (iblur > 0) {
+		stash->nscratch = 0;
+		bdst = &stash->texData[glyph->x0 + glyph->y0 * stash->params.width];
+		fons__blur(stash, bdst, gw, gh, stash->params.width, iblur);
+	}
+
+	stash->dirtyRect[0] = fons__mini(stash->dirtyRect[0], glyph->x0);
+	stash->dirtyRect[1] = fons__mini(stash->dirtyRect[1], glyph->y0);
+	stash->dirtyRect[2] = fons__maxi(stash->dirtyRect[2], glyph->x1);
+	stash->dirtyRect[3] = fons__maxi(stash->dirtyRect[3], glyph->y1);
+
+	return glyph;
+}
+
+/*
+ * Build the render quad for a shaped glyph.  When 'rotate90' is set the quad
+ * is rotated by 90° around its center, which turns a glyph designed to point
+ * left into one that points up (Manchu vertical text).
+ */
+static void fons__getShapedQuad(FONScontext* stash, FONSglyph* glyph,
+								float x, float y, hb_direction_t direction,
+								int rotate90, FONSquad* q)
+{
+	float rx, ry, xoff, yoff, x0, y0, x1, y1;
+
+	xoff = (short)(glyph->xoff + 1);
+	yoff = (short)(glyph->yoff + 1);
+	x0 = (float)(glyph->x0 + 1);
+	y0 = (float)(glyph->y0 + 1);
+	x1 = (float)(glyph->x1 - 1);
+	y1 = (float)(glyph->y1 - 1);
+
+	if (stash->params.flags & FONS_ZERO_TOPLEFT) {
+		rx = floorf(x + xoff);
+		ry = floorf(y + yoff);
+		q->x0 = rx;
+		q->y0 = ry;
+		q->x1 = rx + x1 - x0;
+		q->y1 = ry + y1 - y0;
+		q->s0 = x0 * stash->itw;
+		q->t0 = y0 * stash->ith;
+		q->s1 = x1 * stash->itw;
+		q->t1 = y1 * stash->ith;
+	} else {
+		rx = floorf(x + xoff);
+		ry = floorf(y - yoff);
+		q->x0 = rx;
+		q->y0 = ry;
+		q->x1 = rx + x1 - x0;
+		q->y1 = ry - y1 + y0;
+		q->s0 = x0 * stash->itw;
+		q->t0 = y0 * stash->ith;
+		q->s1 = x1 * stash->itw;
+		q->t1 = y1 * stash->ith;
+	}
+
+	if (rotate90) {
+		// Rotate each glyph by 90° about its origin (the pen position x,y)
+		// so that the head of the word (the left side of the LTR-shaped
+		// glyphs) points up and the connections designed into the font in
+		// the horizontal direction become vertical connections.  This
+		// matches the browser's native Mongolian vertical rendering
+		// (writing-mode: vertical-lr).  Offset transform about the pen:
+		// (dx,dy) -> (-dy,dx), i.e. nvgRotate(+90°).
+		// The UVs keep the original bitmap corners here; the rotated
+		// corner->UV mapping is applied when emitting the vertices in
+		// fonsDrawText, because FONSquad's two diagonal UVs alone cannot
+		// express a 90° rotation.
+		float nx0 = x - (q->y1 - y);
+		float ny0 = y + (q->x0 - x);
+		float nx1 = x - (q->y0 - y);
+		float ny1 = y + (q->x1 - x);
+		q->x0 = nx0;
+		q->y0 = ny0;
+		q->x1 = nx1;
+		q->y1 = ny1;
+	}
+	FONS_NOTUSED(direction);
+}
+
 static void fons__getQuad(FONScontext* stash, FONSfont* font,
 						   int prevGlyphIndex, FONSglyph* glyph,
 						   float scale, float spacing, float* x, float* y, FONSquad* q)
@@ -1317,50 +1734,38 @@ float fonsDrawText(FONScontext* stash,
 				   const char* str, const char* end)
 {
 	FONSstate* state = fons__getState(stash);
-	unsigned int codepoint;
-	unsigned int utf8state = 0;
-	FONSglyph* glyph = NULL;
+	FONStextIter iter;
 	FONSquad q;
-	int prevGlyphIndex = -1;
-	short isize = (short)(state->size*10.0f);
-	short iblur = (short)state->blur;
-	float scale;
-	FONSfont* font;
-	float width;
 
 	if (stash == NULL) return x;
 	if (state->font < 0 || state->font >= stash->nfonts) return x;
-	font = stash->fonts[state->font];
-	if (font->data == NULL) return x;
+	if (stash->fonts[state->font]->data == NULL) return x;
 
-	scale = fons__tt_getPixelHeightScale(&font->font, (float)isize/10.0f);
+	// Draw through the text iterator so that shaped runs (Mongolian/Manchu
+	// vertical, Arabic RTL) and the rotate90 flag are honored, exactly like
+	// the measured bounds in fonsTextBounds.
+	if (!fonsTextIterInit(stash, &iter, x, y, str, end, FONS_GLYPH_BITMAP_REQUIRED))
+		return x;
 
-	if (end == NULL)
-		end = str + strlen(str);
+	while (fonsTextIterNext(stash, &iter, &q)) {
+		if (stash->nverts+6 > FONS_VERTEX_COUNT)
+			fons__flush(stash);
 
-	// Align horizontally
-	if (state->align & FONS_ALIGN_LEFT) {
-		// empty
-	} else if (state->align & FONS_ALIGN_RIGHT) {
-		width = fonsTextBounds(stash, x,y, str, end, NULL);
-		x -= width;
-	} else if (state->align & FONS_ALIGN_CENTER) {
-		width = fonsTextBounds(stash, x,y, str, end, NULL);
-		x -= width * 0.5f;
-	}
-	// Align vertically.
-	y += fons__getVertAlign(stash, font, state->align, isize);
+		if (state->rotate90) {
+			// Rotated quad (Manchu vertical column): the original bitmap
+			// corners land on the rotated corners as
+			//   new top-left     <- bitmap bottom-left  (s0,t1)
+			//   new top-right    <- bitmap top-left     (s0,t0)
+			//   new bottom-left  <- bitmap bottom-right (s1,t1)
+			//   new bottom-right <- bitmap top-right    (s1,t0)
+			fons__vertex(stash, q.x0, q.y0, q.s0, q.t1, state->color);
+			fons__vertex(stash, q.x1, q.y1, q.s1, q.t0, state->color);
+			fons__vertex(stash, q.x1, q.y0, q.s0, q.t0, state->color);
 
-	for (; str != end; ++str) {
-		if (fons__decutf8(&utf8state, &codepoint, *(const unsigned char*)str))
-			continue;
-		glyph = fons__getGlyph(stash, font, codepoint, isize, iblur, FONS_GLYPH_BITMAP_REQUIRED);
-		if (glyph != NULL) {
-			fons__getQuad(stash, font, prevGlyphIndex, glyph, scale, state->spacing, &x, &y, &q);
-
-			if (stash->nverts+6 > FONS_VERTEX_COUNT)
-				fons__flush(stash);
-
+			fons__vertex(stash, q.x0, q.y0, q.s0, q.t1, state->color);
+			fons__vertex(stash, q.x0, q.y1, q.s1, q.t1, state->color);
+			fons__vertex(stash, q.x1, q.y1, q.s1, q.t0, state->color);
+		} else {
 			fons__vertex(stash, q.x0, q.y0, q.s0, q.t0, state->color);
 			fons__vertex(stash, q.x1, q.y1, q.s1, q.t1, state->color);
 			fons__vertex(stash, q.x1, q.y0, q.s1, q.t0, state->color);
@@ -1369,11 +1774,10 @@ float fonsDrawText(FONScontext* stash,
 			fons__vertex(stash, q.x0, q.y1, q.s0, q.t1, state->color);
 			fons__vertex(stash, q.x1, q.y1, q.s1, q.t1, state->color);
 		}
-		prevGlyphIndex = glyph != NULL ? glyph->index : -1;
 	}
 	fons__flush(stash);
 
-	return x;
+	return iter.nextx;
 }
 
 int fonsTextIterInit(FONScontext* stash, FONStextIter* iter,
@@ -1418,6 +1822,10 @@ int fonsTextIterInit(FONScontext* stash, FONStextIter* iter,
 	iter->codepoint = 0;
 	iter->prevGlyphIndex = -1;
 	iter->bitmapOption = bitmapOption;
+	iter->rotate90 = state->rotate90;
+
+	// Shape any Mongolian/Manchu or Arabic runs with HarfBuzz.
+	fons__buildShapedRuns(stash, iter);
 
 	return 1;
 }
@@ -1427,6 +1835,48 @@ int fonsTextIterNext(FONScontext* stash, FONStextIter* iter, FONSquad* quad)
 	FONSglyph* glyph = NULL;
 	const char* str = iter->next;
 	iter->str = iter->next;
+
+	// If we are inside a shaped run, output its glyphs one by one.
+	if (iter->shaped_cur >= 0 && iter->shaped_cur < iter->nshaped) {
+		FONSshapeRun* run = &iter->shaped[iter->shaped_cur];
+		if (run->cur < run->nglyphs) {
+			unsigned int i = run->cur++;
+			iter->x = iter->nextx;
+			iter->y = iter->nexty;
+			glyph = fons__getShapedGlyph(stash, run->font, run->gids[i],
+										 iter->isize, iter->iblur,
+										 iter->bitmapOption);
+			if (glyph != NULL)
+				fons__getShapedQuad(stash, glyph, iter->nextx, iter->nexty,
+									run->direction, iter->rotate90, quad);
+			// Advance the pen.  For Manchu runs (rotate90) the word is
+			// shaped LTR so that the glyphs join; each quad is then rotated
+			// 90°, which turns the horizontal advances into the vertical
+			// (downward) step of the column.
+			if (iter->rotate90)
+				iter->nexty += run->xadv[i] * run->scale;
+			else
+				iter->nextx += run->xadv[i] * run->scale;
+			iter->prevGlyphIndex = glyph != NULL ? (int)run->gids[i] : -1;
+			return 1;
+		}
+		// Run finished: skip past it and continue with normal processing.
+		iter->shaped_cur = -1;
+		iter->next = run->end;
+		str = run->end;
+	}
+
+	// Enter the next shaped run if the current position is inside one.
+	if (iter->shaped_cur == -1) {
+		int i;
+		for (i = 0; i < iter->nshaped; i++) {
+			FONSshapeRun* run = &iter->shaped[i];
+			if (str >= run->start && str < run->end) {
+				iter->shaped_cur = i;
+				return fonsTextIterNext(stash, iter, quad);
+			}
+		}
+	}
 
 	if (str == iter->end)
 		return 0;
@@ -1513,6 +1963,8 @@ float fonsTextBounds(FONScontext* stash,
 	short iblur = (short)state->blur;
 	float scale;
 	FONSfont* font;
+	FONStextIter iter;
+	int shaped_i = 0;
 	float startx, advance;
 	float minx, miny, maxx, maxy;
 
@@ -1533,9 +1985,64 @@ float fonsTextBounds(FONScontext* stash,
 	if (end == NULL)
 		end = str + strlen(str);
 
+	// Shape any Mongolian/Manchu or Arabic runs so that their quads follow
+	// the HarfBuzz advances (vertical stacking for TTB, RTL ordering for
+	// Arabic).  They are laid out with the same pen logic as fonsTextIterNext.
+	memset(&iter, 0, sizeof(iter));
+	iter.font = font;
+	iter.isize = isize;
+	iter.iblur = iblur;
+	iter.scale = scale;
+	iter.spacing = state->spacing;
+	iter.str = str;
+	iter.next = str;
+	iter.end = end;
+	iter.rotate90 = state->rotate90;
+	fons__buildShapedRuns(stash, &iter);
+
 	for (; str != end; ++str) {
 		if (fons__decutf8(&utf8state, &codepoint, *(const unsigned char*)str))
 			continue;
+		str++;
+		// If this position is the start of a shaped run, lay out all its
+		// glyphs and jump past the run.
+		if (shaped_i < iter.nshaped) {
+			FONSshapeRun* run = &iter.shaped[shaped_i];
+			// Same test as fonsTextIterNext: the UTF-8 loop advances str past
+			// the first byte of each codepoint, so the run start byte may
+			// already be skipped; accept any position inside the run.
+			if (str >= run->start && str < run->end) {
+				unsigned int i;
+				for (i = 0; i < run->nglyphs; i++) {
+					glyph = fons__getShapedGlyph(stash, run->font, run->gids[i],
+												 isize, iblur, FONS_GLYPH_BITMAP_OPTIONAL);
+					if (glyph != NULL) {
+						fons__getShapedQuad(stash, glyph, x, y, run->direction,
+											state->rotate90, &q);
+						if (q.x0 < minx) minx = q.x0;
+						if (q.x1 > maxx) maxx = q.x1;
+						if (stash->params.flags & FONS_ZERO_TOPLEFT) {
+							if (q.y0 < miny) miny = q.y0;
+							if (q.y1 > maxy) maxy = q.y1;
+						} else {
+							if (q.y1 < miny) miny = q.y1;
+							if (q.y0 > maxy) maxy = q.y0;
+						}
+					}
+					// Same pen logic as fonsTextIterNext: Manchu runs are
+					// shaped LTR and the 90° rotation turns the horizontal
+					// advances into the vertical step.
+					if (state->rotate90)
+						y += run->xadv[i] * run->scale;
+					else
+						x += run->xadv[i] * run->scale;
+				}
+				prevGlyphIndex = -1;
+				str = run->end - 1;
+				shaped_i++;
+				continue;
+			}
+		}
 		glyph = fons__getGlyph(stash, font, codepoint, isize, iblur, FONS_GLYPH_BITMAP_OPTIONAL);
 		if (glyph != NULL) {
 			fons__getQuad(stash, font, prevGlyphIndex, glyph, scale, state->spacing, &x, &y, &q);
