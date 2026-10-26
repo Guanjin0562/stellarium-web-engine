@@ -129,7 +129,7 @@
 const CULTURES = [
   'western',
   'modern',
-  'manchu_old',
+  'manchu',
   'chinese_yi',
   'chinese_dai',
   'nakhi',
