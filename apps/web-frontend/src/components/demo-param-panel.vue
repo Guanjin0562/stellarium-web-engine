@@ -142,6 +142,7 @@ const CULTURES = [
   'arabic_al-sufi',
   'greek_almagest',
   'egyptian',
+  'oroqen',
   'japanese',
   'korean',
   'indian',
