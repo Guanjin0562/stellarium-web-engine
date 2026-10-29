@@ -252,7 +252,11 @@
           core.lines.azimuthal.visible = false;
           core.cardinals.visible = false;
           core.mount_frame = stel.FRAME_ICRF;
+          // All four solar system modules default to visible=true in C.
           core.planets.visible = false;
+          core.minor_planets.visible = false;
+          core.comets.visible = false;
+          core.satellites.visible = false;
           core.stars.labels_visible = false;
           // Names default to english (no translation) so that a sky chart
           // always shows the english names whatever the page locale is.
@@ -459,6 +463,9 @@
           apply(stel.core.stars, 'visible', 'stars')
           apply(stel.core.stars, 'labels_visible', 'star_labels')
           apply(stel.core.planets, 'visible', 'sso')
+          apply(stel.core.minor_planets, 'visible', 'sso')
+          apply(stel.core.comets, 'visible', 'sso')
+          apply(stel.core.satellites, 'visible', 'satellites')
           // Landscape, cardinal points and coordinate grids/lines.
           apply(stel.core.landscapes, 'visible', 'landscape')
           apply(stel.core.cardinals, 'visible', 'cardinals')

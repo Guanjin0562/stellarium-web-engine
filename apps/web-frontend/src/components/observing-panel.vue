@@ -30,7 +30,8 @@ export default {
     // /demo route: there the right side is occupied by the demo parameter
     // panel, which is controlled by the toolbar gear button instead.
     isDemoMode: function () {
-      return this.$route.path === '/demo'
+      // Accept a trailing slash ("/demo/") as well.
+      return /^\/demo\/?$/.test(this.$route.path)
     },
     showObservingPanel: function () {
       return this.$store.state.showSidePanel

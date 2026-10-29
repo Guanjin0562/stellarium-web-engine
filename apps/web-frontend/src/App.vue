@@ -66,8 +66,10 @@
 
   <!-- Demo mode: right-side parameter control panel (route /demo).
        Visibility is driven by $store.state.showSidePanel so the toolbar
-       gear button can always toggle it. -->
-  <demo-param-panel v-if="isDemoMode && $store.state.initComplete && $store.state.showSidePanel"/>
+       gear button can always toggle it.  It is gated on the engine being
+       ready (not on initComplete) so that a slow, hung or skipped
+       date/location initialisation can never swallow the panel. -->
+  <demo-param-panel v-if="isDemoMode && $store.state.showSidePanel && engineReady"/>
 
 </v-app>
 
@@ -96,7 +98,12 @@ export default {
       guiComponent: 'GuiLoader',
       startTimeIsSet: false,
       initDone: false,
-      dataSourceInitDone: false
+      dataSourceInitDone: false,
+      // Set once when the WASM engine calls back as ready.  Kept as a plain
+      // boolean because $store.state.stel is replaced on every engine value
+      // change (every frame), which would make a v-if on it re-evaluate
+      // continuously.
+      engineReady: false
     }
   },
   components: { Gui, GuiLoader, DemoParamPanel },
@@ -133,32 +140,56 @@ export default {
       // by default (and can be toggled with the toolbar gear button).
       this.$store.commit('setValue', {
         varName: 'showSidePanel',
-        newValue: this.$route.path.startsWith('/p/') || this.$route.path === '/demo'
+        newValue: this.$route.path.startsWith('/p/') || this.isDemoMode
       })
 
       // Set the core's state from URL query arguments such
       // as date, location, view direction & fov
       var that = this
 
+      // Query values come from untrusted markup (a wiki template, a shared
+      // link), so nothing is passed to the engine without parsing and range
+      // checking: NaN/Infinity would corrupt the camera or the observer.
+      const num = (v, def, min, max) => {
+        if (v === undefined || v === null || v === '') return def
+        const n = Number(v)
+        if (!isFinite(n)) return def
+        if (min !== undefined && n < min) return min
+        if (max !== undefined && n > max) return max
+        return n
+      }
+
       if (!this.initDone) {
         this.$stel.core.time_speed = 1
         let d = new Date()
         if (this.$route.query.date) {
-          d = new Moment(this.$route.query.date).toDate()
-          this.$stel.core.observer.utc = d.getMJD()
-          this.startTimeIsSet = true
+          const parsed = new Moment(this.$route.query.date)
+          if (parsed.isValid()) {
+            d = parsed.toDate()
+            this.$stel.core.observer.utc = d.getMJD()
+            this.startTimeIsSet = true
+          }
         }
 
-        if (this.$route.query.lng && this.$route.query.lat) {
-          const pos = { lat: Number(this.$route.query.lat), lng: Number(this.$route.query.lng), alt: this.$route.query.elev ? Number(this.$route.query.elev) : 0, accuracy: 1 }
+        const lat = num(this.$route.query.lat, NaN, -90, 90)
+        const lng = num(this.$route.query.lng, NaN, -180, 180)
+        if (isFinite(lat) && isFinite(lng)) {
+          const pos = { lat: lat, lng: lng, alt: num(this.$route.query.elev, 0, -1000, 100000), accuracy: 1 }
           swh.geoCodePosition(pos, that).then((loc) => {
             that.$store.commit('setCurrentLocation', loc)
-          }, (error) => { console.log(error) })
+          }, (error) => {
+            console.log(error)
+            // Geolocation / reverse geocoding failed: fall back to the
+            // store location so that the startup time is still chosen and
+            // initComplete is reached.
+            that.applyLocation(that.$store.state.currentLocation)
+          })
         }
 
-        this.$stel.core.observer.yaw = this.$route.query.az ? Number(this.$route.query.az) * Math.PI / 180 : 0
-        this.$stel.core.observer.pitch = this.$route.query.alt ? Number(this.$route.query.alt) * Math.PI / 180 : 30 * Math.PI / 180
-        this.$stel.core.fov = this.$route.query.fov ? Number(this.$route.query.fov) * Math.PI / 180 : 120 * Math.PI / 180
+        const az = num(this.$route.query.az, 0)
+        this.$stel.core.observer.yaw = (((az % 360) + 360) % 360) * Math.PI / 180
+        this.$stel.core.observer.pitch = num(this.$route.query.alt, 30, -90, 90) * Math.PI / 180
+        this.$stel.core.fov = num(this.$route.query.fov, 120, 0.1, 180) * Math.PI / 180
 
         this.initDone = true
       }
@@ -278,7 +309,13 @@ export default {
         apply(stel.core.constellations, 'images_visible', 'images')
         apply(stel.core.stars, 'visible', 'stars')
         apply(stel.core.stars, 'labels_visible', 'star_labels')
+        // "sso" covers every natural solar system body: one engine module per
+        // category (planets / minor planets / comets).  Artificial satellites
+        // are a separate, opt-in layer.
         apply(stel.core.planets, 'visible', 'sso')
+        apply(stel.core.minor_planets, 'visible', 'sso')
+        apply(stel.core.comets, 'visible', 'sso')
+        apply(stel.core.satellites, 'visible', 'satellites')
         // Landscape, cardinal points and coordinate grids/lines.
         apply(stel.core.landscapes, 'visible', 'landscape')
         apply(stel.core.cardinals, 'visible', 'cardinals')
@@ -297,7 +334,12 @@ export default {
       if (q.interact === 'view' || q.interact === 'none') {
         this.$store.commit('setValue', { varName: 'showMainToolBar', newValue: false })
         this.$store.commit('setValue', { varName: 'showNavigationDrawer', newValue: false })
-        this.$store.commit('setValue', { varName: 'showSidePanel', newValue: false })
+        // On /demo the panel is the only UI left, so keep it: otherwise a
+        // shared link carrying interact=view would open a page with no
+        // controls at all.
+        if (!this.isDemoMode) {
+          this.$store.commit('setValue', { varName: 'showSidePanel', newValue: false })
+        }
       }
       if (q.interact === 'none') {
         // Swallow clicks and disable the canvas input.
@@ -443,13 +485,61 @@ export default {
         stel.lookAt([dir[0], dir[1], dir[2]], 0)
       }
       tryFrame(0)
+    },
+    // Apply a location to the observer and finish the date/time startup.
+    //
+    // Extracted from the storeCurrentLocation watcher: that watcher only
+    // fires when a location is *committed*, and a bare URL (no lng/lat
+    // query args) never commits one.  The startup time was therefore never
+    // chosen and `initComplete` stayed false forever - and since the demo
+    // panel is gated on it, the panel silently failed to render.
+    applyLocation: function (loc) {
+      if (!this.$stel || !loc) return
+      const DD2R = Math.PI / 180
+      const core = this.$stel.core
+      core.observer.latitude = loc.lat * DD2R
+      core.observer.longitude = loc.lng * DD2R
+      core.observer.elevation = loc.alt
+
+      // At startup, we need to wait for the location to be set before
+      // deciding which startup time to set so that it's night time.
+      if (!this.startTimeIsSet) this.setStartupTime(0)
+      // Init of time and date is complete
+      this.$store.commit('setValue', { varName: 'initComplete', newValue: true })
+    },
+    // Pick the startup time ("next time the night sky is visible").
+    //
+    // getTimeAfterSunset() needs the Sun object, which only exists once the
+    // solar system data has been loaded - at engine-ready time it usually
+    // does not.  Throwing from here used to abort the whole engine-ready
+    // callback (leaving no data sources at all), so poll for a while
+    // instead and give up quietly; the engine default time is a valid
+    // fallback.
+    setStartupTime: function (attempt) {
+      if (this.startTimeIsSet || !this.$stel) return
+      const hasSun = !!this.$stel.getObj('NAME Sun')
+      if (!hasSun) {
+        if (attempt < 40) {
+          const self = this
+          setTimeout(function () { self.setStartupTime(attempt + 1) }, 250)
+        }
+        return
+      }
+      try {
+        this.$stel.core.observer.utc = swh.getTimeAfterSunset(this.$stel)
+        this.startTimeIsSet = true
+      } catch (e) {
+        console.error('Could not compute the startup time: ' + e)
+      }
     }
   },
   computed: {
     // The /demo route renders the same sky but with the right-side
     // parameter panel (and without the navigation drawer / main toolbar).
+    // A trailing slash is accepted: GitHub Pages / a hand-typed URL can
+    // deliver "/demo/", and an exact match would silently drop the panel.
     isDemoMode: function () {
-      return this.$route.path === '/demo'
+      return /^\/demo\/?$/.test(this.$route.path)
     },
     nav: {
       get: function () {
@@ -467,19 +557,7 @@ export default {
   },
   watch: {
     storeCurrentLocation: function (loc) {
-      const DD2R = Math.PI / 180
-      this.$stel.core.observer.latitude = loc.lat * DD2R
-      this.$stel.core.observer.longitude = loc.lng * DD2R
-      this.$stel.core.observer.elevation = loc.alt
-
-      // At startup, we need to wait for the location to be set before deciding which
-      // startup time to set so that it's night time.
-      if (!this.startTimeIsSet) {
-        this.$stel.core.observer.utc = swh.getTimeAfterSunset(this.$stel)
-        this.startTimeIsSet = true
-      }
-      // Init of time and date is complete
-      this.$store.commit('setValue', { varName: 'initComplete', newValue: true })
+      this.applyLocation(loc)
     },
     $route: function () {
       // react to route changes...
@@ -488,7 +566,7 @@ export default {
       // there by default (the toolbar gear button can toggle it off/on).
       this.$store.commit('setValue', {
         varName: 'showSidePanel',
-        newValue: this.$route.path === '/demo'
+        newValue: this.isDemoMode
       })
     }
   },
@@ -559,13 +637,40 @@ export default {
           that.$stel.core.lines.azimuthal.visible = false
           that.$stel.core.cardinals.visible = false
           that.$stel.core.mount_frame = that.$stel.FRAME_ICRF
+          // Solar system bodies are four independent engine modules, all of
+          // which default to visible=true in C.  Turning off only `planets`
+          // leaves asteroids, comets and artificial satellites on screen.
           that.$stel.core.planets.visible = false
+          that.$stel.core.minor_planets.visible = false
+          that.$stel.core.comets.visible = false
+          that.$stel.core.satellites.visible = false
           that.$stel.core.stars.labels_visible = false
           // Names default to english (no translation) so that a sky chart
           // always shows the english names whatever the page locale is.
           that.$stel.core.skycultures.name_format_style = that.$stel.NAME_ENGLISH
 
           that.setStateFromQueryArgs()
+
+          // Only now is the initial state fully applied, so it is safe for
+          // the demo panel (and anything else gated on it) to read the
+          // engine.  Vue renders on the next tick, i.e. after this whole
+          // callback, so the panel never sees a half-applied state.  Set
+          // before the location step below so that a failure there cannot
+          // keep the panel from rendering.
+          that.engineReady = true
+
+          // Date/location startup.  The storeCurrentLocation watcher is the
+          // normal path, but it only runs when a location is committed, i.e.
+          // when the URL carries lng/lat.  On a bare URL nothing is ever
+          // committed: without this call the observer keeps the engine
+          // default, the startup time is never chosen and `initComplete`
+          // stays false.  When lng/lat *are* given, leave it to the promise
+          // above so the time is computed for the requested location.
+          const qLoc = that.$route.query
+          const hasLocArg = qLoc.lng !== undefined && qLoc.lat !== undefined &&
+            qLoc.lng !== '' && qLoc.lat !== '' &&
+            isFinite(Number(qLoc.lng)) && isFinite(Number(qLoc.lat))
+          if (!hasLocArg) that.applyLocation(that.$store.state.currentLocation)
           that.guiComponent = 'Gui'
           for (const i in that.$stellariumWebPlugins()) {
             const plugin = that.$stellariumWebPlugins()[i]

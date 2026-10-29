@@ -130,7 +130,8 @@ export default {
   },
   computed: {
     isDemoMode: function () {
-      return this.$route.path === '/demo'
+      // Accept a trailing slash ("/demo/") as well.
+      return /^\/demo\/?$/.test(this.$route.path)
     },
     time: {
       get: function () {

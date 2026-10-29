@@ -34,7 +34,10 @@
           <v-col cols="8" style="font-weight: 500" class="white--text"><span v-html="item.value"></span></v-col>
         </v-row>
       </template>
-      <div style="margin-top: 15px" class="white--text" v-html="wikipediaSummary"></div>
+      <div style="margin-top: 15px" class="white--text">
+        <span v-html="wikipediaExtract"></span>
+        <span class="grey--text text-caption" style="margin-left:auto; margin-right:0;"><i>&nbsp; more on <b><a style="color: #62d1df;" target="_blank" rel="noopener noreferrer" :href="wikipediaLink">wikipedia</a></b></i></span>
+      </div>
     </v-card-text>
     <v-card-actions style="margin-top: -25px">
       <v-spacer/>
@@ -82,6 +85,42 @@
 import Moment from 'moment'
 import swh from '@/assets/sw_helpers.js'
 
+// Wikipedia's TextExtracts API returns a HTML fragment (no `explaintext`), so
+// it must be sanitised before it reaches v-html.  Whitelist approach: keep
+// inline formatting only, strip every event handler / style / resource
+// attribute, and force links to https + rel="noopener noreferrer".
+const ALLOWED_TAGS = new Set(['A', 'B', 'I', 'EM', 'STRONG', 'SPAN', 'P', 'SUP', 'SUB', 'BR'])
+
+function sanitizeWikiHtml (html) {
+  if (!html) return ''
+  const tpl = document.createElement('template')
+  // <template> content is inert: images/scripts inside are never loaded.
+  tpl.innerHTML = html
+  const nodes = Array.from(tpl.content.querySelectorAll('*'))
+  for (const el of nodes) {
+    if (!ALLOWED_TAGS.has(el.tagName)) {
+      el.replaceWith(...Array.from(el.childNodes))
+      continue
+    }
+    for (const attr of Array.from(el.attributes)) {
+      const n = attr.name.toLowerCase()
+      const drop = n.startsWith('on') ||
+        n === 'style' || n === 'src' || n === 'srcset' || n === 'id' ||
+        (n === 'href' && el.tagName !== 'A')
+      if (drop) el.removeAttribute(attr.name)
+    }
+    if (el.tagName === 'A') {
+      let href = el.getAttribute('href') || ''
+      if (href.startsWith('/')) href = 'https://en.wikipedia.org' + href
+      if (!/^https:\/\//i.test(href)) el.removeAttribute('href')
+      else el.setAttribute('href', href)
+      el.setAttribute('target', '_blank')
+      el.setAttribute('rel', 'noopener noreferrer')
+    }
+  }
+  return tpl.innerHTML
+}
+
 export default {
   data: function () {
     return {
@@ -112,17 +151,17 @@ export default {
     otherNames8andMore: function () {
       return this.showMinorNames ? this.otherNames.slice(8) : []
     },
-    wikipediaSummary: function () {
-      if (!this.wikipediaData) return ''
+    wikipediaExtract: function () {
+      if (!this.wikipediaData || !this.wikipediaData.query) return ''
       const page = this.wikipediaData.query.pages[Object.keys(this.wikipediaData.query.pages)[0]]
       if (!page || !page.extract) return ''
-      const wl = '<b><a style="color: #62d1df;" target="_blank" rel="noopener" href="' + this.wikipediaLink + '">wikipedia</a></b></i>'
-      return page.extract.replace(/<p>/g, '').replace(/<\/p>/g, '') + '<span class="grey--text text-caption" style="margin-left:auto; margin-right:0;"><i>&nbsp; ' + this.$t('more on {0}', [wl]) + '</span>'
+      return sanitizeWikiHtml(page.extract.replace(/<\/?p[^>]*>/g, ''))
     },
     wikipediaLink: function () {
+      if (!this.wikipediaData || !this.wikipediaData.query) return ''
       const page = this.wikipediaData.query.pages[Object.keys(this.wikipediaData.query.pages)[0]]
-      if (!page || !page.extract) return ''
-      return 'https://en.wikipedia.org/wiki/' + page.title
+      if (!page || !page.title) return ''
+      return 'https://en.wikipedia.org/wiki/' + encodeURIComponent(page.title)
     },
     type: function () {
       if (!this.selectedObject) return this.$t('Unknown')

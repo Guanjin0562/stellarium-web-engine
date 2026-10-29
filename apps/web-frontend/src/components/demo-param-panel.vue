@@ -123,6 +123,20 @@
 </template>
 
 <script>
+// The engine keeps one visibility flag per solar system category and all of
+// them start as visible=true.  The UI exposes them as a single "Solar system
+// bodies" switch, so reading and writing has to touch every module; otherwise
+// asteroids or comets keep rendering after the switch is turned off.
+const SSO_MODULES = ['planets', 'minor_planets', 'comets']
+
+function ssoVisible (core) {
+  return SSO_MODULES.every(k => !core[k] || core[k].visible)
+}
+
+function setSsoVisible (core, v) {
+  SSO_MODULES.forEach(k => { if (core[k]) core[k].visible = v })
+}
+
 // Culture keys shipped with apps/test-skydata.  A curated list of the
 // most useful ones for the demo; the values must match the directory
 // names under skydata/skycultures/.
@@ -165,6 +179,7 @@ export default {
         { key: 'images', label: 'Constellation artwork' },
         { key: 'star_labels', label: 'Star names' },
         { key: 'sso', label: 'Solar system bodies' },
+        { key: 'satellites', label: 'Artificial satellites' },
         { key: 'landscape', label: 'Landscape' },
         { key: 'cardinals', label: 'Cardinal points NESW' },
         { key: 'horizon', label: 'Horizon line' },
@@ -184,38 +199,56 @@ export default {
       cstOptions: [],
       astOptions: [],
       focusCsts: [],
-      focusAsts: []
+      focusAsts: [],
+      // Guard so that a late initComplete update cannot overwrite the
+      // values the user already changed in the panel.
+      inited: false
     }
   },
   computed: {
+    // App.vue mounts the panel as soon as the engine is ready, which can be
+    // before the date/location startup has finished.  initFromStel() must
+    // only read the engine once that startup has run, otherwise the panel
+    // would show the pre-URL-argument defaults.
     initComplete: function () {
       return this.$store.state.initComplete && !!this.$stel
     }
   },
   watch: {
     initComplete: function (done) {
-      if (done) this.initFromStel()
+      if (done && !this.inited) this.initFromStel()
     }
   },
   mounted: function () {
+    // The engine is usually already initialised when the panel is mounted:
+    // read the live state right away instead of waiting for a store update
+    // that will never come.
     if (this.initComplete) this.initFromStel()
   },
   methods: {
     // Read the current values from the engine so that the panel always
     // reflects the live state (including URL args applied at startup).
     initFromStel: function () {
-      const stel = this.$stel
-      const core = stel.core
-      this.cultureKey = core.skycultures.current_id || 'western'
-      if (core.skycultures.name_format) {
-        const fields = core.skycultures.name_format.split(',').map(s => s.trim())
-        for (const f of this.nameFields) this.nameFormat[f] = fields.indexOf(f) >= 0
+      if (!this.$stel) return
+      try {
+        const stel = this.$stel
+        const core = stel.core
+        this.cultureKey = core.skycultures.current_id || 'western'
+        if (core.skycultures.name_format) {
+          const fields = core.skycultures.name_format.split(',').map(s => s.trim())
+          for (const f of this.nameFields) this.nameFormat[f] = fields.indexOf(f) >= 0
+        }
+        this.toggles = {}
+        this.layerToggles.forEach(t => { this.toggles[t.key] = this.getLayer(t.key) })
+        this.frame = core.mount_frame === stel.FRAME_ICRF ? 'icrf' : 'altaz'
+        this.fovDeg = Math.round(core.fov * 180 / Math.PI)
+        this.loadCstOptions(this.cultureKey)
+        this.inited = true
+      } catch (e) {
+        // A partially loaded engine tree must not take the whole panel
+        // down (an exception in a render-time hook would do exactly that).
+        console.error('demo panel: initFromStel failed', e)
       }
-      this.toggles = {}
-      this.layerToggles.forEach(t => { this.toggles[t.key] = this.getLayer(t.key) })
-      this.frame = core.mount_frame === stel.FRAME_ICRF ? 'icrf' : 'altaz'
-      this.fovDeg = Math.round(core.fov * 180 / Math.PI)
-      this.loadCstOptions(this.cultureKey)
     },
     getLayer: function (key) {
       const c = this.$stel.core
@@ -227,7 +260,8 @@ export default {
         case 'bounds': return c.constellations.bounds_visible
         case 'images': return c.constellations.images_visible
         case 'star_labels': return c.stars.labels_visible
-        case 'sso': return c.planets.visible
+        case 'sso': return ssoVisible(c)
+        case 'satellites': return !!(c.satellites && c.satellites.visible)
         case 'landscape': return c.landscapes.visible
         case 'cardinals': return c.cardinals.visible
         case 'horizon': return c.lines.horizon.visible
@@ -253,7 +287,8 @@ export default {
         case 'bounds': c.constellations.bounds_visible = v; break
         case 'images': c.constellations.images_visible = v; break
         case 'star_labels': c.stars.labels_visible = v; break
-        case 'sso': c.planets.visible = v; break
+        case 'sso': setSsoVisible(c, v); break
+        case 'satellites': if (c.satellites) c.satellites.visible = v; break
         case 'landscape': c.landscapes.visible = v; break
         case 'cardinals': c.cardinals.visible = v; break
         case 'horizon': c.lines.horizon.visible = v; break
