@@ -1617,12 +1617,12 @@
           {"pos": [200, 91], "hip": 17499}
         ]
       },
-      "common_name": {"english": "Seven Maidens", "native": "ᠨᠠᡩᠠᠨ ᠨᠠᡳᡥᡡ 那丹那拉呼", "pronounce": "Nadan Narhū"}
+      "common_name": {"english": "Seven Maidens", "native": "ᠨᠠᡩᠠᠨ ᠨᠠᡳᡥᡡᠨ 那丹那拉呼", "pronounce": "Nadan Narhūn"}
     },
     {
       "id": "CON manchu 002",
-      "lines1": [[100453, 97165, 99675, 102098, 103413, 104887, 105138, 104732, 102488, 101474, 100453]],
-      "lines": [[100453, 97165, 99675, 102098, 104060, 105102, 104887, 105138, 104732, 102488, 100044, 100453]],
+      "lines": [[100453, 97165, 99675, 102098, 103413, 104887, 105138, 104732, 102488, 101474, 100453]],
+      "lines1": [[100453, 97165, 99675, 102098, 104060, 105102, 104887, 105138, 104732, 102488, 100044, 100453]],
       "image1": {
         "file": "illustrations/02Sengge.png",
         "size": [304, 141],
@@ -1697,6 +1697,7 @@
           {"pos": [176, 23], "hip": 25930}
         ]
       },
+      "label_positions": [[5.64, 0]],
       "common_name": {"english": "Three Stars", "native": "ᡳᠯᠠᠨ ᡠᠰᡳᡥᠠ 依兰乌西哈", "pronounce": "Ilan usiha"}
     },
     {
@@ -1725,11 +1726,12 @@
           {"pos": [261, 300], "hip": 19587}
         ]
       },
+      "label_positions": [[5.7, 30]],
       "common_name": {"english": "Divine Eagle", "native": "ᡤᠠᠰᡥᠠ 嘎思哈", "pronounce": "Gasha"}
     },
     {
       "id": "CON manchu 009",
-      "lines": [[54470, 54483, 54573, 54879, 57632, 54872, 50583, 49583, 49395, 49348, 49669, 52689, 51585, 51690, 51388, 51299], [49583, 48883, 49637, 51624]],
+      "lines": [[54879, 57632, 54872, 50583, 49583, 50333, 52689, 51585], [49583, 49669, 49637, 51624]],
       "image": {
         "file": "illustrations/09Singgeri.png",
         "size": [328, 189],
@@ -1818,7 +1820,7 @@
     },
     {
       "id": "CON manchu 016",
-      "lines": [[71053, 71075, 73555, 74666, 75695, 73745, 72105], [74666, 72105, 69673, 67927, 72798, 71795, 69673, 71053, 67665, 64844, 61317, 59856, 60742, 63075, 62763, 63462, 64394]],
+      "lines": [[71053, 71075, 73555, 74666, 75695, 73745, 72105], [74666, 72105, 69673, 67927, 71795, 69673, 71053, 67665, 64844, 61317, 59856, 60742, 62763, 63462, 64394]],
       "image": {
         "file": "illustrations/16Buruhun2.png",
         "size": [356, 221],
@@ -1879,28 +1881,34 @@
     },
     {
       "id": "CON manchu 021",
-      "lines": [[11767, 11767]],
+      "lines1": [[11767, 11767]],
       "common_name": {"english": "Nail", "native": "ᡥᠠᡩᠠᡥᠠ ᡠᠰᡳᡥᠠ", "pronounce": "Hadaha usiha"}
     },
     {
       "id": "CON manchu 022",
-      "lines": [[75097, 72607]],
+      "lines1": [[75097, 72607]],
       "common_name": {"english": "Pair of Silver-Maned Steeds", "native": "ᠵᡠᡵᡠ ᠰᡳᡵᡥᠠ 珠鲁西尔哈", "pronounce": "Juru Sirha"}
     },
     {
       "id": "CON manchu 023",
-      "lines": [[97278, 97649, 98036]],
+      "lines1": [[97278, 97649, 98036]],
       "common_name": {"english": "Lined-up Stars", "native": "ᡳᡴᡳᡵᡳ ᡠᠰᡳᡥᠠ", "pronounce": "Ikiri usiha"}
     },
     {
-      "id": "CON manchu 024",
-      "lines": [[26237, 26235, 26241]],
+      "id1": "CON manchu 024",
+      "lines1": [[26237, 26235, 26241]],
       "common_name": {"english": "Prop-Stick Stars", "native": "ᡳᠯᠮᠠᡥᡡ/ᡳᠯᠮᠣᡥᠣ ᡠᠰᡳᡥᠠ", "pronounce": "Ilmahū/Ilmoho usiha"}
     },
     {
       "id": "CON manchu 025",
-      "lines": [[77048, 76127, 75695, 76267, 76952, 77512, 78159, 78493, 78459]],
+      "lines1": [[77048, 76127, 75695, 76267, 76952, 77512, 78159, 78493, 78459]],
       "common_name": {"english": "Coiled Thong", "native": "ᠪᠣᡵᠪᠣᡥᠣ ᡠᠰᡳᡥᠠ", "pronounce": "Borboho usiha"}
+    },
+    {
+      "id": "CON manchu 026",
+      "lines": [["DSO:M42", "DSO:M42"]],
+      "label_positions": [[5.49, -6]],
+      "common_name": {"english": "Swing Goddess", "native": "车库妈妈", "pronounce": "Ceku Mama"}
     },
     {
         "id": "CON manchutest gasha1",
@@ -1976,11 +1984,11 @@
                 ],
                 [
                     4.161127245821505,
-                    30.638925495285175
+                    31.138925495285175
                 ],
                 [
                     3.5929647847336383,
-                    32.173260343154645
+                    32.623260343154645
                 ],
                 [
                     4.010958399944596,
